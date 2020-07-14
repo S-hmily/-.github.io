@@ -1,22 +1,104 @@
-<?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom">
-    <id>https://s-hmily.github.io</id>
-    <title>叮叮当</title>
-    <updated>2020-07-14T08:09:19.782Z</updated>
-    <generator>https://github.com/jpmonette/feed</generator>
-    <link rel="alternate" href="https://s-hmily.github.io"/>
-    <link rel="self" href="https://s-hmily.github.io/atom.xml"/>
-    <subtitle>温故而知新</subtitle>
-    <logo>https://s-hmily.github.io/images/avatar.png</logo>
-    <icon>https://s-hmily.github.io/favicon.ico</icon>
-    <rights>All rights reserved 2020, 叮叮当</rights>
-    <entry>
-        <title type="html"><![CDATA[基于矩阵分解的推荐算法]]></title>
-        <id>https://s-hmily.github.io/post/ji-yu-ju-zhen-fen-jie-de-tui-jian-suan-fa/</id>
-        <link href="https://s-hmily.github.io/post/ji-yu-ju-zhen-fen-jie-de-tui-jian-suan-fa/">
-        </link>
-        <updated>2020-07-14T08:07:12.000Z</updated>
-        <content type="html"><![CDATA[<p>矩阵分解算法是学习协同过滤算法的基础，接下来就来讲一件什么是矩阵分解。<br>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>基于矩阵分解的推荐算法 | 叮叮当</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://s-hmily.github.io/favicon.ico?v=1594714155831">
+<link rel="stylesheet" href="https://s-hmily.github.io/styles/main.css">
+
+
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+
+    <meta name="description" content="矩阵分解算法是学习协同过滤算法的基础，接下来就来讲一件什么是矩阵分解。
+一，基于矩阵分解算法的相关理论介绍
+很显然，我们要是想做推荐系统，最基本的一个数据就是用户对这个商品的特性的反应，就拿用户-物品的评分矩阵来说
+
+矩阵中，描述了五个用户..." />
+    <meta name="keywords" content="" />
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://s-hmily.github.io">
+        <img src="https://s-hmily.github.io/images/avatar.png?v=1594714155831" class="site-logo">
+        <h1 class="site-title">叮叮当</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="/" class="site-nav">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="site-nav">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="site-nav">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="site-nav">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      温故而知新
+    </div>
+    <div class="site-footer">
+      Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://s-hmily.github.io/atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">基于矩阵分解的推荐算法</h2>
+            <div class="post-date">2020-07-14</div>
+            
+            <div class="post-content" v-pre>
+              <p>矩阵分解算法是学习协同过滤算法的基础，接下来就来讲一件什么是矩阵分解。<br>
 一，基于矩阵分解算法的相关理论介绍<br>
 很显然，我们要是想做推荐系统，最基本的一个数据就是用户对这个商品的特性的反应，就拿用户-物品的评分矩阵来说<br>
 <img src="https://img-blog.csdnimg.cn/20200713205030760.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ0MTc3OTYw,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"><br>
@@ -116,15 +198,46 @@ if __name__ == '__main__':
 <p>参考：<br>
 <a href="https://blog.csdn.net/recall_tomorrow/article/details/80218051">文章一</a><br>
 <a href="https://www.cnblogs.com/kobedeshow/p/3651833.html">文章二</a></p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[基于用户的协同过滤算法]]></title>
-        <id>https://s-hmily.github.io/post/ji-yu-yong-hu-de-xie-tong-guo-lu-suan-fa/</id>
-        <link href="https://s-hmily.github.io/post/ji-yu-yong-hu-de-xie-tong-guo-lu-suan-fa/">
-        </link>
-        <updated>2020-07-14T08:04:52.000Z</updated>
-        <content type="html"><![CDATA[<p><em><strong>1.什么是协同过滤算法？</strong></em></p>
-]]></content>
-    </entry>
-</feed>
+
+            </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://s-hmily.github.io/post/ji-yu-yong-hu-de-xie-tong-guo-lu-suan-fa/">
+                  <h3 class="post-title">
+                    基于用户的协同过滤算法
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script type="application/javascript">
+
+AOS.init();
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+
+
+
+  </body>
+</html>
