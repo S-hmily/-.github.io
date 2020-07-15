@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://s-hmily.github.io</id>
     <title>叮叮当</title>
-    <updated>2020-07-15T01:52:22.940Z</updated>
+    <updated>2020-07-15T01:54:07.943Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://s-hmily.github.io"/>
     <link rel="self" href="https://s-hmily.github.io/atom.xml"/>
@@ -16,7 +16,7 @@
         <link href="https://s-hmily.github.io/post/pi-liang-ti-du-suan-fa-zai-xian-xing-hui-gui-zhong-de-ying-yong/">
         </link>
         <updated>2020-07-14T14:19:39.000Z</updated>
-        <content type="html"><![CDATA[<p><img src="https://s-hmily.github.io/post-images/1594775211598.jpg" alt="" loading="lazy">首先要明白梯度下降算法我们能干什么？什么时候可以用到梯度下降？<br>
+        <content type="html"><![CDATA[<p>首先要明白梯度下降算法我们能干什么？什么时候可以用到梯度下降？<br>
 我们先进行两个例子，一个二维函数问题，一个三维的现实问题：<br>
 二维函数：比如我们要求</p>
 <p><img src="https://img-blog.csdnimg.cn/20200710201059245.png" alt="在这里插入图片描述" loading="lazy"><br>
@@ -357,7 +357,8 @@ plt.show()
         <link href="https://s-hmily.github.io/post/ji-yu-ju-zhen-fen-jie-de-tui-jian-suan-fa/">
         </link>
         <updated>2020-07-14T08:07:12.000Z</updated>
-        <content type="html"><![CDATA[<p><img src="https://s-hmily.github.io/post-images/1594775275815.JPG" alt="" loading="lazy">矩阵分解算法是学习协同过滤算法的基础，接下来就来讲一件什么是矩阵分解。<br>
+        <content type="html"><![CDATA[<p><img src="https://s-hmily.github.io/post-images/1594775275815.JPG" alt="" loading="lazy"><br>
+矩阵分解算法是学习协同过滤算法的基础，接下来就来讲一件什么是矩阵分解。<br>
 一，基于矩阵分解算法的相关理论介绍<br>
 很显然，我们要是想做推荐系统，最基本的一个数据就是用户对这个商品的特性的反应，就拿用户-物品的评分矩阵来说<br>
 <img src="https://img-blog.csdnimg.cn/20200713205030760.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ0MTc3OTYw,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"><br>
