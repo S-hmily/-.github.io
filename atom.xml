@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://s-hmily.github.io</id>
     <title>叮叮当</title>
-    <updated>2020-07-15T02:30:28.885Z</updated>
+    <updated>2020-07-15T04:14:56.183Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://s-hmily.github.io"/>
     <link rel="self" href="https://s-hmily.github.io/atom.xml"/>
@@ -11,17 +11,17 @@
     <icon>https://s-hmily.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, 叮叮当</rights>
     <entry>
+        <title type="html"><![CDATA[基于用户和商品协同过滤算法]]></title>
+        <id>https://s-hmily.github.io/post/ji-yu-yong-hu-he-shang-pin-xie-tong-guo-lu-suan-fa/</id>
+        <link href="https://s-hmily.github.io/post/ji-yu-yong-hu-he-shang-pin-xie-tong-guo-lu-suan-fa/">
+        </link>
+        <updated>2020-07-15T04:07:21.000Z</updated>
+    </entry>
+    <entry>
         <title type="html"><![CDATA[批量梯度算法在线性回归中的应用]]></title>
         <id>https://s-hmily.github.io/post/pi-liang-ti-du-suan-fa-zai-xian-xing-hui-gui-zhong-de-ying-yong/</id>
         <link href="https://s-hmily.github.io/post/pi-liang-ti-du-suan-fa-zai-xian-xing-hui-gui-zhong-de-ying-yong/">
         </link>
         <updated>2020-07-14T14:19:39.000Z</updated>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[基于矩阵分解的推荐算法]]></title>
-        <id>https://s-hmily.github.io/post/ji-yu-ju-zhen-fen-jie-de-tui-jian-suan-fa/</id>
-        <link href="https://s-hmily.github.io/post/ji-yu-ju-zhen-fen-jie-de-tui-jian-suan-fa/">
-        </link>
-        <updated>2020-07-14T08:07:12.000Z</updated>
     </entry>
 </feed>
