@@ -8,7 +8,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="shortcut icon" href="https://s-hmily.github.io/favicon.ico?v=1594736479293">
+<link rel="shortcut icon" href="https://s-hmily.github.io/favicon.ico?v=1594775278140">
 <link rel="stylesheet" href="https://s-hmily.github.io/styles/main.css">
 
 
@@ -32,7 +32,7 @@
   <div class="top-container" data-aos="fade-right">
     <div class="top-header-container">
       <a class="site-title-container" href="https://s-hmily.github.io">
-        <img src="https://s-hmily.github.io/images/avatar.png?v=1594736479293" class="site-logo">
+        <img src="https://s-hmily.github.io/images/avatar.png?v=1594775278140" class="site-logo">
         <h1 class="site-title">叮叮当</h1>
       </a>
       <div class="menu-btn" @click="menuVisible = !menuVisible">
@@ -86,7 +86,7 @@
             <div class="post-date">2020-07-14</div>
             
             <div class="post-content" v-pre>
-              <p>首先要明白梯度下降算法我们能干什么？什么时候可以用到梯度下降？<br>
+              <p><img src="https://s-hmily.github.io/post-images/1594775211598.jpg" alt="" loading="lazy">首先要明白梯度下降算法我们能干什么？什么时候可以用到梯度下降？<br>
 我们先进行两个例子，一个二维函数问题，一个三维的现实问题：<br>
 二维函数：比如我们要求</p>
 <p><img src="https://img-blog.csdnimg.cn/20200710201059245.png" alt="在这里插入图片描述" loading="lazy"><br>
@@ -111,7 +111,7 @@
 而不是这样：<br>
 <img src="https://img-blog.csdnimg.cn/20200710204443650.png" alt="在这里插入图片描述" loading="lazy"><br>
 然后我们思考更新θ_1，θ_2这两个变量的公式，很明显我们要求最低点的时候，偏导数求导是一个正数，但是我们要向下走因此要加负号，第二个求导是负的，我们本身就是要向下走，因此不用加符号，所有最终结果都是<img src="https://img-blog.csdnimg.cn/20200710204853333.png" alt="在这里插入图片描述" loading="lazy"><br>
-<img src="https://img-blog.csdnimg.cn/20200710204704513.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ0MTc3OTYw,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"><br>
+<img src="https://s-hmily.github.io/post-images/1594775236717.JPG" alt="在这里插入图片描述" loading="lazy">x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ0MTc3OTYw,size_16,color_FFFFFF,t_70)<br>
 然后我们再考虑α这个步长：<br>
 α太小：如下图所示，如果太小了 就会导致我们的步数越来越多，我们进行迭代的次数就很大，就会很浪费时间<br>
 α太大：如下图所示，如果太大了就会导致我们可能会超过最低点进而无法收敛越来越偏离正确的道路，因此我们需要选定合适的α<br>
