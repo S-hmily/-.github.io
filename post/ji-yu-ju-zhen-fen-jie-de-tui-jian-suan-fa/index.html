@@ -1,95 +1,157 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8" >
+<head>
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-<title>基于矩阵分解的推荐算法 | 叮叮当</title>
+<title>叮叮当</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="description" content="叮当"/>
+<meta name="keywords" content="叮当"/>
 
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="shortcut icon" href="https://s-hmily.github.io/favicon.ico?v=1594775654426">
+<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+<link rel="shortcut icon" href="https://s-hmily.github.io/favicon.ico">
+
 <link rel="stylesheet" href="https://s-hmily.github.io/styles/main.css">
 
+<!-- Modernizr JS -->
+<script src="https://s-hmily.github.io/media/scripts/modernizr-2.6.2.min.js"></script>
+<!-- FOR IE9 below -->
+<!--[if lt IE 9]>
+<scripts src="https://s-hmily.github.io/media/scripts/respond.min.js"></scripts>
+<![endif]-->
+
+<!-- Comment -->
 
 
-<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+<!-- katex -->
+<!--<link href="https://cdn.bootcss.com/KaTeX/0.11.1/katex.min.css" rel="stylesheet">-->
+
+<link href="https://cdn.bootcss.com/font-awesome/5.11.2/css/all.min.css" rel="stylesheet">
 
 
 
-    <meta name="description" content="矩阵分解算法是学习协同过滤算法的基础，接下来就来讲一件什么是矩阵分解。
-一，基于矩阵分解算法的相关理论介绍
-很显然，我们要是想做推荐系统，最基本的一个数据就是用户对这个商品的特性的反应，就拿用户-物品的评分矩阵来说
-
-矩阵中，描述了五个用户..." />
-    <meta name="keywords" content="机器学习" />
-  </head>
-  <body>
-    <div id="app" class="main">
-
-      <div class="sidebar" :class="{ 'full-height': menuVisible }">
-  <div class="top-container" data-aos="fade-right">
-    <div class="top-header-container">
-      <a class="site-title-container" href="https://s-hmily.github.io">
-        <img src="https://s-hmily.github.io/images/avatar.png?v=1594775654426" class="site-logo">
-        <h1 class="site-title">叮叮当</h1>
-      </a>
-      <div class="menu-btn" @click="menuVisible = !menuVisible">
-        <div class="line"></div>
-      </div>
+</head>
+<body>
+    <div id="fh5co-offcanvas">
+    <a href="#!" class="fh5co-close-offcanvas js-fh5co-close-offcanvas">
+        <span><i class="icon-cross3"></i> <span>Close</span></span>
+    </a>
+    <div class="fh5co-bio">
+        <figure>
+            <img src="https://s-hmily.github.io/images/avatar.png" alt="叮叮当"
+                 class="img-responsive">
+        </figure>
+        <a href="https://s-hmily.github.io/post/about/"><h3 class="heading">ABOUT ME</h3></a>
+        <h2>叮叮当</h2>
+        <p>叮当</p>
+        <ul class="fh5co-social">
+            
+                <li>
+                    
+                </li>
+            
+                <li>
+                    
+                </li>
+            
+                <li>
+                    
+                </li>
+            
+                <li>
+                    
+                </li>
+            
+                <li>
+                    
+                </li>
+            
+        </ul>
     </div>
-    <div>
-      
-        
-          <a href="https://s-hmily.github.io" class="site-nav">
-            首页
-          </a>
-        
-      
-        
-          <a href="/archives" class="site-nav">
-            归档
-          </a>
-        
-      
+
+    <div class="fh5co-menu">
+
+        <!-- 标签 -->
+        <div class="fh5co-box">
+            <a href="https://s-hmily.github.io/tags/"><h3 class="heading">👉标签</h3></a>
+            <ul>
+                
+                    <li><a href="https://s-hmily.github.io/tag/lMYeCI_cf/">机器学习</a></li>
+                
+            </ul>
+        </div>
     </div>
-  </div>
-  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
-    <div class="social-container">
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-    </div>
-    <div class="site-description">
-      叮当
-    </div>
-    <div class="site-footer">
-      Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://s-hmily.github.io/atom.xml" target="_blank">RSS</a>
-    </div>
-  </div>
 </div>
 
+<header id="fh5co-header">
+    <div class="container-fluid">
+        <div class="row">
+            <a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle"><i></i></a>
+            <ul class="fh5co-social">
+                
+                    <li>
+                        <a href="https://s-hmily.github.io"
+                        
+                        >
+                            首页
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/archives"
+                        
+                        >
+                            归档
+                        </a>
+                    </li>
+                
+            </ul>
+            <div class="col-lg-12 col-md-12 text-center">
+                <h1 id="fh5co-logo">
+                    <a href="https://s-hmily.github.io">叮叮当 </a>
+                </h1>
+            </div>
+        </div>
+    </div>
+</header>
 
-      <div class="main-container">
-        <div class="content-container" data-aos="fade-up">
-          <div class="post-detail">
-            <h2 class="post-title">基于矩阵分解的推荐算法</h2>
-            <div class="post-date">2020-07-14</div>
-            
-              <div class="feature-container" style="background-image: url('https://s-hmily.github.io/post-images/ji-yu-ju-zhen-fen-jie-de-tui-jian-suan-fa.JPG')">
-              </div>
-            
-            <div class="post-content" v-pre>
-              <p><img src="https://s-hmily.github.io/post-images/1594775275815.JPG" alt="" loading="lazy">矩阵分解算法是学习协同过滤算法的基础，接下来就来讲一件什么是矩阵分解。<br>
+
+    <!--  <a href="#" class="fh5co-post-prev"><span>👈 Prev</span></a>-->
+    <!--  <a href="#" class="fh5co-post-next"><span>Next 👉</span></a>-->
+
+    <!-- 等gridea出自定义页面功能再优化一下 -->
+    
+        <div class="container-fluid">
+    <div class="row fh5co-post-entry single-entry">
+        <article class="col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2 col-xs-12 col-xs-offset-0">
+            <figure class="animate-box">
+                
+                    <img src="https://s-hmily.github.io/post-images/ji-yu-ju-zhen-fen-jie-de-tui-jian-suan-fa.JPG" alt="基于矩阵分解的推荐算法" class="img-responsive">
+                
+            </figure>
+            <span class="fh5co-meta animate-box">
+                
+                    <div class="tag-container">
+                        
+                            <a href="https://s-hmily.github.io/tag/lMYeCI_cf/" class="tag">机器学习, </a>
+                        
+                    </div>
+                
+            </span>
+            <h2 class="fh5co-article-title animate-box">基于矩阵分解的推荐算法</h2>
+            <ol class="breadcrumb fh5co-meta fh5co-date animate-box" style="margin-bottom:0; background-color:#f8f9fa">
+                <li>2020-07-14</li>
+                <li>1057字</li>
+                <li>5 min read</li>
+            </ol>
+
+            <div class="col-lg-12 col-lg-offset-0 col-md-12 col-md-offset-0 col-sm-12 col-sm-offset-0 col-xs-12 col-xs-offset-0 text-left content-article">
+                <div class="row">
+                    <div class="col-md-12 animate-box post-content">
+                        <p> <p><img src="https://s-hmily.github.io/post-images/1594775275815.JPG" alt="" loading="lazy">矩阵分解算法是学习协同过滤算法的基础，接下来就来讲一件什么是矩阵分解。<br>
 一，基于矩阵分解算法的相关理论介绍<br>
 很显然，我们要是想做推荐系统，最基本的一个数据就是用户对这个商品的特性的反应，就拿用户-物品的评分矩阵来说<br>
 <img src="https://img-blog.csdnimg.cn/20200713205030760.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ0MTc3OTYw,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"><br>
@@ -189,54 +251,100 @@ if __name__ == '__main__':
 <p>参考：<br>
 <a href="https://blog.csdn.net/recall_tomorrow/article/details/80218051">文章一</a><br>
 <a href="https://www.cnblogs.com/kobedeshow/p/3651833.html">文章二</a></p>
+ </p>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12 animate-box">
+                        
+                            <div class="next-post">
+                                <div class="next">下一篇</div>
+                                <a href="https://s-hmily.github.io/post/ji-yu-yong-hu-de-xie-tong-guo-lu-suan-fa/">
+                                    <h3 class="post-title">
+                                        基于用户的协同过滤算法
+                                    </h3>
+                                </a>
+                            </div>
+                        
+                    </div>
+                </div>
+
+                <div class="row">
+    <div class="col-md-12 animate-box">
+        
+    </div>
+</div>
 
             </div>
-            
-              <div class="tag-container">
-                
-                  <a href="https://s-hmily.github.io/tag/lMYeCI_cf/" class="tag">
-                    机器学习
-                  </a>
-                
-              </div>
-            
-            
-              <div class="next-post">
-                <div class="next">下一篇</div>
-                <a href="https://s-hmily.github.io/post/ji-yu-yong-hu-de-xie-tong-guo-lu-suan-fa/">
-                  <h3 class="post-title">
-                    基于用户的协同过滤算法
-                  </h3>
-                </a>
-              </div>
-            
 
-            
-
-          </div>
-
-        </div>
-      </div>
+        </article>
     </div>
+</div>
 
-    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    
+
+    <!-- 返回顶部 -->
+    <div class="back-to-top">
+    
+    <a href="#top" class="hidden-xs hidden-sm"><i class="fa fa-paper-plane"></i></a>
+</div>
+
+<div class="post-toc animated fadeInRight hidden-xs hidden-sm" style="display: none;">
+    
+</div>
+
+
+    
+<footer id="fh5co-footer">
+  <p>Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a></p>
+</footer>
+
+
+    <!-- jQuery -->
+<script src="https://s-hmily.github.io/media/scripts/jquery.min.js"></script>
+<!-- img lazy load -->
+<script src="https://s-hmily.github.io/media/scripts/jquery.lazyload.min.js"></script>
+<!-- jQuery Easing -->
+<script src="https://s-hmily.github.io/media/scripts/jquery.easing.1.3.js"></script>
+<!-- Bootstrap -->
+<script src="https://s-hmily.github.io/media/scripts/bootstrap.min.js"></script>
+<!-- Waypoints -->
+<script src="https://s-hmily.github.io/media/scripts/jquery.waypoints.min.js"></script>
+<!-- Main JS -->
+<script src="https://s-hmily.github.io/media/scripts/main.js"></script>
+<!-- Md5 Min JS -->
+<script src="https://s-hmily.github.io/media/scripts/md5.min.js"></script>
+<!-- katex -->
+<!--<script src="https://cdn.bootcss.com/KaTeX/0.11.1/katex.min.js"></script>-->
+<!-- highlight -->
+<script src="https://cdn.bootcss.com/highlight.js/9.15.8/highlight.min.js"></script>
+
+
 <script type="application/javascript">
+    // 代码高亮
+    hljs.initHighlightingOnLoad();
 
-AOS.init();
+    // img 懒加载
+    $(function () {
+        $("img.lazy").lazyload({
+            effect: "fadeIn",  // 懒加载动画
+            threshold: 180  // 在图片距离屏幕180px时提前载入
+        });
+        // tooltip
+        $('[data-toggle="tooltip"]').tooltip();
 
-var app = new Vue({
-  el: '#app',
-  data: {
-    menuVisible: false,
-  },
-})
+        // 目录
+        $('#tool-toc').click(function () {
+            $('.post-toc').toggle();
+        });
+    });
 
+    
 </script>
 
 
 
 
-
-
-  </body>
+</body>
 </html>
