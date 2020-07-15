@@ -1,245 +1,291 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-
-<title>叮叮当</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-
-<meta name="description" content="叮当"/>
-<meta name="keywords" content="叮当"/>
-
-<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-<link rel="shortcut icon" href="https://s-hmily.github.io/favicon.ico">
-
-<link rel="stylesheet" href="https://s-hmily.github.io/styles/main.css">
-
-<!-- Modernizr JS -->
-<script src="https://s-hmily.github.io/media/scripts/modernizr-2.6.2.min.js"></script>
-<!-- FOR IE9 below -->
-<!--[if lt IE 9]>
-<scripts src="https://s-hmily.github.io/media/scripts/respond.min.js"></scripts>
-<![endif]-->
-
-<!-- Comment -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js"></script>
+    <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
+    <link rel="stylesheet" href="https://s-hmily.github.io/media/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://s-hmily.github.io/media/css/live2d.css">
+    <link rel="stylesheet" href="https://s-hmily.github.io/styles/main.css">
+    <meta name="description" content="叮当" />
+    <title>叮叮当</title>
+</head>
 
 
-
-<!-- katex -->
-<!--<link href="https://cdn.bootcss.com/KaTeX/0.11.1/katex.min.css" rel="stylesheet">-->
-
-<link href="https://cdn.bootcss.com/font-awesome/5.11.2/css/all.min.css" rel="stylesheet">
-
-
-
-  </head>
-  <body>
-    <div id="fh5co-offcanvas">
-    <a href="#!" class="fh5co-close-offcanvas js-fh5co-close-offcanvas">
-        <span><i class="icon-cross3"></i> <span>Close</span></span>
-    </a>
-    <div class="fh5co-bio">
-        <figure>
-            <img src="https://s-hmily.github.io/images/avatar.png" alt="叮叮当"
-                 class="img-responsive">
-        </figure>
-        <a href="https://s-hmily.github.io/post/about/"><h3 class="heading">ABOUT ME</h3></a>
-        <h2>叮叮当</h2>
-        <p>叮当</p>
-        <ul class="fh5co-social">
+<body>
+    <!-- 响应式布局，针对PC端内容显示 -->
+    <div id="content">
+        <div class="nav-large">
+            <div class="row">
+                
+        
+    </div>
+    
+    </div>
+    <div id="bg">
+    </div>
+    <div id="bgchoice" style="display: none">
+            </div>
             
-                <li>
-                    
-                </li>
-            
-                <li>
-                    
-                </li>
-            
-                <li>
-                    
-                </li>
-            
-                <li>
-                    
-                </li>
-            
-                <li>
-                    
-                </li>
-            
+            <div id="bgurl" style="display:none"></div>
+              
+    <!-- 响应式布局，针对手机端内容显示 -->
+    <div class="nav-small">
+            <head>
+  <!-- 引入Bootstrap核心样式文件 -->
+  <link rel="stylesheet" href="https://s-hmily.github.io/media/css/bootstrap.min.css">
+</head>
+
+<body>
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container-fluid">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+          data-target="#barmenu" aria-expanded="false" id="barbutton">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="https://s-hmily.github.io">叮叮当&nbsp;&nbsp;|</a>
+      </div>
+
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="barmenu">
+        <ul class="nav navbar-nav">
+          
+          
+          <li>
+            <a href="https://s-hmily.github.io">
+              首页
+            </a>
+          </li>
+          
+          
+          
+          <li>
+            <a href="/archives">
+              归档
+            </a>
+          </li>
+          
+          
+          
+          
         </ul>
-    </div>
+      </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+  </nav>
 
-    <div class="fh5co-menu">
 
-        <!-- 标签 -->
-        <div class="fh5co-box">
-            <a href="https://s-hmily.github.io/tags/"><h3 class="heading">👉标签</h3></a>
-            <ul>
-                
-                    <li><a href="https://s-hmily.github.io/tag/lMYeCI_cf/">机器学习</a></li>
-                
-            </ul>
-        </div>
+  <!-- 引入jQuery核心js文件 -->
+  <script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+  <script>
+  var btstate = false;
+  var bt = $("#barbutton");
+  var bm = $("#barmenu");
+  bt.click(function(){
+    dropdown();
+  })
+  function dropdown(){
+    console.log(btstate);
+    //下拉
+    if(btstate==false){
+      bt.removeClass("collapsed");
+      bt.attr("aria-expanded","true");
+      bm.attr("aria-expanded","true")
+      bm.fadeIn(700);
+      btstate = true;
+    }
+    else{
+      bt.addClass("collapsed");
+      bt.attr("aria-expanded","false");
+      bm.removeClass("in");
+      bm.hide();
+      bm.attr("aria-expanded","false");
+      btstate = false;
+    }
+  }
+  </script> 
+</body>
+            <!-- 移动端欢迎页 -->
+<div class="welcome">
+    <div class="avatar-border">
+        <img src="https://s-hmily.github.io/images/avatar.png?v=1594778087346" class="avatar">
     </div>
+    <span class="mobiledescribtion"></span>
 </div>
 
-<header id="fh5co-header">
-    <div class="container-fluid">
-        <div class="row">
-            <a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle"><i></i></a>
-            <ul class="fh5co-social">
-                
-                    <li>
-                        <a href="https://s-hmily.github.io"
-                        
-                        >
-                            首页
-                        </a>
-                    </li>
-                
-                    <li>
-                        <a href="/archives"
-                        
-                        >
-                            归档
-                        </a>
-                    </li>
-                
-            </ul>
-            <div class="col-lg-12 col-md-12 text-center">
-                <h1 id="fh5co-logo">
-                    <a href="https://s-hmily.github.io">叮叮当 </a>
-                </h1>
+    <div id="mobilebgurl" style="display:none"></div>
+
+<script>
+    var welcome = $('.welcome');
+    var bgurl = document.getElementById("mobilebgurl").innerHTML;
+    for (var i = 0; i < 3; i++)
+        bgurl = bgurl.replace("\\", "/");
+    welcome.css("background", "url('" + bgurl + "')");
+    var mobiledes = document.querySelector(".mobiledescribtion");
+    var text = "叮当";
+    // 当前显示第几个字
+    var mobilecharIndex = 1;
+    // 每个字显示间隔默认是500毫秒
+    var mobiledelta = 500;
+
+    // 记录动画执行开始时间
+    var mobilestart = null;
+    // 是否为删除动画
+    var mobileisDeleting = false;
+
+    // 动画回调函数
+    function mobileLoadDes(time) {
+        window.requestAnimationFrame(mobileLoadDes);
+        // 初始化开始时间
+        if (!mobilestart) start = time;
+        // 获取时间间隔
+        var mobileprogress = time - mobilestart;
+        // 每隔一定的时间，打印出一个新的字符
+        if (mobileprogress > mobiledelta) {
+            // 如果是打字效果
+            if (!mobileisDeleting) {
+                // 给展示文字的span新增一个字符，使用innerHTML来替换，charIndex自增1，然后返回新的字符串子串
+                mobiledes.innerHTML = "&nbsp;" + text.slice(
+                    0,
+                    ++mobilecharIndex
+                );
+                mobiledelta = 500 - Math.random() * 400;
+            } else {
+                // 如果是删除效果，则把文字一个一个减掉
+                mobiledes.innerHTML = "&nbsp;" + text.slice(
+                    0,
+                    mobilecharIndex--
+                );
+            }
+            // 把star更新为当前时间，进行下一个周期
+            mobilestart = time;
+
+            // 如果文字已经全部打印完毕
+            if (mobilecharIndex === text.length) {
+                // 下次开始删除文字
+                mobileisDeleting = true;
+                // 删除文字的间隔为200毫秒
+                mobiledelta = 100;
+                // 额外等待1.2秒后再删除
+                mobilestart = time + 1000;
+            }
+
+            // 如果文字删除完毕
+            if (mobilecharIndex < 0) {
+                mobileisDeleting = false;
+                // 额外增加200毫秒延迟
+                mobilestart = time + 200;
+            }
+        }
+    }
+
+    window.requestAnimationFrame(mobileLoadDes);
+</script>
+            <link rel="stylesheet" href="https://s-hmily.github.io/media/css/font-awesome.css">
+<div id="post-container">
+    
+    <div class="postshow">
+        
+        <div id="post" style="width:100%">
+            <img src="https://s-hmily.github.io/post-images/pi-liang-ti-du-suan-fa-zai-xian-xing-hui-gui-zhong-de-ying-yong.JPG" class="postimage"
+                onclick="window.location.href= 'https://s-hmily.github.io/post/pi-liang-ti-du-suan-fa-zai-xian-xing-hui-gui-zhong-de-ying-yong/';return false">
+            <div class="posttitlebox">
+                <div class="posttitle" onclick="window.location.href= 'https://s-hmily.github.io/post/pi-liang-ti-du-suan-fa-zai-xian-xing-hui-gui-zhong-de-ying-yong/';return false">
+                    批量梯度算法在线性回归中的应用
+                </div>
             </div>
         </div>
+        <div class="postinfo">
+            <div class="postdate"><i class="fa fa-calendar"></i>2020-07-14</div>
+            <div class="poststatus postdate"><i class="fa fa-clock-o"></i> 11 min read</div>
+            <div class="posttag">
+                
+                <a href="https://s-hmily.github.io/tag/lMYeCI_cf/" class="postlink">
+                    <i class="fa fa-tag"></i> 机器学习
+                </a>
+                
+            </div>
+        </div>
+        
     </div>
-</header>
-
-
-    <div class="container-fluid">
-      <div class="row fh5co-post-entry">
-
+    
+    <div class="postshow">
         
-            <article class="col-lg-3 col-md-3 col-sm-3 col-xs-12 col-xxs-12 animate-box" style="height: 25em;">
-            <figure class="img-box">
-              <a href="https://s-hmily.github.io/post/pi-liang-ti-du-suan-fa-zai-xian-xing-hui-gui-zhong-de-ying-yong/">
+        <div id="post" style="width:100%">
+            <img src="https://s-hmily.github.io/post-images/ji-yu-ju-zhen-fen-jie-de-tui-jian-suan-fa.JPG" class="postimage"
+                onclick="window.location.href= 'https://s-hmily.github.io/post/ji-yu-ju-zhen-fen-jie-de-tui-jian-suan-fa/';return false">
+            <div class="posttitlebox">
+                <div class="posttitle" onclick="window.location.href= 'https://s-hmily.github.io/post/ji-yu-ju-zhen-fen-jie-de-tui-jian-suan-fa/';return false">
+                    基于矩阵分解的推荐算法
+                </div>
+            </div>
+        </div>
+        <div class="postinfo">
+            <div class="postdate"><i class="fa fa-calendar"></i>2020-07-14</div>
+            <div class="poststatus postdate"><i class="fa fa-clock-o"></i> 5 min read</div>
+            <div class="posttag">
                 
-                  <img data-original="https://s-hmily.github.io/post-images/pi-liang-ti-du-suan-fa-zai-xian-xing-hui-gui-zhong-de-ying-yong.JPG" alt="批量梯度算法在线性回归中的应用" class="img-responsive img-rounded lazy">
+                <a href="https://s-hmily.github.io/tag/lMYeCI_cf/" class="postlink">
+                    <i class="fa fa-tag"></i> 机器学习
+                </a>
                 
-              </a>
-            </figure>
-            <span class="fh5co-meta">
-              
-                    
-                        <a href="https://s-hmily.github.io/tag/lMYeCI_cf/" class="tag">机器学习, </a>
-                    
-              
-            </span>
-            <h3 class="fh5co-article-title">
-              <a href="https://s-hmily.github.io/post/pi-liang-ti-du-suan-fa-zai-xian-xing-hui-gui-zhong-de-ying-yong/">批量梯度算法在线性回归中的应用</a>
-            </h3>
-            <span class="fh5co-meta fh5co-date">2020-07-14</span>
-          </article>
+            </div>
+        </div>
         
-            <article class="col-lg-3 col-md-3 col-sm-3 col-xs-12 col-xxs-12 animate-box" style="height: 25em;">
-            <figure class="img-box">
-              <a href="https://s-hmily.github.io/post/ji-yu-ju-zhen-fen-jie-de-tui-jian-suan-fa/">
-                
-                  <img data-original="https://s-hmily.github.io/post-images/ji-yu-ju-zhen-fen-jie-de-tui-jian-suan-fa.JPG" alt="基于矩阵分解的推荐算法" class="img-responsive img-rounded lazy">
-                
-              </a>
-            </figure>
-            <span class="fh5co-meta">
-              
-                    
-                        <a href="https://s-hmily.github.io/tag/lMYeCI_cf/" class="tag">机器学习, </a>
-                    
-              
-            </span>
-            <h3 class="fh5co-article-title">
-              <a href="https://s-hmily.github.io/post/ji-yu-ju-zhen-fen-jie-de-tui-jian-suan-fa/">基于矩阵分解的推荐算法</a>
-            </h3>
-            <span class="fh5co-meta fh5co-date">2020-07-14</span>
-          </article>
-        
-            <article class="col-lg-3 col-md-3 col-sm-3 col-xs-12 col-xxs-12 animate-box" style="height: 25em;">
-            <figure class="img-box">
-              <a href="https://s-hmily.github.io/post/ji-yu-yong-hu-de-xie-tong-guo-lu-suan-fa/">
-                
-              </a>
-            </figure>
-            <span class="fh5co-meta">
-              
-            </span>
-            <h3 class="fh5co-article-title">
-              <a href="https://s-hmily.github.io/post/ji-yu-yong-hu-de-xie-tong-guo-lu-suan-fa/">基于用户的协同过滤算法</a>
-            </h3>
-            <span class="fh5co-meta fh5co-date">2020-07-14</span>
-          </article>
-        
-        <div class="clearfix visible-lg-block visible-md-block visible-sm-block visible-xs-block"></div>
-
-      </div>
-
-      <div class="pagination-box animate-box">
-        
-        
-      </div>
     </div>
-
     
-<footer id="fh5co-footer">
-  <p>Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a></p>
-</footer>
-
-
-    <!-- jQuery -->
-<script src="https://s-hmily.github.io/media/scripts/jquery.min.js"></script>
-<!-- img lazy load -->
-<script src="https://s-hmily.github.io/media/scripts/jquery.lazyload.min.js"></script>
-<!-- jQuery Easing -->
-<script src="https://s-hmily.github.io/media/scripts/jquery.easing.1.3.js"></script>
-<!-- Bootstrap -->
-<script src="https://s-hmily.github.io/media/scripts/bootstrap.min.js"></script>
-<!-- Waypoints -->
-<script src="https://s-hmily.github.io/media/scripts/jquery.waypoints.min.js"></script>
-<!-- Main JS -->
-<script src="https://s-hmily.github.io/media/scripts/main.js"></script>
-<!-- Md5 Min JS -->
-<script src="https://s-hmily.github.io/media/scripts/md5.min.js"></script>
-<!-- katex -->
-<!--<script src="https://cdn.bootcss.com/KaTeX/0.11.1/katex.min.js"></script>-->
-<!-- highlight -->
-<script src="https://cdn.bootcss.com/highlight.js/9.15.8/highlight.min.js"></script>
-
-
-<script type="application/javascript">
-    // 代码高亮
-    hljs.initHighlightingOnLoad();
-
-    // img 懒加载
-    $(function () {
-        $("img.lazy").lazyload({
-            effect: "fadeIn",  // 懒加载动画
-            threshold: 180  // 在图片距离屏幕180px时提前载入
-        });
-        // tooltip
-        $('[data-toggle="tooltip"]').tooltip();
-
-        // 目录
-        $('#tool-toc').click(function () {
-            $('.post-toc').toggle();
-        });
-    });
-
+    <div class="postshow">
+        
+        <div id="post" style="width:100%">
+            
+            <img src="" class="postimage"
+                onclick="window.location.href= 'https://s-hmily.github.io/post/ji-yu-yong-hu-de-xie-tong-guo-lu-suan-fa/';return false">  
+            
+            <div class="posttitlebox">
+                <div class="posttitlewithoutimg" onclick="window.location.href= 'https://s-hmily.github.io/post/ji-yu-yong-hu-de-xie-tong-guo-lu-suan-fa/';return false">
+                    基于用户的协同过滤算法
+                </div>
+            </div>
+        </div>
+        <div class="postinfo">
+            <div class="postdate"><i class="fa fa-calendar"></i>2020-07-14</div>
+            <div class="poststatus postdate"><i class="fa fa-clock-o"></i> 1 min read</div>
+            <div class="posttag">
+                
+            </div>
+        </div>
+        
+    </div>
     
-</script>
+</div>
+            <div class="pagination-container">
+                  
+                
+            </div>
+            <div style="margin-bottom:60px">&nbsp;</div>
+        </div>
 
+        <div id="landlord">
+            <div class="message" style="opacity:0"></div>
+            <canvas id="live2d" width="240" height="250" class="live2d"></canvas>
+        </div>
+    </div>
+    <div id="domainname" style="display:none">https://s-hmily.github.io</div>
+</body>
 
-
-
-  </body>
 </html>
+
+
+<script>
+        var bgchoice=$('#bgchoice').html();
+        var bg = $('#bg');
+        var bgurl = document.getElementById("bgurl").innerHTML;
+        if(bgchoice=='default')
+            for (var i = 0; i < 3; i++)
+                bgurl = bgurl.replace("\\", "/");
+        bg.css("background", "url('" + bgurl + "')");
+</script>

@@ -1,157 +1,224 @@
-<!DOCTYPE html>
-<html>
 <head>
-    <meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="首先要明白梯度下降算法我们能干什么？什么时候可以用到梯度下降？
+我们先进行两个例子，一个二维函数问题，一个三维的现实问题：
+二维函数：比如我们要求
 
-<title>叮叮当</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-
-<meta name="description" content="叮当"/>
-<meta name="keywords" content="叮当"/>
-
-<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-<link rel="shortcut icon" href="https://s-hmily.github.io/favicon.ico">
-
-<link rel="stylesheet" href="https://s-hmily.github.io/styles/main.css">
-
-<!-- Modernizr JS -->
-<script src="https://s-hmily.github.io/media/scripts/modernizr-2.6.2.min.js"></script>
-<!-- FOR IE9 below -->
-<!--[if lt IE 9]>
-<scripts src="https://s-hmily.github.io/media/scripts/respond.min.js"></scripts>
-<![endif]-->
-
-<!-- Comment -->
-
-
-
-<!-- katex -->
-<!--<link href="https://cdn.bootcss.com/KaTeX/0.11.1/katex.min.css" rel="stylesheet">-->
-
-<link href="https://cdn.bootcss.com/font-awesome/5.11.2/css/all.min.css" rel="stylesheet">
-
-
-
-</head>
-<body>
-    <div id="fh5co-offcanvas">
-    <a href="#!" class="fh5co-close-offcanvas js-fh5co-close-offcanvas">
-        <span><i class="icon-cross3"></i> <span>Close</span></span>
-    </a>
-    <div class="fh5co-bio">
-        <figure>
-            <img src="https://s-hmily.github.io/images/avatar.png" alt="叮叮当"
-                 class="img-responsive">
-        </figure>
-        <a href="https://s-hmily.github.io/post/about/"><h3 class="heading">ABOUT ME</h3></a>
-        <h2>叮叮当</h2>
-        <p>叮当</p>
-        <ul class="fh5co-social">
-            
-                <li>
-                    
-                </li>
-            
-                <li>
-                    
-                </li>
-            
-                <li>
-                    
-                </li>
-            
-                <li>
-                    
-                </li>
-            
-                <li>
-                    
-                </li>
-            
-        </ul>
-    </div>
-
-    <div class="fh5co-menu">
-
-        <!-- 标签 -->
-        <div class="fh5co-box">
-            <a href="https://s-hmily.github.io/tags/"><h3 class="heading">👉标签</h3></a>
-            <ul>
-                
-                    <li><a href="https://s-hmily.github.io/tag/lMYeCI_cf/">机器学习</a></li>
-                
-            </ul>
-        </div>
-    </div>
-</div>
-
-<header id="fh5co-header">
-    <div class="container-fluid">
-        <div class="row">
-            <a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle"><i></i></a>
-            <ul class="fh5co-social">
-                
-                    <li>
-                        <a href="https://s-hmily.github.io"
-                        
-                        >
-                            首页
-                        </a>
-                    </li>
-                
-                    <li>
-                        <a href="/archives"
-                        
-                        >
-                            归档
-                        </a>
-                    </li>
-                
-            </ul>
-            <div class="col-lg-12 col-md-12 text-center">
-                <h1 id="fh5co-logo">
-                    <a href="https://s-hmily.github.io">叮叮当 </a>
-                </h1>
-            </div>
-        </div>
-    </div>
-</header>
-
-
-    <!--  <a href="#" class="fh5co-post-prev"><span>👈 Prev</span></a>-->
-    <!--  <a href="#" class="fh5co-post-next"><span>Next 👉</span></a>-->
-
-    <!-- 等gridea出自定义页面功能再优化一下 -->
+三维现实问题：你站在一个一个的山中，你想要的去谷底，那怎么样办才能最快的到达局部谷底呢？要..." />
+    <meta name="keywords" content="机器学习" />
+    <link rel="stylesheet" href="https://s-hmily.github.io/media/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://s-hmily.github.io/styles/main.css">
     
-        <div class="container-fluid">
-    <div class="row fh5co-post-entry single-entry">
-        <article class="col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2 col-xs-12 col-xs-offset-0">
-            <figure class="animate-box">
-                
-                    <img src="https://s-hmily.github.io/post-images/pi-liang-ti-du-suan-fa-zai-xian-xing-hui-gui-zhong-de-ying-yong.JPG" alt="批量梯度算法在线性回归中的应用" class="img-responsive">
-                
-            </figure>
-            <span class="fh5co-meta animate-box">
-                
-                    <div class="tag-container">
-                        
-                            <a href="https://s-hmily.github.io/tag/lMYeCI_cf/" class="tag">机器学习, </a>
-                        
-                    </div>
-                
-            </span>
-            <h2 class="fh5co-article-title animate-box">批量梯度算法在线性回归中的应用</h2>
-            <ol class="breadcrumb fh5co-meta fh5co-date animate-box" style="margin-bottom:0; background-color:#f8f9fa">
-                <li>2020-07-14</li>
-                <li>2556字</li>
-                <li>11 min read</li>
-            </ol>
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.1/build/styles/dracula.min.css">
+              
+    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.1/build/highlight.min.js"></script>
+    <script src="https://s-hmily.github.io/media/js/clipboard.min.js"></script>
+    <link rel="stylesheet" href="https://s-hmily.github.io/media/css/live2d.css">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js"></script>
+    <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
+    <link href="https://cdn.bootcdn.net/ajax/libs/font-awesome/5.13.1/css/all.min.css" rel="stylesheet">
+    <!-- 数学公式 -->
+    
+    <title>叮叮当</title>
+    
+    <style>
+        .markdownIt-TOC {
+            padding-left: 2px;
+            width: 100%;
+        }
+        .markdownIt-TOC li{
+            padding-left: 2%;
+        }
+    </style>
+    
+</head>
 
-            <div class="col-lg-12 col-lg-offset-0 col-md-12 col-md-offset-0 col-sm-12 col-sm-offset-0 col-xs-12 col-xs-offset-0 text-left content-article">
-                <div class="row">
-                    <div class="col-md-12 animate-box post-content">
-                        <p> <p>首先要明白梯度下降算法我们能干什么？什么时候可以用到梯度下降？<br>
+<body>
+    <!-- 响应式布局，针对PC端内容显示 -->
+    <div id="content">
+        <div class="nav-large">
+            <div class="row">
+                <div class="side"><head>
+    <meta name="description" content="叮当" />
+    <link rel="stylesheet" href="https://s-hmily.github.io/media/css/bootstrap.min.css">
+</head>
+
+
+<body>
+    
+
+
+
+    
+</body>
+<script>
+    //-------------------------------------------------搜索
+    // 获取搜索框、搜索按钮、清空搜索、结果输出对应的元素
+    var searchInput = document.querySelector('.search-input');
+    var searchResults = document.querySelector('.search-results');
+
+    // 申明保存文章的标题、链接、内容的数组变量
+    var searchValue = '',
+        arrItems = [],
+        arrLinks = [],
+        arrTitles = [],
+        arrResults = [],
+        indexItem = [],
+        itemLength = 0;
+    var tmpDiv = document.createElement('div');
+    tmpDiv.className = 'result-item';
+
+    // ajax 的兼容写法
+    var xhr = new XMLHttpRequest() || new ActiveXObject('Microsoft.XMLHTTP');
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState == 4 && xhr.status == 200) {
+            xml = xhr.responseXML;
+            arrItems = xml.getElementsByTagName('entry');
+            itemLength = arrItems.length;
+            // 遍历并保存所有文章对应的标题、链接、内容到对应的数组中
+            // 同时过滤掉 HTML 标签
+            for (i = 0; i < itemLength; i++) {
+                var link = arrItems[i].getElementsByTagName('link')[0];
+                arrLinks[i] = link.getAttribute("href");
+                arrTitles[i] = arrItems[i].getElementsByTagName('title')[0].
+                childNodes[0].nodeValue.replace(/<.*?>/g, '');
+            }
+        }
+    }
+
+    // 开始获取根目录下 feed.xml 文件内的数据
+    xhr.open('get', '/atom.xml', true);
+    xhr.send();
+
+
+
+    // 输入框内容变化后就开始匹配，可以不用点按钮
+    // 经测试，onkeydown, onchange 等方法效果不太理想，
+    // 存在输入延迟等问题，最后发现触发 input 事件最理想，
+    // 并且可以处理中文输入法拼写的变化
+    searchInput.oninput = function () {
+        setTimeout(searchConfirm, 0);
+    }
+    searchInput.onfocus = function () {
+        searchResults.style.display = 'block';
+    }
+
+    function searchConfirm() {
+        if (searchInput.value == '') {
+            searchResults.style.display = 'none';
+        } else if (searchInput.value.search(/^\s+$/) >= 0) {
+            // 检测输入值全是空白的情况
+            searchInit();
+            var itemDiv = tmpDiv.cloneNode(true);
+            itemDiv.innerText = '请输入有效内容...';
+            searchResults.appendChild(itemDiv);
+        } else {
+            // 合法输入值的情况
+            searchInit();
+            searchValue = searchInput.value;
+            // 在标题、内容中查找
+            searchMatching(arrTitles, searchValue);
+        }
+    }
+
+    // 每次搜索完成后的初始化
+    function searchInit() {
+        arrResults = [];
+        indexItem = [];
+        searchResults.innerHTML = '';
+        searchResults.style.display = 'block';
+    }
+
+    function searchMatching(arr1, input) {
+        // 忽略输入大小写
+        input = new RegExp(input, 'i');
+        // 在所有文章标题、内容中匹配查询值
+        for (i = 0; i < itemLength; i++) {
+            if (arr1[i].search(input) !== -1) {
+                var arr = arr1;
+                indexItem.push(i); // 保存匹配值的索引
+                var indexContent = arr[i].search(input);
+                // 此时 input 为 RegExp 格式 /input/i，转换为原 input 字符串长度
+                var l = input.toString().length - 3;
+                var step = 10;
+
+                // 将匹配到内容的地方进行黄色标记，并包括周围一定数量的文本
+                arrResults.push(arr[i].slice(indexContent - step, indexContent));
+            }
+        }
+
+        // 输出总共匹配到的数目
+        var totalDiv = tmpDiv.cloneNode(true);
+        totalDiv.innerHTML = '<b>总匹配：' + indexItem.length + ' 项<hr></b>';
+        searchResults.appendChild(totalDiv);
+
+        // 未匹配到内容的情况
+        if (indexItem.length == 0) {
+            var itemDiv = tmpDiv.cloneNode(true);
+            itemDiv.innerText = '未匹配到内容...';
+            searchResults.appendChild(itemDiv);
+        }
+
+        // 将所有匹配内容进行组合
+        for (i = 0; i < arrResults.length; i++) {
+            var itemDiv = tmpDiv.cloneNode(true);
+            itemDiv.innerHTML = '<b>[' + arrTitles[indexItem[i]] +
+                ']</b><p>' + arrResults[i] + "</p><hr />";
+            itemDiv.setAttribute('onclick', 'changeHref(arrLinks[indexItem[' + i + ']])');
+            searchResults.appendChild(itemDiv);
+        }
+    }
+
+    function changeHref(href) {
+        location.href = href;
+    }
+
+    function showqq() {
+        var qq = document.getElementById("qq").innerHTML;
+        if (qq != '')
+            alert("博主的QQ联系方式为：" + qq);
+        else
+            alert("博主暂未设置QQ联系方式");
+    }
+</script></div>
+    
+    <div id="main" class="col-xs-12 col-sm-7" style="width:50%;margin-top:50px;left:27%">
+        <link rel="stylesheet" href="https://s-hmily.github.io/media/css/font-awesome.css">
+<style>
+
+</style>
+
+<body>
+    <div class="allcontent" id="postdetail">
+        <div class="postshow">
+            
+            <div class="postdetailimg" style="width:100%;overflow: hidden;display: none">
+                <img src="https://s-hmily.github.io/post-images/pi-liang-ti-du-suan-fa-zai-xian-xing-hui-gui-zhong-de-ying-yong.JPG" class="postimage" style="cursor:auto">
+            </div>
+            <div class="postinfo-detail">
+                <div class="postdate"><i class="fa fa-calendar"></i>2020-07-14</div>
+                <div class="poststatus postdate"><i class="fa fa-clock-o"></i> 11 min read</div>
+                <div class="posttag">
+                    
+                    <a href="https://s-hmily.github.io/tag/lMYeCI_cf/" class="postlink">
+                        <i class="fa fa-tag"></i> 机器学习
+                    </a>
+                    
+                </div>
+            </div>
+            
+        <div id="texttitle" style="text-align: center">
+            <h2>批量梯度算法在线性回归中的应用</h2>
+            <!-- id 将作为查询条件 -->
+            <div id="pl" style="display:none">https://s-hmily.github.io/post/pi-liang-ti-du-suan-fa-zai-xian-xing-hui-gui-zhong-de-ying-yong/</div>
+            <div id="rootaddr" style="display:none">https://s-hmily.github.io</div>
+            <span id="hotnum" class="leancloud_visitors" data-flag-title="批量梯度算法在线性回归中的应用">
+                <h4 class="readercount">热度🔥: <i class="leancloud-visitors-count">loading...</i></h4>
+            </span>
+        </div>
+        <div class="text ">
+            <p>首先要明白梯度下降算法我们能干什么？什么时候可以用到梯度下降？<br>
 我们先进行两个例子，一个二维函数问题，一个三维的现实问题：<br>
 二维函数：比如我们要求</p>
 <p><img src="https://img-blog.csdnimg.cn/20200710201059245.png" alt="在这里插入图片描述" loading="lazy"><br>
@@ -484,100 +551,653 @@ plt.show()
 <p><strong>批量梯度下降法（BGD）：使用所有样本进行计算，慢但准确度好<br>
 随机梯度下降法（SGD)：每次使用1个样本进行计算,快但准确度欠缺<br>
 小批量梯度下降法：每次使用a个样本进行计算，是BGD和SGD的折中方案</strong></p>
- </p>
-                    </div>
-                </div>
 
-                <div class="row">
-                    <div class="col-md-12 animate-box">
-                        
-                            <div class="next-post">
-                                <div class="next">下一篇</div>
-                                <a href="https://s-hmily.github.io/post/ji-yu-ju-zhen-fen-jie-de-tui-jian-suan-fa/">
-                                    <h3 class="post-title">
-                                        基于矩阵分解的推荐算法
-                                    </h3>
-                                </a>
-                            </div>
-                        
-                    </div>
-                </div>
-
-                <div class="row">
-    <div class="col-md-12 animate-box">
+        </div>
+        
+        
+        <div class="next-post">
+            下一篇
+            <a href="https://s-hmily.github.io/post/ji-yu-ju-zhen-fen-jie-de-tui-jian-suan-fa/">
+                基于矩阵分解的推荐算法
+            </a>
+        </div>
         
     </div>
-</div>
-
-            </div>
-
-        </article>
     </div>
-</div>
-
-    
-
-    <!-- 返回顶部 -->
-    <div class="back-to-top">
-    
-    <a href="#top" class="hidden-xs hidden-sm"><i class="fa fa-paper-plane"></i></a>
-</div>
-
-<div class="post-toc animated fadeInRight hidden-xs hidden-sm" style="display: none;">
-    
-</div>
-
-
-    
-<footer id="fh5co-footer">
-  <p>Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a></p>
-</footer>
-
-
-    <!-- jQuery -->
-<script src="https://s-hmily.github.io/media/scripts/jquery.min.js"></script>
-<!-- img lazy load -->
-<script src="https://s-hmily.github.io/media/scripts/jquery.lazyload.min.js"></script>
-<!-- jQuery Easing -->
-<script src="https://s-hmily.github.io/media/scripts/jquery.easing.1.3.js"></script>
-<!-- Bootstrap -->
-<script src="https://s-hmily.github.io/media/scripts/bootstrap.min.js"></script>
-<!-- Waypoints -->
-<script src="https://s-hmily.github.io/media/scripts/jquery.waypoints.min.js"></script>
-<!-- Main JS -->
-<script src="https://s-hmily.github.io/media/scripts/main.js"></script>
-<!-- Md5 Min JS -->
-<script src="https://s-hmily.github.io/media/scripts/md5.min.js"></script>
-<!-- katex -->
-<!--<script src="https://cdn.bootcss.com/KaTeX/0.11.1/katex.min.js"></script>-->
-<!-- highlight -->
-<script src="https://cdn.bootcss.com/highlight.js/9.15.8/highlight.min.js"></script>
-
-
-<script type="application/javascript">
-    // 代码高亮
-    hljs.initHighlightingOnLoad();
-
-    // img 懒加载
-    $(function () {
-        $("img.lazy").lazyload({
-            effect: "fadeIn",  // 懒加载动画
-            threshold: 180  // 在图片距离屏幕180px时提前载入
-        });
-        // tooltip
-        $('[data-toggle="tooltip"]').tooltip();
-
-        // 目录
-        $('#tool-toc').click(function () {
-            $('.post-toc').toggle();
-        });
+</body>
+<script>
+    var t_img; // 定时�?
+    var isLoad = true; // 控制变量
+    isImgLoad(function () {
+        // 加载完成
+        $('.postdetailimg').css("display", "block");
     });
+    // 判断图片加载的函�?
+    function isImgLoad(callback) {
+        // 注意我的图片类名都是cover，因为我�?需要�?�理cover。其它图片可以不管�?
+        // 查找所有封面图，迭代�?�理
+        $('.postdetailimg').each(function () {
+            // 找到�?0就将isLoad设为false，并退出each
+            if (this.height === 0) {
+                isLoad = false;
+                return false;
+            }
+        });
+        // 为true，没有发现为0的。加载完�?
+        if (isLoad) {
+            clearTimeout(t_img); // 清除定时�?
+            // 回调函数
+            callback();
+            // 为false，因为找到了没有加载完成的图，将调用定时器递归
+        } else {
+            isLoad = true;
+            t_img = setTimeout(function () {
+                isImgLoad(callback); // 递归�?�?
+            }, 500); // 我这里�?�置的是500�?秒就�?描一次，�?以自己调�?
+        }
+    }
 
+    //文章阅读热度
+    var pl = $("#pl").html();
+    var rootaddr = $("#rootaddr").html();
+    pl = pl.replace(rootaddr, "");
+    $("#hotnum").attr('id', pl);
+</script>
+        <div name="comment" style="background: white">
+            <div class="commentcontainer">
+                
+                <p>请到客户端“主题--自定义配置--valine”中填入ID和KEY</p>
+                
+            </div>
+        </div>
+    </div>
+     
+                <div class="toc-container">
+                    
+    </div>
+    </div>
+    </div>
+    <div class="toggleContainer">
+        <div class="toggle">
+            <i class="fas fa-angle-double-up"></i>
+        </div>
+    </div>
+    <div id="bg">
+    </div>
+    <div id="bgchoice" style="display: none"></div>
     
+    <div id="bgurl" style="display:none"></div>
+       
+    </div>
+    <!-- 响应式布局，针对手机端内容显示 -->
+    <div class="nav-small">
+        <head>
+  <!-- 引入Bootstrap核心样式文件 -->
+  <link rel="stylesheet" href="https://s-hmily.github.io/media/css/bootstrap.min.css">
+</head>
+
+<body>
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container-fluid">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+          data-target="#barmenu" aria-expanded="false" id="barbutton">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="https://s-hmily.github.io">叮叮当&nbsp;&nbsp;|</a>
+      </div>
+
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="barmenu">
+        <ul class="nav navbar-nav">
+          
+          
+          <li>
+            <a href="https://s-hmily.github.io">
+              首页
+            </a>
+          </li>
+          
+          
+          
+          <li>
+            <a href="/archives">
+              归档
+            </a>
+          </li>
+          
+          
+          
+          
+        </ul>
+      </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+  </nav>
+
+
+  <!-- 引入jQuery核心js文件 -->
+  <script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+  <script>
+  var btstate = false;
+  var bt = $("#barbutton");
+  var bm = $("#barmenu");
+  bt.click(function(){
+    dropdown();
+  })
+  function dropdown(){
+    console.log(btstate);
+    //下拉
+    if(btstate==false){
+      bt.removeClass("collapsed");
+      bt.attr("aria-expanded","true");
+      bm.attr("aria-expanded","true")
+      bm.fadeIn(700);
+      btstate = true;
+    }
+    else{
+      bt.addClass("collapsed");
+      bt.attr("aria-expanded","false");
+      bm.removeClass("in");
+      bm.hide();
+      bm.attr("aria-expanded","false");
+      btstate = false;
+    }
+  }
+  </script> 
+</body>
+    <div style="margin-top:30px"></div>
+    <link rel="stylesheet" href="https://s-hmily.github.io/media/css/font-awesome.css">
+<style>
+
+</style>
+
+<body>
+    <div class="allcontent" id="postdetail">
+        <div class="postshow">
+            
+            <div class="postdetailimg" style="width:100%;overflow: hidden;display: none">
+                <img src="https://s-hmily.github.io/post-images/pi-liang-ti-du-suan-fa-zai-xian-xing-hui-gui-zhong-de-ying-yong.JPG" class="postimage" style="cursor:auto">
+            </div>
+            <div class="postinfo-detail">
+                <div class="postdate"><i class="fa fa-calendar"></i>2020-07-14</div>
+                <div class="poststatus postdate"><i class="fa fa-clock-o"></i> 11 min read</div>
+                <div class="posttag">
+                    
+                    <a href="https://s-hmily.github.io/tag/lMYeCI_cf/" class="postlink">
+                        <i class="fa fa-tag"></i> 机器学习
+                    </a>
+                    
+                </div>
+            </div>
+            
+        <div id="texttitle" style="text-align: center">
+            <h2>批量梯度算法在线性回归中的应用</h2>
+            <!-- id 将作为查询条件 -->
+            <div id="pl" style="display:none">https://s-hmily.github.io/post/pi-liang-ti-du-suan-fa-zai-xian-xing-hui-gui-zhong-de-ying-yong/</div>
+            <div id="rootaddr" style="display:none">https://s-hmily.github.io</div>
+            <span id="hotnum" class="leancloud_visitors" data-flag-title="批量梯度算法在线性回归中的应用">
+                <h4 class="readercount">热度🔥: <i class="leancloud-visitors-count">loading...</i></h4>
+            </span>
+        </div>
+        <div class="text ">
+            <p>首先要明白梯度下降算法我们能干什么？什么时候可以用到梯度下降？<br>
+我们先进行两个例子，一个二维函数问题，一个三维的现实问题：<br>
+二维函数：比如我们要求</p>
+<p><img src="https://img-blog.csdnimg.cn/20200710201059245.png" alt="在这里插入图片描述" loading="lazy"><br>
+三维现实问题：你站在一个一个的山中，你想要的去谷底，那怎么样办才能最快的到达局部谷底呢？要沿着哪个方向进行走动呢？<br>
+然后带着问题去思考梯度下降算法。</p>
+<p>首先你会有一个函数，比如这个函数有两个参数的函数J(θ_1，θ_2),我们需要一种算法去最小化这个函数<br>
+这里我们就需要用到梯度下降算法。<br>
+梯度下降算法的步骤：<br>
+1.我们开始会有初始数值θ_1，θ_2，一般来说这两个数值为多少没关系，一般可以为0<br>
+2.对损失函数求所有 θ 的偏导（梯度）: ∂J(θ)/∂θ_j<br>
+3.使用样本数据更新假设函数的不停的<strong>同时更新</strong>θ_1，θ_2，一定要同时更新，后边会说为什么要同时更更新这个两个变量，更新的参数公式为：<img src="https://img-blog.csdnimg.cn/20200710204024907.png" alt="在这里插入图片描述" loading="lazy">（α是为更新步长（调整参数的灵敏度，灵敏度太高容易振荡，灵敏度过低收敛缓慢））<br>
+4.直到找到J函数的最小值或者局部最小值</p>
+<p><img src="https://img-blog.csdnimg.cn/20200710203319299.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ0MTc3OTYw,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"><br>
+比如我们在上图这个点，我想要快速下山，我要怎么办呢？我会根据这个点的变化率最大的方向（也就是偏导数）出发，走一步就再判断一次，最终会走到下图所示的地方<img src="https://img-blog.csdnimg.cn/2020071020352572.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ0MTc3OTYw,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"><br>
+但是有一个有趣的事情我们会发现，如果我们开始的位置不同的到结果会不同，正如下图所示<br>
+<img src="https://img-blog.csdnimg.cn/20200710203616163.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ0MTc3OTYw,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"><br>
+这就是梯度下降算法的特点，可以尽快的找到局部最优解或者全体最优解<br>
+<strong>注意的细节：</strong><br>
+我们需要同时更新我们的θ_1，θ_2<br>
+算法中应该如下图的步骤<br>
+<img src="https://img-blog.csdnimg.cn/20200710204404536.png" alt="在这里插入图片描述" loading="lazy"><br>
+而不是这样：<br>
+<img src="https://img-blog.csdnimg.cn/20200710204443650.png" alt="在这里插入图片描述" loading="lazy"><br>
+然后我们思考更新θ_1，θ_2这两个变量的公式，很明显我们要求最低点的时候，偏导数求导是一个正数，但是我们要向下走因此要加负号，第二个求导是负的，我们本身就是要向下走，因此不用加符号，所有最终结果都是<img src="https://img-blog.csdnimg.cn/20200710204853333.png" alt="在这里插入图片描述" loading="lazy"><br>
+<img src="https://s-hmily.github.io/post-images/1594775236717.JPG" alt="在这里插入图片描述" loading="lazy">x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ0MTc3OTYw,size_16,color_FFFFFF,t_70)<br>
+然后我们再考虑α这个步长：<br>
+α太小：如下图所示，如果太小了 就会导致我们的步数越来越多，我们进行迭代的次数就很大，就会很浪费时间<br>
+α太大：如下图所示，如果太大了就会导致我们可能会超过最低点进而无法收敛越来越偏离正确的道路，因此我们需要选定合适的α<br>
+<img src="https://img-blog.csdnimg.cn/20200710205034940.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ0MTc3OTYw,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"><br>
+大致基本思路就是这样，之后会写一些实际的应用问题</p>
+<p><strong>梯度下降算法用于线性回归</strong></p>
+<p><strong>批量梯度下降法（BGD）：使用所有样本进行计算，慢但准确度好</strong><br>
+首先要导入数据和定义初始的参数以及选择合适的步长，如下图</p>
+<pre><code class="language-cpp">import numpy as np
+import matplotlib.pyplot as plt
+import random
+spaces = [150, 200, 250, 300, 350, 400, 600]
+prices = [6450, 7450, 8450, 9450, 11450, 15450,18450]
+#prices=[]
+#for i in range(0,len(spaces)):
+     #prices.append(spaces[i]*prices1[i]/10000)         
+
+spaces, prices = np.array(spaces), np.array(prices)
+
+
+
+## theta 初始值
+theta0 = 0
+theta1 = 0
+
+## 如果步长选择不对，则 theta 参数更新结果会不对
+step = 0.0000001
+
+#np.ones()生产一个长度跟spaces一样的数组，且数组元素为1，因为theta0为常数
+x_i0 = np.ones((len(spaces)))
+</code></pre>
+<p>定义损失函数和theta 0的损失函数和theta 1的损失函数</p>
+<pre><code class="language-cpp"># 假设函数
+def h(x) :
+  return theta0 + theta1 * x
+
+# 损失函数
+def calc_error() :
+  return np.sum(np.power((h(spaces) - prices),2)) / len(spaces)
+
+# 损失函数偏导数( theta 0)
+def calc_delta0() :
+  return step * np.sum((h(spaces) - prices) * x_i0) / len(spaces)
+
+# 损失函数偏导数( theta 1)
+def calc_delta1() :
+  return step * np.sum((h(spaces) - prices) * spaces) / len(spaces)
+</code></pre>
+<p>利用梯度下降算法进行动态更新</p>
+<pre><code class="language-cpp">def min1():
+    return h(spaces[0])
+
+# 循环更新 theta 值并计算误差，停止条件为
+#  1. 误差小于某个值
+#  2. 循环次数控制
+k = 0
+min11 = 100
+while True :
+  delta0 = calc_delta0()
+  delta1 = calc_delta1()
+  theta0 = theta0 - delta0
+  theta1 = theta1 - delta1
+  plt.figure(1)
+  plt.scatter(theta0, theta1, c='y')
+  plt.xlabel('theta0')
+  plt.ylabel('theta1')
+  plt.figure(3)
+  error = calc_error()
+  plt.scatter(k,error,c='y')
+  plt.xlabel('k')
+  plt.ylabel('error')
+  # print(&quot;delta [%f, %f], theta [%f, %f], error %f&quot; % (delta0, delta1, theta0, theta1, error))
+  k = k + 1
+  if (k &gt; 500 ) : 
+    break
+
+
+print(&quot; h(x) = %f + %f * x&quot; % (theta0, theta1))
+    
+# 使用假设函数计算出来的价格，用于画拟合曲线
+y_out = h(spaces)
+plt.figure(2)
+plt.scatter(spaces, prices, c='g')
+plt.plot(spaces, y_out, c='b')
+plt.xlabel('house space')
+plt.ylabel('house price')
+plt.show()
+</code></pre>
+<p><strong>细节处理</strong>：<br>
+我们并不是说得到了结果是一条直线就觉得完成了相对应的线性回归，我们需要对损失函数的损失数值进行对比，如果得到如下的图，表示拟合度很高<br>
+<img src="https://img-blog.csdnimg.cn/20200714220237281.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ0MTc3OTYw,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"><br>
+在此可以看到损失函数的数值趋近于0代表k只需要200就可以了，当然k越大其误差越小<br>
+然后我们可以继续编写随机梯度算法</p>
+<p><strong>随机梯度下降法（SGD)：每次使用1个样本进行计算,快但准确度欠缺</strong><br>
+然后伪代码如下</p>
+<pre><code class="language-cpp">## theta 初始值
+theta0 = 0
+theta1 = 0
+
+## 如果步长选择不对，则 theta 参数更新结果会不对
+step = 0.0000015
+
+x_i0 = np.ones((len(spaces)))
+
+# 假设函数
+
+def h(x) :
+  return theta0 + theta1 * x
+
+# 损失函数
+def calc_error() :
+  return np.sum(np.power((h(spaces) - prices),2)) / len(spaces)
+
+# 损失函数偏导数( theta 0)
+def calc_delta0() :
+  return step * (h(i) - prices[i])
+
+# 损失函数偏导数( theta 1)
+def calc_delta1() :
+  return step * (h(i) - prices[i]) * i 
+
+# 循环更新 theta 值并计算误差，停止条件为
+#  1. 误差小于某个值
+#  2. 循环次数控制
+k = 0
+
+while True :
+  i = random.randint(0,6)
+  delta0 = calc_delta0()
+  delta1 = calc_delta1()
+  theta0 = theta0 - delta0
+  theta1 = theta1 - delta1
+  plt.figure(1)
+  plt.scatter(theta0, theta1,c='g')
+  plt.xlabel('theta0')
+  plt.ylabel('theta1')
+  error = calc_error()
+  plt.figure(4)
+  plt.scatter(k,error,c='y')
+  plt.xlabel('k')
+  plt.ylabel('error')
+  # print(&quot;delta [%f, %f], theta [%f, %f], error %f&quot; % (delta0, delta1, theta0, theta1, error))
+  k = k + 1
+  if (k &gt; 500 ) : 
+    break
+
+
+print(&quot; h(x) = %f + %f * x&quot; % (theta0, theta1))
+    
+# 使用假设函数计算出来的价格，用于画拟合曲线
+y_out1 = h(spaces)
+plt.figure(2)
+plt.plot(spaces, y_out1)
+plt.show()
+</code></pre>
+<p>随机梯度算法的核心就是 用单个样本的数值代替整体样本的数值，优点就是速度快但是精度很欠缺，所以需要多k次的运行<br>
+我们依旧画出损失函数跟k的关系，如下图<img src="https://img-blog.csdnimg.cn/20200714221241836.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ0MTc3OTYw,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"><br>
+我们很明显的可以看出来用批量梯度算法是循环200次，而利用随机梯度算法需要进行500次，但是进行的次数快，每次都是选一个样本进行估计，当然我在这次编程中其步数没有统一，因此其参考价值并没有太大的意义。</p>
+<p>最后完整的代码如下</p>
+<pre><code class="language-cpp">import numpy as np
+import matplotlib.pyplot as plt
+import random
+spaces = [150, 200, 250, 300, 350, 400, 600]
+prices = [6450, 7450, 8450, 9450, 11450, 15450,18450]
+#prices=[]
+#for i in range(0,len(spaces)):
+     #prices.append(spaces[i]*prices1[i]/10000)         
+
+spaces, prices = np.array(spaces), np.array(prices)
+
+
+
+## theta 初始值
+theta0 = 0
+theta1 = 0
+
+## 如果步长选择不对，则 theta 参数更新结果会不对
+step = 0.0000001
+
+#np.ones()生产一个长度跟spaces一样的数组，且数组元素为1，因为theta0为常数
+x_i0 = np.ones((len(spaces)))
+
+# 假设函数
+def h(x) :
+  return theta0 + theta1 * x
+
+# 损失函数
+def calc_error() :
+  return np.sum(np.power((h(spaces) - prices),2)) / len(spaces)
+
+# 损失函数偏导数( theta 0)
+def calc_delta0() :
+  return step * np.sum((h(spaces) - prices) * x_i0) / len(spaces)
+
+# 损失函数偏导数( theta 1)
+def calc_delta1() :
+  return step * np.sum((h(spaces) - prices) * spaces) / len(spaces)
+
+def min1():
+    return h(spaces[0])
+
+# 循环更新 theta 值并计算误差，停止条件为
+#  1. 误差小于某个值
+#  2. 循环次数控制
+k = 0
+min11 = 100
+while True :
+  delta0 = calc_delta0()
+  delta1 = calc_delta1()
+  theta0 = theta0 - delta0
+  theta1 = theta1 - delta1
+  plt.figure(1)
+  plt.scatter(theta0, theta1, c='y')
+  plt.xlabel('theta0')
+  plt.ylabel('theta1')
+  plt.figure(3)
+  error = calc_error()
+  plt.scatter(k,error,c='y')
+  plt.xlabel('k')
+  plt.ylabel('error')
+  # print(&quot;delta [%f, %f], theta [%f, %f], error %f&quot; % (delta0, delta1, theta0, theta1, error))
+  k = k + 1
+  if (k &gt; 500 ) : 
+    break
+
+
+print(&quot; h(x) = %f + %f * x&quot; % (theta0, theta1))
+    
+# 使用假设函数计算出来的价格，用于画拟合曲线
+y_out = h(spaces)
+plt.figure(2)
+plt.scatter(spaces, prices, c='g')
+plt.plot(spaces, y_out, c='b')
+plt.xlabel('house space')
+plt.ylabel('house price')
+plt.show()
+
+
+## theta 初始值
+theta0 = 0
+theta1 = 0
+
+## 如果步长选择不对，则 theta 参数更新结果会不对
+step = 0.0000015
+
+x_i0 = np.ones((len(spaces)))
+
+# 假设函数
+
+def h(x) :
+  return theta0 + theta1 * x
+
+# 损失函数
+def calc_error() :
+  return np.sum(np.power((h(spaces) - prices),2)) / len(spaces)
+
+# 损失函数偏导数( theta 0)
+def calc_delta0() :
+  return step * (h(i) - prices[i])
+
+# 损失函数偏导数( theta 1)
+def calc_delta1() :
+  return step * (h(i) - prices[i]) * i 
+
+# 循环更新 theta 值并计算误差，停止条件为
+#  1. 误差小于某个值
+#  2. 循环次数控制
+k = 0
+
+while True :
+  i = random.randint(0,6)
+  delta0 = calc_delta0()
+  delta1 = calc_delta1()
+  theta0 = theta0 - delta0
+  theta1 = theta1 - delta1
+  plt.figure(1)
+  plt.scatter(theta0, theta1,c='g')
+  plt.xlabel('theta0')
+  plt.ylabel('theta1')
+  error = calc_error()
+  plt.figure(4)
+  plt.scatter(k,error,c='y')
+  plt.xlabel('k')
+  plt.ylabel('error')
+  # print(&quot;delta [%f, %f], theta [%f, %f], error %f&quot; % (delta0, delta1, theta0, theta1, error))
+  k = k + 1
+  if (k &gt; 500 ) : 
+    break
+
+
+print(&quot; h(x) = %f + %f * x&quot; % (theta0, theta1))
+    
+# 使用假设函数计算出来的价格，用于画拟合曲线
+y_out1 = h(spaces)
+plt.figure(2)
+plt.plot(spaces, y_out1)
+plt.show()
+</code></pre>
+<p>结果分析：<br>
+<img src="https://img-blog.csdnimg.cn/20200714221515593.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ0MTc3OTYw,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"><br>
+蓝色直线是利用批量梯度算法进行的拟合，另一条直线是随机梯度算法进行的拟合<br>
+其每次变化的快慢可以通过theta0和theta1的关系进行展示<img src="https://img-blog.csdnimg.cn/20200714221643175.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ0MTc3OTYw,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"><br>
+当然这仅仅只是参考，对于不同的步数（学习率）会有不同的结果<br>
+以下是三种梯度下降算法的特点：</p>
+<p><strong>批量梯度下降法（BGD）：使用所有样本进行计算，慢但准确度好<br>
+随机梯度下降法（SGD)：每次使用1个样本进行计算,快但准确度欠缺<br>
+小批量梯度下降法：每次使用a个样本进行计算，是BGD和SGD的折中方案</strong></p>
+
+        </div>
+        
+        
+        <div class="next-post">
+            下一篇
+            <a href="https://s-hmily.github.io/post/ji-yu-ju-zhen-fen-jie-de-tui-jian-suan-fa/">
+                基于矩阵分解的推荐算法
+            </a>
+        </div>
+        
+    </div>
+    </div>
+</body>
+<script>
+    var t_img; // 定时�?
+    var isLoad = true; // 控制变量
+    isImgLoad(function () {
+        // 加载完成
+        $('.postdetailimg').css("display", "block");
+    });
+    // 判断图片加载的函�?
+    function isImgLoad(callback) {
+        // 注意我的图片类名都是cover，因为我�?需要�?�理cover。其它图片可以不管�?
+        // 查找所有封面图，迭代�?�理
+        $('.postdetailimg').each(function () {
+            // 找到�?0就将isLoad设为false，并退出each
+            if (this.height === 0) {
+                isLoad = false;
+                return false;
+            }
+        });
+        // 为true，没有发现为0的。加载完�?
+        if (isLoad) {
+            clearTimeout(t_img); // 清除定时�?
+            // 回调函数
+            callback();
+            // 为false，因为找到了没有加载完成的图，将调用定时器递归
+        } else {
+            isLoad = true;
+            t_img = setTimeout(function () {
+                isImgLoad(callback); // 递归�?�?
+            }, 500); // 我这里�?�置的是500�?秒就�?描一次，�?以自己调�?
+        }
+    }
+
+    //文章阅读热度
+    var pl = $("#pl").html();
+    var rootaddr = $("#rootaddr").html();
+    pl = pl.replace(rootaddr, "");
+    $("#hotnum").attr('id', pl);
+</script>
+    <div name="comment" style="background: white;margin-top:100px">
+        <div class="commentcontainer">
+            
+            <p>请到客户端“主题--自定义配置--valine”中填入ID和KEY</p>
+            
+        </div>
+    </div>
+    </div>
+    <div id="landlord">
+        <div class="message" style="opacity:0"></div>
+        <canvas id="live2d" width="240" height="250" class="live2d"></canvas>
+    </div>
+    <div id="codeCopyText" style="display: none"></div>
+    <div id="domainname" style="display:none">https://s-hmily.github.io</div>
+    </body>
+    <script src="https://s-hmily.github.io/media/js/post.js"></script>
+    <script>
+        //寻找所有code标签，加复制按钮鸭！(行内代码除外)
+        var codes = document.getElementsByTagName('code');
+        if (codes.length) {
+            for (var i = 0; i < codes.length; i++) {
+                //高度/行高=文本行数
+                // var rowNum=Math.round(codes[i].height()/parseFloat(codes[i].css('line-height')));
+                // console.log("当前有"+rowNum+"行");
+                var code_id = "code_id_" + i;
+                codes[i].setAttribute("id", code_id);
+                var ci = "#" + code_id;
+                var codedot = $(ci);
+                var rowNum = Math.round(codedot.height() / parseFloat(codedot.css('line-height')));
+                if (rowNum <= 1) continue;
+                var btn = document.createElement("button");
+                btn.setAttribute("class", "copybt");
+                btn.setAttribute("data-clipboard-target", "#" + code_id);
+                btn.innerHTML = '复制代码';
+                codes[i].parentNode.insertBefore(btn, codes[i]);
+            }
+        };
+        var cop = new ClipboardJS('.copybt');
+        var codeCopyText = $("#codeCopyText").html();
+        cop.on('success', function (e) {
+            alert(codeCopyText);
+            e.clearSelection();
+        });
+        cop.on('error', function (e) {
+            alert("矮油，复制失败了...手动复制吧勇士！");
+            e.clearSelection();
+        });
+    </script>
+    
+<script>
+$(function () {
+    $('.toggleContainer').click(function(){$('html,body').animate({scrollTop: '0px'}, 800);});
+	$(window).scroll(function() {
+        var st = $(window).scrollTop();
+        if(st > 30){
+            $(".toggleContainer").fadeIn(400);
+        }else{
+            $(".toggleContainer").fadeOut(100);
+        }
+	});
+});
 </script>
 
-
-
-
-</body>
-</html>
+<script>
+        var bgchoice=$('#bgchoice').html();
+        var bg = $('#bg');
+        var bgurl = document.getElementById("bgurl").innerHTML;
+        if(bgchoice=='default')
+            for (var i = 0; i < 3; i++)
+                bgurl = bgurl.replace("\\", "/");
+        bg.css("background", "url('" + bgurl + "')");
+</script>
