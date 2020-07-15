@@ -119,7 +119,7 @@
                   
                 <li><a href="https://s-hmily.github.io/friends" style="color:white">友链</a></li>
                 
-                  <li><img src="https://s-hmily.github.io/images/avatar.png?v=1594787087047" alt=""
+                  <li><img src="https://s-hmily.github.io/images/avatar.png?v=1594812298286" alt=""
                 class="menutopavatar"></li>
             </ul>
         </div><!-- /.navbar-collapse -->
@@ -313,42 +313,46 @@
             </span>
         </div>
         <div class="text ">
-            <p>1.什么是推荐算法</p>
+            <h2 id="1什么是推荐算法">1.什么是推荐算法</h2>
 <p>推荐算法最早在1992年就提出来了，但是火起来实际上是最近这些年的事情，因为互联网的爆发，有了更大的数据量可以供我们使用，推荐算法才有了很大的用武之地。</p>
 <p>最开始，所以我们在网上找资料，都是进yahoo，然后分门别类的点进去，找到你想要的东西，这是一个人工过程，到后来，我们用google，直接搜索自己需要的内容，这些都可以比较精准的找到你想要的东西，但是，如果我自己都不知道自己要找什么肿么办？最典型的例子就是，如果我打开豆瓣找电影，或者我去买说，我实际上不知道我想要买什么或者看什么，这时候推荐系统就可以派上用场了</p>
 <p>推荐算法有很多，有基于内容的推荐算法，有基于知识的推荐算法，以及我们要讲的协同过滤推荐算法</p>
-<p>2.协同过滤算法的概述</p>
-<p>2.1协同过滤算法的原理</p>
+<h2 id="2协同过滤算法的概述">2.协同过滤算法的概述</h2>
+<h4 id="21协同过滤算法的原理">2.1协同过滤算法的原理</h4>
 <p>原理就是用户喜欢那些具有相似兴趣的用户喜欢过的商品，比如你的朋友喜欢电影哈利波特I，那么就会推荐给你，这是最简单的基于用户的协同过滤算法（user-based collaboratIve filtering），还有一种是基于Item的协同过滤算法（item-based collaborative filtering），这两种方法都是将用户的所有数据读入到内存中进行运算的，因此成为Memory-based Collaborative Filtering，另一种则是Model-based collaborative filtering，包括Aspect Model，pLSA，LDA，聚类，SVD，Matrix Factorization等，这种方法训练过程比较长，但是训练完成后，推荐过程比较快。</p>
-<p>2.2协同过滤算法的实现</p>
+<h4 id="22协同过滤算法的实现">2.2协同过滤算法的实现</h4>
 <p>1.收集数据</p>
 <p>2.找到相似用户和物品</p>
 <p>3.进行推荐</p>
-<p>2.2.1收集数据</p>
+<h5 id="221收集数据">2.2.1收集数据</h5>
 <p>这些数据是用户的历史行为，或者说是搜索行为，比如你在淘宝上搜索一些NIKE的鞋子，你今天进行了搜索，你下次打开淘宝app，你会发现首页给你推荐的多了一些同品牌的鞋子，或者是外观相同或者功能相同的鞋子，那这是为什么呢？就是淘宝会根据你搜索的信息，然后跟数据库里边的用户搜索同样类型的鞋子的人进行相似度匹配。</p>
-<p>2.2.2找到相似用户和物品</p>
+<h5 id="222找到相似用户和物品">2.2.2找到相似用户和物品</h5>
 <p>淘宝会根据你的搜索记录，找到一些跟你有过相同搜索记录的用户，然后根据你们两者之间的购物信息或者搜索信息利用一些数学知识进行的相似度匹配。</p>
 <p>以下有几种相似度计算的方法：</p>
-<p>2.2.3进行推荐</p>
+<figure data-type="image" tabindex="1"><img src="http://img.blog.csdn.net/20170315213518604?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvQmFpSHVhWGl1MTIz/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="è¿éåå¾çæè¿°" loading="lazy"></figure>
+<h5 id="223进行推荐">2.2.3进行推荐</h5>
 <p>淘宝会根据相似度进行从大到小的排序，然后会从大到小的给你进行推荐，相似度最大的会最先出现在你的视野里边，这也就是你的推荐栏里边永远都会有新的物品出现</p>
-<p>3.协同过滤的主流方法</p>
+<h2 id="3协同过滤的主流方法">3.协同过滤的主流方法</h2>
 <p>具体怎么来阐述他们的原理呢，看个图大家就明白了</p>
-<p>3.1基于用户的协同过滤算法</p>
-<p>基于用户的 CF 的基本思想相当简单，基于用户对物品的偏好找到相邻邻居用户，然后将邻居用户喜欢的推荐给当前用户。计算上，就是将一个用户对所有物品的偏好作为一个向量来计算用户之间的相似度，找到 K 邻居后，根据邻居的相似度权重以及他们对物品的偏好，预测当前用户没有偏好的未涉及物品，计算得到一个排序的物品列表作为推荐。 下图给出了一个例子，对于用户 A，根据用户的历史偏好，这里只计算得到一个邻居 - 用户 C，然后将用户 C 喜欢的物品 D 推荐给用户 A。</p>
-<p>3.2基于物品的协同过滤算法</p>
-<p>基于物品的 CF 的原理和基于用户的 CF 类似，只是在计算邻居时采用物品本身，而不是从用户的角度，即基于用户对物品的偏好找到相似的物品，然后根据用户的历史偏好，推荐相似的物品给他。从计算的角度看，就是将所有用户对某个物品的偏好作为一个向量来计算物品之间的相似度，得到物品的相似物品后，根据用户历史的偏好预测当前用户还没有表示偏好的物品，计算得到一个排序的物品列表作为推荐。下图给出了一个例子，对于物品 A，根据所有用户的历史偏好，喜欢物品 A 的用户都喜欢物品 C，得出物品 A 和物品 C 比较相似，而用户 C 喜欢物品 A，那么可以推断出用户 C 可能也喜欢物品 C。</p>
-<p>4.代码分析</p>
-<p>4.1基于用户的协同过滤算法代码分析</p>
-<p>4.1.1过程简述</p>
+<h4 id="31基于用户的协同过滤算法">3.1基于用户的协同过滤算法</h4>
+<p>基于用户的 CF 的基本思想相当简单，基于用户对物品的偏好找到相邻邻居用户，然后将邻居用户喜欢的推荐给当前用户。计算上，就是将一个用户对所有物品的偏好作为一个向量来计算用户之间的相似度，找到 K 邻居后，根据邻居的相似度权重以及他们对物品的偏好，预测当前用户没有偏好的未涉及物品，计算得到一个排序的物品列表作为推荐。 下图给出了一个例子，对于用户 A，根据用户的历史偏好，这里只计算得到一个邻居 - 用户 C，然后将用户 C 喜欢的物品 D 推荐给用户 A。<br>
+<img src="http://img.blog.csdn.net/20170315213611409?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvQmFpSHVhWGl1MTIz/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述" loading="lazy"></p>
+<h3 id="32基于物品的协同过滤算法">3.2基于物品的协同过滤算法</h3>
+<p>基于物品的 CF 的原理和基于用户的 CF 类似，只是在计算邻居时采用物品本身，而不是从用户的角度，即基于用户对物品的偏好找到相似的物品，然后根据用户的历史偏好，推荐相似的物品给他。从计算的角度看，就是将所有用户对某个物品的偏好作为一个向量来计算物品之间的相似度，得到物品的相似物品后，根据用户历史的偏好预测当前用户还没有表示偏好的物品，计算得到一个排序的物品列表作为推荐。下图给出了一个例子，对于物品 A，根据所有用户的历史偏好，喜欢物品 A 的用户都喜欢物品 C，得出物品 A 和物品 C 比较相似，而用户 C 喜欢物品 A，那么可以推断出用户 C 可能也喜欢物品 C。 <img src="http://img.blog.csdn.net/20170315213700950?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvQmFpSHVhWGl1MTIz/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="è¿éåå¾çæè¿°" loading="lazy"></p>
+<h2 id="4代码分析">4.代码分析</h2>
+<h3 id="41基于用户的协同过滤算法代码分析">4.1基于用户的协同过滤算法代码分析</h3>
+<h5 id="411过程简述">4.1.1过程简述</h5>
 <p>先定义一个数据集，我们这里定义一个</p>
 <pre><code>dic={'A':('a','b','d'),'B':('a','c'),'C':('b','e'),'D':('c','d','e')}#简单粗暴，记得加''
 </code></pre>
 <p>代表A用户搜索过a，b，d这三种物品，B搜索过a，c两种物品依次类推</p>
-<p>4.1.2具体过程</p>
+<h5 id="412具体过程">4.1.2具体过程</h5>
 <p>比如我们要求A与B的相似度如何求呢？我们这里用余弦相似度计算的A和B的兴趣相似度为（分子是他们共同买过的东西，分母是分别买的东西的数量）：</p>
 <p>这里用W代表相似度</p>
+<figure data-type="image" tabindex="2"><img src="https://img-blog.csdn.net/20170919220929461" alt="img" loading="lazy"></figure>
 <p>但是实际问题中很多人都没有买过相同的商品，那么我们可能会有巨大的时间的复杂度，那么如何解决这个问题呢？我们就建立一个用户与用户之间的稀疏矩阵，如果A与B之间有关系那么就标志为1，否则标志为0</p>
-<p>4.1.3代码分析</p>
+<figure data-type="image" tabindex="3"><img src="https://img-blog.csdn.net/20170918114824472" alt="img" loading="lazy"></figure>
+<h5 id="413代码分析">4.1.3代码分析</h5>
 <p>首先先建立一个商品-用户的字典item_user</p>
 <p>思路就是items遍历字典的values也就是小写字母表示的a,b,c,d,e的商品，然后用i遍历商品，然后item_user[i]=set()，将商品变成为字典中key，用户变成values</p>
 <pre><code>#把用户-商品字典转成商品-用户字典（如图中箭头指示那样）
@@ -383,6 +387,7 @@
 	for co_user,cuv in C.items():
 		W[co_user]=cuv / math.sqrt(N[co_user[0]]*N[co_user[1]])
 	return W
+
 </code></pre>
 <p>然后我们计算相似度</p>
 <p>这里要提到一些</p>
@@ -390,14 +395,14 @@
 <p>[('B', 0.4082482904638631), ('C', 0.4082482904638631), ('D', 0.3333333333333333)]</p>
 <p>然后是进行排序处理</p>
 <p>主要是几个函数的应用</p>
-<p>先来基本介绍一下sorted函数，sorted(iterable,key,reverse)，sorted一共有iterable,key,reverse这三个参数。</p>
+<p>先来基本介绍一下<strong>sorted</strong>函数，sorted(iterable,key,reverse)，sorted一共有iterable,key,reverse这三个参数。</p>
 <p>其中iterable表示可以迭代的对象，例如可以是dict.items()、dict.keys()等，key是一个函数，用来选取参与比较的元素，reverse则是用来指定排序是倒序还是顺序，reverse=true则是倒序，reverse=false时则是顺序，默认时reverse=false。</p>
-<p>iteritems()函数作用：</p>
-<p>以书中classCount.iteritems()为例，作用是将字典classCount分解为元组列表</p>
-<p>若classCount = {‘A’：1，‘B’：2，‘C’：3}</p>
-<p>则分为</p>
-<p>[‘A’,’B’,’C’] 与 [1, 2, 3]两组</p>
-<p>itemgetter()函数作用：</p>
+<p><strong>iteritems()函数作用：</strong></p>
+<p>以书中classCount.iteritems()为例，作用是将字典classCount分解为元组列表<br>
+若classCount = {‘A’：1，‘B’：2，‘C’：3}<br>
+则分为<br>
+[‘A’,’B’,’C’] 与 [1, 2, 3]两组</p>
+<p><strong>itemgetter()函数作用</strong>：</p>
 <p>结合4，以书中operator.itemgetter(1)为例，作用是读取元组iteritems内的第2列，即字典classCount = {‘A’：1，‘B’：2，‘C’：3}中的[1, 2, 3]</p>
 <pre><code>def Recommend(user,dicc,W2,K):
 	rvi=1 #这里都是1,实际中可能每个用户就不一样了。就像每个人都喜欢beautiful girl,但有的喜欢可爱的多一些，有的喜欢御姐多一些。
@@ -416,8 +421,9 @@
 				rank[i]=0
 			rank[i]+=wuv*rvi
 	return rank
+
 </code></pre>
-<p>完整代码如下：</p>
+<p><strong>完整代码如下：</strong></p>
 <pre><code># -*- coding=utf-8 -*-
 import math
 from operator import *
@@ -486,7 +492,7 @@ if __name__=='__main__':
 	Last_Rank=Recommend('A',dic,W3,2)
 	print (Last_Rank)
 </code></pre>
-<p>4.2基于商品的协同过滤算法</p>
+<h3 id="42基于商品的协同过滤算法">4.2基于商品的协同过滤算法</h3>
 <p>代码跟上边的类似，如下：</p>
 <pre><code>from math import sqrt
 import operator
@@ -549,11 +555,9 @@ if __name__=='__main__':
     #为用户A推荐2部电影
     recommandList(data,W,&quot;A&quot;,3,2)
 </code></pre>
-<p>参考文章：http://docs.sqdxwz.com/ai-note/ai/itemcf/</p>
-<pre><code>	   文章二
-
-	   文章三
-</code></pre>
+<p>参考文章：<a href="http://docs.sqdxwz.com/ai-note/ai/itemcf/">文章一</a></p>
+<p>​		   <a href="https://blog.csdn.net/guanbai4146/article/details/78016778?ops_request_misc=&amp;request_id=&amp;biz_id=102&amp;utm_term=if%20(u,v)%20not%20in%20C.keys()&amp;utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduweb~default-0-78016778">文章二</a></p>
+<p>​		   <a href="https://www.cnblogs.com/baihuaxiu/p/6617389.html">文章三</a></p>
 
         </div>
         
@@ -616,7 +620,47 @@ if __name__=='__main__':
     </div>
      
                 <div class="toc-container">
-                    
+                    <ul class="markdownIt-TOC">
+<li>
+<ul>
+<li><a href="#1%E4%BB%80%E4%B9%88%E6%98%AF%E6%8E%A8%E8%8D%90%E7%AE%97%E6%B3%95">1.什么是推荐算法</a></li>
+<li><a href="#2%E5%8D%8F%E5%90%8C%E8%BF%87%E6%BB%A4%E7%AE%97%E6%B3%95%E7%9A%84%E6%A6%82%E8%BF%B0">2.协同过滤算法的概述</a><br>
+*
+<ul>
+<li><a href="#21%E5%8D%8F%E5%90%8C%E8%BF%87%E6%BB%A4%E7%AE%97%E6%B3%95%E7%9A%84%E5%8E%9F%E7%90%86">2.1协同过滤算法的原理</a></li>
+<li><a href="#22%E5%8D%8F%E5%90%8C%E8%BF%87%E6%BB%A4%E7%AE%97%E6%B3%95%E7%9A%84%E5%AE%9E%E7%8E%B0">2.2协同过滤算法的实现</a>
+<ul>
+<li><a href="#221%E6%94%B6%E9%9B%86%E6%95%B0%E6%8D%AE">2.2.1收集数据</a></li>
+<li><a href="#222%E6%89%BE%E5%88%B0%E7%9B%B8%E4%BC%BC%E7%94%A8%E6%88%B7%E5%92%8C%E7%89%A9%E5%93%81">2.2.2找到相似用户和物品</a></li>
+<li><a href="#223%E8%BF%9B%E8%A1%8C%E6%8E%A8%E8%8D%90">2.2.3进行推荐</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#3%E5%8D%8F%E5%90%8C%E8%BF%87%E6%BB%A4%E7%9A%84%E4%B8%BB%E6%B5%81%E6%96%B9%E6%B3%95">3.协同过滤的主流方法</a><br>
+*
+<ul>
+<li><a href="#31%E5%9F%BA%E4%BA%8E%E7%94%A8%E6%88%B7%E7%9A%84%E5%8D%8F%E5%90%8C%E8%BF%87%E6%BB%A4%E7%AE%97%E6%B3%95">3.1基于用户的协同过滤算法</a></li>
+<li><a href="#32%E5%9F%BA%E4%BA%8E%E7%89%A9%E5%93%81%E7%9A%84%E5%8D%8F%E5%90%8C%E8%BF%87%E6%BB%A4%E7%AE%97%E6%B3%95">3.2基于物品的协同过滤算法</a></li>
+</ul>
+</li>
+<li><a href="#4%E4%BB%A3%E7%A0%81%E5%88%86%E6%9E%90">4.代码分析</a>
+<ul>
+<li><a href="#41%E5%9F%BA%E4%BA%8E%E7%94%A8%E6%88%B7%E7%9A%84%E5%8D%8F%E5%90%8C%E8%BF%87%E6%BB%A4%E7%AE%97%E6%B3%95%E4%BB%A3%E7%A0%81%E5%88%86%E6%9E%90">4.1基于用户的协同过滤算法代码分析</a><br>
+*
+<ul>
+<li><a href="#411%E8%BF%87%E7%A8%8B%E7%AE%80%E8%BF%B0">4.1.1过程简述</a></li>
+<li><a href="#412%E5%85%B7%E4%BD%93%E8%BF%87%E7%A8%8B">4.1.2具体过程</a></li>
+<li><a href="#413%E4%BB%A3%E7%A0%81%E5%88%86%E6%9E%90">4.1.3代码分析</a></li>
+</ul>
+</li>
+<li><a href="#42%E5%9F%BA%E4%BA%8E%E5%95%86%E5%93%81%E7%9A%84%E5%8D%8F%E5%90%8C%E8%BF%87%E6%BB%A4%E7%AE%97%E6%B3%95">4.2基于商品的协同过滤算法</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
     </div>
     </div>
     </div>
@@ -746,42 +790,46 @@ if __name__=='__main__':
             </span>
         </div>
         <div class="text ">
-            <p>1.什么是推荐算法</p>
+            <h2 id="1什么是推荐算法">1.什么是推荐算法</h2>
 <p>推荐算法最早在1992年就提出来了，但是火起来实际上是最近这些年的事情，因为互联网的爆发，有了更大的数据量可以供我们使用，推荐算法才有了很大的用武之地。</p>
 <p>最开始，所以我们在网上找资料，都是进yahoo，然后分门别类的点进去，找到你想要的东西，这是一个人工过程，到后来，我们用google，直接搜索自己需要的内容，这些都可以比较精准的找到你想要的东西，但是，如果我自己都不知道自己要找什么肿么办？最典型的例子就是，如果我打开豆瓣找电影，或者我去买说，我实际上不知道我想要买什么或者看什么，这时候推荐系统就可以派上用场了</p>
 <p>推荐算法有很多，有基于内容的推荐算法，有基于知识的推荐算法，以及我们要讲的协同过滤推荐算法</p>
-<p>2.协同过滤算法的概述</p>
-<p>2.1协同过滤算法的原理</p>
+<h2 id="2协同过滤算法的概述">2.协同过滤算法的概述</h2>
+<h4 id="21协同过滤算法的原理">2.1协同过滤算法的原理</h4>
 <p>原理就是用户喜欢那些具有相似兴趣的用户喜欢过的商品，比如你的朋友喜欢电影哈利波特I，那么就会推荐给你，这是最简单的基于用户的协同过滤算法（user-based collaboratIve filtering），还有一种是基于Item的协同过滤算法（item-based collaborative filtering），这两种方法都是将用户的所有数据读入到内存中进行运算的，因此成为Memory-based Collaborative Filtering，另一种则是Model-based collaborative filtering，包括Aspect Model，pLSA，LDA，聚类，SVD，Matrix Factorization等，这种方法训练过程比较长，但是训练完成后，推荐过程比较快。</p>
-<p>2.2协同过滤算法的实现</p>
+<h4 id="22协同过滤算法的实现">2.2协同过滤算法的实现</h4>
 <p>1.收集数据</p>
 <p>2.找到相似用户和物品</p>
 <p>3.进行推荐</p>
-<p>2.2.1收集数据</p>
+<h5 id="221收集数据">2.2.1收集数据</h5>
 <p>这些数据是用户的历史行为，或者说是搜索行为，比如你在淘宝上搜索一些NIKE的鞋子，你今天进行了搜索，你下次打开淘宝app，你会发现首页给你推荐的多了一些同品牌的鞋子，或者是外观相同或者功能相同的鞋子，那这是为什么呢？就是淘宝会根据你搜索的信息，然后跟数据库里边的用户搜索同样类型的鞋子的人进行相似度匹配。</p>
-<p>2.2.2找到相似用户和物品</p>
+<h5 id="222找到相似用户和物品">2.2.2找到相似用户和物品</h5>
 <p>淘宝会根据你的搜索记录，找到一些跟你有过相同搜索记录的用户，然后根据你们两者之间的购物信息或者搜索信息利用一些数学知识进行的相似度匹配。</p>
 <p>以下有几种相似度计算的方法：</p>
-<p>2.2.3进行推荐</p>
+<figure data-type="image" tabindex="1"><img src="http://img.blog.csdn.net/20170315213518604?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvQmFpSHVhWGl1MTIz/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="è¿éåå¾çæè¿°" loading="lazy"></figure>
+<h5 id="223进行推荐">2.2.3进行推荐</h5>
 <p>淘宝会根据相似度进行从大到小的排序，然后会从大到小的给你进行推荐，相似度最大的会最先出现在你的视野里边，这也就是你的推荐栏里边永远都会有新的物品出现</p>
-<p>3.协同过滤的主流方法</p>
+<h2 id="3协同过滤的主流方法">3.协同过滤的主流方法</h2>
 <p>具体怎么来阐述他们的原理呢，看个图大家就明白了</p>
-<p>3.1基于用户的协同过滤算法</p>
-<p>基于用户的 CF 的基本思想相当简单，基于用户对物品的偏好找到相邻邻居用户，然后将邻居用户喜欢的推荐给当前用户。计算上，就是将一个用户对所有物品的偏好作为一个向量来计算用户之间的相似度，找到 K 邻居后，根据邻居的相似度权重以及他们对物品的偏好，预测当前用户没有偏好的未涉及物品，计算得到一个排序的物品列表作为推荐。 下图给出了一个例子，对于用户 A，根据用户的历史偏好，这里只计算得到一个邻居 - 用户 C，然后将用户 C 喜欢的物品 D 推荐给用户 A。</p>
-<p>3.2基于物品的协同过滤算法</p>
-<p>基于物品的 CF 的原理和基于用户的 CF 类似，只是在计算邻居时采用物品本身，而不是从用户的角度，即基于用户对物品的偏好找到相似的物品，然后根据用户的历史偏好，推荐相似的物品给他。从计算的角度看，就是将所有用户对某个物品的偏好作为一个向量来计算物品之间的相似度，得到物品的相似物品后，根据用户历史的偏好预测当前用户还没有表示偏好的物品，计算得到一个排序的物品列表作为推荐。下图给出了一个例子，对于物品 A，根据所有用户的历史偏好，喜欢物品 A 的用户都喜欢物品 C，得出物品 A 和物品 C 比较相似，而用户 C 喜欢物品 A，那么可以推断出用户 C 可能也喜欢物品 C。</p>
-<p>4.代码分析</p>
-<p>4.1基于用户的协同过滤算法代码分析</p>
-<p>4.1.1过程简述</p>
+<h4 id="31基于用户的协同过滤算法">3.1基于用户的协同过滤算法</h4>
+<p>基于用户的 CF 的基本思想相当简单，基于用户对物品的偏好找到相邻邻居用户，然后将邻居用户喜欢的推荐给当前用户。计算上，就是将一个用户对所有物品的偏好作为一个向量来计算用户之间的相似度，找到 K 邻居后，根据邻居的相似度权重以及他们对物品的偏好，预测当前用户没有偏好的未涉及物品，计算得到一个排序的物品列表作为推荐。 下图给出了一个例子，对于用户 A，根据用户的历史偏好，这里只计算得到一个邻居 - 用户 C，然后将用户 C 喜欢的物品 D 推荐给用户 A。<br>
+<img src="http://img.blog.csdn.net/20170315213611409?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvQmFpSHVhWGl1MTIz/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述" loading="lazy"></p>
+<h3 id="32基于物品的协同过滤算法">3.2基于物品的协同过滤算法</h3>
+<p>基于物品的 CF 的原理和基于用户的 CF 类似，只是在计算邻居时采用物品本身，而不是从用户的角度，即基于用户对物品的偏好找到相似的物品，然后根据用户的历史偏好，推荐相似的物品给他。从计算的角度看，就是将所有用户对某个物品的偏好作为一个向量来计算物品之间的相似度，得到物品的相似物品后，根据用户历史的偏好预测当前用户还没有表示偏好的物品，计算得到一个排序的物品列表作为推荐。下图给出了一个例子，对于物品 A，根据所有用户的历史偏好，喜欢物品 A 的用户都喜欢物品 C，得出物品 A 和物品 C 比较相似，而用户 C 喜欢物品 A，那么可以推断出用户 C 可能也喜欢物品 C。 <img src="http://img.blog.csdn.net/20170315213700950?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvQmFpSHVhWGl1MTIz/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="è¿éåå¾çæè¿°" loading="lazy"></p>
+<h2 id="4代码分析">4.代码分析</h2>
+<h3 id="41基于用户的协同过滤算法代码分析">4.1基于用户的协同过滤算法代码分析</h3>
+<h5 id="411过程简述">4.1.1过程简述</h5>
 <p>先定义一个数据集，我们这里定义一个</p>
 <pre><code>dic={'A':('a','b','d'),'B':('a','c'),'C':('b','e'),'D':('c','d','e')}#简单粗暴，记得加''
 </code></pre>
 <p>代表A用户搜索过a，b，d这三种物品，B搜索过a，c两种物品依次类推</p>
-<p>4.1.2具体过程</p>
+<h5 id="412具体过程">4.1.2具体过程</h5>
 <p>比如我们要求A与B的相似度如何求呢？我们这里用余弦相似度计算的A和B的兴趣相似度为（分子是他们共同买过的东西，分母是分别买的东西的数量）：</p>
 <p>这里用W代表相似度</p>
+<figure data-type="image" tabindex="2"><img src="https://img-blog.csdn.net/20170919220929461" alt="img" loading="lazy"></figure>
 <p>但是实际问题中很多人都没有买过相同的商品，那么我们可能会有巨大的时间的复杂度，那么如何解决这个问题呢？我们就建立一个用户与用户之间的稀疏矩阵，如果A与B之间有关系那么就标志为1，否则标志为0</p>
-<p>4.1.3代码分析</p>
+<figure data-type="image" tabindex="3"><img src="https://img-blog.csdn.net/20170918114824472" alt="img" loading="lazy"></figure>
+<h5 id="413代码分析">4.1.3代码分析</h5>
 <p>首先先建立一个商品-用户的字典item_user</p>
 <p>思路就是items遍历字典的values也就是小写字母表示的a,b,c,d,e的商品，然后用i遍历商品，然后item_user[i]=set()，将商品变成为字典中key，用户变成values</p>
 <pre><code>#把用户-商品字典转成商品-用户字典（如图中箭头指示那样）
@@ -816,6 +864,7 @@ if __name__=='__main__':
 	for co_user,cuv in C.items():
 		W[co_user]=cuv / math.sqrt(N[co_user[0]]*N[co_user[1]])
 	return W
+
 </code></pre>
 <p>然后我们计算相似度</p>
 <p>这里要提到一些</p>
@@ -823,14 +872,14 @@ if __name__=='__main__':
 <p>[('B', 0.4082482904638631), ('C', 0.4082482904638631), ('D', 0.3333333333333333)]</p>
 <p>然后是进行排序处理</p>
 <p>主要是几个函数的应用</p>
-<p>先来基本介绍一下sorted函数，sorted(iterable,key,reverse)，sorted一共有iterable,key,reverse这三个参数。</p>
+<p>先来基本介绍一下<strong>sorted</strong>函数，sorted(iterable,key,reverse)，sorted一共有iterable,key,reverse这三个参数。</p>
 <p>其中iterable表示可以迭代的对象，例如可以是dict.items()、dict.keys()等，key是一个函数，用来选取参与比较的元素，reverse则是用来指定排序是倒序还是顺序，reverse=true则是倒序，reverse=false时则是顺序，默认时reverse=false。</p>
-<p>iteritems()函数作用：</p>
-<p>以书中classCount.iteritems()为例，作用是将字典classCount分解为元组列表</p>
-<p>若classCount = {‘A’：1，‘B’：2，‘C’：3}</p>
-<p>则分为</p>
-<p>[‘A’,’B’,’C’] 与 [1, 2, 3]两组</p>
-<p>itemgetter()函数作用：</p>
+<p><strong>iteritems()函数作用：</strong></p>
+<p>以书中classCount.iteritems()为例，作用是将字典classCount分解为元组列表<br>
+若classCount = {‘A’：1，‘B’：2，‘C’：3}<br>
+则分为<br>
+[‘A’,’B’,’C’] 与 [1, 2, 3]两组</p>
+<p><strong>itemgetter()函数作用</strong>：</p>
 <p>结合4，以书中operator.itemgetter(1)为例，作用是读取元组iteritems内的第2列，即字典classCount = {‘A’：1，‘B’：2，‘C’：3}中的[1, 2, 3]</p>
 <pre><code>def Recommend(user,dicc,W2,K):
 	rvi=1 #这里都是1,实际中可能每个用户就不一样了。就像每个人都喜欢beautiful girl,但有的喜欢可爱的多一些，有的喜欢御姐多一些。
@@ -849,8 +898,9 @@ if __name__=='__main__':
 				rank[i]=0
 			rank[i]+=wuv*rvi
 	return rank
+
 </code></pre>
-<p>完整代码如下：</p>
+<p><strong>完整代码如下：</strong></p>
 <pre><code># -*- coding=utf-8 -*-
 import math
 from operator import *
@@ -919,7 +969,7 @@ if __name__=='__main__':
 	Last_Rank=Recommend('A',dic,W3,2)
 	print (Last_Rank)
 </code></pre>
-<p>4.2基于商品的协同过滤算法</p>
+<h3 id="42基于商品的协同过滤算法">4.2基于商品的协同过滤算法</h3>
 <p>代码跟上边的类似，如下：</p>
 <pre><code>from math import sqrt
 import operator
@@ -982,11 +1032,9 @@ if __name__=='__main__':
     #为用户A推荐2部电影
     recommandList(data,W,&quot;A&quot;,3,2)
 </code></pre>
-<p>参考文章：http://docs.sqdxwz.com/ai-note/ai/itemcf/</p>
-<pre><code>	   文章二
-
-	   文章三
-</code></pre>
+<p>参考文章：<a href="http://docs.sqdxwz.com/ai-note/ai/itemcf/">文章一</a></p>
+<p>​		   <a href="https://blog.csdn.net/guanbai4146/article/details/78016778?ops_request_misc=&amp;request_id=&amp;biz_id=102&amp;utm_term=if%20(u,v)%20not%20in%20C.keys()&amp;utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduweb~default-0-78016778">文章二</a></p>
+<p>​		   <a href="https://www.cnblogs.com/baihuaxiu/p/6617389.html">文章三</a></p>
 
         </div>
         
