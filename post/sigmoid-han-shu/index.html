@@ -1,12 +1,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="矩阵分解算法是学习协同过滤算法的基础，接下来就来讲一件什么是矩阵分解。
-一，基于矩阵分解算法的相关理论介绍
-很显然，我们要是想做推荐系统，最基本的一个数据就是用户对这个商品的特性的反应，就拿用户-物品的评分矩阵来说
-
-矩阵中，描述了五个用户..." />
-    <meta name="keywords" content="机器学习" />
+    <meta name="description" content="1.Sigmoid函数的定义
+Sigmoid函数，即f(x)=1/(1+e-x)。是神经元的非线性作用函数。广泛应用在神经网络中。
+神经网络的学习是基于一组样本进行的，它包括输入和输出（这里用期望输出表示），输入和输出有多少个分量就有多少个..." />
+    <meta name="keywords" content="" />
     <link rel="stylesheet" href="https://s-hmily.github.io/media/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://s-hmily.github.io/styles/main.css">
     
@@ -295,140 +293,54 @@
         <div class="postshow">
             
             <div class="postdetailimg" style="width:100%;overflow: hidden;display: none">
-                <img src="https://ericamblog.oss-cn-shanghai.aliyuncs.com/2020/c-stl-kuai-su-shi-yong-shou-ce.jpg" class="postimage" style="cursor:auto">
+                <img src="https://s-hmily.github.io/post-images/sigmoid-han-shu.JPG" class="postimage" style="cursor:auto">
             </div>
             <div class="postinfo-detail">
-                <div class="postdate"><i class="fa fa-calendar"></i>2020-07-14</div>
-                <div class="poststatus postdate"><i class="fa fa-clock-o"></i> 5 min read</div>
+                <div class="postdate"><i class="fa fa-calendar"></i>2020-07-16</div>
+                <div class="poststatus postdate"><i class="fa fa-clock-o"></i> 2 min read</div>
                 <div class="posttag">
-                    
-                    <a href="https://s-hmily.github.io/tag/lMYeCI_cf/" class="postlink">
-                        <i class="fa fa-tag"></i> 机器学习
-                    </a>
                     
                 </div>
             </div>
             
         <div id="texttitle" style="text-align: center">
-            <h2>基于矩阵分解的推荐算法</h2>
+            <h2>sigmoid函数</h2>
             <!-- id 将作为查询条件 -->
-            <div id="pl" style="display:none">https://s-hmily.github.io/post/ji-yu-ju-zhen-fen-jie-de-tui-jian-suan-fa/</div>
+            <div id="pl" style="display:none">https://s-hmily.github.io/post/sigmoid-han-shu/</div>
             <div id="rootaddr" style="display:none">https://s-hmily.github.io</div>
-            <span id="hotnum" class="leancloud_visitors" data-flag-title="基于矩阵分解的推荐算法">
+            <span id="hotnum" class="leancloud_visitors" data-flag-title="sigmoid函数">
                 <h4 class="readercount">热度🔥: <i class="leancloud-visitors-count">loading...</i></h4>
             </span>
         </div>
         <div class="text ">
-            <p>矩阵分解算法是学习协同过滤算法的基础，接下来就来讲一件什么是矩阵分解。<br>
-一，基于矩阵分解算法的相关理论介绍<br>
-很显然，我们要是想做推荐系统，最基本的一个数据就是用户对这个商品的特性的反应，就拿用户-物品的评分矩阵来说<br>
-<img src="https://img-blog.csdnimg.cn/20200713205030760.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ0MTc3OTYw,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"><br>
-矩阵中，描述了五个用户（U1,U2,U3,U4,U5）对四个物品（D1,D2,D3,D4）的评分，但是我们发现有些表格中没有填写评分<br>
-的数字，这个时候我们就需要把没有填写的评分根据已知的分数进行预测，然后根据评分的高低给用户进行推荐。<br>
-那么如何进行预测缺失的评分呢？那么我们可以把这些想象成点，然后可以根据梯度下降跟回归方程进行连续值的预测。假设是M<em>N维矩阵（M行N列），然后我们可以分解成P矩阵和Q矩阵，其中P矩阵是M</em>K,Q矩阵维度是K*N。（K是过渡数值，也就是过渡维度）<br>
-<img src="https://img-blog.csdnimg.cn/20200713210022150.png" alt="图一" loading="lazy"><br>
-对于P,Q矩阵的解释，直观上是M个用户对K个主题的关系，Q矩阵是K个主题对N个物品的关系，具体K是多少，这就需要自己的调节了，K只是一个参数，通常取值在10到100之间<br>
-<img src="https://img-blog.csdnimg.cn/2020071321100480.png" alt="在这里插入图片描述" loading="lazy"><br>
-式子2</p>
-<p>其中r代表 R原始矩阵，p，q代表P,Q矩阵。rij代表R矩阵第i行第j列的数字，后边的同理<br>
-我们对于矩阵的知识可以知道，这个矩阵i行j列的数值等于P矩阵i行的所有数值乘以q第j列的所有数值的和<br>
-然后我们可以知道回归方程的最小二乘法的公式如下<br>
-然后把式子2带入式子3中得到下图<br>
-<img src="https://img-blog.csdnimg.cn/20200713210437802.png" alt="在这里插入图片描述" loading="lazy"><br>
-式子3</p>
-<p>对于损失函数的左边项，表示的是R^ 第i行，第j列的元素值，对于如何衡量，我们分解的好坏呢，式子3，给出了衡量标准，也就是损失函数，平方项损失，最后的目标，就是每一个元素(非缺失值)的e(i,j)的总和最小<br>
-然后我们需要用到L2正则化<br>
-<img src="https://img-blog.csdnimg.cn/20200713211252210.png" alt="在这里插入图片描述" loading="lazy"><br>
-因此最终的损失函数为：<br>
-<img src="https://img-blog.csdnimg.cn/20200713211530742.png" alt="在这里插入图片描述" loading="lazy"><br>
-然后可以使用梯度下降算法对其求解P矩阵和Q矩阵<img src="https://img-blog.csdnimg.cn/20200713211609666.png" alt="在这里插入图片描述" loading="lazy"><br>
-最后结果为：<br>
-<img src="https://img-blog.csdnimg.cn/20200713211625329.png" alt="在这里插入图片描述" loading="lazy"><br>
-代码如下：</p>
-<pre><code class="language-cpp">
-import numpy as np
-
-#  original_matrix --&gt; P*Q=R
-def matrix_factorization(original_matrix, K, alpha, beta, epochs):
-    '''
-    :param original_matrix(mat): 原始矩阵
-    :param K(int): 分解矩阵中间维度
-    :param alpha(float): 学习率
-    :param beta(float): 惩罚性系数
-    :param epochs(int): 最大迭代次数
-    :return: 分解后的两个矩阵P,Q
-    '''
-    original_matrix = np.mat(original_matrix)
-    #np.mat 生成矩阵
-    M, N = original_matrix.shape
-    #np.shape 获取矩阵的行数和列数，然后赋值给M,N  即M代表行数 N代表列数
-    P = np.mat(np.random.random((M, K)))
-    Q = np.mat(np.random.random((K, N)))
-    #np.random.random((M,K))  生成M行K列的浮点数 ，搭配上mat 也就是生成矩阵
-    print(&quot;.................&quot;)
-    print(P,Q)
-    print(&quot;.................&quot;)
-    loss = 1.0
-    epoch = 0
-    while loss &gt;= 0.001 and epoch &lt;= epochs:
-        for m in range(M):
-            for n in range(N):
-                if original_matrix[m, n] &gt; 0:  # 非缺失值
-                    r = original_matrix[m, n]
-                    r_ = 0  # R[m, n]
-                    for k in range(K):  # 计算[m, n]位置的误差
-                        r_ += P[m, k]*Q[k, n]
-                    e = r - r_
-                    for k in range(K):  # 更新P[m, :]与Q[:, n]的值
-                        P[m, k] += alpha*(2*e*Q[k, n]-beta*P[m, k])
-                        Q[k, n] += alpha*(2*e*P[m, k]-beta*Q[k, n])
-        loss = 0.0
-        for m in range(M):
-            for n in range(N):
-                if original_matrix[m, n] &gt; 0:
-                    r = original_matrix[m, n]
-                    r_ = 0.0
-                    regularization = 0.0
-                    for k in range(K):
-                        r_ += P[m, k]*Q[k, n]  # 偏差
-                        regularization += P[m, k]**2+Q[k, n]**2  # L2正则化
-                    e = r - r_
-                    loss += e**2 + (beta/2)*regularization  # 总损失
-        # if epoch % 200 == 0:
-        #     print('epoch:{}, loss: {}'.format(epoch, loss))
-        epoch += 1
-    return P, Q
-
-
-if __name__ == '__main__':
-    low, high = 1, 10
-    size = 10, 8
-    original_matrix = np.random.randint(low=low, high=high, size=size)
-    missing_rate = 0.3
-    n_counts = int(size[0]*size[1]*missing_rate)
-    while n_counts:
-        pos = np.random.randint(size[0]*size[1])
-        row, col = pos//size[1], pos%size[1]
-        if original_matrix[row, col] != 0:
-            original_matrix[row, col] = 0
-            n_counts -= 1
-    # print(original_matrix)
-    P, Q = matrix_factorization(original_matrix, 6, 0.004, 0.02, 12000)
-    print(np.dot(P, Q))
-</code></pre>
-<p>参考：<br>
-<a href="https://blog.csdn.net/recall_tomorrow/article/details/80218051">文章一</a><br>
-<a href="https://www.cnblogs.com/kobedeshow/p/3651833.html">文章二</a></p>
+            <h2 id="1sigmoid函数的定义">1.Sigmoid函数的定义</h2>
+<p>Sigmoid函数，即f(x)=1/(1+e-x)。是神经元的非线性作用函数。广泛应用在神经网络中。</p>
+<p>神经网络的学习是基于一组样本进行的，它包括输入和输出（这里用期望输出表示），输入和输出有多少个分量就有多少个输入和输出神经元与之对应。最初神经网络的权值（Weight）和阈值（Threshold）是任意给定的，学习就是逐渐调整权值和阈值使得网络的实际输出和期望输出一致。</p>
+<p>给定以下的总输入，我们可以基于sigmoid函数得到连续的输出，其中sigmoid函数的定义如下</p>
+<figure data-type="image" tabindex="1"><img src="http://computing.dcu.ie/~humphrys/Notes/Neural/Bitmaps/sum.wiii.gif" alt="img" loading="lazy"></figure>
+<figure data-type="image" tabindex="2"><img src="http://computing.dcu.ie/~humphrys/Notes/Neural/Bitmaps/sigmoid.3.gif" alt="img" loading="lazy"></figure>
+<p>该函数具有如下的特性：当x趋近于负无穷时，y趋近于0；当当x趋近于正无穷时，y趋近于1；当x=1/2时，y=0.</p>
+<figure data-type="image" tabindex="3"><img src="http://computing.dcu.ie/~humphrys/Notes/Neural/Bitmaps/sigmoid.gif" alt="img" loading="lazy"></figure>
+<h2 id="2sigmoid函数的优缺点">2.Sigmoid函数的优缺点</h2>
+<h3 id="21优点">2.1优点：</h3>
+<p>（1）可以看到sigmoid函数处处连续 -&gt;便于求导；<br>
+（2）可以将函数值的范围压缩到[0,1]-&gt;可以压缩数据，且幅度不变。<br>
+（3）便于前向传输</p>
+<h3 id="22缺点">2.2缺点：</h3>
+<p>（1）在趋向无穷的地方，函数值变化很小，容易缺失梯度，不利于深层神经网络的反馈传输<br>
+（2）幂函数还是比较难算的<br>
+（3）函数均值不为0，当输出大于0时，则梯度方向将大于0，也就是说接下来的反向运算中将会持续正向更新；同理，当输出小于0时，接下来的方向运算将持续负向更新</p>
+<p>参考文章：<a href="https://blog.csdn.net/Su_Mo/article/details/79281623?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522159490458719726869055062%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&amp;request_id=159490458719726869055062&amp;biz_id=0&amp;utm_medium=distribute.pc_search_result.none-task-blog-2~all~top_click~default-2-79281623.ecpm_v3_rank_business_v1&amp;utm_term=sigmoid">文章一</a></p>
 
         </div>
         
-        <div class="prev-post">
-            上一篇
-            <a href="https://s-hmily.github.io/post/pi-liang-ti-du-suan-fa-zai-xian-xing-hui-gui-zhong-de-ying-yong/">
-                批量梯度算法在线性回归中的应用
+        
+        <div class="next-post">
+            下一篇
+            <a href="https://s-hmily.github.io/post/ji-yu-yong-hu-he-shang-pin-xie-tong-guo-lu-suan-fa/">
+                基于用户和商品协同过滤算法
             </a>
         </div>
-        
         
     </div>
     </div>
@@ -481,7 +393,20 @@ if __name__ == '__main__':
     </div>
      
                 <div class="toc-container">
-                    
+                    <ul class="markdownIt-TOC">
+<li>
+<ul>
+<li><a href="#1sigmoid%E5%87%BD%E6%95%B0%E7%9A%84%E5%AE%9A%E4%B9%89">1.Sigmoid函数的定义</a></li>
+<li><a href="#2sigmoid%E5%87%BD%E6%95%B0%E7%9A%84%E4%BC%98%E7%BC%BA%E7%82%B9">2.Sigmoid函数的优缺点</a>
+<ul>
+<li><a href="#21%E4%BC%98%E7%82%B9">2.1优点：</a></li>
+<li><a href="#22%E7%BC%BA%E7%82%B9">2.2缺点：</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
     </div>
     </div>
     </div>
@@ -591,140 +516,54 @@ if __name__ == '__main__':
         <div class="postshow">
             
             <div class="postdetailimg" style="width:100%;overflow: hidden;display: none">
-                <img src="https://ericamblog.oss-cn-shanghai.aliyuncs.com/2020/c-stl-kuai-su-shi-yong-shou-ce.jpg" class="postimage" style="cursor:auto">
+                <img src="https://s-hmily.github.io/post-images/sigmoid-han-shu.JPG" class="postimage" style="cursor:auto">
             </div>
             <div class="postinfo-detail">
-                <div class="postdate"><i class="fa fa-calendar"></i>2020-07-14</div>
-                <div class="poststatus postdate"><i class="fa fa-clock-o"></i> 5 min read</div>
+                <div class="postdate"><i class="fa fa-calendar"></i>2020-07-16</div>
+                <div class="poststatus postdate"><i class="fa fa-clock-o"></i> 2 min read</div>
                 <div class="posttag">
-                    
-                    <a href="https://s-hmily.github.io/tag/lMYeCI_cf/" class="postlink">
-                        <i class="fa fa-tag"></i> 机器学习
-                    </a>
                     
                 </div>
             </div>
             
         <div id="texttitle" style="text-align: center">
-            <h2>基于矩阵分解的推荐算法</h2>
+            <h2>sigmoid函数</h2>
             <!-- id 将作为查询条件 -->
-            <div id="pl" style="display:none">https://s-hmily.github.io/post/ji-yu-ju-zhen-fen-jie-de-tui-jian-suan-fa/</div>
+            <div id="pl" style="display:none">https://s-hmily.github.io/post/sigmoid-han-shu/</div>
             <div id="rootaddr" style="display:none">https://s-hmily.github.io</div>
-            <span id="hotnum" class="leancloud_visitors" data-flag-title="基于矩阵分解的推荐算法">
+            <span id="hotnum" class="leancloud_visitors" data-flag-title="sigmoid函数">
                 <h4 class="readercount">热度🔥: <i class="leancloud-visitors-count">loading...</i></h4>
             </span>
         </div>
         <div class="text ">
-            <p>矩阵分解算法是学习协同过滤算法的基础，接下来就来讲一件什么是矩阵分解。<br>
-一，基于矩阵分解算法的相关理论介绍<br>
-很显然，我们要是想做推荐系统，最基本的一个数据就是用户对这个商品的特性的反应，就拿用户-物品的评分矩阵来说<br>
-<img src="https://img-blog.csdnimg.cn/20200713205030760.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ0MTc3OTYw,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"><br>
-矩阵中，描述了五个用户（U1,U2,U3,U4,U5）对四个物品（D1,D2,D3,D4）的评分，但是我们发现有些表格中没有填写评分<br>
-的数字，这个时候我们就需要把没有填写的评分根据已知的分数进行预测，然后根据评分的高低给用户进行推荐。<br>
-那么如何进行预测缺失的评分呢？那么我们可以把这些想象成点，然后可以根据梯度下降跟回归方程进行连续值的预测。假设是M<em>N维矩阵（M行N列），然后我们可以分解成P矩阵和Q矩阵，其中P矩阵是M</em>K,Q矩阵维度是K*N。（K是过渡数值，也就是过渡维度）<br>
-<img src="https://img-blog.csdnimg.cn/20200713210022150.png" alt="图一" loading="lazy"><br>
-对于P,Q矩阵的解释，直观上是M个用户对K个主题的关系，Q矩阵是K个主题对N个物品的关系，具体K是多少，这就需要自己的调节了，K只是一个参数，通常取值在10到100之间<br>
-<img src="https://img-blog.csdnimg.cn/2020071321100480.png" alt="在这里插入图片描述" loading="lazy"><br>
-式子2</p>
-<p>其中r代表 R原始矩阵，p，q代表P,Q矩阵。rij代表R矩阵第i行第j列的数字，后边的同理<br>
-我们对于矩阵的知识可以知道，这个矩阵i行j列的数值等于P矩阵i行的所有数值乘以q第j列的所有数值的和<br>
-然后我们可以知道回归方程的最小二乘法的公式如下<br>
-然后把式子2带入式子3中得到下图<br>
-<img src="https://img-blog.csdnimg.cn/20200713210437802.png" alt="在这里插入图片描述" loading="lazy"><br>
-式子3</p>
-<p>对于损失函数的左边项，表示的是R^ 第i行，第j列的元素值，对于如何衡量，我们分解的好坏呢，式子3，给出了衡量标准，也就是损失函数，平方项损失，最后的目标，就是每一个元素(非缺失值)的e(i,j)的总和最小<br>
-然后我们需要用到L2正则化<br>
-<img src="https://img-blog.csdnimg.cn/20200713211252210.png" alt="在这里插入图片描述" loading="lazy"><br>
-因此最终的损失函数为：<br>
-<img src="https://img-blog.csdnimg.cn/20200713211530742.png" alt="在这里插入图片描述" loading="lazy"><br>
-然后可以使用梯度下降算法对其求解P矩阵和Q矩阵<img src="https://img-blog.csdnimg.cn/20200713211609666.png" alt="在这里插入图片描述" loading="lazy"><br>
-最后结果为：<br>
-<img src="https://img-blog.csdnimg.cn/20200713211625329.png" alt="在这里插入图片描述" loading="lazy"><br>
-代码如下：</p>
-<pre><code class="language-cpp">
-import numpy as np
-
-#  original_matrix --&gt; P*Q=R
-def matrix_factorization(original_matrix, K, alpha, beta, epochs):
-    '''
-    :param original_matrix(mat): 原始矩阵
-    :param K(int): 分解矩阵中间维度
-    :param alpha(float): 学习率
-    :param beta(float): 惩罚性系数
-    :param epochs(int): 最大迭代次数
-    :return: 分解后的两个矩阵P,Q
-    '''
-    original_matrix = np.mat(original_matrix)
-    #np.mat 生成矩阵
-    M, N = original_matrix.shape
-    #np.shape 获取矩阵的行数和列数，然后赋值给M,N  即M代表行数 N代表列数
-    P = np.mat(np.random.random((M, K)))
-    Q = np.mat(np.random.random((K, N)))
-    #np.random.random((M,K))  生成M行K列的浮点数 ，搭配上mat 也就是生成矩阵
-    print(&quot;.................&quot;)
-    print(P,Q)
-    print(&quot;.................&quot;)
-    loss = 1.0
-    epoch = 0
-    while loss &gt;= 0.001 and epoch &lt;= epochs:
-        for m in range(M):
-            for n in range(N):
-                if original_matrix[m, n] &gt; 0:  # 非缺失值
-                    r = original_matrix[m, n]
-                    r_ = 0  # R[m, n]
-                    for k in range(K):  # 计算[m, n]位置的误差
-                        r_ += P[m, k]*Q[k, n]
-                    e = r - r_
-                    for k in range(K):  # 更新P[m, :]与Q[:, n]的值
-                        P[m, k] += alpha*(2*e*Q[k, n]-beta*P[m, k])
-                        Q[k, n] += alpha*(2*e*P[m, k]-beta*Q[k, n])
-        loss = 0.0
-        for m in range(M):
-            for n in range(N):
-                if original_matrix[m, n] &gt; 0:
-                    r = original_matrix[m, n]
-                    r_ = 0.0
-                    regularization = 0.0
-                    for k in range(K):
-                        r_ += P[m, k]*Q[k, n]  # 偏差
-                        regularization += P[m, k]**2+Q[k, n]**2  # L2正则化
-                    e = r - r_
-                    loss += e**2 + (beta/2)*regularization  # 总损失
-        # if epoch % 200 == 0:
-        #     print('epoch:{}, loss: {}'.format(epoch, loss))
-        epoch += 1
-    return P, Q
-
-
-if __name__ == '__main__':
-    low, high = 1, 10
-    size = 10, 8
-    original_matrix = np.random.randint(low=low, high=high, size=size)
-    missing_rate = 0.3
-    n_counts = int(size[0]*size[1]*missing_rate)
-    while n_counts:
-        pos = np.random.randint(size[0]*size[1])
-        row, col = pos//size[1], pos%size[1]
-        if original_matrix[row, col] != 0:
-            original_matrix[row, col] = 0
-            n_counts -= 1
-    # print(original_matrix)
-    P, Q = matrix_factorization(original_matrix, 6, 0.004, 0.02, 12000)
-    print(np.dot(P, Q))
-</code></pre>
-<p>参考：<br>
-<a href="https://blog.csdn.net/recall_tomorrow/article/details/80218051">文章一</a><br>
-<a href="https://www.cnblogs.com/kobedeshow/p/3651833.html">文章二</a></p>
+            <h2 id="1sigmoid函数的定义">1.Sigmoid函数的定义</h2>
+<p>Sigmoid函数，即f(x)=1/(1+e-x)。是神经元的非线性作用函数。广泛应用在神经网络中。</p>
+<p>神经网络的学习是基于一组样本进行的，它包括输入和输出（这里用期望输出表示），输入和输出有多少个分量就有多少个输入和输出神经元与之对应。最初神经网络的权值（Weight）和阈值（Threshold）是任意给定的，学习就是逐渐调整权值和阈值使得网络的实际输出和期望输出一致。</p>
+<p>给定以下的总输入，我们可以基于sigmoid函数得到连续的输出，其中sigmoid函数的定义如下</p>
+<figure data-type="image" tabindex="1"><img src="http://computing.dcu.ie/~humphrys/Notes/Neural/Bitmaps/sum.wiii.gif" alt="img" loading="lazy"></figure>
+<figure data-type="image" tabindex="2"><img src="http://computing.dcu.ie/~humphrys/Notes/Neural/Bitmaps/sigmoid.3.gif" alt="img" loading="lazy"></figure>
+<p>该函数具有如下的特性：当x趋近于负无穷时，y趋近于0；当当x趋近于正无穷时，y趋近于1；当x=1/2时，y=0.</p>
+<figure data-type="image" tabindex="3"><img src="http://computing.dcu.ie/~humphrys/Notes/Neural/Bitmaps/sigmoid.gif" alt="img" loading="lazy"></figure>
+<h2 id="2sigmoid函数的优缺点">2.Sigmoid函数的优缺点</h2>
+<h3 id="21优点">2.1优点：</h3>
+<p>（1）可以看到sigmoid函数处处连续 -&gt;便于求导；<br>
+（2）可以将函数值的范围压缩到[0,1]-&gt;可以压缩数据，且幅度不变。<br>
+（3）便于前向传输</p>
+<h3 id="22缺点">2.2缺点：</h3>
+<p>（1）在趋向无穷的地方，函数值变化很小，容易缺失梯度，不利于深层神经网络的反馈传输<br>
+（2）幂函数还是比较难算的<br>
+（3）函数均值不为0，当输出大于0时，则梯度方向将大于0，也就是说接下来的反向运算中将会持续正向更新；同理，当输出小于0时，接下来的方向运算将持续负向更新</p>
+<p>参考文章：<a href="https://blog.csdn.net/Su_Mo/article/details/79281623?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522159490458719726869055062%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&amp;request_id=159490458719726869055062&amp;biz_id=0&amp;utm_medium=distribute.pc_search_result.none-task-blog-2~all~top_click~default-2-79281623.ecpm_v3_rank_business_v1&amp;utm_term=sigmoid">文章一</a></p>
 
         </div>
         
-        <div class="prev-post">
-            上一篇
-            <a href="https://s-hmily.github.io/post/pi-liang-ti-du-suan-fa-zai-xian-xing-hui-gui-zhong-de-ying-yong/">
-                批量梯度算法在线性回归中的应用
+        
+        <div class="next-post">
+            下一篇
+            <a href="https://s-hmily.github.io/post/ji-yu-yong-hu-he-shang-pin-xie-tong-guo-lu-suan-fa/">
+                基于用户和商品协同过滤算法
             </a>
         </div>
-        
         
     </div>
     </div>
