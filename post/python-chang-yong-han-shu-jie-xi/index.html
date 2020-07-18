@@ -1,11 +1,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="
-1.Sigmoid函数的定义
-Sigmoid函数，即f(x)=1/(1+e-x)。是神经元的非线性作用函数。广泛应用在神经网络中。
-神经网络的学习是基于一组样本进行的，它包括输入和输出（这里用期望输出表示），输入和输出有多少个分量就有多少..." />
-    <meta name="keywords" content="机器学习" />
+    <meta name="description" content="1.numpy.random.seed()
+np.random.seed( ) 用于指定随机数生成时所用算法开始的整数值，如果使用相同的seed( )值，则每次生成的随即数都相同，一次指定始终有效。但是在实际应用中可能会出现再次输出随机数时..." />
+    <meta name="keywords" content="python语言学习" />
     <link rel="stylesheet" href="https://s-hmily.github.io/media/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://s-hmily.github.io/styles/main.css">
     
@@ -316,64 +314,209 @@ Sigmoid函数，即f(x)=1/(1+e-x)。是神经元的非线性作用函数。广�
         <div class="postshow">
             
             <div class="postdetailimg" style="width:100%;overflow: hidden;display: none">
-                <img src="https://s-hmily.github.io/post-images/sigmoid-han-shu.jpg" class="postimage" style="cursor:auto">
+                <img src="https://s-hmily.github.io/post-images/python-chang-yong-han-shu-jie-xi.jpg" class="postimage" style="cursor:auto">
             </div>
             <div class="postinfo-detail">
-                <div class="postdate"><i class="fa fa-calendar"></i>2020-07-16</div>
-                <div class="poststatus postdate"><i class="fa fa-clock-o"></i> 2 min read</div>
+                <div class="postdate"><i class="fa fa-calendar"></i>2020-07-18</div>
+                <div class="poststatus postdate"><i class="fa fa-clock-o"></i> 7 min read</div>
                 <div class="posttag">
                     
-                    <a href="https://s-hmily.github.io/tag/lMYeCI_cf/" class="postlink">
-                        <i class="fa fa-tag"></i> 机器学习
+                    <a href="https://s-hmily.github.io/tag/python-yu-yan-xue-xi/" class="postlink">
+                        <i class="fa fa-tag"></i> python语言学习
                     </a>
                     
                 </div>
             </div>
             
         <div id="texttitle" style="text-align: center">
-            <h2>sigmoid函数</h2>
+            <h2>python常用函数解析</h2>
             <!-- id 将作为查询条件 -->
-            <div id="pl" style="display:none">https://s-hmily.github.io/post/sigmoid-han-shu/</div>
+            <div id="pl" style="display:none">https://s-hmily.github.io/post/python-chang-yong-han-shu-jie-xi/</div>
             <div id="rootaddr" style="display:none">https://s-hmily.github.io</div>
-            <span id="hotnum" class="leancloud_visitors" data-flag-title="sigmoid函数">
+            <span id="hotnum" class="leancloud_visitors" data-flag-title="python常用函数解析">
                 <h4 class="readercount">热度🔥: <i class="leancloud-visitors-count">loading...</i></h4>
             </span>
         </div>
         <div class="text ">
-            <!-- more -->
-<h2 id="1sigmoid函数的定义">1.Sigmoid函数的定义</h2>
-<p>Sigmoid函数，即f(x)=1/(1+e-x)。是神经元的非线性作用函数。广泛应用在神经网络中。</p>
-<p>神经网络的学习是基于一组样本进行的，它包括输入和输出（这里用期望输出表示），输入和输出有多少个分量就有多少个输入和输出神经元与之对应。最初神经网络的权值（Weight）和阈值（Threshold）是任意给定的，学习就是逐渐调整权值和阈值使得网络的实际输出和期望输出一致。</p>
-<p>给定以下的总输入，我们可以基于sigmoid函数得到连续的输出，其中sigmoid函数的定义如下</p>
-<figure data-type="image" tabindex="1"><img src="http://computing.dcu.ie/~humphrys/Notes/Neural/Bitmaps/sum.wiii.gif" alt="img" loading="lazy"></figure>
-<figure data-type="image" tabindex="2"><img src="http://computing.dcu.ie/~humphrys/Notes/Neural/Bitmaps/sigmoid.3.gif" alt="img" loading="lazy"></figure>
-<p>该函数具有如下的特性：当x趋近于负无穷时，y趋近于0；当当x趋近于正无穷时，y趋近于1；当x=1/2时，y=0.</p>
-<figure data-type="image" tabindex="3"><img src="http://computing.dcu.ie/~humphrys/Notes/Neural/Bitmaps/sigmoid.gif" alt="img" loading="lazy"></figure>
-<h2 id="2sigmoid函数的优缺点">2.Sigmoid函数的优缺点</h2>
-<h3 id="21优点">2.1优点：</h3>
-<p>（1）可以看到sigmoid函数处处连续 -&gt;便于求导；<br>
-（2）可以将函数值的范围压缩到[0,1]-&gt;可以压缩数据，且幅度不变。<br>
-（3）便于前向传输</p>
-<h3 id="22缺点">2.2缺点：</h3>
-<p>（1）在趋向无穷的地方，函数值变化很小，容易缺失梯度，不利于深层神经网络的反馈传输<br>
-（2）幂函数还是比较难算的<br>
-（3）函数均值不为0，当输出大于0时，则梯度方向将大于0，也就是说接下来的反向运算中将会持续正向更新；同理，当输出小于0时，接下来的方向运算将持续负向更新</p>
-<p>参考文章：<a href="https://blog.csdn.net/Su_Mo/article/details/79281623?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522159490458719726869055062%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&amp;request_id=159490458719726869055062&amp;biz_id=0&amp;utm_medium=distribute.pc_search_result.none-task-blog-2~all~top_click~default-2-79281623.ecpm_v3_rank_business_v1&amp;utm_term=sigmoid">文章一</a></p>
+            <h4 id="1numpyrandomseed">1.numpy.random.seed()</h4>
+<p>np.random.seed( ) 用于指定随机数生成时所用算法开始的整数值，如果使用相同的seed( )值，则每次生成的随即数都相同，一次指定始终有效。但是在实际应用中可能会出现再次输出随机数时，输出的随机数并不相同，这个用一段代码说明和解决这个问题：</p>
+<pre><code>import numpy as np
 
-        </div>
-        
-        <div class="prev-post">
-            上一篇
-            <a href="https://s-hmily.github.io/post/qian-ceng-shen-jing-wang-luo-gai-shu/">
-                浅层神经网络概述
-            </a>
+np.random.seed(5)  
+print(str(np.random.random()) + &quot;\n&quot;)  
+
+for i in range(5):  
+    print(np.random.random())
+
+np.random.seed(5)  
+print(&quot;\n&quot; + str(np.random.random()) + &quot;\n&quot;) 
+
+for i in range(5):  
+    np.random.seed(5)  
+    print(np.random.random())
+
+</code></pre>
+<p>输出：</p>
+<pre><code>0.22199317108973948
+
+0.8707323061773764
+0.20671915533942642
+0.9186109079379216
+0.48841118879482914
+0.6117438629026457
+
+0.22199317108973948
+
+0.22199317108973948
+0.22199317108973948
+0.22199317108973948
+0.22199317108973948
+0.22199317108973948
+</code></pre>
+<p>可以看出，当我们想要相同的随机数时，还需再加一句：np.random.seed(5)。</p>
+<h4 id="2散点图参数设置">2.散点图参数设置</h4>
+<p><img src="https://img-blog.csdn.net/20171226130254219?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvY2FzdGluZ0EzVA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="è¿éåå¾çæè¿°" loading="lazy"> <img src="https://img-blog.csdn.net/20171226130314567?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvY2FzdGluZ0EzVA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="è¿éåå¾çæè¿°" loading="lazy"></p>
+<h4 id="3shape-类型函数">3.shape() 类型函数</h4>
+<p>X.shape()获取矩阵X的行数和列数   返回结果（行数，列数）</p>
+<p>注意 如果是1行的矩阵，在线代里边 默认为列矩阵 也就是如果这个矩阵行数是1 那么返回的列数而不是返回1  返回结果（列数，）</p>
+<p>X.shape[0] 返回这个矩阵的行数 也就是一维的长度</p>
+<p>X.shape[1]返回这个矩阵的列数 也就是二维的长度</p>
+<h4 id="4nprandomrandn函数">4.np.random.randn()函数</h4>
+<pre><code>np.random.randn(d0,d1,d2……dn) 
+1)当函数括号内没有参数时，则返回一个浮点数； 
+2）当函数括号内有一个参数时，则返回秩为1的数组，不能表示向量和矩阵； 
+3）当函数括号内有两个及以上参数时，则返回对应维度的数组，能表示向量或矩阵； 
+4）np.random.standard_normal（）函数与np.random.randn()类似，但是np.random.standard_normal（）
+的输入参数为元组（tuple）. 
+5)np.random.randn()的输入通常为整数，但是如果为浮点数，则会自动直接截断转换为整数。
+</code></pre>
+<h4 id="5assert函数">5.assert函数</h4>
+<p>assert是用于对程序进行调试的，对于执行结构的判断，而不是对于业务流程的判断。（相当于一个if ()语句，如果满足断言的执行程序，如果不满足则抛错误</p>
+<h4 id="6dot函数和multiply函数">6.dot()函数和multiply()函数</h4>
+<p>dot()函数：</p>
+<p>对于秩为1的数组，执行对应位置相乘，然后再相加；</p>
+<p>对于秩不为1的二维数组，执行矩阵乘法运算；超过二维的可以参考numpy库介绍。</p>
+<p>multiply()函数</p>
+<p>数组和矩阵对应位置相乘，输出与相乘数组/矩阵的大小一致</p>
+<p><a href="https://blog.csdn.net/zenghaitao0128/article/details/78715140">具体详细看这里</a></p>
+<h4 id="7npmean函数">7.np.mean()函数</h4>
+<p>mean() 函数定义：<br>
+numpy.mean(a, axis, dtype, out，keepdims )</p>
+<p>mean()函数功能：求取均值<br>
+经常操作的参数为axis，以m * n矩阵举例：</p>
+<pre><code>axis 不设置值，对 m*n 个数求均值，返回一个实数
+axis = 0：压缩行，对各列求均值，返回 1* n 矩阵
+axis =1 ：压缩列，对各行求均值，返回 m *1 矩阵
+
+
+a = np.array([[1, 2], [3, 4], [2, 6]])
+# 计算整个数据的平均值
+print(a.mean()) # 3
+
+# 计算每一列的平均值
+print(a.mean(axis=0)) # [2. 4.]
+
+# 计算每一行的平均值
+print(a.mean(axis=1)) # [1.5 3.5 4. ]
+
+</code></pre>
+<h4 id="8npsum">8.np.sum()</h4>
+<p>Numpy中sum函数（Python自带sum函数）的作用是对元素<strong>求和。</strong></p>
+<ol>
+<li>
+<p>无参时，所有全加；</p>
+</li>
+<li>
+<p>axis=0，按列相加；</p>
+</li>
+<li>
+<p>axis=1，按行相加</p>
+<pre><code>#!/usr/bin/env python
+# -*- coding:utf-8 -*-
+from numpy import *
+import numpy as np
+ 
+a = array([[1, 2, 3], [4, 5, 6]])
+# Python自带sum函数相加
+SUM = sum(a)  # 所有元素求和
+SUM_0 = sum(a, 0)  # 按照列求和
+SUM_1 = sum(a, 1)  # 按照行求和
+print(&quot;SUM:&quot;+str(SUM))
+print(&quot;SUM_0:&quot;+str(SUM_0))
+print(&quot;SUM_1:&quot;+str(SUM_1))
+ 
+# numpy中sum函数相加
+np_SUM = np.sum(a)  # 所有元素求和
+print(&quot;np_SUM:&quot;+str(np_SUM))
+np_SUM_0 = np.sum(a, axis=0)  # 按照列求和
+print(&quot;np_SUM_0:&quot;+str(np_SUM_0))
+np_SUM_1 = np.sum(a, axis=1)  # 按照行求和
+print(&quot;np_SUM_1:&quot;+str(np_SUM_1))
+</code></pre>
+<p>结果</p>
+<figure data-type="image" tabindex="1"><img src="https://img-blog.csdnimg.cn/20181212165545586.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1NvcGhpYV8xMQ==,size_16,color_FFFFFF,t_70" alt="img" loading="lazy"></figure>
+</li>
+</ol>
+<h4 id="9squeeze函数">9.squeeze函数</h4>
+<p>squeeze  除去size为1的维度</p>
+<p><code>B = squeeze(A)</code></p>
+<p>描述：</p>
+<p>```B = squeeze(A)<code>，B与A有相同的元素,但所有只有一行或一列的维度（a singleton dimension）被去除掉了。A singleton dimension的特征是</code>size(A,dim) = 1<code>。二维阵列不受</code>squeeze影响<code>; 如果</code>A<code>是一个row or column矢量或a scalar (1-by-1) value, then</code>B = A`.</p>
+<p>比如，rand(4,1,3)产生一个均匀分布的阵列，共3页，每页4行1列，经过squeeze后，1列的那个维度就没有了，只剩下4行3列的一个二维阵列。而rand(4,2,3)因为没有1列或1行的维度，所有squeeze后没有变化</p>
+<h4 id="10isinstance用法">10.isinstance用法</h4>
+<p>Isinstance的用法是用来判断一个量是否是相应的类型，接受的参数一个是对象加一种类型。示范代码如下：</p>
+<p>a = 1</p>
+<p>print(isinstance(a,int))</p>
+<p>print(isinstance(a,float))</p>
+<p>返回 True   False</p>
+<h4 id="11enumerate用法">11.enumerate用法</h4>
+<p>python中的获得索引、和值得方法：enumerate</p>
+<p>这种方式可以获得索引以及对应的值。但是这显得很繁琐。python其实提供了内置的enumerate函数可以同时获得索引和值，可以这样实现：<br>
+for index, key in enumerate(sequence):<br>
+      process(index, key)<br>
+如果你想对sequence中的元素作逆置后处理，可以：<br>
+for index, key in enumerate(sequence[::-1]):<br>
+     process(index, key)<br>
+举例说明：</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>seq = 'hello'<br>
+for i,key in enumerate(seq):<br>
+...     print 'seq[%d]=%s' % (i, key)<br>
+... <br>
+seq[0]=h<br>
+seq[1]=e<br>
+seq[2]=l<br>
+seq[3]=l<br>
+seq[4]=o<br>
+seq = ['a','b','c','d']<br>
+for i,key in enumerate(seq):<br>
+...     print 'seq[%d]=%s' % (i, key)<br>
+... <br>
+seq[0]=a<br>
+seq[1]=b<br>
+seq[2]=c<br>
+seq[3]=d<br>
+seq = ['a','b','c','d']<br>
+for i,key in enumerate(seq[::-1]):<br>
+...     print 'seq[%d]=%s' % (i, key)<br>
+... <br>
+seq[0]=d<br>
+seq[1]=c<br>
+seq[2]=b<br>
+seq[3]=a</p>
+</blockquote>
+</blockquote>
+</blockquote>
+
         </div>
         
         
         <div class="next-post">
             下一篇
-            <a href="https://s-hmily.github.io/post/ji-yu-yong-hu-he-shang-pin-xie-tong-guo-lu-suan-fa/">
-                基于用户和商品协同过滤算法
+            <a href="https://s-hmily.github.io/post/qian-ceng-shen-jing-wang-luo-gai-shu/">
+                浅层神经网络概述
             </a>
         </div>
         
@@ -431,11 +574,23 @@ Sigmoid函数，即f(x)=1/(1+e-x)。是神经元的非线性作用函数。广�
                     <ul class="markdownIt-TOC">
 <li>
 <ul>
-<li><a href="#1sigmoid%E5%87%BD%E6%95%B0%E7%9A%84%E5%AE%9A%E4%B9%89">1.Sigmoid函数的定义</a></li>
-<li><a href="#2sigmoid%E5%87%BD%E6%95%B0%E7%9A%84%E4%BC%98%E7%BC%BA%E7%82%B9">2.Sigmoid函数的优缺点</a>
+<li>
 <ul>
-<li><a href="#21%E4%BC%98%E7%82%B9">2.1优点：</a></li>
-<li><a href="#22%E7%BC%BA%E7%82%B9">2.2缺点：</a></li>
+<li>
+<ul>
+<li><a href="#1numpyrandomseed">1.numpy.random.seed()</a></li>
+<li><a href="#2%E6%95%A3%E7%82%B9%E5%9B%BE%E5%8F%82%E6%95%B0%E8%AE%BE%E7%BD%AE">2.散点图参数设置</a></li>
+<li><a href="#3shape-%E7%B1%BB%E5%9E%8B%E5%87%BD%E6%95%B0">3.shape() 类型函数</a></li>
+<li><a href="#4nprandomrandn%E5%87%BD%E6%95%B0">4.np.random.randn()函数</a></li>
+<li><a href="#5assert%E5%87%BD%E6%95%B0">5.assert函数</a></li>
+<li><a href="#6dot%E5%87%BD%E6%95%B0%E5%92%8Cmultiply%E5%87%BD%E6%95%B0">6.dot()函数和multiply()函数</a></li>
+<li><a href="#7npmean%E5%87%BD%E6%95%B0">7.np.mean()函数</a></li>
+<li><a href="#8npsum">8.np.sum()</a></li>
+<li><a href="#9squeeze%E5%87%BD%E6%95%B0">9.squeeze函数</a></li>
+<li><a href="#10isinstance%E7%94%A8%E6%B3%95">10.isinstance用法</a></li>
+<li><a href="#11enumerate%E7%94%A8%E6%B3%95">11.enumerate用法</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -561,64 +716,209 @@ Sigmoid函数，即f(x)=1/(1+e-x)。是神经元的非线性作用函数。广�
         <div class="postshow">
             
             <div class="postdetailimg" style="width:100%;overflow: hidden;display: none">
-                <img src="https://s-hmily.github.io/post-images/sigmoid-han-shu.jpg" class="postimage" style="cursor:auto">
+                <img src="https://s-hmily.github.io/post-images/python-chang-yong-han-shu-jie-xi.jpg" class="postimage" style="cursor:auto">
             </div>
             <div class="postinfo-detail">
-                <div class="postdate"><i class="fa fa-calendar"></i>2020-07-16</div>
-                <div class="poststatus postdate"><i class="fa fa-clock-o"></i> 2 min read</div>
+                <div class="postdate"><i class="fa fa-calendar"></i>2020-07-18</div>
+                <div class="poststatus postdate"><i class="fa fa-clock-o"></i> 7 min read</div>
                 <div class="posttag">
                     
-                    <a href="https://s-hmily.github.io/tag/lMYeCI_cf/" class="postlink">
-                        <i class="fa fa-tag"></i> 机器学习
+                    <a href="https://s-hmily.github.io/tag/python-yu-yan-xue-xi/" class="postlink">
+                        <i class="fa fa-tag"></i> python语言学习
                     </a>
                     
                 </div>
             </div>
             
         <div id="texttitle" style="text-align: center">
-            <h2>sigmoid函数</h2>
+            <h2>python常用函数解析</h2>
             <!-- id 将作为查询条件 -->
-            <div id="pl" style="display:none">https://s-hmily.github.io/post/sigmoid-han-shu/</div>
+            <div id="pl" style="display:none">https://s-hmily.github.io/post/python-chang-yong-han-shu-jie-xi/</div>
             <div id="rootaddr" style="display:none">https://s-hmily.github.io</div>
-            <span id="hotnum" class="leancloud_visitors" data-flag-title="sigmoid函数">
+            <span id="hotnum" class="leancloud_visitors" data-flag-title="python常用函数解析">
                 <h4 class="readercount">热度🔥: <i class="leancloud-visitors-count">loading...</i></h4>
             </span>
         </div>
         <div class="text ">
-            <!-- more -->
-<h2 id="1sigmoid函数的定义">1.Sigmoid函数的定义</h2>
-<p>Sigmoid函数，即f(x)=1/(1+e-x)。是神经元的非线性作用函数。广泛应用在神经网络中。</p>
-<p>神经网络的学习是基于一组样本进行的，它包括输入和输出（这里用期望输出表示），输入和输出有多少个分量就有多少个输入和输出神经元与之对应。最初神经网络的权值（Weight）和阈值（Threshold）是任意给定的，学习就是逐渐调整权值和阈值使得网络的实际输出和期望输出一致。</p>
-<p>给定以下的总输入，我们可以基于sigmoid函数得到连续的输出，其中sigmoid函数的定义如下</p>
-<figure data-type="image" tabindex="1"><img src="http://computing.dcu.ie/~humphrys/Notes/Neural/Bitmaps/sum.wiii.gif" alt="img" loading="lazy"></figure>
-<figure data-type="image" tabindex="2"><img src="http://computing.dcu.ie/~humphrys/Notes/Neural/Bitmaps/sigmoid.3.gif" alt="img" loading="lazy"></figure>
-<p>该函数具有如下的特性：当x趋近于负无穷时，y趋近于0；当当x趋近于正无穷时，y趋近于1；当x=1/2时，y=0.</p>
-<figure data-type="image" tabindex="3"><img src="http://computing.dcu.ie/~humphrys/Notes/Neural/Bitmaps/sigmoid.gif" alt="img" loading="lazy"></figure>
-<h2 id="2sigmoid函数的优缺点">2.Sigmoid函数的优缺点</h2>
-<h3 id="21优点">2.1优点：</h3>
-<p>（1）可以看到sigmoid函数处处连续 -&gt;便于求导；<br>
-（2）可以将函数值的范围压缩到[0,1]-&gt;可以压缩数据，且幅度不变。<br>
-（3）便于前向传输</p>
-<h3 id="22缺点">2.2缺点：</h3>
-<p>（1）在趋向无穷的地方，函数值变化很小，容易缺失梯度，不利于深层神经网络的反馈传输<br>
-（2）幂函数还是比较难算的<br>
-（3）函数均值不为0，当输出大于0时，则梯度方向将大于0，也就是说接下来的反向运算中将会持续正向更新；同理，当输出小于0时，接下来的方向运算将持续负向更新</p>
-<p>参考文章：<a href="https://blog.csdn.net/Su_Mo/article/details/79281623?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522159490458719726869055062%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&amp;request_id=159490458719726869055062&amp;biz_id=0&amp;utm_medium=distribute.pc_search_result.none-task-blog-2~all~top_click~default-2-79281623.ecpm_v3_rank_business_v1&amp;utm_term=sigmoid">文章一</a></p>
+            <h4 id="1numpyrandomseed">1.numpy.random.seed()</h4>
+<p>np.random.seed( ) 用于指定随机数生成时所用算法开始的整数值，如果使用相同的seed( )值，则每次生成的随即数都相同，一次指定始终有效。但是在实际应用中可能会出现再次输出随机数时，输出的随机数并不相同，这个用一段代码说明和解决这个问题：</p>
+<pre><code>import numpy as np
 
-        </div>
-        
-        <div class="prev-post">
-            上一篇
-            <a href="https://s-hmily.github.io/post/qian-ceng-shen-jing-wang-luo-gai-shu/">
-                浅层神经网络概述
-            </a>
+np.random.seed(5)  
+print(str(np.random.random()) + &quot;\n&quot;)  
+
+for i in range(5):  
+    print(np.random.random())
+
+np.random.seed(5)  
+print(&quot;\n&quot; + str(np.random.random()) + &quot;\n&quot;) 
+
+for i in range(5):  
+    np.random.seed(5)  
+    print(np.random.random())
+
+</code></pre>
+<p>输出：</p>
+<pre><code>0.22199317108973948
+
+0.8707323061773764
+0.20671915533942642
+0.9186109079379216
+0.48841118879482914
+0.6117438629026457
+
+0.22199317108973948
+
+0.22199317108973948
+0.22199317108973948
+0.22199317108973948
+0.22199317108973948
+0.22199317108973948
+</code></pre>
+<p>可以看出，当我们想要相同的随机数时，还需再加一句：np.random.seed(5)。</p>
+<h4 id="2散点图参数设置">2.散点图参数设置</h4>
+<p><img src="https://img-blog.csdn.net/20171226130254219?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvY2FzdGluZ0EzVA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="è¿éåå¾çæè¿°" loading="lazy"> <img src="https://img-blog.csdn.net/20171226130314567?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvY2FzdGluZ0EzVA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="è¿éåå¾çæè¿°" loading="lazy"></p>
+<h4 id="3shape-类型函数">3.shape() 类型函数</h4>
+<p>X.shape()获取矩阵X的行数和列数   返回结果（行数，列数）</p>
+<p>注意 如果是1行的矩阵，在线代里边 默认为列矩阵 也就是如果这个矩阵行数是1 那么返回的列数而不是返回1  返回结果（列数，）</p>
+<p>X.shape[0] 返回这个矩阵的行数 也就是一维的长度</p>
+<p>X.shape[1]返回这个矩阵的列数 也就是二维的长度</p>
+<h4 id="4nprandomrandn函数">4.np.random.randn()函数</h4>
+<pre><code>np.random.randn(d0,d1,d2……dn) 
+1)当函数括号内没有参数时，则返回一个浮点数； 
+2）当函数括号内有一个参数时，则返回秩为1的数组，不能表示向量和矩阵； 
+3）当函数括号内有两个及以上参数时，则返回对应维度的数组，能表示向量或矩阵； 
+4）np.random.standard_normal（）函数与np.random.randn()类似，但是np.random.standard_normal（）
+的输入参数为元组（tuple）. 
+5)np.random.randn()的输入通常为整数，但是如果为浮点数，则会自动直接截断转换为整数。
+</code></pre>
+<h4 id="5assert函数">5.assert函数</h4>
+<p>assert是用于对程序进行调试的，对于执行结构的判断，而不是对于业务流程的判断。（相当于一个if ()语句，如果满足断言的执行程序，如果不满足则抛错误</p>
+<h4 id="6dot函数和multiply函数">6.dot()函数和multiply()函数</h4>
+<p>dot()函数：</p>
+<p>对于秩为1的数组，执行对应位置相乘，然后再相加；</p>
+<p>对于秩不为1的二维数组，执行矩阵乘法运算；超过二维的可以参考numpy库介绍。</p>
+<p>multiply()函数</p>
+<p>数组和矩阵对应位置相乘，输出与相乘数组/矩阵的大小一致</p>
+<p><a href="https://blog.csdn.net/zenghaitao0128/article/details/78715140">具体详细看这里</a></p>
+<h4 id="7npmean函数">7.np.mean()函数</h4>
+<p>mean() 函数定义：<br>
+numpy.mean(a, axis, dtype, out，keepdims )</p>
+<p>mean()函数功能：求取均值<br>
+经常操作的参数为axis，以m * n矩阵举例：</p>
+<pre><code>axis 不设置值，对 m*n 个数求均值，返回一个实数
+axis = 0：压缩行，对各列求均值，返回 1* n 矩阵
+axis =1 ：压缩列，对各行求均值，返回 m *1 矩阵
+
+
+a = np.array([[1, 2], [3, 4], [2, 6]])
+# 计算整个数据的平均值
+print(a.mean()) # 3
+
+# 计算每一列的平均值
+print(a.mean(axis=0)) # [2. 4.]
+
+# 计算每一行的平均值
+print(a.mean(axis=1)) # [1.5 3.5 4. ]
+
+</code></pre>
+<h4 id="8npsum">8.np.sum()</h4>
+<p>Numpy中sum函数（Python自带sum函数）的作用是对元素<strong>求和。</strong></p>
+<ol>
+<li>
+<p>无参时，所有全加；</p>
+</li>
+<li>
+<p>axis=0，按列相加；</p>
+</li>
+<li>
+<p>axis=1，按行相加</p>
+<pre><code>#!/usr/bin/env python
+# -*- coding:utf-8 -*-
+from numpy import *
+import numpy as np
+ 
+a = array([[1, 2, 3], [4, 5, 6]])
+# Python自带sum函数相加
+SUM = sum(a)  # 所有元素求和
+SUM_0 = sum(a, 0)  # 按照列求和
+SUM_1 = sum(a, 1)  # 按照行求和
+print(&quot;SUM:&quot;+str(SUM))
+print(&quot;SUM_0:&quot;+str(SUM_0))
+print(&quot;SUM_1:&quot;+str(SUM_1))
+ 
+# numpy中sum函数相加
+np_SUM = np.sum(a)  # 所有元素求和
+print(&quot;np_SUM:&quot;+str(np_SUM))
+np_SUM_0 = np.sum(a, axis=0)  # 按照列求和
+print(&quot;np_SUM_0:&quot;+str(np_SUM_0))
+np_SUM_1 = np.sum(a, axis=1)  # 按照行求和
+print(&quot;np_SUM_1:&quot;+str(np_SUM_1))
+</code></pre>
+<p>结果</p>
+<figure data-type="image" tabindex="1"><img src="https://img-blog.csdnimg.cn/20181212165545586.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1NvcGhpYV8xMQ==,size_16,color_FFFFFF,t_70" alt="img" loading="lazy"></figure>
+</li>
+</ol>
+<h4 id="9squeeze函数">9.squeeze函数</h4>
+<p>squeeze  除去size为1的维度</p>
+<p><code>B = squeeze(A)</code></p>
+<p>描述：</p>
+<p>```B = squeeze(A)<code>，B与A有相同的元素,但所有只有一行或一列的维度（a singleton dimension）被去除掉了。A singleton dimension的特征是</code>size(A,dim) = 1<code>。二维阵列不受</code>squeeze影响<code>; 如果</code>A<code>是一个row or column矢量或a scalar (1-by-1) value, then</code>B = A`.</p>
+<p>比如，rand(4,1,3)产生一个均匀分布的阵列，共3页，每页4行1列，经过squeeze后，1列的那个维度就没有了，只剩下4行3列的一个二维阵列。而rand(4,2,3)因为没有1列或1行的维度，所有squeeze后没有变化</p>
+<h4 id="10isinstance用法">10.isinstance用法</h4>
+<p>Isinstance的用法是用来判断一个量是否是相应的类型，接受的参数一个是对象加一种类型。示范代码如下：</p>
+<p>a = 1</p>
+<p>print(isinstance(a,int))</p>
+<p>print(isinstance(a,float))</p>
+<p>返回 True   False</p>
+<h4 id="11enumerate用法">11.enumerate用法</h4>
+<p>python中的获得索引、和值得方法：enumerate</p>
+<p>这种方式可以获得索引以及对应的值。但是这显得很繁琐。python其实提供了内置的enumerate函数可以同时获得索引和值，可以这样实现：<br>
+for index, key in enumerate(sequence):<br>
+      process(index, key)<br>
+如果你想对sequence中的元素作逆置后处理，可以：<br>
+for index, key in enumerate(sequence[::-1]):<br>
+     process(index, key)<br>
+举例说明：</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>seq = 'hello'<br>
+for i,key in enumerate(seq):<br>
+...     print 'seq[%d]=%s' % (i, key)<br>
+... <br>
+seq[0]=h<br>
+seq[1]=e<br>
+seq[2]=l<br>
+seq[3]=l<br>
+seq[4]=o<br>
+seq = ['a','b','c','d']<br>
+for i,key in enumerate(seq):<br>
+...     print 'seq[%d]=%s' % (i, key)<br>
+... <br>
+seq[0]=a<br>
+seq[1]=b<br>
+seq[2]=c<br>
+seq[3]=d<br>
+seq = ['a','b','c','d']<br>
+for i,key in enumerate(seq[::-1]):<br>
+...     print 'seq[%d]=%s' % (i, key)<br>
+... <br>
+seq[0]=d<br>
+seq[1]=c<br>
+seq[2]=b<br>
+seq[3]=a</p>
+</blockquote>
+</blockquote>
+</blockquote>
+
         </div>
         
         
         <div class="next-post">
             下一篇
-            <a href="https://s-hmily.github.io/post/ji-yu-yong-hu-he-shang-pin-xie-tong-guo-lu-suan-fa/">
-                基于用户和商品协同过滤算法
+            <a href="https://s-hmily.github.io/post/qian-ceng-shen-jing-wang-luo-gai-shu/">
+                浅层神经网络概述
             </a>
         </div>
         

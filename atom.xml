@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://s-hmily.github.io</id>
     <title>叮叮当</title>
-    <updated>2020-07-16T13:46:52.241Z</updated>
+    <updated>2020-07-18T03:35:47.704Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://s-hmily.github.io"/>
     <link rel="self" href="https://s-hmily.github.io/atom.xml"/>
@@ -14,17 +14,17 @@
     <icon>https://s-hmily.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, 叮叮当</rights>
     <entry>
-        <title type="html"><![CDATA[sigmoid函数]]></title>
-        <id>https://s-hmily.github.io/post/sigmoid-han-shu/</id>
-        <link href="https://s-hmily.github.io/post/sigmoid-han-shu/">
+        <title type="html"><![CDATA[python常用函数解析]]></title>
+        <id>https://s-hmily.github.io/post/python-chang-yong-han-shu-jie-xi/</id>
+        <link href="https://s-hmily.github.io/post/python-chang-yong-han-shu-jie-xi/">
         </link>
-        <updated>2020-07-16T13:05:41.000Z</updated>
+        <updated>2020-07-18T01:50:42.000Z</updated>
     </entry>
     <entry>
-        <title type="html"><![CDATA[基于用户和商品协同过滤算法]]></title>
-        <id>https://s-hmily.github.io/post/ji-yu-yong-hu-he-shang-pin-xie-tong-guo-lu-suan-fa/</id>
-        <link href="https://s-hmily.github.io/post/ji-yu-yong-hu-he-shang-pin-xie-tong-guo-lu-suan-fa/">
+        <title type="html"><![CDATA[浅层神经网络概述]]></title>
+        <id>https://s-hmily.github.io/post/qian-ceng-shen-jing-wang-luo-gai-shu/</id>
+        <link href="https://s-hmily.github.io/post/qian-ceng-shen-jing-wang-luo-gai-shu/">
         </link>
-        <updated>2020-07-15T04:07:21.000Z</updated>
+        <updated>2020-07-18T01:27:16.000Z</updated>
     </entry>
 </feed>
