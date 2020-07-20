@@ -1,0 +1,980 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="1.卷积神经网络可以干什么？
+广泛应用的功能目前有以下三个
+1.图片识别
+当你想辨别一个物品是什么的时候，你可能会打开自己照相机然后在设置里边存有物体辨别功能，你可以根据物体辨别功能去区分照片里边的是什么。  在淘宝或者京东里边也有辨别功能..." />
+    <meta name="keywords" content="" />
+    <link rel="stylesheet" href="https://s-hmily.github.io/media/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://s-hmily.github.io/styles/main.css">
+    
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.1/build/styles/default.min.css">
+              
+    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.1/build/highlight.min.js"></script>
+    <script src="https://s-hmily.github.io/media/js/clipboard.min.js"></script>
+    <link rel="stylesheet" href="https://s-hmily.github.io/media/css/live2d.css">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js"></script>
+    <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
+    <link href="https://cdn.bootcdn.net/ajax/libs/font-awesome/5.13.1/css/all.min.css" rel="stylesheet">
+    <!-- 数学公式 -->
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0-beta/dist/katex.min.css"
+        integrity="sha384-9tPv11A+glH/on/wEu99NVwDPwkMQESOocs/ZGXPoIiLE8MU/qkqUcZ3zzL+6DuH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.10.0-beta/dist/katex.min.js"
+        integrity="sha384-U8Vrjwb8fuHMt6ewaCy8uqeUXv4oitYACKdB0VziCerzt011iQ/0TqlSlv8MReCm" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.10.0-beta/dist/contrib/auto-render.min.js"
+        integrity="sha384-aGfk5kvhIq5x1x5YdvCp4upKZYnA8ckafviDpmWEKp4afOZEqOli7gqSnh8I6enH" crossorigin="anonymous">
+    </script>
+    <script>
+        renderMathInElement(document.body, {
+            delimiters: [{
+                    left: "$$",
+                    right: "$$",
+                    display: true
+                },
+                {
+                    left: "$",
+                    right: "$",
+                    display: false
+                }
+            ]
+        });
+    </script>
+
+    
+    <title>叮叮当</title>
+    
+    <style>
+        .markdownIt-TOC {
+            padding-left: 2px;
+            width: 100%;
+        }
+        .markdownIt-TOC li{
+            padding-left: 2%;
+        }
+    </style>
+    
+</head>
+
+<body>
+    <!-- 响应式布局，针对PC端内容显示 -->
+    <div id="content">
+        <div class="nav-large">
+            <div class="row">
+                <div class="side"><head>
+    <meta name="description" content="“你买的什么书？”
+“《边城》”
+“C++还是python？”
+“沈从文”" />
+    <link rel="stylesheet" href="https://s-hmily.github.io/media/css/bootstrap.min.css">
+</head>
+
+
+<body>
+    
+
+
+
+    
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <a class="navbar-brand" href="https://s-hmily.github.io"
+                    style="font-size:21px">叮叮当&nbsp;&nbsp;|&nbsp;&nbsp;</a>
+                <a class="navbar-brand" href=""
+                    style="font-size:15px;font-family:kaiti">“你买的什么书？”
+“《边城》”
+“C++还是python？”
+“沈从文”</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse">
+                
+                <div class="search nav navbar-nav" style="margin-top:8px">
+                    <!-- <input type="text" class="search-input" placeholder="标题搜索(●'◡'●)" /> -->
+                    <input type="text" class="search-input" placeholder="标题搜索 ⚆_⚆ つ♡">
+                    <div class="search-results"></div>
+                </div>
+                
+                <div class="search nav navbar-nav">
+                <a title="text" onclick="document.getElementById('socialMenu').style.display='block'"><i><img class="social"
+                    src="https://s-hmily.github.io/media/images/social.png" alt=""></i></a>
+            </div>
+            <ul class="nav navbar-nav" style="float: right;margin-right:5%">
+                
+                
+                <li>
+                    <a href="https://s-hmily.github.io" style="color:white">
+                        首页
+                    </a>
+                </li>
+                
+                
+                
+                <li>
+                    <a href="/archives" style="color:white">
+                        归档
+                    </a>
+                </li>
+                
+                
+                
+                <li>
+                    <a href="https://s-hmily.github.io/tags" style="color:white">
+                        标签
+                    </a>
+                </li>
+                
+                
+                
+                <li><a href="https://s-hmily.github.io/talk" style="color:white;">说说</a></li>
+                
+                  
+                <li><a href="https://s-hmily.github.io/friends" style="color:white">友链</a></li>
+                
+                  <li><img src="https://s-hmily.github.io/images/avatar.png?v=1595254545187" alt=""
+                class="menutopavatar"></li>
+            </ul>
+        </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+    </nav>
+    <div id="socialMenu" class="modal">
+        <div class="animate">
+            <div class="socialContainer">
+                
+                
+                <a onclick="showqq()" style="cursor:pointer"><i><img class="icon" src="https://s-hmily.github.io/media/images/QQ.png"
+                            alt=""></i></a>
+                
+                
+                
+                
+                <a href="LB180928" target="_blank"><i><img class="icon"
+                            src="https://s-hmily.github.io/media/images/wechat.png" alt=""></i></a>
+                
+                
+            </div>
+            <div id="qq" style="display:none">897438019</div>
+        </div>
+    </div>
+    <!-- 引入jQuery核心js文件 -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js"></script>
+    <script>
+        var social = document.getElementById('socialMenu');
+        // 鼠标点击模型外区域关闭登录框
+        window.onclick = function (event) {
+            if (event.target == social) {
+                social.style.display = "none";
+            }
+        }
+    </script>
+    
+</body>
+<script>
+    //-------------------------------------------------搜索
+    // 获取搜索框、搜索按钮、清空搜索、结果输出对应的元素
+    var searchInput = document.querySelector('.search-input');
+    var searchResults = document.querySelector('.search-results');
+
+    // 申明保存文章的标题、链接、内容的数组变量
+    var searchValue = '',
+        arrItems = [],
+        arrLinks = [],
+        arrTitles = [],
+        arrResults = [],
+        indexItem = [],
+        itemLength = 0;
+    var tmpDiv = document.createElement('div');
+    tmpDiv.className = 'result-item';
+
+    // ajax 的兼容写法
+    var xhr = new XMLHttpRequest() || new ActiveXObject('Microsoft.XMLHTTP');
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState == 4 && xhr.status == 200) {
+            xml = xhr.responseXML;
+            arrItems = xml.getElementsByTagName('entry');
+            itemLength = arrItems.length;
+            // 遍历并保存所有文章对应的标题、链接、内容到对应的数组中
+            // 同时过滤掉 HTML 标签
+            for (i = 0; i < itemLength; i++) {
+                var link = arrItems[i].getElementsByTagName('link')[0];
+                arrLinks[i] = link.getAttribute("href");
+                arrTitles[i] = arrItems[i].getElementsByTagName('title')[0].
+                childNodes[0].nodeValue.replace(/<.*?>/g, '');
+            }
+        }
+    }
+
+    // 开始获取根目录下 feed.xml 文件内的数据
+    xhr.open('get', '/atom.xml', true);
+    xhr.send();
+
+
+
+    // 输入框内容变化后就开始匹配，可以不用点按钮
+    // 经测试，onkeydown, onchange 等方法效果不太理想，
+    // 存在输入延迟等问题，最后发现触发 input 事件最理想，
+    // 并且可以处理中文输入法拼写的变化
+    searchInput.oninput = function () {
+        setTimeout(searchConfirm, 0);
+    }
+    searchInput.onfocus = function () {
+        searchResults.style.display = 'block';
+    }
+
+    function searchConfirm() {
+        if (searchInput.value == '') {
+            searchResults.style.display = 'none';
+        } else if (searchInput.value.search(/^\s+$/) >= 0) {
+            // 检测输入值全是空白的情况
+            searchInit();
+            var itemDiv = tmpDiv.cloneNode(true);
+            itemDiv.innerText = '请输入有效内容...';
+            searchResults.appendChild(itemDiv);
+        } else {
+            // 合法输入值的情况
+            searchInit();
+            searchValue = searchInput.value;
+            // 在标题、内容中查找
+            searchMatching(arrTitles, searchValue);
+        }
+    }
+
+    // 每次搜索完成后的初始化
+    function searchInit() {
+        arrResults = [];
+        indexItem = [];
+        searchResults.innerHTML = '';
+        searchResults.style.display = 'block';
+    }
+
+    function searchMatching(arr1, input) {
+        // 忽略输入大小写
+        input = new RegExp(input, 'i');
+        // 在所有文章标题、内容中匹配查询值
+        for (i = 0; i < itemLength; i++) {
+            if (arr1[i].search(input) !== -1) {
+                var arr = arr1;
+                indexItem.push(i); // 保存匹配值的索引
+                var indexContent = arr[i].search(input);
+                // 此时 input 为 RegExp 格式 /input/i，转换为原 input 字符串长度
+                var l = input.toString().length - 3;
+                var step = 10;
+
+                // 将匹配到内容的地方进行黄色标记，并包括周围一定数量的文本
+                arrResults.push(arr[i].slice(indexContent - step, indexContent));
+            }
+        }
+
+        // 输出总共匹配到的数目
+        var totalDiv = tmpDiv.cloneNode(true);
+        totalDiv.innerHTML = '<b>总匹配：' + indexItem.length + ' 项<hr></b>';
+        searchResults.appendChild(totalDiv);
+
+        // 未匹配到内容的情况
+        if (indexItem.length == 0) {
+            var itemDiv = tmpDiv.cloneNode(true);
+            itemDiv.innerText = '未匹配到内容...';
+            searchResults.appendChild(itemDiv);
+        }
+
+        // 将所有匹配内容进行组合
+        for (i = 0; i < arrResults.length; i++) {
+            var itemDiv = tmpDiv.cloneNode(true);
+            itemDiv.innerHTML = '<b>[' + arrTitles[indexItem[i]] +
+                ']</b><p>' + arrResults[i] + "</p><hr />";
+            itemDiv.setAttribute('onclick', 'changeHref(arrLinks[indexItem[' + i + ']])');
+            searchResults.appendChild(itemDiv);
+        }
+    }
+
+    function changeHref(href) {
+        location.href = href;
+    }
+
+    function showqq() {
+        var qq = document.getElementById("qq").innerHTML;
+        if (qq != '')
+            alert("博主的QQ联系方式为：" + qq);
+        else
+            alert("博主暂未设置QQ联系方式");
+    }
+</script></div>
+    
+    <div id="main" class="col-xs-12 col-sm-7" style="width:50%;margin-top:50px;left:27%">
+        <link rel="stylesheet" href="https://s-hmily.github.io/media/css/font-awesome.css">
+<style>
+
+</style>
+
+<body>
+    <div class="allcontent" id="postdetail">
+        <div class="postshow">
+            
+            <div class="postdetailimg" style="width:100%;overflow: hidden;display: none">
+                
+                <img src="https://pic2.zhimg.com/80/v2-bcbb1a4f932ab78c198b0a99af266d4e_720w.jpg?source=1940ef5c" class="postimage">
+                
+            </div>
+            <div class="postinfo-detail">
+                <div class="postdate"><i class="fa fa-calendar"></i>2020-07-20</div>
+            <div class="poststatus postdate"><i class="fa fa-clock-o"></i> 14 min read</div>
+            <div class="posttag">
+                
+            </div>
+        </div>
+        
+        <div id="texttitle" style="text-align: center">
+            <h2>卷积神经网络解析</h2>
+            <!-- id 将作为查询条件 -->
+            <div id="pl" style="display:none">https://s-hmily.github.io/post/juan-ji-shen-jing-wang-luo-jie-xi/</div>
+            <div id="rootaddr" style="display:none">https://s-hmily.github.io</div>
+            <span id="hotnum" class="leancloud_visitors" data-flag-title="卷积神经网络解析">
+                <h4 class="readercount">热度🔥: <i class="leancloud-visitors-count">loading...</i></h4>
+            </span>
+        </div>
+        <div class="text ">
+            <h2 id="1卷积神经网络可以干什么">1.卷积神经网络可以干什么？</h2>
+<p>广泛应用的功能目前有以下三个</p>
+<p><strong>1.图片识别</strong></p>
+<p>当你想辨别一个物品是什么的时候，你可能会打开自己照相机然后在设置里边存有物体辨别功能，你可以根据物体辨别功能去区分照片里边的是什么。  在淘宝或者京东里边也有辨别功能可以辨别这个物品。</p>
+<p><strong>2.目标检测</strong></p>
+<p>在无人驾驶汽车当中，我们不一定就让这辆汽车去识别这个物体具体是什么，我们只需要去识别这个物体，然后判断这个物体是否是车辆或者其他的东西，然后确保自己的车辆跟这个物体保持一个安全的距离。</p>
+<p><strong>3.神经风格迁移</strong></p>
+<p>我们选择一张普通的照片，再选择一张艺术作品，同时输入，经过神经风格转换，就能给这张照片赋予艺术的风格 .</p>
+<figure data-type="image" tabindex="1"><img src="C:%5CUsers%5CWGJS%5CAppData%5CLocal%5CTemp%5C1595254352534.png" alt="1595254352534" loading="lazy"></figure>
+<h2 id="2边缘检测">2.边缘检测</h2>
+<p>在之前的神经网络里边学习过检测图片，神经网络由浅层到深层，分别可以检测出图片的<strong>边缘特征</strong>，<strong>局部特征</strong>，<strong>整体面部轮廓</strong></p>
+<figure data-type="image" tabindex="2"><img src="https://mmbiz.qpic.cn/mmbiz_png/hflWRBRSEZ6b5jE53SqmxoLmlRiaYM9MWyIjoeySOBbn2xWAhzN4l2AR0LqiaoQA2NNdGYLCG2QNCkHh88rhA3gQ/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="img" loading="lazy"></figure>
+<p>然后我们就来说说在CNN里边如何进行图片的边缘检测</p>
+<p>最常见的图片边缘有两类：</p>
+<p>1.垂直边缘（vertical edges）</p>
+<p>2.水平边缘（horizontal edges）</p>
+<h3 id="21边缘检测示例"><strong>2.1边缘检测示例</strong></h3>
+<figure data-type="image" tabindex="3"><img src="C:%5CUsers%5CWGJS%5CAppData%5CLocal%5CTemp%5C1595254319898.png" alt="1595254319898" loading="lazy"></figure>
+<p>这里我们引入一个概念就是<strong>过滤器</strong>（filter），过滤器其实就是一个人为定的一个矩阵的样子，然后跟原始的图片进行一些相关的计算得到卷积后的图片，具体过程如下：</p>
+<figure data-type="image" tabindex="4"><img src="https://mmbiz.qpic.cn/mmbiz_png/hflWRBRSEZ6b5jE53SqmxoLmlRiaYM9MWs9VXleUwibicmvrgKzfa7DcgibM3WXa2DsUvR3Z4jVAOlGJyo3A3y0ekg/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="img" loading="lazy"></figure>
+<p>上图只显示了卷积后的第一个值和最后一个值。</p>
+<p>-5是如何来的呢？ 在第一个蓝色九宫格里边，每一个数字右上角有一个小数字，这个数字就是跟过滤器中的数字是相对应的，然后本身的数字跟右上角的数字进行相乘的结果</p>
+<p>顺便提一下，∗表示卷积操作。python中，卷积用conv_forward()表示；tensorflow中，卷积用tf.nn.conv2d()表示；keras中，卷积用Conv2D()表示。</p>
+<p>Vertical edge detection能够检测图片的垂直方向边缘。下图对应一个垂直边缘检测的例子：</p>
+<p>``<img src="https://mmbiz.qpic.cn/mmbiz_png/hflWRBRSEZ6b5jE53SqmxoLmlRiaYM9MW1P4dJxj9Q7ic0v39DfYz1lHwHtkvQiawzeWjRLlcWE3tzpdP673DKicYA/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="img" loading="lazy"></p>
+<p>在第一个图片当中，有一条白色区域与黑色区域当中有一条线，这个就是我们垂直边缘需要检测出来的线，然后经过过滤器的处理，最后的结果就剩下灰-白-灰。这当中白色区域就是检测出来的线。</p>
+<p><strong>可是你会说为啥区域是检测出来的线啊？区域这么大，咋会是线呢？</strong></p>
+<p>我们举的例子当中是6x6的，在现实生活中的图片基本上很大很大的，比如一个128x128的单色域图像（图片按比例增大），检测出来的白色区域占的面积是多少？2/126，而上图的例子是2/4，况且显示中的图片比128x128还要大很多。</p>
+<h3 id="22更多边缘检测示例"><strong>2.2更多边缘检测示例</strong></h3>
+<p>图片边缘有两种渐变方式，一种是由明变暗，另一种是由暗变明。以垂直边缘检测为例，下图展示了两种方式的区别。实际应用中，这两种渐变方式并不影响边缘检测结果，可以对输出图片取绝对值操作，得到同样的结果。</p>
+<figure data-type="image" tabindex="5"><img src="https://mmbiz.qpic.cn/mmbiz_png/hflWRBRSEZ6b5jE53SqmxoLmlRiaYM9MW2c4PCff53oTrfLB2kfoicLDLwCA16bWS9TOsm1I8tsexGAMleBicpgxw/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="img" loading="lazy"></figure>
+<p>垂直边缘检测和水平边缘检测的滤波器算子如下所示：</p>
+<figure data-type="image" tabindex="6"><img src="https://mmbiz.qpic.cn/mmbiz_png/hflWRBRSEZ6b5jE53SqmxoLmlRiaYM9MWdZF33fNpThVu9PqiaDgB57WRB8mJbN97F4DibPztMDgynW509p0iaBuhw/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="img" loading="lazy"></figure>
+<p>下图展示一个水平边缘检测的例子：</p>
+<figure data-type="image" tabindex="7"><img src="https://mmbiz.qpic.cn/mmbiz_png/hflWRBRSEZ6b5jE53SqmxoLmlRiaYM9MWibMG2dRzCuNgVKKCIM5pdKDqJMFI3v4iaqDyibQhbzBUxM6ibibjetGgTGg/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="img" loading="lazy"></figure>
+<p>除了上面提到的这种简单的Vertical、Horizontal滤波器之外，还有其它常用的filters，例如Sobel filter和Scharr filter。这两种滤波器的特点是增加图片中心区域的权重。</p>
+<figure data-type="image" tabindex="8"><img src="https://mmbiz.qpic.cn/mmbiz_png/hflWRBRSEZ6b5jE53SqmxoLmlRiaYM9MWsh1uTxXtceoqymY3IhvLIiarV9sTDdCqdVLYiawCM2eYf7O9NanPTtsA/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="img" loading="lazy"></figure>
+<p>上图展示的是垂直边缘检测算子，水平边缘检测算子只需将上图顺时针翻转90度即可。</p>
+<p>在深度学习中，如果我们想检测图片的各种边缘特征，而不仅限于垂直边缘和水平边缘，那么filter的数值一般需要通过模型训练得到，类似于标准神经网络中的权重W一样由梯度下降算法反复迭代求得。CNN的主要目的就是计算出这些filter的数值。确定得到了这些filter后，CNN浅层网络也就实现了对图片所有边缘特征的检测。</p>
+<h2 id="3padding">3.Padding</h2>
+<p>按照上边所说的，如果原始图片尺寸为n x n，filter尺寸为f x f，则卷积后的图片尺寸为(n-f+1) x (n-f+1)，注意f一般为奇数。</p>
+<p>如果进行卷积神经网络之后，我们会带来两个问题：</p>
+<ul>
+<li><strong>卷积运算后，输出图片尺寸缩小</strong></li>
+<li><strong>原始图片边缘信息对输出贡献得少，输出图片丢失边缘信息</strong></li>
+</ul>
+<p>为了解决图片缩小的问题，可以使用padding方法，即把原始图片尺寸进行扩展，扩展区域补零，用p来表示每个方向扩展的宽度。也就是我们可以扩张原来的图片，然后再对图片进行缩小，使得到的图片的尺寸跟原来的尺寸想等，这样就可以有效的解决以上的两个问题。</p>
+<p>**再者就是关于扩张后填充的数字是什么？**一般来说是0，因为填充0之后才能保证图像的准确性，其实你可以想想成这个图片外围有很多层，这些层都是0代表着没有内容也就是空白内容，因此填充0可以保证图片的准确性，不会丢失边缘信息。虽然填充其他的数字也可能得到不错的效果，maybe吧，如果你愿意你可以自己尝试一下。</p>
+<figure data-type="image" tabindex="9"><img src="https://mmbiz.qpic.cn/mmbiz_png/hflWRBRSEZ6b5jE53SqmxoLmlRiaYM9MWcpP3LBDIsEsT5N6EfN0MFXuDAcCWY4Hy90w7Pc59xIdNRFyjib2qicgQ/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="img" loading="lazy"></figure>
+<p>经过padding之后，原始图片尺寸为(n+2p) x (n+2p)，filter尺寸为f x f，则卷积后的图片尺寸为(n+2p-f+1) x (n+2p-f+1)。若要保证卷积前后图片尺寸不变，则p应满足：</p>
+<figure data-type="image" tabindex="10"><img src="https://mmbiz.qpic.cn/mmbiz_png/hflWRBRSEZ6b5jE53SqmxoLmlRiaYM9MWCahQu5Ytte6ZtzZsfDkdpLpILUgXAREGNWg8njW0vQo7ZRhzzricV2Q/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="img" loading="lazy"></figure>
+<p>没有padding操作，p=0，我们称之为“<strong>Valid convolutions</strong>”；有padding操作，p=(f−1)/2，我们称之为“<strong>Same convolutions</strong>”。</p>
+<p>从这个式子当中可以看出来，一般来说过滤器的选择尺寸都是奇数x奇数的。</p>
+<h2 id="4卷积步长strided-convolutions-的选择">4.卷积步长（<strong>Strided Convolutions</strong> ）的选择</h2>
+<p>Stride表示filter在原图片中水平方向和垂直方向每次的步进长度。之前我们默认stride=1。若stride=2，则表示filter每次步进长度为2，即隔一点移动一次。</p>
+<figure data-type="image" tabindex="11"><img src="https://mmbiz.qpic.cn/mmbiz_png/hflWRBRSEZ6b5jE53SqmxoLmlRiaYM9MWC9caVib7JSJOPicOcj0wJy5KL5SUDjKFOGq1TrmGGMML3T87riakkn9lA/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="img" loading="lazy"></figure>
+<p>我们用s表示stride长度，p表示padding长度，如果原始图片尺寸为n x n，filter尺寸为f x f，则卷积后的图片尺寸为：</p>
+<figure data-type="image" tabindex="12"><img src="https://mmbiz.qpic.cn/mmbiz_png/hflWRBRSEZ6b5jE53SqmxoLmlRiaYM9MWqxDbiaUErO5wfVCqBggz4lNIRJsdMhFZ17cLgb5GM58YWLqMGjI6wRw/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="img" loading="lazy"></figure>
+<p>上式中，⌊⋯⌋表示向下取整。</p>
+<p><strong>卷积步长越小，提取的特征越多，但是卷积步长一般不取1，主要考虑时间效率的问题。卷积步长也不能太大，否则会漏掉图像上的信息。</strong></p>
+<p>值得一提的是，相关系数（cross-correlations）与卷积（convolutions）之间是有区别的。实际上，真正的卷积运算会先将filter绕其中心旋转180度，然后再将旋转后的filter在原始图片上进行滑动计算。filter旋转如下所示：</p>
+<figure data-type="image" tabindex="13"><img src="https://mmbiz.qpic.cn/mmbiz_png/hflWRBRSEZ6b5jE53SqmxoLmlRiaYM9MWib45rt5Oibj5DIh3WGibDZlHvZ3iaoGpoA9J5VibIoeKsFjvSO6UpPyFo2Q/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="img" loading="lazy"></figure>
+<p>比较而言，相关系数的计算过程则不会对filter进行旋转，而是直接在原始图片上进行滑动计算。</p>
+<p>其实，目前为止我们介绍的CNN卷积实际上计算的是相关系数，而不是数学意义上的卷积。但是，为了简化计算，我们一般把CNN中的这种“相关系数”就称作卷积运算。之所以可以这么等效，是因为滤波器算子一般是水平或垂直对称的，180度旋转影响不大；而且最终滤波器算子需要通过CNN网络梯度下降算法计算得到，旋转部分可以看作是包含在CNN模型算法中。总的来说，忽略旋转运算可以大大提高CNN网络运算速度，而且不影响模型性能。</p>
+<p>卷积运算服从分配律：</p>
+<figure data-type="image" tabindex="14"><img src="https://mmbiz.qpic.cn/mmbiz_png/hflWRBRSEZ6b5jE53SqmxoLmlRiaYM9MWwHZfSs4RI0ntzrlnjEkVHtPaibiaf7ToAYJpSbwDhsqY0VkXdbeyIKeA/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="img" loading="lazy"></figure>
+<h2 id="5多卷积运算">5.多卷积运算</h2>
+<p>对于3通道的RGB图片，其对应的滤波器算子同样也是3通道的。例如一个图片是6 x 6 x 3，分别表示图片的高度（height）、宽度（weight）和通道（#channel）。</p>
+<p>3通道图片的卷积运算与单通道图片的卷积运算基本一致。过程是将每个单通道（R，G，B）与对应的filter进行卷积运算求和，然后再将3通道的和相加，得到输出图片的一个像素值。</p>
+<figure data-type="image" tabindex="15"><img src="https://mmbiz.qpic.cn/mmbiz_png/hflWRBRSEZ6b5jE53SqmxoLmlRiaYM9MWyCXqn4tFJOWmvTib3ETvntpeztbibnaf4d7BksXzjjzGOMqa5F293pUw/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="img" loading="lazy"></figure>
+<p>不同通道的滤波算子可以不相同。例如R通道filter实现垂直边缘检测，G和B通道不进行边缘检测，全部置零，或者将R，G，B三通道filter全部设置为水平边缘检测。</p>
+<p>为了进行多个卷积运算，实现更多边缘检测，可以增加更多的滤波器组。例如设置第一个滤波器组实现垂直边缘检测，第二个滤波器组实现水平边缘检测。这样，不同滤波器组卷积得到不同的输出，个数由滤波器组决定。</p>
+<figure data-type="image" tabindex="16"><img src="https://mmbiz.qpic.cn/mmbiz_png/hflWRBRSEZ6b5jE53SqmxoLmlRiaYM9MWbstFg5QdV3n4pcia3gLib8rP3VXl8gHM72RtFT4PZzGvjHOvWCeD9feg/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="img" loading="lazy"></figure>
+<p>若输入图片的尺寸为n x n x nc，filter尺寸为f x f x nc，则卷积后的图片尺寸为(n-f+1) x (n-f+1) x nc′。其中，nc为图片通道数目，nc′为滤波器组个数。</p>
+<h2 id="6卷积神经网络的单层结构">6.卷积神经网络的单层结构</h2>
+<p>卷积神经网络的单层结构如下所示：</p>
+<figure data-type="image" tabindex="17"><img src="https://mmbiz.qpic.cn/mmbiz_png/hflWRBRSEZ6b5jE53SqmxoLmlRiaYM9MWt4a9nslMxPzqNrY729YJHlozNsdYGIpkYr22tXenibb4fIM8vTOZ8xA/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="img" loading="lazy"></figure>
+<p>相比之前的卷积过程，CNN的单层结构多了激活函数ReLU和偏移量b。整个过程与标准的神经网络单层结构非常类似：</p>
+<figure data-type="image" tabindex="18"><img src="https://mmbiz.qpic.cn/mmbiz_png/hflWRBRSEZ6b5jE53SqmxoLmlRiaYM9MW6lvXXzSbdJFpCSqvqPHlmHia46pILE4qDXXg4F39mYzDJvd79u1Q0vA/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="img" loading="lazy"></figure>
+<figure data-type="image" tabindex="19"><img src="https://mmbiz.qpic.cn/mmbiz_png/hflWRBRSEZ6b5jE53SqmxoLmlRiaYM9MWRYiabnRxhx9uNUjaUnnlDOFKof01UFZtG5exMZcnKbxxmpEBm5LFcgg/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="img" loading="lazy"></figure>
+<p>我们来计算一下上图中参数的数目：每个滤波器组有3x3x3=27个参数，还有1个偏移量b，则每个滤波器组有27+1=28个参数，两个滤波器组总共包含28x2=56个参数。我们发现，选定滤波器组后，参数数目与输入图片尺寸无关。所以，就不存在由于图片尺寸过大，造成参数过多的情况。例如一张1000x1000x3的图片，标准神经网络输入层的维度将达到3百万，而在CNN中，参数数目只由滤波器组决定，数目相对来说要少得多，这是CNN的优势之一。</p>
+<p>最后，我们总结一下CNN单层结构的所有标记符号，设层数为l。</p>
+<figure data-type="image" tabindex="20"><img src="https://mmbiz.qpic.cn/mmbiz_png/hflWRBRSEZ6b5jE53SqmxoLmlRiaYM9MWxAqX1T3OeiaRjGdEFmLX68j97burFHlydRBx7S3Bbwq8MdjPMEXdicng/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="img" loading="lazy"></figure>
+<figure data-type="image" tabindex="21"><img src="https://mmbiz.qpic.cn/mmbiz_png/hflWRBRSEZ6b5jE53SqmxoLmlRiaYM9MWtoibhicIMJsvO1SwsXdDvFpmxIUjbRf62LGjGK9m6TCA2iaXmTn97btww/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="img" loading="lazy"></figure>
+<p>其中，</p>
+<figure data-type="image" tabindex="22"><img src="https://mmbiz.qpic.cn/mmbiz_png/hflWRBRSEZ6b5jE53SqmxoLmlRiaYM9MWO8MRiaD0fkrm9gVSElMUkXLu8S5J0gNOAMbRjPkbMlY3BxzuqteN7eA/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="img" loading="lazy"></figure>
+<figure data-type="image" tabindex="23"><img src="https://mmbiz.qpic.cn/mmbiz_png/hflWRBRSEZ6b5jE53SqmxoLmlRiaYM9MWI2c0SGCyCTZpsic2iaibwk9PfOrFJqFWD7WBncnC6OSNAqWNtheplRmng/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="img" loading="lazy"></figure>
+<h2 id="7简单的cnn模型"><strong>7.简单的CNN模型</strong></h2>
+<p>下面介绍一个简单的CNN网络模型：</p>
+<figure data-type="image" tabindex="24"><img src="https://mmbiz.qpic.cn/mmbiz_png/hflWRBRSEZ6b5jE53SqmxoLmlRiaYM9MW78pvWiaVdvicNj42XXVgcr5BJIiaOsMUCtuiawkxiaLUKXlhsgxajicwKr3w/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="img" loading="lazy"></figure>
+<figure data-type="image" tabindex="25"><img src="https://mmbiz.qpic.cn/mmbiz_png/hflWRBRSEZ6b5jE53SqmxoLmlRiaYM9MWSsTL4Giaj4OeVSK5Tjichp7C51aY8L3IdwbZXycgG8YVzXibHCHzJruMQ/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="img" loading="lazy"></figure>
+<figure data-type="image" tabindex="26"><img src="https://mmbiz.qpic.cn/mmbiz_png/hflWRBRSEZ6b5jE53SqmxoLmlRiaYM9MWylszuL0NoTw1a6ibvURpe5qJ401iawFiaibSs1grfxqD335khHRMCCRicIg/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="img" loading="lazy"></figure>
+<p>CNN有三种类型的layer：</p>
+<ul>
+<li>Convolution层（CONV）</li>
+<li>Pooling层（POOL）</li>
+<li>Fully connected层（FC）</li>
+</ul>
+<p>CONV最为常见也最重要，关于POOL和FC我们之后再介绍。</p>
+<h2 id="8池化层">8.池化层</h2>
+<p>Pooling layers是CNN中用来减小尺寸，提高运算速度的，同样能减小noise影响，让各特征更具有健壮性。</p>
+<p>Pooling layers的做法比convolution layers简单许多，没有卷积运算，仅仅是在滤波器算子滑动区域内取最大值，即max pooling，这是最常用的做法。注意，超参数p很少在pooling layers中使用。</p>
+<figure data-type="image" tabindex="27"><img src="https://mmbiz.qpic.cn/mmbiz_png/hflWRBRSEZ6b5jE53SqmxoLmlRiaYM9MWb6ycbQ6dh0nuZaFAqzCsZkQvAf1RP3a71TBZkP6ypcpyGtLQY6kPpA/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="img" loading="lazy"></figure>
+<p>Max pooling的好处是只保留区域内的最大值（特征），忽略其它值，降低noise影响，提高模型健壮性。而且，max pooling需要的超参数仅为滤波器尺寸f和滤波器步进长度s，没有其他参数需要模型训练得到，计算量很小。</p>
+<p>如果是多个通道，那么就每个通道单独进行max pooling操作。</p>
+<p>除了max pooling之外，还有一种做法：average pooling。顾名思义，average pooling就是在滤波器算子滑动区域计算平均值。</p>
+<figure data-type="image" tabindex="28"><img src="https://mmbiz.qpic.cn/mmbiz_png/hflWRBRSEZ6b5jE53SqmxoLmlRiaYM9MWluuRPzml77C46AT0FTPAvNicwZibKB3tBsqCEZDHDlj59icMbT0U6BAzA/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="img" loading="lazy"></figure>
+<p>实际应用中，max pooling比average pooling更为常用。</p>
+<h2 id="9简单数字识别的例子">9.简单数字识别的例子</h2>
+<p>下面介绍一个简单的数字识别的CNN例子：</p>
+<figure data-type="image" tabindex="29"><img src="https://mmbiz.qpic.cn/mmbiz_png/hflWRBRSEZ6b5jE53SqmxoLmlRiaYM9MWU9V2LHzxcUnOx59u590BMyE5DflmwAeH4faz0PTXcnPzx9OTEosnfA/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="img" loading="lazy"></figure>
+<p>图中，CON层后面紧接一个POOL层，CONV1和POOL1构成第一层，CONV2和POOL2构成第二层。特别注意的是FC3和FC4为全连接层FC，它跟标准的神经网络结构一致。最后的输出层（softmax）由10个神经元构成。</p>
+<p>整个网络各层的尺寸和参数如下表格所示：</p>
+<figure data-type="image" tabindex="30"><img src="https://mmbiz.qpic.cn/mmbiz_png/hflWRBRSEZ6b5jE53SqmxoLmlRiaYM9MW9r3DFwL71Y6c3TjParJDiagyfSpZRHYtDJ4GbGWF394KbUzSCOx9t8g/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="img" loading="lazy"></figure>
+<h2 id="10为什么使用卷积">10.为什么使用卷积</h2>
+<p>相比标准神经网络，CNN的优势之一就是参数数目要少得多。参数数目少的原因有两个：</p>
+<ul>
+<li><strong>参数共享：一个特征检测器（例如垂直边缘检测）对图片某块区域有用，同时也可能作用在图片其它区域。</strong></li>
+<li><strong>连接的稀疏性：因为滤波器算子尺寸限制，每一层的每个输出只与输入部分区域内有关。</strong></li>
+</ul>
+<p>除此之外，由于CNN参数数目较小，所需的训练样本就相对较少，从而一定程度上不容易发生过拟合现象。而且，CNN比较擅长捕捉区域位置偏移。也就是说CNN进行物体检测时，不太受物体所处图片位置的影响，增加检测的准确性和系统的健壮性。</p>
+<h2 id="11经典的卷积神经网络">11.经典的卷积神经网络</h2>
+<p><strong>1.LeNet</strong></p>
+<p>LeNet诞生于1994年，由深度学习三巨头之一的Yan LeCun提出，他也被称为卷积神经网络之父。LeNet主要用来进行手写字符的识别与分类，准确率达到了98%，并在美国的银行中投入了使用，被用于读取北美约10%的支票。LeNet奠定了现代卷积神经网络的基础。</p>
+<p><strong>2.AlexNet</strong></p>
+<p>AlexNet由Hinton的学生Alex Krizhevsky于2012年提出，并在当年取得了Imagenet比赛冠军。AlexNet可以算是LeNet的一种更深更宽的版本，证明了卷积神经网络在复杂模型下的有效性，算是神经网络在低谷期的第一次发声，确立了深度学习，或者说卷积神经网络在计算机视觉中的统治地位。</p>
+<p><strong>3.VGGNet</strong></p>
+<p>VGGNet是牛津大学计算机视觉组和Google DeepMind公司一起研发的深度卷积神经网络，并取得了2014年Imagenet比赛定位项目第一名和分类项目第二名。该网络主要是泛化性能很好，容易迁移到其他的图像识别项目上，可以下载VGGNet训练好的参数进行很好的初始化权重操作，很多卷积神经网络都是以该网络为基础，比如FCN，UNet，SegNet等。vgg版本很多，常用的是VGG16，VGG19网络。</p>
+<p><strong>4.ResNet</strong></p>
+<p>ResNet（残差神经网络）由微软研究院的何凯明等4名华人于2015年提出，成功训练了152层超级深的卷积神经网络，效果非常突出，而且容易结合到其他网络结构中。在五个主要任务轨迹中都获得了第一名的成绩：</p>
+<pre><code>            ImageNet分类任务：错误率3.57%
+
+            ImageNet检测任务：超过第二名16%
+
+            ImageNet定位任务：超过第二名27%
+
+            COCO检测任务：超过第二名11%
+
+            COCO分割任务：超过第二名12%
+</code></pre>
+
+        </div>
+        
+        
+        <div class="next-post">
+            下一篇
+            <a href="https://s-hmily.github.io/post/python-chang-yong-han-shu-jie-xi/">
+                python常用函数解析
+            </a>
+        </div>
+        
+    </div>
+    </div>
+</body>
+<script>
+    var t_img; // 定时�?
+    var isLoad = true; // 控制变量
+    isImgLoad(function () {
+        // 加载完成
+        $('.postdetailimg').css("display", "block");
+    });
+    // 判断图片加载的函�?
+    function isImgLoad(callback) {
+        // 注意我的图片类名都是cover，因为我�?需要�?�理cover。其它图片可以不管�?
+        // 查找所有封面图，迭代�?�理
+        $('.postdetailimg').each(function () {
+            // 找到�?0就将isLoad设为false，并退出each
+            if (this.height === 0) {
+                isLoad = false;
+                return false;
+            }
+        });
+        // 为true，没有发现为0的。加载完�?
+        if (isLoad) {
+            clearTimeout(t_img); // 清除定时�?
+            // 回调函数
+            callback();
+            // 为false，因为找到了没有加载完成的图，将调用定时器递归
+        } else {
+            isLoad = true;
+            t_img = setTimeout(function () {
+                isImgLoad(callback); // 递归�?�?
+            }, 500); // 我这里�?�置的是500�?秒就�?描一次，�?以自己调�?
+        }
+    }
+
+    //文章阅读热度
+    var pl = $("#pl").html();
+    var rootaddr = $("#rootaddr").html();
+    pl = pl.replace(rootaddr, "");
+    $("#hotnum").attr('id', pl);
+</script>
+        <div name="comment" style="background: white">
+            <div class="commentcontainer">
+                
+                <p>请到客户端“主题--自定义配置--valine”中填入ID和KEY</p>
+                
+            </div>
+        </div>
+    </div>
+     
+                <div class="toc-container">
+                    <ul class="markdownIt-TOC">
+<li>
+<ul>
+<li><a href="#1%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E5%8F%AF%E4%BB%A5%E5%B9%B2%E4%BB%80%E4%B9%88">1.卷积神经网络可以干什么？</a></li>
+<li><a href="#2%E8%BE%B9%E7%BC%98%E6%A3%80%E6%B5%8B">2.边缘检测</a>
+<ul>
+<li><a href="#21%E8%BE%B9%E7%BC%98%E6%A3%80%E6%B5%8B%E7%A4%BA%E4%BE%8B"><strong>2.1边缘检测示例</strong></a></li>
+<li><a href="#22%E6%9B%B4%E5%A4%9A%E8%BE%B9%E7%BC%98%E6%A3%80%E6%B5%8B%E7%A4%BA%E4%BE%8B"><strong>2.2更多边缘检测示例</strong></a></li>
+</ul>
+</li>
+<li><a href="#3padding">3.Padding</a></li>
+<li><a href="#4%E5%8D%B7%E7%A7%AF%E6%AD%A5%E9%95%BFstrided-convolutions-%E7%9A%84%E9%80%89%E6%8B%A9">4.卷积步长（<strong>Strided Convolutions</strong> ）的选择</a></li>
+<li><a href="#5%E5%A4%9A%E5%8D%B7%E7%A7%AF%E8%BF%90%E7%AE%97">5.多卷积运算</a></li>
+<li><a href="#6%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E7%9A%84%E5%8D%95%E5%B1%82%E7%BB%93%E6%9E%84">6.卷积神经网络的单层结构</a></li>
+<li><a href="#7%E7%AE%80%E5%8D%95%E7%9A%84cnn%E6%A8%A1%E5%9E%8B"><strong>7.简单的CNN模型</strong></a></li>
+<li><a href="#8%E6%B1%A0%E5%8C%96%E5%B1%82">8.池化层</a></li>
+<li><a href="#9%E7%AE%80%E5%8D%95%E6%95%B0%E5%AD%97%E8%AF%86%E5%88%AB%E7%9A%84%E4%BE%8B%E5%AD%90">9.简单数字识别的例子</a></li>
+<li><a href="#10%E4%B8%BA%E4%BB%80%E4%B9%88%E4%BD%BF%E7%94%A8%E5%8D%B7%E7%A7%AF">10.为什么使用卷积</a></li>
+<li><a href="#11%E7%BB%8F%E5%85%B8%E7%9A%84%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C">11.经典的卷积神经网络</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+    </div>
+    </div>
+    <div class="toggleContainer">
+        <div class="toggle">
+            <i class="fas fa-angle-double-up"></i>
+        </div>
+    </div>
+    <div id="bg">
+    </div>
+    <div id="bgchoice" style="display: none">link</div>
+    
+    <div id="bgurl" style="display:none">https://pic2.zhimg.com/80/v2-bcbb1a4f932ab78c198b0a99af266d4e_720w.jpg?source=1940ef5c</div>
+       
+    </div>
+    <!-- 响应式布局，针对手机端内容显示 -->
+    <div class="nav-small">
+        <head>
+  <!-- 引入Bootstrap核心样式文件 -->
+  <link rel="stylesheet" href="https://s-hmily.github.io/media/css/bootstrap.min.css">
+</head>
+
+<body>
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container-fluid">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+          data-target="#barmenu" aria-expanded="false" id="barbutton">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="https://s-hmily.github.io">叮叮当&nbsp;&nbsp;|</a>
+      </div>
+
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="barmenu">
+        <ul class="nav navbar-nav">
+          
+          
+          <li>
+            <a href="https://s-hmily.github.io">
+              首页
+            </a>
+          </li>
+          
+          
+          
+          <li>
+            <a href="/archives">
+              归档
+            </a>
+          </li>
+          
+          
+          
+          <li>
+            <a href="https://s-hmily.github.io/tags">
+              标签
+            </a>
+          </li>
+          
+          
+          
+            <li><a href="https://s-hmily.github.io/talk">说说</a></li>
+            
+          
+          <li><a href="https://s-hmily.github.io/friends">友链</a></li>
+
+          
+        </ul>
+      </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+  </nav>
+
+
+  <!-- 引入jQuery核心js文件 -->
+  <script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+  <script>
+  var btstate = false;
+  var bt = $("#barbutton");
+  var bm = $("#barmenu");
+  bt.click(function(){
+    dropdown();
+  })
+  function dropdown(){
+    console.log(btstate);
+    //下拉
+    if(btstate==false){
+      bt.removeClass("collapsed");
+      bt.attr("aria-expanded","true");
+      bm.attr("aria-expanded","true")
+      bm.fadeIn(700);
+      btstate = true;
+    }
+    else{
+      bt.addClass("collapsed");
+      bt.attr("aria-expanded","false");
+      bm.removeClass("in");
+      bm.hide();
+      bm.attr("aria-expanded","false");
+      btstate = false;
+    }
+  }
+  </script> 
+</body>
+    <div style="margin-top:30px"></div>
+    <link rel="stylesheet" href="https://s-hmily.github.io/media/css/font-awesome.css">
+<style>
+
+</style>
+
+<body>
+    <div class="allcontent" id="postdetail">
+        <div class="postshow">
+            
+            <div class="postdetailimg" style="width:100%;overflow: hidden;display: none">
+                
+                <img src="https://pic2.zhimg.com/80/v2-bcbb1a4f932ab78c198b0a99af266d4e_720w.jpg?source=1940ef5c" class="postimage">
+                
+            </div>
+            <div class="postinfo-detail">
+                <div class="postdate"><i class="fa fa-calendar"></i>2020-07-20</div>
+            <div class="poststatus postdate"><i class="fa fa-clock-o"></i> 14 min read</div>
+            <div class="posttag">
+                
+            </div>
+        </div>
+        
+        <div id="texttitle" style="text-align: center">
+            <h2>卷积神经网络解析</h2>
+            <!-- id 将作为查询条件 -->
+            <div id="pl" style="display:none">https://s-hmily.github.io/post/juan-ji-shen-jing-wang-luo-jie-xi/</div>
+            <div id="rootaddr" style="display:none">https://s-hmily.github.io</div>
+            <span id="hotnum" class="leancloud_visitors" data-flag-title="卷积神经网络解析">
+                <h4 class="readercount">热度🔥: <i class="leancloud-visitors-count">loading...</i></h4>
+            </span>
+        </div>
+        <div class="text ">
+            <h2 id="1卷积神经网络可以干什么">1.卷积神经网络可以干什么？</h2>
+<p>广泛应用的功能目前有以下三个</p>
+<p><strong>1.图片识别</strong></p>
+<p>当你想辨别一个物品是什么的时候，你可能会打开自己照相机然后在设置里边存有物体辨别功能，你可以根据物体辨别功能去区分照片里边的是什么。  在淘宝或者京东里边也有辨别功能可以辨别这个物品。</p>
+<p><strong>2.目标检测</strong></p>
+<p>在无人驾驶汽车当中，我们不一定就让这辆汽车去识别这个物体具体是什么，我们只需要去识别这个物体，然后判断这个物体是否是车辆或者其他的东西，然后确保自己的车辆跟这个物体保持一个安全的距离。</p>
+<p><strong>3.神经风格迁移</strong></p>
+<p>我们选择一张普通的照片，再选择一张艺术作品，同时输入，经过神经风格转换，就能给这张照片赋予艺术的风格 .</p>
+<figure data-type="image" tabindex="1"><img src="C:%5CUsers%5CWGJS%5CAppData%5CLocal%5CTemp%5C1595254352534.png" alt="1595254352534" loading="lazy"></figure>
+<h2 id="2边缘检测">2.边缘检测</h2>
+<p>在之前的神经网络里边学习过检测图片，神经网络由浅层到深层，分别可以检测出图片的<strong>边缘特征</strong>，<strong>局部特征</strong>，<strong>整体面部轮廓</strong></p>
+<figure data-type="image" tabindex="2"><img src="https://mmbiz.qpic.cn/mmbiz_png/hflWRBRSEZ6b5jE53SqmxoLmlRiaYM9MWyIjoeySOBbn2xWAhzN4l2AR0LqiaoQA2NNdGYLCG2QNCkHh88rhA3gQ/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="img" loading="lazy"></figure>
+<p>然后我们就来说说在CNN里边如何进行图片的边缘检测</p>
+<p>最常见的图片边缘有两类：</p>
+<p>1.垂直边缘（vertical edges）</p>
+<p>2.水平边缘（horizontal edges）</p>
+<h3 id="21边缘检测示例"><strong>2.1边缘检测示例</strong></h3>
+<figure data-type="image" tabindex="3"><img src="C:%5CUsers%5CWGJS%5CAppData%5CLocal%5CTemp%5C1595254319898.png" alt="1595254319898" loading="lazy"></figure>
+<p>这里我们引入一个概念就是<strong>过滤器</strong>（filter），过滤器其实就是一个人为定的一个矩阵的样子，然后跟原始的图片进行一些相关的计算得到卷积后的图片，具体过程如下：</p>
+<figure data-type="image" tabindex="4"><img src="https://mmbiz.qpic.cn/mmbiz_png/hflWRBRSEZ6b5jE53SqmxoLmlRiaYM9MWs9VXleUwibicmvrgKzfa7DcgibM3WXa2DsUvR3Z4jVAOlGJyo3A3y0ekg/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="img" loading="lazy"></figure>
+<p>上图只显示了卷积后的第一个值和最后一个值。</p>
+<p>-5是如何来的呢？ 在第一个蓝色九宫格里边，每一个数字右上角有一个小数字，这个数字就是跟过滤器中的数字是相对应的，然后本身的数字跟右上角的数字进行相乘的结果</p>
+<p>顺便提一下，∗表示卷积操作。python中，卷积用conv_forward()表示；tensorflow中，卷积用tf.nn.conv2d()表示；keras中，卷积用Conv2D()表示。</p>
+<p>Vertical edge detection能够检测图片的垂直方向边缘。下图对应一个垂直边缘检测的例子：</p>
+<p>``<img src="https://mmbiz.qpic.cn/mmbiz_png/hflWRBRSEZ6b5jE53SqmxoLmlRiaYM9MW1P4dJxj9Q7ic0v39DfYz1lHwHtkvQiawzeWjRLlcWE3tzpdP673DKicYA/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="img" loading="lazy"></p>
+<p>在第一个图片当中，有一条白色区域与黑色区域当中有一条线，这个就是我们垂直边缘需要检测出来的线，然后经过过滤器的处理，最后的结果就剩下灰-白-灰。这当中白色区域就是检测出来的线。</p>
+<p><strong>可是你会说为啥区域是检测出来的线啊？区域这么大，咋会是线呢？</strong></p>
+<p>我们举的例子当中是6x6的，在现实生活中的图片基本上很大很大的，比如一个128x128的单色域图像（图片按比例增大），检测出来的白色区域占的面积是多少？2/126，而上图的例子是2/4，况且显示中的图片比128x128还要大很多。</p>
+<h3 id="22更多边缘检测示例"><strong>2.2更多边缘检测示例</strong></h3>
+<p>图片边缘有两种渐变方式，一种是由明变暗，另一种是由暗变明。以垂直边缘检测为例，下图展示了两种方式的区别。实际应用中，这两种渐变方式并不影响边缘检测结果，可以对输出图片取绝对值操作，得到同样的结果。</p>
+<figure data-type="image" tabindex="5"><img src="https://mmbiz.qpic.cn/mmbiz_png/hflWRBRSEZ6b5jE53SqmxoLmlRiaYM9MW2c4PCff53oTrfLB2kfoicLDLwCA16bWS9TOsm1I8tsexGAMleBicpgxw/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="img" loading="lazy"></figure>
+<p>垂直边缘检测和水平边缘检测的滤波器算子如下所示：</p>
+<figure data-type="image" tabindex="6"><img src="https://mmbiz.qpic.cn/mmbiz_png/hflWRBRSEZ6b5jE53SqmxoLmlRiaYM9MWdZF33fNpThVu9PqiaDgB57WRB8mJbN97F4DibPztMDgynW509p0iaBuhw/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="img" loading="lazy"></figure>
+<p>下图展示一个水平边缘检测的例子：</p>
+<figure data-type="image" tabindex="7"><img src="https://mmbiz.qpic.cn/mmbiz_png/hflWRBRSEZ6b5jE53SqmxoLmlRiaYM9MWibMG2dRzCuNgVKKCIM5pdKDqJMFI3v4iaqDyibQhbzBUxM6ibibjetGgTGg/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="img" loading="lazy"></figure>
+<p>除了上面提到的这种简单的Vertical、Horizontal滤波器之外，还有其它常用的filters，例如Sobel filter和Scharr filter。这两种滤波器的特点是增加图片中心区域的权重。</p>
+<figure data-type="image" tabindex="8"><img src="https://mmbiz.qpic.cn/mmbiz_png/hflWRBRSEZ6b5jE53SqmxoLmlRiaYM9MWsh1uTxXtceoqymY3IhvLIiarV9sTDdCqdVLYiawCM2eYf7O9NanPTtsA/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="img" loading="lazy"></figure>
+<p>上图展示的是垂直边缘检测算子，水平边缘检测算子只需将上图顺时针翻转90度即可。</p>
+<p>在深度学习中，如果我们想检测图片的各种边缘特征，而不仅限于垂直边缘和水平边缘，那么filter的数值一般需要通过模型训练得到，类似于标准神经网络中的权重W一样由梯度下降算法反复迭代求得。CNN的主要目的就是计算出这些filter的数值。确定得到了这些filter后，CNN浅层网络也就实现了对图片所有边缘特征的检测。</p>
+<h2 id="3padding">3.Padding</h2>
+<p>按照上边所说的，如果原始图片尺寸为n x n，filter尺寸为f x f，则卷积后的图片尺寸为(n-f+1) x (n-f+1)，注意f一般为奇数。</p>
+<p>如果进行卷积神经网络之后，我们会带来两个问题：</p>
+<ul>
+<li><strong>卷积运算后，输出图片尺寸缩小</strong></li>
+<li><strong>原始图片边缘信息对输出贡献得少，输出图片丢失边缘信息</strong></li>
+</ul>
+<p>为了解决图片缩小的问题，可以使用padding方法，即把原始图片尺寸进行扩展，扩展区域补零，用p来表示每个方向扩展的宽度。也就是我们可以扩张原来的图片，然后再对图片进行缩小，使得到的图片的尺寸跟原来的尺寸想等，这样就可以有效的解决以上的两个问题。</p>
+<p>**再者就是关于扩张后填充的数字是什么？**一般来说是0，因为填充0之后才能保证图像的准确性，其实你可以想想成这个图片外围有很多层，这些层都是0代表着没有内容也就是空白内容，因此填充0可以保证图片的准确性，不会丢失边缘信息。虽然填充其他的数字也可能得到不错的效果，maybe吧，如果你愿意你可以自己尝试一下。</p>
+<figure data-type="image" tabindex="9"><img src="https://mmbiz.qpic.cn/mmbiz_png/hflWRBRSEZ6b5jE53SqmxoLmlRiaYM9MWcpP3LBDIsEsT5N6EfN0MFXuDAcCWY4Hy90w7Pc59xIdNRFyjib2qicgQ/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="img" loading="lazy"></figure>
+<p>经过padding之后，原始图片尺寸为(n+2p) x (n+2p)，filter尺寸为f x f，则卷积后的图片尺寸为(n+2p-f+1) x (n+2p-f+1)。若要保证卷积前后图片尺寸不变，则p应满足：</p>
+<figure data-type="image" tabindex="10"><img src="https://mmbiz.qpic.cn/mmbiz_png/hflWRBRSEZ6b5jE53SqmxoLmlRiaYM9MWCahQu5Ytte6ZtzZsfDkdpLpILUgXAREGNWg8njW0vQo7ZRhzzricV2Q/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="img" loading="lazy"></figure>
+<p>没有padding操作，p=0，我们称之为“<strong>Valid convolutions</strong>”；有padding操作，p=(f−1)/2，我们称之为“<strong>Same convolutions</strong>”。</p>
+<p>从这个式子当中可以看出来，一般来说过滤器的选择尺寸都是奇数x奇数的。</p>
+<h2 id="4卷积步长strided-convolutions-的选择">4.卷积步长（<strong>Strided Convolutions</strong> ）的选择</h2>
+<p>Stride表示filter在原图片中水平方向和垂直方向每次的步进长度。之前我们默认stride=1。若stride=2，则表示filter每次步进长度为2，即隔一点移动一次。</p>
+<figure data-type="image" tabindex="11"><img src="https://mmbiz.qpic.cn/mmbiz_png/hflWRBRSEZ6b5jE53SqmxoLmlRiaYM9MWC9caVib7JSJOPicOcj0wJy5KL5SUDjKFOGq1TrmGGMML3T87riakkn9lA/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="img" loading="lazy"></figure>
+<p>我们用s表示stride长度，p表示padding长度，如果原始图片尺寸为n x n，filter尺寸为f x f，则卷积后的图片尺寸为：</p>
+<figure data-type="image" tabindex="12"><img src="https://mmbiz.qpic.cn/mmbiz_png/hflWRBRSEZ6b5jE53SqmxoLmlRiaYM9MWqxDbiaUErO5wfVCqBggz4lNIRJsdMhFZ17cLgb5GM58YWLqMGjI6wRw/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="img" loading="lazy"></figure>
+<p>上式中，⌊⋯⌋表示向下取整。</p>
+<p><strong>卷积步长越小，提取的特征越多，但是卷积步长一般不取1，主要考虑时间效率的问题。卷积步长也不能太大，否则会漏掉图像上的信息。</strong></p>
+<p>值得一提的是，相关系数（cross-correlations）与卷积（convolutions）之间是有区别的。实际上，真正的卷积运算会先将filter绕其中心旋转180度，然后再将旋转后的filter在原始图片上进行滑动计算。filter旋转如下所示：</p>
+<figure data-type="image" tabindex="13"><img src="https://mmbiz.qpic.cn/mmbiz_png/hflWRBRSEZ6b5jE53SqmxoLmlRiaYM9MWib45rt5Oibj5DIh3WGibDZlHvZ3iaoGpoA9J5VibIoeKsFjvSO6UpPyFo2Q/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="img" loading="lazy"></figure>
+<p>比较而言，相关系数的计算过程则不会对filter进行旋转，而是直接在原始图片上进行滑动计算。</p>
+<p>其实，目前为止我们介绍的CNN卷积实际上计算的是相关系数，而不是数学意义上的卷积。但是，为了简化计算，我们一般把CNN中的这种“相关系数”就称作卷积运算。之所以可以这么等效，是因为滤波器算子一般是水平或垂直对称的，180度旋转影响不大；而且最终滤波器算子需要通过CNN网络梯度下降算法计算得到，旋转部分可以看作是包含在CNN模型算法中。总的来说，忽略旋转运算可以大大提高CNN网络运算速度，而且不影响模型性能。</p>
+<p>卷积运算服从分配律：</p>
+<figure data-type="image" tabindex="14"><img src="https://mmbiz.qpic.cn/mmbiz_png/hflWRBRSEZ6b5jE53SqmxoLmlRiaYM9MWwHZfSs4RI0ntzrlnjEkVHtPaibiaf7ToAYJpSbwDhsqY0VkXdbeyIKeA/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="img" loading="lazy"></figure>
+<h2 id="5多卷积运算">5.多卷积运算</h2>
+<p>对于3通道的RGB图片，其对应的滤波器算子同样也是3通道的。例如一个图片是6 x 6 x 3，分别表示图片的高度（height）、宽度（weight）和通道（#channel）。</p>
+<p>3通道图片的卷积运算与单通道图片的卷积运算基本一致。过程是将每个单通道（R，G，B）与对应的filter进行卷积运算求和，然后再将3通道的和相加，得到输出图片的一个像素值。</p>
+<figure data-type="image" tabindex="15"><img src="https://mmbiz.qpic.cn/mmbiz_png/hflWRBRSEZ6b5jE53SqmxoLmlRiaYM9MWyCXqn4tFJOWmvTib3ETvntpeztbibnaf4d7BksXzjjzGOMqa5F293pUw/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="img" loading="lazy"></figure>
+<p>不同通道的滤波算子可以不相同。例如R通道filter实现垂直边缘检测，G和B通道不进行边缘检测，全部置零，或者将R，G，B三通道filter全部设置为水平边缘检测。</p>
+<p>为了进行多个卷积运算，实现更多边缘检测，可以增加更多的滤波器组。例如设置第一个滤波器组实现垂直边缘检测，第二个滤波器组实现水平边缘检测。这样，不同滤波器组卷积得到不同的输出，个数由滤波器组决定。</p>
+<figure data-type="image" tabindex="16"><img src="https://mmbiz.qpic.cn/mmbiz_png/hflWRBRSEZ6b5jE53SqmxoLmlRiaYM9MWbstFg5QdV3n4pcia3gLib8rP3VXl8gHM72RtFT4PZzGvjHOvWCeD9feg/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="img" loading="lazy"></figure>
+<p>若输入图片的尺寸为n x n x nc，filter尺寸为f x f x nc，则卷积后的图片尺寸为(n-f+1) x (n-f+1) x nc′。其中，nc为图片通道数目，nc′为滤波器组个数。</p>
+<h2 id="6卷积神经网络的单层结构">6.卷积神经网络的单层结构</h2>
+<p>卷积神经网络的单层结构如下所示：</p>
+<figure data-type="image" tabindex="17"><img src="https://mmbiz.qpic.cn/mmbiz_png/hflWRBRSEZ6b5jE53SqmxoLmlRiaYM9MWt4a9nslMxPzqNrY729YJHlozNsdYGIpkYr22tXenibb4fIM8vTOZ8xA/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="img" loading="lazy"></figure>
+<p>相比之前的卷积过程，CNN的单层结构多了激活函数ReLU和偏移量b。整个过程与标准的神经网络单层结构非常类似：</p>
+<figure data-type="image" tabindex="18"><img src="https://mmbiz.qpic.cn/mmbiz_png/hflWRBRSEZ6b5jE53SqmxoLmlRiaYM9MW6lvXXzSbdJFpCSqvqPHlmHia46pILE4qDXXg4F39mYzDJvd79u1Q0vA/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="img" loading="lazy"></figure>
+<figure data-type="image" tabindex="19"><img src="https://mmbiz.qpic.cn/mmbiz_png/hflWRBRSEZ6b5jE53SqmxoLmlRiaYM9MWRYiabnRxhx9uNUjaUnnlDOFKof01UFZtG5exMZcnKbxxmpEBm5LFcgg/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="img" loading="lazy"></figure>
+<p>我们来计算一下上图中参数的数目：每个滤波器组有3x3x3=27个参数，还有1个偏移量b，则每个滤波器组有27+1=28个参数，两个滤波器组总共包含28x2=56个参数。我们发现，选定滤波器组后，参数数目与输入图片尺寸无关。所以，就不存在由于图片尺寸过大，造成参数过多的情况。例如一张1000x1000x3的图片，标准神经网络输入层的维度将达到3百万，而在CNN中，参数数目只由滤波器组决定，数目相对来说要少得多，这是CNN的优势之一。</p>
+<p>最后，我们总结一下CNN单层结构的所有标记符号，设层数为l。</p>
+<figure data-type="image" tabindex="20"><img src="https://mmbiz.qpic.cn/mmbiz_png/hflWRBRSEZ6b5jE53SqmxoLmlRiaYM9MWxAqX1T3OeiaRjGdEFmLX68j97burFHlydRBx7S3Bbwq8MdjPMEXdicng/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="img" loading="lazy"></figure>
+<figure data-type="image" tabindex="21"><img src="https://mmbiz.qpic.cn/mmbiz_png/hflWRBRSEZ6b5jE53SqmxoLmlRiaYM9MWtoibhicIMJsvO1SwsXdDvFpmxIUjbRf62LGjGK9m6TCA2iaXmTn97btww/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="img" loading="lazy"></figure>
+<p>其中，</p>
+<figure data-type="image" tabindex="22"><img src="https://mmbiz.qpic.cn/mmbiz_png/hflWRBRSEZ6b5jE53SqmxoLmlRiaYM9MWO8MRiaD0fkrm9gVSElMUkXLu8S5J0gNOAMbRjPkbMlY3BxzuqteN7eA/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="img" loading="lazy"></figure>
+<figure data-type="image" tabindex="23"><img src="https://mmbiz.qpic.cn/mmbiz_png/hflWRBRSEZ6b5jE53SqmxoLmlRiaYM9MWI2c0SGCyCTZpsic2iaibwk9PfOrFJqFWD7WBncnC6OSNAqWNtheplRmng/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="img" loading="lazy"></figure>
+<h2 id="7简单的cnn模型"><strong>7.简单的CNN模型</strong></h2>
+<p>下面介绍一个简单的CNN网络模型：</p>
+<figure data-type="image" tabindex="24"><img src="https://mmbiz.qpic.cn/mmbiz_png/hflWRBRSEZ6b5jE53SqmxoLmlRiaYM9MW78pvWiaVdvicNj42XXVgcr5BJIiaOsMUCtuiawkxiaLUKXlhsgxajicwKr3w/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="img" loading="lazy"></figure>
+<figure data-type="image" tabindex="25"><img src="https://mmbiz.qpic.cn/mmbiz_png/hflWRBRSEZ6b5jE53SqmxoLmlRiaYM9MWSsTL4Giaj4OeVSK5Tjichp7C51aY8L3IdwbZXycgG8YVzXibHCHzJruMQ/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="img" loading="lazy"></figure>
+<figure data-type="image" tabindex="26"><img src="https://mmbiz.qpic.cn/mmbiz_png/hflWRBRSEZ6b5jE53SqmxoLmlRiaYM9MWylszuL0NoTw1a6ibvURpe5qJ401iawFiaibSs1grfxqD335khHRMCCRicIg/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="img" loading="lazy"></figure>
+<p>CNN有三种类型的layer：</p>
+<ul>
+<li>Convolution层（CONV）</li>
+<li>Pooling层（POOL）</li>
+<li>Fully connected层（FC）</li>
+</ul>
+<p>CONV最为常见也最重要，关于POOL和FC我们之后再介绍。</p>
+<h2 id="8池化层">8.池化层</h2>
+<p>Pooling layers是CNN中用来减小尺寸，提高运算速度的，同样能减小noise影响，让各特征更具有健壮性。</p>
+<p>Pooling layers的做法比convolution layers简单许多，没有卷积运算，仅仅是在滤波器算子滑动区域内取最大值，即max pooling，这是最常用的做法。注意，超参数p很少在pooling layers中使用。</p>
+<figure data-type="image" tabindex="27"><img src="https://mmbiz.qpic.cn/mmbiz_png/hflWRBRSEZ6b5jE53SqmxoLmlRiaYM9MWb6ycbQ6dh0nuZaFAqzCsZkQvAf1RP3a71TBZkP6ypcpyGtLQY6kPpA/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="img" loading="lazy"></figure>
+<p>Max pooling的好处是只保留区域内的最大值（特征），忽略其它值，降低noise影响，提高模型健壮性。而且，max pooling需要的超参数仅为滤波器尺寸f和滤波器步进长度s，没有其他参数需要模型训练得到，计算量很小。</p>
+<p>如果是多个通道，那么就每个通道单独进行max pooling操作。</p>
+<p>除了max pooling之外，还有一种做法：average pooling。顾名思义，average pooling就是在滤波器算子滑动区域计算平均值。</p>
+<figure data-type="image" tabindex="28"><img src="https://mmbiz.qpic.cn/mmbiz_png/hflWRBRSEZ6b5jE53SqmxoLmlRiaYM9MWluuRPzml77C46AT0FTPAvNicwZibKB3tBsqCEZDHDlj59icMbT0U6BAzA/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="img" loading="lazy"></figure>
+<p>实际应用中，max pooling比average pooling更为常用。</p>
+<h2 id="9简单数字识别的例子">9.简单数字识别的例子</h2>
+<p>下面介绍一个简单的数字识别的CNN例子：</p>
+<figure data-type="image" tabindex="29"><img src="https://mmbiz.qpic.cn/mmbiz_png/hflWRBRSEZ6b5jE53SqmxoLmlRiaYM9MWU9V2LHzxcUnOx59u590BMyE5DflmwAeH4faz0PTXcnPzx9OTEosnfA/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="img" loading="lazy"></figure>
+<p>图中，CON层后面紧接一个POOL层，CONV1和POOL1构成第一层，CONV2和POOL2构成第二层。特别注意的是FC3和FC4为全连接层FC，它跟标准的神经网络结构一致。最后的输出层（softmax）由10个神经元构成。</p>
+<p>整个网络各层的尺寸和参数如下表格所示：</p>
+<figure data-type="image" tabindex="30"><img src="https://mmbiz.qpic.cn/mmbiz_png/hflWRBRSEZ6b5jE53SqmxoLmlRiaYM9MW9r3DFwL71Y6c3TjParJDiagyfSpZRHYtDJ4GbGWF394KbUzSCOx9t8g/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="img" loading="lazy"></figure>
+<h2 id="10为什么使用卷积">10.为什么使用卷积</h2>
+<p>相比标准神经网络，CNN的优势之一就是参数数目要少得多。参数数目少的原因有两个：</p>
+<ul>
+<li><strong>参数共享：一个特征检测器（例如垂直边缘检测）对图片某块区域有用，同时也可能作用在图片其它区域。</strong></li>
+<li><strong>连接的稀疏性：因为滤波器算子尺寸限制，每一层的每个输出只与输入部分区域内有关。</strong></li>
+</ul>
+<p>除此之外，由于CNN参数数目较小，所需的训练样本就相对较少，从而一定程度上不容易发生过拟合现象。而且，CNN比较擅长捕捉区域位置偏移。也就是说CNN进行物体检测时，不太受物体所处图片位置的影响，增加检测的准确性和系统的健壮性。</p>
+<h2 id="11经典的卷积神经网络">11.经典的卷积神经网络</h2>
+<p><strong>1.LeNet</strong></p>
+<p>LeNet诞生于1994年，由深度学习三巨头之一的Yan LeCun提出，他也被称为卷积神经网络之父。LeNet主要用来进行手写字符的识别与分类，准确率达到了98%，并在美国的银行中投入了使用，被用于读取北美约10%的支票。LeNet奠定了现代卷积神经网络的基础。</p>
+<p><strong>2.AlexNet</strong></p>
+<p>AlexNet由Hinton的学生Alex Krizhevsky于2012年提出，并在当年取得了Imagenet比赛冠军。AlexNet可以算是LeNet的一种更深更宽的版本，证明了卷积神经网络在复杂模型下的有效性，算是神经网络在低谷期的第一次发声，确立了深度学习，或者说卷积神经网络在计算机视觉中的统治地位。</p>
+<p><strong>3.VGGNet</strong></p>
+<p>VGGNet是牛津大学计算机视觉组和Google DeepMind公司一起研发的深度卷积神经网络，并取得了2014年Imagenet比赛定位项目第一名和分类项目第二名。该网络主要是泛化性能很好，容易迁移到其他的图像识别项目上，可以下载VGGNet训练好的参数进行很好的初始化权重操作，很多卷积神经网络都是以该网络为基础，比如FCN，UNet，SegNet等。vgg版本很多，常用的是VGG16，VGG19网络。</p>
+<p><strong>4.ResNet</strong></p>
+<p>ResNet（残差神经网络）由微软研究院的何凯明等4名华人于2015年提出，成功训练了152层超级深的卷积神经网络，效果非常突出，而且容易结合到其他网络结构中。在五个主要任务轨迹中都获得了第一名的成绩：</p>
+<pre><code>            ImageNet分类任务：错误率3.57%
+
+            ImageNet检测任务：超过第二名16%
+
+            ImageNet定位任务：超过第二名27%
+
+            COCO检测任务：超过第二名11%
+
+            COCO分割任务：超过第二名12%
+</code></pre>
+
+        </div>
+        
+        
+        <div class="next-post">
+            下一篇
+            <a href="https://s-hmily.github.io/post/python-chang-yong-han-shu-jie-xi/">
+                python常用函数解析
+            </a>
+        </div>
+        
+    </div>
+    </div>
+</body>
+<script>
+    var t_img; // 定时�?
+    var isLoad = true; // 控制变量
+    isImgLoad(function () {
+        // 加载完成
+        $('.postdetailimg').css("display", "block");
+    });
+    // 判断图片加载的函�?
+    function isImgLoad(callback) {
+        // 注意我的图片类名都是cover，因为我�?需要�?�理cover。其它图片可以不管�?
+        // 查找所有封面图，迭代�?�理
+        $('.postdetailimg').each(function () {
+            // 找到�?0就将isLoad设为false，并退出each
+            if (this.height === 0) {
+                isLoad = false;
+                return false;
+            }
+        });
+        // 为true，没有发现为0的。加载完�?
+        if (isLoad) {
+            clearTimeout(t_img); // 清除定时�?
+            // 回调函数
+            callback();
+            // 为false，因为找到了没有加载完成的图，将调用定时器递归
+        } else {
+            isLoad = true;
+            t_img = setTimeout(function () {
+                isImgLoad(callback); // 递归�?�?
+            }, 500); // 我这里�?�置的是500�?秒就�?描一次，�?以自己调�?
+        }
+    }
+
+    //文章阅读热度
+    var pl = $("#pl").html();
+    var rootaddr = $("#rootaddr").html();
+    pl = pl.replace(rootaddr, "");
+    $("#hotnum").attr('id', pl);
+</script>
+    <div name="comment" style="background: white;margin-top:100px">
+        <div class="commentcontainer">
+            
+            <p>请到客户端“主题--自定义配置--valine”中填入ID和KEY</p>
+            
+        </div>
+    </div>
+    </div>
+    <div id="landlord">
+        <div class="message" style="opacity:0"></div>
+        <canvas id="live2d" width="240" height="250" class="live2d"></canvas>
+    </div>
+    <div id="codeCopyText" style="display: none">代码复制成功了哦</div>
+    <div id="domainname" style="display:none">https://s-hmily.github.io</div>
+    </body>
+    <script src="https://s-hmily.github.io/media/js/post.js"></script>
+    <script>
+        //寻找所有code标签，加复制按钮鸭！(行内代码除外)
+        var codes = document.getElementsByTagName('code');
+        if (codes.length) {
+            for (var i = 0; i < codes.length; i++) {
+                //高度/行高=文本行数
+                // var rowNum=Math.round(codes[i].height()/parseFloat(codes[i].css('line-height')));
+                // console.log("当前有"+rowNum+"行");
+                var code_id = "code_id_" + i;
+                codes[i].setAttribute("id", code_id);
+                var ci = "#" + code_id;
+                var codedot = $(ci);
+                var rowNum = Math.round(codedot.height() / parseFloat(codedot.css('line-height')));
+                if (rowNum <= 1) continue;
+                var btn = document.createElement("button");
+                btn.setAttribute("class", "copybt");
+                btn.setAttribute("data-clipboard-target", "#" + code_id);
+                btn.innerHTML = '复制代码';
+                codes[i].parentNode.insertBefore(btn, codes[i]);
+            }
+        };
+        var cop = new ClipboardJS('.copybt');
+        var codeCopyText = $("#codeCopyText").html();
+        cop.on('success', function (e) {
+            alert(codeCopyText);
+            e.clearSelection();
+        });
+        cop.on('error', function (e) {
+            alert("矮油，复制失败了...手动复制吧勇士！");
+            e.clearSelection();
+        });
+    </script>
+    
+    <script type="text/javascript">
+        var message_Path = '/live2d/'
+        var home_Path = document.getElementById("domainname").innerHTML+"/"; //此处修改为你的域名，必须带斜杠
+    </script>
+    <script type="text/javascript" src="https://s-hmily.github.io/media/live2d/js/live2d.js"></script>
+    <script type="text/javascript" src="https://s-hmily.github.io/media/live2d/js/message.js"></script>
+    <script type="text/javascript">
+        loadlive2d("live2d", "https://s-hmily.github.io/media/live2d/assets/tororo.model.json");
+    </script>
+    
+<script>
+$(function () {
+    $('.toggleContainer').click(function(){$('html,body').animate({scrollTop: '0px'}, 800);});
+	$(window).scroll(function() {
+        var st = $(window).scrollTop();
+        if(st > 30){
+            $(".toggleContainer").fadeIn(400);
+        }else{
+            $(".toggleContainer").fadeOut(100);
+        }
+	});
+});
+</script>
+
+<script>
+        var bgchoice=$('#bgchoice').html();
+        var bg = $('#bg');
+        var bgurl = document.getElementById("bgurl").innerHTML;
+        if(bgchoice=='default')
+            for (var i = 0; i < 3; i++)
+                bgurl = bgurl.replace("\\", "/");
+        bg.css("background", "url('" + bgurl + "')");
+</script>
