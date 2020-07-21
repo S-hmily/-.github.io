@@ -1,12 +1,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="矩阵分解算法是学习协同过滤算法的基础，接下来就来讲一件什么是矩阵分解。
-一，基于矩阵分解算法的相关理论介绍
-很显然，我们要是想做推荐系统，最基本的一个数据就是用户对这个商品的特性的反应，就拿用户-物品的评分矩阵来说
-
-矩阵中，描述了五个用户..." />
-    <meta name="keywords" content="机器学习" />
+    <meta name="description" content="####1、sess = tf.InteractiveSession()：
+创建一个新的 session，并将其注册为默认的 session。
+####2、x = tf.placeholder(tf.float32, [None, 784]..." />
+    <meta name="keywords" content="" />
     <link rel="stylesheet" href="https://s-hmily.github.io/media/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://s-hmily.github.io/styles/main.css">
     
@@ -317,140 +315,73 @@
         <div class="postshow">
             
             <div class="postdetailimg" style="width:100%;overflow: hidden;display: none">
-                <img src="https://s-hmily.github.io/post-images/ji-yu-ju-zhen-fen-jie-de-tui-jian-suan-fa.jpg" class="postimage" style="cursor:auto">
+                <img src="https://ericamblog.oss-cn-shanghai.aliyuncs.com/GrideaFog/custom-postdefaultimage.png" class="postimage" style="cursor:auto">
             </div>
             <div class="postinfo-detail">
-                <div class="postdate"><i class="fa fa-calendar"></i>2020-07-14</div>
-                <div class="poststatus postdate"><i class="fa fa-clock-o"></i> 5 min read</div>
+                <div class="postdate"><i class="fa fa-calendar"></i>2020-07-21</div>
+                <div class="poststatus postdate"><i class="fa fa-clock-o"></i> 2 min read</div>
                 <div class="posttag">
-                    
-                    <a href="https://s-hmily.github.io/tag/lMYeCI_cf/" class="postlink">
-                        <i class="fa fa-tag"></i> 机器学习
-                    </a>
                     
                 </div>
             </div>
             
         <div id="texttitle" style="text-align: center">
-            <h2>基于矩阵分解的推荐算法</h2>
+            <h2>TensorFlow 各函数及其功能</h2>
             <!-- id 将作为查询条件 -->
-            <div id="pl" style="display:none">https://s-hmily.github.io/post/ji-yu-ju-zhen-fen-jie-de-tui-jian-suan-fa/</div>
+            <div id="pl" style="display:none">https://s-hmily.github.io/post/tensorflow-ge-han-shu-ji-qi-gong-neng/</div>
             <div id="rootaddr" style="display:none">https://s-hmily.github.io</div>
-            <span id="hotnum" class="leancloud_visitors" data-flag-title="基于矩阵分解的推荐算法">
+            <span id="hotnum" class="leancloud_visitors" data-flag-title="TensorFlow 各函数及其功能">
                 <h4 class="readercount">热度🔥: <i class="leancloud-visitors-count">loading...</i></h4>
             </span>
         </div>
         <div class="text ">
-            <p>矩阵分解算法是学习协同过滤算法的基础，接下来就来讲一件什么是矩阵分解。<br>
-一，基于矩阵分解算法的相关理论介绍<br>
-很显然，我们要是想做推荐系统，最基本的一个数据就是用户对这个商品的特性的反应，就拿用户-物品的评分矩阵来说<br>
-<img src="https://img-blog.csdnimg.cn/20200713205030760.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ0MTc3OTYw,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"><br>
-矩阵中，描述了五个用户（U1,U2,U3,U4,U5）对四个物品（D1,D2,D3,D4）的评分，但是我们发现有些表格中没有填写评分<br>
-的数字，这个时候我们就需要把没有填写的评分根据已知的分数进行预测，然后根据评分的高低给用户进行推荐。<br>
-那么如何进行预测缺失的评分呢？那么我们可以把这些想象成点，然后可以根据梯度下降跟回归方程进行连续值的预测。假设是M<em>N维矩阵（M行N列），然后我们可以分解成P矩阵和Q矩阵，其中P矩阵是M</em>K,Q矩阵维度是K*N。（K是过渡数值，也就是过渡维度）<br>
-<img src="https://img-blog.csdnimg.cn/20200713210022150.png" alt="图一" loading="lazy"><br>
-对于P,Q矩阵的解释，直观上是M个用户对K个主题的关系，Q矩阵是K个主题对N个物品的关系，具体K是多少，这就需要自己的调节了，K只是一个参数，通常取值在10到100之间<br>
-<img src="https://img-blog.csdnimg.cn/2020071321100480.png" alt="在这里插入图片描述" loading="lazy"><br>
-式子2</p>
-<p>其中r代表 R原始矩阵，p，q代表P,Q矩阵。rij代表R矩阵第i行第j列的数字，后边的同理<br>
-我们对于矩阵的知识可以知道，这个矩阵i行j列的数值等于P矩阵i行的所有数值乘以q第j列的所有数值的和<br>
-然后我们可以知道回归方程的最小二乘法的公式如下<br>
-然后把式子2带入式子3中得到下图<br>
-<img src="https://img-blog.csdnimg.cn/20200713210437802.png" alt="在这里插入图片描述" loading="lazy"><br>
-式子3</p>
-<p>对于损失函数的左边项，表示的是R^ 第i行，第j列的元素值，对于如何衡量，我们分解的好坏呢，式子3，给出了衡量标准，也就是损失函数，平方项损失，最后的目标，就是每一个元素(非缺失值)的e(i,j)的总和最小<br>
-然后我们需要用到L2正则化<br>
-<img src="https://img-blog.csdnimg.cn/20200713211252210.png" alt="在这里插入图片描述" loading="lazy"><br>
-因此最终的损失函数为：<br>
-<img src="https://img-blog.csdnimg.cn/20200713211530742.png" alt="在这里插入图片描述" loading="lazy"><br>
-然后可以使用梯度下降算法对其求解P矩阵和Q矩阵<img src="https://img-blog.csdnimg.cn/20200713211609666.png" alt="在这里插入图片描述" loading="lazy"><br>
-最后结果为：<br>
-<img src="https://img-blog.csdnimg.cn/20200713211625329.png" alt="在这里插入图片描述" loading="lazy"><br>
-代码如下：</p>
-<pre><code class="language-cpp">
-import numpy as np
-
-#  original_matrix --&gt; P*Q=R
-def matrix_factorization(original_matrix, K, alpha, beta, epochs):
-    '''
-    :param original_matrix(mat): 原始矩阵
-    :param K(int): 分解矩阵中间维度
-    :param alpha(float): 学习率
-    :param beta(float): 惩罚性系数
-    :param epochs(int): 最大迭代次数
-    :return: 分解后的两个矩阵P,Q
-    '''
-    original_matrix = np.mat(original_matrix)
-    #np.mat 生成矩阵
-    M, N = original_matrix.shape
-    #np.shape 获取矩阵的行数和列数，然后赋值给M,N  即M代表行数 N代表列数
-    P = np.mat(np.random.random((M, K)))
-    Q = np.mat(np.random.random((K, N)))
-    #np.random.random((M,K))  生成M行K列的浮点数 ，搭配上mat 也就是生成矩阵
-    print(&quot;.................&quot;)
-    print(P,Q)
-    print(&quot;.................&quot;)
-    loss = 1.0
-    epoch = 0
-    while loss &gt;= 0.001 and epoch &lt;= epochs:
-        for m in range(M):
-            for n in range(N):
-                if original_matrix[m, n] &gt; 0:  # 非缺失值
-                    r = original_matrix[m, n]
-                    r_ = 0  # R[m, n]
-                    for k in range(K):  # 计算[m, n]位置的误差
-                        r_ += P[m, k]*Q[k, n]
-                    e = r - r_
-                    for k in range(K):  # 更新P[m, :]与Q[:, n]的值
-                        P[m, k] += alpha*(2*e*Q[k, n]-beta*P[m, k])
-                        Q[k, n] += alpha*(2*e*P[m, k]-beta*Q[k, n])
-        loss = 0.0
-        for m in range(M):
-            for n in range(N):
-                if original_matrix[m, n] &gt; 0:
-                    r = original_matrix[m, n]
-                    r_ = 0.0
-                    regularization = 0.0
-                    for k in range(K):
-                        r_ += P[m, k]*Q[k, n]  # 偏差
-                        regularization += P[m, k]**2+Q[k, n]**2  # L2正则化
-                    e = r - r_
-                    loss += e**2 + (beta/2)*regularization  # 总损失
-        # if epoch % 200 == 0:
-        #     print('epoch:{}, loss: {}'.format(epoch, loss))
-        epoch += 1
-    return P, Q
-
-
-if __name__ == '__main__':
-    low, high = 1, 10
-    size = 10, 8
-    original_matrix = np.random.randint(low=low, high=high, size=size)
-    missing_rate = 0.3
-    n_counts = int(size[0]*size[1]*missing_rate)
-    while n_counts:
-        pos = np.random.randint(size[0]*size[1])
-        row, col = pos//size[1], pos%size[1]
-        if original_matrix[row, col] != 0:
-            original_matrix[row, col] = 0
-            n_counts -= 1
-    # print(original_matrix)
-    P, Q = matrix_factorization(original_matrix, 6, 0.004, 0.02, 12000)
-    print(np.dot(P, Q))
-</code></pre>
-<p>参考：<br>
-<a href="https://blog.csdn.net/recall_tomorrow/article/details/80218051">文章一</a><br>
-<a href="https://www.cnblogs.com/kobedeshow/p/3651833.html">文章二</a></p>
+            <p>####1、sess = tf.InteractiveSession()：<br>
+创建一个新的 session，并将其注册为默认的 session。</p>
+<p>####2、x = tf.placeholder(tf.float32, [None, 784])：<br>
+创建一个输入数据的地方，第一个参数树数据类型，第二个参数代表 tensor 的 shape，即数据的尺寸。None 代表不限条数的输入，784 代表每条输入树一个 784 维的向量。tf.argmax(y, 1)</p>
+<p>####3、tf.zeros([784, 10])：<br>
+将 W 矩阵中的每个值都全部初始化为 0。</p>
+<p>####4、W = tf.Variable(tf.zeros([784, 10]))：<br>
+创建 Variable 对象，用来存储模型参数。tensor 用后即焚，Variable 在迭代中可以长期存在，并在每轮迭代中被更新。</p>
+<p>####5、tf.matmul(x, W) ：<br>
+用来求矩阵乘法。</p>
+<p>####6、y = tf.nn.softmax(tf.matmul(x, W) + b)：<br>
+定义 Softmax Regression。</p>
+<p>####7、E = tf.reduce_sum(y_ * tf.log(y), reduction_indices=[1])：<br>
+求所有的 y_ * log(y) 的和，reduction_indices=[1] 表示作用对象为多维矩阵第1层（从0数起）括号内的数据（按 numpy 中矩阵的写法）。</p>
+<p>####8、cross_entropy = tf.reduce_mean(E)：<br>
+求平均值。</p>
+<p>####9、train_step = tf.train.GradientDescentOptimizer(0.5).minimize(cross_entropy)：<br>
+随机梯度下降函数，学习速率为 0.5，优化目标为 cross_entropy。</p>
+<p>####10、tf.global_variables_initializer().run()：<br>
+全局参数初始化器的 run 方法。</p>
+<p>####11、batch_xs, batch_ys = mnist.train.next_batch(100)：<br>
+每次都随机从训练集中抽取 100 条样本构成一个 mini-batch，并 feed 给 placeholder。</p>
+<p>####12、train_step.run({x:batch_xs,  y_:batch_ys})：<br>
+调用 train_step 对样本进行训练。只有调用 run 方法，前面定义的各节点才会开始执行并获得结果。</p>
+<p>####13、tf.argmax：<br>
+从一个 tensor 中寻找最大值的序号。tf.argmax(y, 1) 就是求各个预测的数字中概率最大的那个。</p>
+<p>####14、tf.equal(x, y)：<br>
+判断 x 是否就是 y。</p>
+<p>####15、tf.cast(tf.bool, tf.float32)：<br>
+将 bool 类型的值转换为 float32类型。</p>
 
         </div>
         
         <div class="prev-post">
             上一篇
-            <a href="https://s-hmily.github.io/post/pi-liang-ti-du-suan-fa-zai-xian-xing-hui-gui-zhong-de-ying-yong/">
-                批量梯度算法在线性回归中的应用
+            <a href="https://s-hmily.github.io/post/juan-ji-shen-jing-wang-luo-de-ying-yong-shi-xian-mnist-shou-xie-ti-shi-bie/">
+                卷积神经网络的应用-实现MNIST手写体识别
             </a>
         </div>
         
+        
+        <div class="next-post">
+            下一篇
+            <a href="https://s-hmily.github.io/post/juan-ji-shen-jing-wang-luo-jie-xi/">
+                卷积神经网络解析
+            </a>
+        </div>
         
     </div>
     </div>
@@ -623,140 +554,73 @@ if __name__ == '__main__':
         <div class="postshow">
             
             <div class="postdetailimg" style="width:100%;overflow: hidden;display: none">
-                <img src="https://s-hmily.github.io/post-images/ji-yu-ju-zhen-fen-jie-de-tui-jian-suan-fa.jpg" class="postimage" style="cursor:auto">
+                <img src="https://ericamblog.oss-cn-shanghai.aliyuncs.com/GrideaFog/custom-postdefaultimage.png" class="postimage" style="cursor:auto">
             </div>
             <div class="postinfo-detail">
-                <div class="postdate"><i class="fa fa-calendar"></i>2020-07-14</div>
-                <div class="poststatus postdate"><i class="fa fa-clock-o"></i> 5 min read</div>
+                <div class="postdate"><i class="fa fa-calendar"></i>2020-07-21</div>
+                <div class="poststatus postdate"><i class="fa fa-clock-o"></i> 2 min read</div>
                 <div class="posttag">
-                    
-                    <a href="https://s-hmily.github.io/tag/lMYeCI_cf/" class="postlink">
-                        <i class="fa fa-tag"></i> 机器学习
-                    </a>
                     
                 </div>
             </div>
             
         <div id="texttitle" style="text-align: center">
-            <h2>基于矩阵分解的推荐算法</h2>
+            <h2>TensorFlow 各函数及其功能</h2>
             <!-- id 将作为查询条件 -->
-            <div id="pl" style="display:none">https://s-hmily.github.io/post/ji-yu-ju-zhen-fen-jie-de-tui-jian-suan-fa/</div>
+            <div id="pl" style="display:none">https://s-hmily.github.io/post/tensorflow-ge-han-shu-ji-qi-gong-neng/</div>
             <div id="rootaddr" style="display:none">https://s-hmily.github.io</div>
-            <span id="hotnum" class="leancloud_visitors" data-flag-title="基于矩阵分解的推荐算法">
+            <span id="hotnum" class="leancloud_visitors" data-flag-title="TensorFlow 各函数及其功能">
                 <h4 class="readercount">热度🔥: <i class="leancloud-visitors-count">loading...</i></h4>
             </span>
         </div>
         <div class="text ">
-            <p>矩阵分解算法是学习协同过滤算法的基础，接下来就来讲一件什么是矩阵分解。<br>
-一，基于矩阵分解算法的相关理论介绍<br>
-很显然，我们要是想做推荐系统，最基本的一个数据就是用户对这个商品的特性的反应，就拿用户-物品的评分矩阵来说<br>
-<img src="https://img-blog.csdnimg.cn/20200713205030760.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ0MTc3OTYw,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"><br>
-矩阵中，描述了五个用户（U1,U2,U3,U4,U5）对四个物品（D1,D2,D3,D4）的评分，但是我们发现有些表格中没有填写评分<br>
-的数字，这个时候我们就需要把没有填写的评分根据已知的分数进行预测，然后根据评分的高低给用户进行推荐。<br>
-那么如何进行预测缺失的评分呢？那么我们可以把这些想象成点，然后可以根据梯度下降跟回归方程进行连续值的预测。假设是M<em>N维矩阵（M行N列），然后我们可以分解成P矩阵和Q矩阵，其中P矩阵是M</em>K,Q矩阵维度是K*N。（K是过渡数值，也就是过渡维度）<br>
-<img src="https://img-blog.csdnimg.cn/20200713210022150.png" alt="图一" loading="lazy"><br>
-对于P,Q矩阵的解释，直观上是M个用户对K个主题的关系，Q矩阵是K个主题对N个物品的关系，具体K是多少，这就需要自己的调节了，K只是一个参数，通常取值在10到100之间<br>
-<img src="https://img-blog.csdnimg.cn/2020071321100480.png" alt="在这里插入图片描述" loading="lazy"><br>
-式子2</p>
-<p>其中r代表 R原始矩阵，p，q代表P,Q矩阵。rij代表R矩阵第i行第j列的数字，后边的同理<br>
-我们对于矩阵的知识可以知道，这个矩阵i行j列的数值等于P矩阵i行的所有数值乘以q第j列的所有数值的和<br>
-然后我们可以知道回归方程的最小二乘法的公式如下<br>
-然后把式子2带入式子3中得到下图<br>
-<img src="https://img-blog.csdnimg.cn/20200713210437802.png" alt="在这里插入图片描述" loading="lazy"><br>
-式子3</p>
-<p>对于损失函数的左边项，表示的是R^ 第i行，第j列的元素值，对于如何衡量，我们分解的好坏呢，式子3，给出了衡量标准，也就是损失函数，平方项损失，最后的目标，就是每一个元素(非缺失值)的e(i,j)的总和最小<br>
-然后我们需要用到L2正则化<br>
-<img src="https://img-blog.csdnimg.cn/20200713211252210.png" alt="在这里插入图片描述" loading="lazy"><br>
-因此最终的损失函数为：<br>
-<img src="https://img-blog.csdnimg.cn/20200713211530742.png" alt="在这里插入图片描述" loading="lazy"><br>
-然后可以使用梯度下降算法对其求解P矩阵和Q矩阵<img src="https://img-blog.csdnimg.cn/20200713211609666.png" alt="在这里插入图片描述" loading="lazy"><br>
-最后结果为：<br>
-<img src="https://img-blog.csdnimg.cn/20200713211625329.png" alt="在这里插入图片描述" loading="lazy"><br>
-代码如下：</p>
-<pre><code class="language-cpp">
-import numpy as np
-
-#  original_matrix --&gt; P*Q=R
-def matrix_factorization(original_matrix, K, alpha, beta, epochs):
-    '''
-    :param original_matrix(mat): 原始矩阵
-    :param K(int): 分解矩阵中间维度
-    :param alpha(float): 学习率
-    :param beta(float): 惩罚性系数
-    :param epochs(int): 最大迭代次数
-    :return: 分解后的两个矩阵P,Q
-    '''
-    original_matrix = np.mat(original_matrix)
-    #np.mat 生成矩阵
-    M, N = original_matrix.shape
-    #np.shape 获取矩阵的行数和列数，然后赋值给M,N  即M代表行数 N代表列数
-    P = np.mat(np.random.random((M, K)))
-    Q = np.mat(np.random.random((K, N)))
-    #np.random.random((M,K))  生成M行K列的浮点数 ，搭配上mat 也就是生成矩阵
-    print(&quot;.................&quot;)
-    print(P,Q)
-    print(&quot;.................&quot;)
-    loss = 1.0
-    epoch = 0
-    while loss &gt;= 0.001 and epoch &lt;= epochs:
-        for m in range(M):
-            for n in range(N):
-                if original_matrix[m, n] &gt; 0:  # 非缺失值
-                    r = original_matrix[m, n]
-                    r_ = 0  # R[m, n]
-                    for k in range(K):  # 计算[m, n]位置的误差
-                        r_ += P[m, k]*Q[k, n]
-                    e = r - r_
-                    for k in range(K):  # 更新P[m, :]与Q[:, n]的值
-                        P[m, k] += alpha*(2*e*Q[k, n]-beta*P[m, k])
-                        Q[k, n] += alpha*(2*e*P[m, k]-beta*Q[k, n])
-        loss = 0.0
-        for m in range(M):
-            for n in range(N):
-                if original_matrix[m, n] &gt; 0:
-                    r = original_matrix[m, n]
-                    r_ = 0.0
-                    regularization = 0.0
-                    for k in range(K):
-                        r_ += P[m, k]*Q[k, n]  # 偏差
-                        regularization += P[m, k]**2+Q[k, n]**2  # L2正则化
-                    e = r - r_
-                    loss += e**2 + (beta/2)*regularization  # 总损失
-        # if epoch % 200 == 0:
-        #     print('epoch:{}, loss: {}'.format(epoch, loss))
-        epoch += 1
-    return P, Q
-
-
-if __name__ == '__main__':
-    low, high = 1, 10
-    size = 10, 8
-    original_matrix = np.random.randint(low=low, high=high, size=size)
-    missing_rate = 0.3
-    n_counts = int(size[0]*size[1]*missing_rate)
-    while n_counts:
-        pos = np.random.randint(size[0]*size[1])
-        row, col = pos//size[1], pos%size[1]
-        if original_matrix[row, col] != 0:
-            original_matrix[row, col] = 0
-            n_counts -= 1
-    # print(original_matrix)
-    P, Q = matrix_factorization(original_matrix, 6, 0.004, 0.02, 12000)
-    print(np.dot(P, Q))
-</code></pre>
-<p>参考：<br>
-<a href="https://blog.csdn.net/recall_tomorrow/article/details/80218051">文章一</a><br>
-<a href="https://www.cnblogs.com/kobedeshow/p/3651833.html">文章二</a></p>
+            <p>####1、sess = tf.InteractiveSession()：<br>
+创建一个新的 session，并将其注册为默认的 session。</p>
+<p>####2、x = tf.placeholder(tf.float32, [None, 784])：<br>
+创建一个输入数据的地方，第一个参数树数据类型，第二个参数代表 tensor 的 shape，即数据的尺寸。None 代表不限条数的输入，784 代表每条输入树一个 784 维的向量。tf.argmax(y, 1)</p>
+<p>####3、tf.zeros([784, 10])：<br>
+将 W 矩阵中的每个值都全部初始化为 0。</p>
+<p>####4、W = tf.Variable(tf.zeros([784, 10]))：<br>
+创建 Variable 对象，用来存储模型参数。tensor 用后即焚，Variable 在迭代中可以长期存在，并在每轮迭代中被更新。</p>
+<p>####5、tf.matmul(x, W) ：<br>
+用来求矩阵乘法。</p>
+<p>####6、y = tf.nn.softmax(tf.matmul(x, W) + b)：<br>
+定义 Softmax Regression。</p>
+<p>####7、E = tf.reduce_sum(y_ * tf.log(y), reduction_indices=[1])：<br>
+求所有的 y_ * log(y) 的和，reduction_indices=[1] 表示作用对象为多维矩阵第1层（从0数起）括号内的数据（按 numpy 中矩阵的写法）。</p>
+<p>####8、cross_entropy = tf.reduce_mean(E)：<br>
+求平均值。</p>
+<p>####9、train_step = tf.train.GradientDescentOptimizer(0.5).minimize(cross_entropy)：<br>
+随机梯度下降函数，学习速率为 0.5，优化目标为 cross_entropy。</p>
+<p>####10、tf.global_variables_initializer().run()：<br>
+全局参数初始化器的 run 方法。</p>
+<p>####11、batch_xs, batch_ys = mnist.train.next_batch(100)：<br>
+每次都随机从训练集中抽取 100 条样本构成一个 mini-batch，并 feed 给 placeholder。</p>
+<p>####12、train_step.run({x:batch_xs,  y_:batch_ys})：<br>
+调用 train_step 对样本进行训练。只有调用 run 方法，前面定义的各节点才会开始执行并获得结果。</p>
+<p>####13、tf.argmax：<br>
+从一个 tensor 中寻找最大值的序号。tf.argmax(y, 1) 就是求各个预测的数字中概率最大的那个。</p>
+<p>####14、tf.equal(x, y)：<br>
+判断 x 是否就是 y。</p>
+<p>####15、tf.cast(tf.bool, tf.float32)：<br>
+将 bool 类型的值转换为 float32类型。</p>
 
         </div>
         
         <div class="prev-post">
             上一篇
-            <a href="https://s-hmily.github.io/post/pi-liang-ti-du-suan-fa-zai-xian-xing-hui-gui-zhong-de-ying-yong/">
-                批量梯度算法在线性回归中的应用
+            <a href="https://s-hmily.github.io/post/juan-ji-shen-jing-wang-luo-de-ying-yong-shi-xian-mnist-shou-xie-ti-shi-bie/">
+                卷积神经网络的应用-实现MNIST手写体识别
             </a>
         </div>
         
+        
+        <div class="next-post">
+            下一篇
+            <a href="https://s-hmily.github.io/post/juan-ji-shen-jing-wang-luo-jie-xi/">
+                卷积神经网络解析
+            </a>
+        </div>
         
     </div>
     </div>

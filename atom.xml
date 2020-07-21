@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://s-hmily.github.io</id>
     <title>叮叮当</title>
-    <updated>2020-07-21T01:58:29.929Z</updated>
+    <updated>2020-07-21T13:32:04.331Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://s-hmily.github.io"/>
     <link rel="self" href="https://s-hmily.github.io/atom.xml"/>
@@ -14,17 +14,17 @@
     <icon>https://s-hmily.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, 叮叮当</rights>
     <entry>
-        <title type="html"><![CDATA[卷积神经网络解析]]></title>
-        <id>https://s-hmily.github.io/post/juan-ji-shen-jing-wang-luo-jie-xi/</id>
-        <link href="https://s-hmily.github.io/post/juan-ji-shen-jing-wang-luo-jie-xi/">
+        <title type="html"><![CDATA[卷积神经网络的应用-实现MNIST手写体识别]]></title>
+        <id>https://s-hmily.github.io/post/juan-ji-shen-jing-wang-luo-de-ying-yong-shi-xian-mnist-shou-xie-ti-shi-bie/</id>
+        <link href="https://s-hmily.github.io/post/juan-ji-shen-jing-wang-luo-de-ying-yong-shi-xian-mnist-shou-xie-ti-shi-bie/">
         </link>
-        <updated>2020-07-20T14:04:03.000Z</updated>
+        <updated>2020-07-21T13:08:32.000Z</updated>
     </entry>
     <entry>
-        <title type="html"><![CDATA[python常用函数解析]]></title>
-        <id>https://s-hmily.github.io/post/python-chang-yong-han-shu-jie-xi/</id>
-        <link href="https://s-hmily.github.io/post/python-chang-yong-han-shu-jie-xi/">
+        <title type="html"><![CDATA[TensorFlow 各函数及其功能]]></title>
+        <id>https://s-hmily.github.io/post/tensorflow-ge-han-shu-ji-qi-gong-neng/</id>
+        <link href="https://s-hmily.github.io/post/tensorflow-ge-han-shu-ji-qi-gong-neng/">
         </link>
-        <updated>2020-07-18T01:50:42.000Z</updated>
+        <updated>2020-07-21T13:06:30.000Z</updated>
     </entry>
 </feed>

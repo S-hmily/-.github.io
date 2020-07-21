@@ -134,7 +134,7 @@ np.random.seed( ) 用于指定随机数生成时所用算法开始的整数值�
                   
                 <li><a href="https://s-hmily.github.io/friends" style="color:white">友链</a></li>
                 
-                  <li><img src="https://s-hmily.github.io/images/avatar.png?v=1595296644766" alt=""
+                  <li><img src="https://s-hmily.github.io/images/avatar.png?v=1595338310003" alt=""
                 class="menutopavatar"></li>
             </ul>
         </div><!-- /.navbar-collapse -->
@@ -318,7 +318,7 @@ np.random.seed( ) 用于指定随机数生成时所用算法开始的整数值�
             </div>
             <div class="postinfo-detail">
                 <div class="postdate"><i class="fa fa-calendar"></i>2020-07-18</div>
-                <div class="poststatus postdate"><i class="fa fa-clock-o"></i> 7 min read</div>
+                <div class="poststatus postdate"><i class="fa fa-clock-o"></i> 8 min read</div>
                 <div class="posttag">
                     
                     <a href="https://s-hmily.github.io/tag/python-yu-yan-xue-xi/" class="postlink">
@@ -505,10 +505,46 @@ for i,key in enumerate(seq[::-1]):<br>
 seq[0]=d<br>
 seq[1]=c<br>
 seq[2]=b<br>
-seq[3]=a</p>
+seq[3]=a<br>
+####12.tf.Variable用法<br>
+tf.Variable是一个Python类，它返回的是一个Python实例，这个实例提供若干操作（Op，operation）。<br>
+调用tf.Variable()将添加一些操作(Op, operation)到计算图（graph）<br>
+####13.tf.truncated_normal（创建变量）用法<br>
+从截断的正态分布中输出随机值.</p>
 </blockquote>
 </blockquote>
 </blockquote>
+<p>生成的值遵循具有指定平均值和标准偏差的正态分布,不同之处在于其平均值大于 2 个标准差的值将被丢弃并重新选择.</p>
+<p>函数参数：</p>
+<p>shape：一维整数张量或 Python 数组,输出张量的形状.<br>
+mean：dtype 类型的 0-D 张量或 Python 值,截断正态分布的均值.<br>
+stddev：dtype 类型的 0-D 张量或 Python 值,截断前正态分布的标准偏差.<br>
+dtype：输出的类型.<br>
+seed：一个 Python 整数.用于为分发创建随机种子.查看tf.set_random_seed行为.<br>
+name：操作的名称(可选).<br>
+函数返回值：</p>
+<pre><code>  tf.truncated_normal函数返回指定形状的张量填充随机截断的正常值.
+</code></pre>
+<p>####14.tf.constant（创建常量）用法<br>
+参数如下：</p>
+<pre><code>tf.constant(
+    value,
+    dtype=None,
+    shape=None,
+    name='Const',
+    verify_shape=False
+)
+可以看到第一个值value是必须的，可以是一个数值，也可以是一个列表。
+后面四个参数可写可不写.
+第二个参数表示数据类型，一般可以是tf.float32, tf.float64等
+第三个参数表示张量的“形状”，即维数以及每一维的大小。如果指定了第三个参数，当第一个参数value是数字时，张量的所有元素都会用该数字填充
+第四个参数name可以是任何内容，主要是字符串就行。
+第五个参数verify_shape默认为False，如果修改为True的话表示检查value的形状与shape是否相符，如果不符会报错。
+</code></pre>
+<p>详情请看：<a href="https://blog.csdn.net/baidu_38634017/article/details/99684670?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522159533215919725222411149%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&amp;request_id=159533215919725222411149&amp;biz_id=0&amp;utm_medium=distribute.pc_search_result.none-task-blog-2~all~first_rank_ecpm_v3~rank_business_v1-2-99684670.ecpm_v3_rank_business_v1&amp;utm_term=tf.constant&amp;spm=1018.2118.3001.4187">文章一</a></p>
+<h4 id="15tfplaceholder">15.tf.placeholder</h4>
+<p>作用：创建一个类型为dtype，形状为shape，名字为name的一个Tensor类型</p>
+<p>返回值：一个tensor类型</p>
 
         </div>
         
@@ -596,6 +632,7 @@ seq[3]=a</p>
 <li><a href="#9squeeze%E5%87%BD%E6%95%B0">9.squeeze函数</a></li>
 <li><a href="#10isinstance%E7%94%A8%E6%B3%95">10.isinstance用法</a></li>
 <li><a href="#11enumerate%E7%94%A8%E6%B3%95">11.enumerate用法</a></li>
+<li><a href="#15tfplaceholder">15.tf.placeholder</a></li>
 </ul>
 </li>
 </ul>
@@ -727,7 +764,7 @@ seq[3]=a</p>
             </div>
             <div class="postinfo-detail">
                 <div class="postdate"><i class="fa fa-calendar"></i>2020-07-18</div>
-                <div class="poststatus postdate"><i class="fa fa-clock-o"></i> 7 min read</div>
+                <div class="poststatus postdate"><i class="fa fa-clock-o"></i> 8 min read</div>
                 <div class="posttag">
                     
                     <a href="https://s-hmily.github.io/tag/python-yu-yan-xue-xi/" class="postlink">
@@ -914,10 +951,46 @@ for i,key in enumerate(seq[::-1]):<br>
 seq[0]=d<br>
 seq[1]=c<br>
 seq[2]=b<br>
-seq[3]=a</p>
+seq[3]=a<br>
+####12.tf.Variable用法<br>
+tf.Variable是一个Python类，它返回的是一个Python实例，这个实例提供若干操作（Op，operation）。<br>
+调用tf.Variable()将添加一些操作(Op, operation)到计算图（graph）<br>
+####13.tf.truncated_normal（创建变量）用法<br>
+从截断的正态分布中输出随机值.</p>
 </blockquote>
 </blockquote>
 </blockquote>
+<p>生成的值遵循具有指定平均值和标准偏差的正态分布,不同之处在于其平均值大于 2 个标准差的值将被丢弃并重新选择.</p>
+<p>函数参数：</p>
+<p>shape：一维整数张量或 Python 数组,输出张量的形状.<br>
+mean：dtype 类型的 0-D 张量或 Python 值,截断正态分布的均值.<br>
+stddev：dtype 类型的 0-D 张量或 Python 值,截断前正态分布的标准偏差.<br>
+dtype：输出的类型.<br>
+seed：一个 Python 整数.用于为分发创建随机种子.查看tf.set_random_seed行为.<br>
+name：操作的名称(可选).<br>
+函数返回值：</p>
+<pre><code>  tf.truncated_normal函数返回指定形状的张量填充随机截断的正常值.
+</code></pre>
+<p>####14.tf.constant（创建常量）用法<br>
+参数如下：</p>
+<pre><code>tf.constant(
+    value,
+    dtype=None,
+    shape=None,
+    name='Const',
+    verify_shape=False
+)
+可以看到第一个值value是必须的，可以是一个数值，也可以是一个列表。
+后面四个参数可写可不写.
+第二个参数表示数据类型，一般可以是tf.float32, tf.float64等
+第三个参数表示张量的“形状”，即维数以及每一维的大小。如果指定了第三个参数，当第一个参数value是数字时，张量的所有元素都会用该数字填充
+第四个参数name可以是任何内容，主要是字符串就行。
+第五个参数verify_shape默认为False，如果修改为True的话表示检查value的形状与shape是否相符，如果不符会报错。
+</code></pre>
+<p>详情请看：<a href="https://blog.csdn.net/baidu_38634017/article/details/99684670?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522159533215919725222411149%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&amp;request_id=159533215919725222411149&amp;biz_id=0&amp;utm_medium=distribute.pc_search_result.none-task-blog-2~all~first_rank_ecpm_v3~rank_business_v1-2-99684670.ecpm_v3_rank_business_v1&amp;utm_term=tf.constant&amp;spm=1018.2118.3001.4187">文章一</a></p>
+<h4 id="15tfplaceholder">15.tf.placeholder</h4>
+<p>作用：创建一个类型为dtype，形状为shape，名字为name的一个Tensor类型</p>
+<p>返回值：一个tensor类型</p>
 
         </div>
         
