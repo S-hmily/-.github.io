@@ -136,7 +136,7 @@
                   
                 <li><a href="https://s-hmily.github.io/friends" style="color:white">友链</a></li>
                 
-                  <li><img src="https://s-hmily.github.io/images/avatar.png?v=1595254545187" alt=""
+                  <li><img src="https://s-hmily.github.io/images/avatar.png?v=1595295522904" alt=""
                 class="menutopavatar"></li>
             </ul>
         </div><!-- /.navbar-collapse -->
@@ -316,18 +316,16 @@
         <div class="postshow">
             
             <div class="postdetailimg" style="width:100%;overflow: hidden;display: none">
-                
-                <img src="https://pic2.zhimg.com/80/v2-bcbb1a4f932ab78c198b0a99af266d4e_720w.jpg?source=1940ef5c" class="postimage">
-                
+                <img src="https://s-hmily.github.io/post-images/juan-ji-shen-jing-wang-luo-jie-xi.jpeg" class="postimage" style="cursor:auto">
             </div>
             <div class="postinfo-detail">
                 <div class="postdate"><i class="fa fa-calendar"></i>2020-07-20</div>
-            <div class="poststatus postdate"><i class="fa fa-clock-o"></i> 14 min read</div>
-            <div class="posttag">
-                
+                <div class="poststatus postdate"><i class="fa fa-clock-o"></i> 14 min read</div>
+                <div class="posttag">
+                    
+                </div>
             </div>
-        </div>
-        
+            
         <div id="texttitle" style="text-align: center">
             <h2>卷积神经网络解析</h2>
             <!-- id 将作为查询条件 -->
@@ -345,36 +343,35 @@
 <p><strong>2.目标检测</strong></p>
 <p>在无人驾驶汽车当中，我们不一定就让这辆汽车去识别这个物体具体是什么，我们只需要去识别这个物体，然后判断这个物体是否是车辆或者其他的东西，然后确保自己的车辆跟这个物体保持一个安全的距离。</p>
 <p><strong>3.神经风格迁移</strong></p>
-<p>我们选择一张普通的照片，再选择一张艺术作品，同时输入，经过神经风格转换，就能给这张照片赋予艺术的风格 .</p>
-<figure data-type="image" tabindex="1"><img src="C:%5CUsers%5CWGJS%5CAppData%5CLocal%5CTemp%5C1595254352534.png" alt="1595254352534" loading="lazy"></figure>
+<p>我们选择一张普通的照片，再选择一张艺术作品，同时输入，经过神经风格转换，就能给这张照片赋予艺术的风格 .<br>
+<img src="https://s-hmily.github.io/post-images/1595294042630.png" alt="" loading="lazy"></p>
 <h2 id="2边缘检测">2.边缘检测</h2>
 <p>在之前的神经网络里边学习过检测图片，神经网络由浅层到深层，分别可以检测出图片的<strong>边缘特征</strong>，<strong>局部特征</strong>，<strong>整体面部轮廓</strong></p>
-<figure data-type="image" tabindex="2"><img src="https://mmbiz.qpic.cn/mmbiz_png/hflWRBRSEZ6b5jE53SqmxoLmlRiaYM9MWyIjoeySOBbn2xWAhzN4l2AR0LqiaoQA2NNdGYLCG2QNCkHh88rhA3gQ/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="img" loading="lazy"></figure>
 <p>然后我们就来说说在CNN里边如何进行图片的边缘检测</p>
 <p>最常见的图片边缘有两类：</p>
 <p>1.垂直边缘（vertical edges）</p>
 <p>2.水平边缘（horizontal edges）</p>
 <h3 id="21边缘检测示例"><strong>2.1边缘检测示例</strong></h3>
-<figure data-type="image" tabindex="3"><img src="C:%5CUsers%5CWGJS%5CAppData%5CLocal%5CTemp%5C1595254319898.png" alt="1595254319898" loading="lazy"></figure>
+<figure data-type="image" tabindex="1"><img src="https://s-hmily.github.io/post-images/1595294137643.png" alt="" loading="lazy"></figure>
 <p>这里我们引入一个概念就是<strong>过滤器</strong>（filter），过滤器其实就是一个人为定的一个矩阵的样子，然后跟原始的图片进行一些相关的计算得到卷积后的图片，具体过程如下：</p>
-<figure data-type="image" tabindex="4"><img src="https://mmbiz.qpic.cn/mmbiz_png/hflWRBRSEZ6b5jE53SqmxoLmlRiaYM9MWs9VXleUwibicmvrgKzfa7DcgibM3WXa2DsUvR3Z4jVAOlGJyo3A3y0ekg/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="img" loading="lazy"></figure>
+<figure data-type="image" tabindex="2"><img src="https://s-hmily.github.io/post-images/1595294174575.png" alt="" loading="lazy"></figure>
 <p>上图只显示了卷积后的第一个值和最后一个值。</p>
 <p>-5是如何来的呢？ 在第一个蓝色九宫格里边，每一个数字右上角有一个小数字，这个数字就是跟过滤器中的数字是相对应的，然后本身的数字跟右上角的数字进行相乘的结果</p>
 <p>顺便提一下，∗表示卷积操作。python中，卷积用conv_forward()表示；tensorflow中，卷积用tf.nn.conv2d()表示；keras中，卷积用Conv2D()表示。</p>
-<p>Vertical edge detection能够检测图片的垂直方向边缘。下图对应一个垂直边缘检测的例子：</p>
-<p>``<img src="https://mmbiz.qpic.cn/mmbiz_png/hflWRBRSEZ6b5jE53SqmxoLmlRiaYM9MW1P4dJxj9Q7ic0v39DfYz1lHwHtkvQiawzeWjRLlcWE3tzpdP673DKicYA/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="img" loading="lazy"></p>
+<p>Vertical edge detection能够检测图片的垂直方向边缘。下图对应一个垂直边缘检测的例子：<br>
+<img src="https://s-hmily.github.io/post-images/1595294199825.png" alt="" loading="lazy"></p>
 <p>在第一个图片当中，有一条白色区域与黑色区域当中有一条线，这个就是我们垂直边缘需要检测出来的线，然后经过过滤器的处理，最后的结果就剩下灰-白-灰。这当中白色区域就是检测出来的线。</p>
 <p><strong>可是你会说为啥区域是检测出来的线啊？区域这么大，咋会是线呢？</strong></p>
 <p>我们举的例子当中是6x6的，在现实生活中的图片基本上很大很大的，比如一个128x128的单色域图像（图片按比例增大），检测出来的白色区域占的面积是多少？2/126，而上图的例子是2/4，况且显示中的图片比128x128还要大很多。</p>
 <h3 id="22更多边缘检测示例"><strong>2.2更多边缘检测示例</strong></h3>
-<p>图片边缘有两种渐变方式，一种是由明变暗，另一种是由暗变明。以垂直边缘检测为例，下图展示了两种方式的区别。实际应用中，这两种渐变方式并不影响边缘检测结果，可以对输出图片取绝对值操作，得到同样的结果。</p>
-<figure data-type="image" tabindex="5"><img src="https://mmbiz.qpic.cn/mmbiz_png/hflWRBRSEZ6b5jE53SqmxoLmlRiaYM9MW2c4PCff53oTrfLB2kfoicLDLwCA16bWS9TOsm1I8tsexGAMleBicpgxw/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="img" loading="lazy"></figure>
+<p>图片边缘有两种渐变方式，一种是由明变暗，另一种是由暗变明。以垂直边缘检测为例，下图展示了两种方式的区别。实际应用中，这两种渐变方式并不影响边缘检测结果，可以对输出图片取绝对值操作，得到同样的结果。<br>
+<img src="https://s-hmily.github.io/post-images/1595294247661.png" alt="" loading="lazy"></p>
 <p>垂直边缘检测和水平边缘检测的滤波器算子如下所示：</p>
-<figure data-type="image" tabindex="6"><img src="https://mmbiz.qpic.cn/mmbiz_png/hflWRBRSEZ6b5jE53SqmxoLmlRiaYM9MWdZF33fNpThVu9PqiaDgB57WRB8mJbN97F4DibPztMDgynW509p0iaBuhw/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="img" loading="lazy"></figure>
+<figure data-type="image" tabindex="3"><img src="https://s-hmily.github.io/post-images/1595294267876.png" alt="" loading="lazy"></figure>
 <p>下图展示一个水平边缘检测的例子：</p>
-<figure data-type="image" tabindex="7"><img src="https://mmbiz.qpic.cn/mmbiz_png/hflWRBRSEZ6b5jE53SqmxoLmlRiaYM9MWibMG2dRzCuNgVKKCIM5pdKDqJMFI3v4iaqDyibQhbzBUxM6ibibjetGgTGg/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="img" loading="lazy"></figure>
+<figure data-type="image" tabindex="4"><img src="https://s-hmily.github.io/post-images/1595294285699.png" alt="" loading="lazy"></figure>
 <p>除了上面提到的这种简单的Vertical、Horizontal滤波器之外，还有其它常用的filters，例如Sobel filter和Scharr filter。这两种滤波器的特点是增加图片中心区域的权重。</p>
-<figure data-type="image" tabindex="8"><img src="https://mmbiz.qpic.cn/mmbiz_png/hflWRBRSEZ6b5jE53SqmxoLmlRiaYM9MWsh1uTxXtceoqymY3IhvLIiarV9sTDdCqdVLYiawCM2eYf7O9NanPTtsA/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="img" loading="lazy"></figure>
+<figure data-type="image" tabindex="5"><img src="https://s-hmily.github.io/post-images/1595294309843.png" alt="" loading="lazy"></figure>
 <p>上图展示的是垂直边缘检测算子，水平边缘检测算子只需将上图顺时针翻转90度即可。</p>
 <p>在深度学习中，如果我们想检测图片的各种边缘特征，而不仅限于垂直边缘和水平边缘，那么filter的数值一般需要通过模型训练得到，类似于标准神经网络中的权重W一样由梯度下降算法反复迭代求得。CNN的主要目的就是计算出这些filter的数值。确定得到了这些filter后，CNN浅层网络也就实现了对图片所有边缘特征的检测。</p>
 <h2 id="3padding">3.Padding</h2>
@@ -386,50 +383,43 @@
 </ul>
 <p>为了解决图片缩小的问题，可以使用padding方法，即把原始图片尺寸进行扩展，扩展区域补零，用p来表示每个方向扩展的宽度。也就是我们可以扩张原来的图片，然后再对图片进行缩小，使得到的图片的尺寸跟原来的尺寸想等，这样就可以有效的解决以上的两个问题。</p>
 <p>**再者就是关于扩张后填充的数字是什么？**一般来说是0，因为填充0之后才能保证图像的准确性，其实你可以想想成这个图片外围有很多层，这些层都是0代表着没有内容也就是空白内容，因此填充0可以保证图片的准确性，不会丢失边缘信息。虽然填充其他的数字也可能得到不错的效果，maybe吧，如果你愿意你可以自己尝试一下。</p>
-<figure data-type="image" tabindex="9"><img src="https://mmbiz.qpic.cn/mmbiz_png/hflWRBRSEZ6b5jE53SqmxoLmlRiaYM9MWcpP3LBDIsEsT5N6EfN0MFXuDAcCWY4Hy90w7Pc59xIdNRFyjib2qicgQ/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="img" loading="lazy"></figure>
-<p>经过padding之后，原始图片尺寸为(n+2p) x (n+2p)，filter尺寸为f x f，则卷积后的图片尺寸为(n+2p-f+1) x (n+2p-f+1)。若要保证卷积前后图片尺寸不变，则p应满足：</p>
-<figure data-type="image" tabindex="10"><img src="https://mmbiz.qpic.cn/mmbiz_png/hflWRBRSEZ6b5jE53SqmxoLmlRiaYM9MWCahQu5Ytte6ZtzZsfDkdpLpILUgXAREGNWg8njW0vQo7ZRhzzricV2Q/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="img" loading="lazy"></figure>
+<figure data-type="image" tabindex="6"><img src="https://s-hmily.github.io/post-images/1595294337255.png" alt="" loading="lazy"></figure>
+<p>经过padding之后，原始图片尺寸为(n+2p) x (n+2p)，filter尺寸为f x f，则卷积后的图片尺寸为(n+2p-f+1) x (n+2p-f+1)。若要保证卷积前后图片尺寸不变，则p应满足：<br>
+<img src="https://s-hmily.github.io/post-images/1595294356207.png" alt="" loading="lazy"></p>
 <p>没有padding操作，p=0，我们称之为“<strong>Valid convolutions</strong>”；有padding操作，p=(f−1)/2，我们称之为“<strong>Same convolutions</strong>”。</p>
 <p>从这个式子当中可以看出来，一般来说过滤器的选择尺寸都是奇数x奇数的。</p>
 <h2 id="4卷积步长strided-convolutions-的选择">4.卷积步长（<strong>Strided Convolutions</strong> ）的选择</h2>
 <p>Stride表示filter在原图片中水平方向和垂直方向每次的步进长度。之前我们默认stride=1。若stride=2，则表示filter每次步进长度为2，即隔一点移动一次。</p>
-<figure data-type="image" tabindex="11"><img src="https://mmbiz.qpic.cn/mmbiz_png/hflWRBRSEZ6b5jE53SqmxoLmlRiaYM9MWC9caVib7JSJOPicOcj0wJy5KL5SUDjKFOGq1TrmGGMML3T87riakkn9lA/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="img" loading="lazy"></figure>
+<figure data-type="image" tabindex="7"><img src="https://s-hmily.github.io/post-images/1595294657130.png" alt="" loading="lazy"></figure>
 <p>我们用s表示stride长度，p表示padding长度，如果原始图片尺寸为n x n，filter尺寸为f x f，则卷积后的图片尺寸为：</p>
-<figure data-type="image" tabindex="12"><img src="https://mmbiz.qpic.cn/mmbiz_png/hflWRBRSEZ6b5jE53SqmxoLmlRiaYM9MWqxDbiaUErO5wfVCqBggz4lNIRJsdMhFZ17cLgb5GM58YWLqMGjI6wRw/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="img" loading="lazy"></figure>
+<figure data-type="image" tabindex="8"><img src="https://s-hmily.github.io/post-images/1595294678188.png" alt="" loading="lazy"></figure>
 <p>上式中，⌊⋯⌋表示向下取整。</p>
 <p><strong>卷积步长越小，提取的特征越多，但是卷积步长一般不取1，主要考虑时间效率的问题。卷积步长也不能太大，否则会漏掉图像上的信息。</strong></p>
-<p>值得一提的是，相关系数（cross-correlations）与卷积（convolutions）之间是有区别的。实际上，真正的卷积运算会先将filter绕其中心旋转180度，然后再将旋转后的filter在原始图片上进行滑动计算。filter旋转如下所示：</p>
-<figure data-type="image" tabindex="13"><img src="https://mmbiz.qpic.cn/mmbiz_png/hflWRBRSEZ6b5jE53SqmxoLmlRiaYM9MWib45rt5Oibj5DIh3WGibDZlHvZ3iaoGpoA9J5VibIoeKsFjvSO6UpPyFo2Q/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="img" loading="lazy"></figure>
+<p>值得一提的是，相关系数（cross-correlations）与卷积（convolutions）之间是有区别的。实际上，真正的卷积运算会先将filter绕其中心旋转180度，然后再将旋转后的filter在原始图片上进行滑动计算。filter旋转如下所示：<br>
+<img src="https://s-hmily.github.io/post-images/1595294729695.png" alt="" loading="lazy"></p>
 <p>比较而言，相关系数的计算过程则不会对filter进行旋转，而是直接在原始图片上进行滑动计算。</p>
 <p>其实，目前为止我们介绍的CNN卷积实际上计算的是相关系数，而不是数学意义上的卷积。但是，为了简化计算，我们一般把CNN中的这种“相关系数”就称作卷积运算。之所以可以这么等效，是因为滤波器算子一般是水平或垂直对称的，180度旋转影响不大；而且最终滤波器算子需要通过CNN网络梯度下降算法计算得到，旋转部分可以看作是包含在CNN模型算法中。总的来说，忽略旋转运算可以大大提高CNN网络运算速度，而且不影响模型性能。</p>
-<p>卷积运算服从分配律：</p>
-<figure data-type="image" tabindex="14"><img src="https://mmbiz.qpic.cn/mmbiz_png/hflWRBRSEZ6b5jE53SqmxoLmlRiaYM9MWwHZfSs4RI0ntzrlnjEkVHtPaibiaf7ToAYJpSbwDhsqY0VkXdbeyIKeA/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="img" loading="lazy"></figure>
 <h2 id="5多卷积运算">5.多卷积运算</h2>
 <p>对于3通道的RGB图片，其对应的滤波器算子同样也是3通道的。例如一个图片是6 x 6 x 3，分别表示图片的高度（height）、宽度（weight）和通道（#channel）。</p>
 <p>3通道图片的卷积运算与单通道图片的卷积运算基本一致。过程是将每个单通道（R，G，B）与对应的filter进行卷积运算求和，然后再将3通道的和相加，得到输出图片的一个像素值。</p>
-<figure data-type="image" tabindex="15"><img src="https://mmbiz.qpic.cn/mmbiz_png/hflWRBRSEZ6b5jE53SqmxoLmlRiaYM9MWyCXqn4tFJOWmvTib3ETvntpeztbibnaf4d7BksXzjjzGOMqa5F293pUw/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="img" loading="lazy"></figure>
+<figure data-type="image" tabindex="9"><img src="https://s-hmily.github.io/post-images/1595294755368.png" alt="" loading="lazy"></figure>
 <p>不同通道的滤波算子可以不相同。例如R通道filter实现垂直边缘检测，G和B通道不进行边缘检测，全部置零，或者将R，G，B三通道filter全部设置为水平边缘检测。</p>
-<p>为了进行多个卷积运算，实现更多边缘检测，可以增加更多的滤波器组。例如设置第一个滤波器组实现垂直边缘检测，第二个滤波器组实现水平边缘检测。这样，不同滤波器组卷积得到不同的输出，个数由滤波器组决定。</p>
-<figure data-type="image" tabindex="16"><img src="https://mmbiz.qpic.cn/mmbiz_png/hflWRBRSEZ6b5jE53SqmxoLmlRiaYM9MWbstFg5QdV3n4pcia3gLib8rP3VXl8gHM72RtFT4PZzGvjHOvWCeD9feg/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="img" loading="lazy"></figure>
+<p>为了进行多个卷积运算，实现更多边缘检测，可以增加更多的滤波器组。例如设置第一个滤波器组实现垂直边缘检测，第二个滤波器组实现水平边缘检测。这样，不同滤波器组卷积得到不同的输出，个数由滤波器组决定。<br>
+<img src="https://s-hmily.github.io/post-images/1595294796534.png" alt="" loading="lazy"></p>
 <p>若输入图片的尺寸为n x n x nc，filter尺寸为f x f x nc，则卷积后的图片尺寸为(n-f+1) x (n-f+1) x nc′。其中，nc为图片通道数目，nc′为滤波器组个数。</p>
 <h2 id="6卷积神经网络的单层结构">6.卷积神经网络的单层结构</h2>
-<p>卷积神经网络的单层结构如下所示：</p>
-<figure data-type="image" tabindex="17"><img src="https://mmbiz.qpic.cn/mmbiz_png/hflWRBRSEZ6b5jE53SqmxoLmlRiaYM9MWt4a9nslMxPzqNrY729YJHlozNsdYGIpkYr22tXenibb4fIM8vTOZ8xA/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="img" loading="lazy"></figure>
+<p>卷积神经网络的单层结构如下所示：<br>
+<img src="https://s-hmily.github.io/post-images/1595294825022.png" alt="" loading="lazy"></p>
 <p>相比之前的卷积过程，CNN的单层结构多了激活函数ReLU和偏移量b。整个过程与标准的神经网络单层结构非常类似：</p>
-<figure data-type="image" tabindex="18"><img src="https://mmbiz.qpic.cn/mmbiz_png/hflWRBRSEZ6b5jE53SqmxoLmlRiaYM9MW6lvXXzSbdJFpCSqvqPHlmHia46pILE4qDXXg4F39mYzDJvd79u1Q0vA/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="img" loading="lazy"></figure>
-<figure data-type="image" tabindex="19"><img src="https://mmbiz.qpic.cn/mmbiz_png/hflWRBRSEZ6b5jE53SqmxoLmlRiaYM9MWRYiabnRxhx9uNUjaUnnlDOFKof01UFZtG5exMZcnKbxxmpEBm5LFcgg/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="img" loading="lazy"></figure>
+<figure data-type="image" tabindex="10"><img src="https://s-hmily.github.io/post-images/1595294837289.png" alt="" loading="lazy"></figure>
 <p>我们来计算一下上图中参数的数目：每个滤波器组有3x3x3=27个参数，还有1个偏移量b，则每个滤波器组有27+1=28个参数，两个滤波器组总共包含28x2=56个参数。我们发现，选定滤波器组后，参数数目与输入图片尺寸无关。所以，就不存在由于图片尺寸过大，造成参数过多的情况。例如一张1000x1000x3的图片，标准神经网络输入层的维度将达到3百万，而在CNN中，参数数目只由滤波器组决定，数目相对来说要少得多，这是CNN的优势之一。</p>
 <p>最后，我们总结一下CNN单层结构的所有标记符号，设层数为l。</p>
-<figure data-type="image" tabindex="20"><img src="https://mmbiz.qpic.cn/mmbiz_png/hflWRBRSEZ6b5jE53SqmxoLmlRiaYM9MWxAqX1T3OeiaRjGdEFmLX68j97burFHlydRBx7S3Bbwq8MdjPMEXdicng/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="img" loading="lazy"></figure>
-<figure data-type="image" tabindex="21"><img src="https://mmbiz.qpic.cn/mmbiz_png/hflWRBRSEZ6b5jE53SqmxoLmlRiaYM9MWtoibhicIMJsvO1SwsXdDvFpmxIUjbRf62LGjGK9m6TCA2iaXmTn97btww/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="img" loading="lazy"></figure>
+<figure data-type="image" tabindex="11"><img src="https://s-hmily.github.io/post-images/1595294857770.png" alt="" loading="lazy"></figure>
 <p>其中，</p>
-<figure data-type="image" tabindex="22"><img src="https://mmbiz.qpic.cn/mmbiz_png/hflWRBRSEZ6b5jE53SqmxoLmlRiaYM9MWO8MRiaD0fkrm9gVSElMUkXLu8S5J0gNOAMbRjPkbMlY3BxzuqteN7eA/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="img" loading="lazy"></figure>
-<figure data-type="image" tabindex="23"><img src="https://mmbiz.qpic.cn/mmbiz_png/hflWRBRSEZ6b5jE53SqmxoLmlRiaYM9MWI2c0SGCyCTZpsic2iaibwk9PfOrFJqFWD7WBncnC6OSNAqWNtheplRmng/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="img" loading="lazy"></figure>
+<figure data-type="image" tabindex="12"><img src="https://s-hmily.github.io/post-images/1595294920216.png" alt="" loading="lazy"></figure>
 <h2 id="7简单的cnn模型"><strong>7.简单的CNN模型</strong></h2>
-<p>下面介绍一个简单的CNN网络模型：</p>
-<figure data-type="image" tabindex="24"><img src="https://mmbiz.qpic.cn/mmbiz_png/hflWRBRSEZ6b5jE53SqmxoLmlRiaYM9MW78pvWiaVdvicNj42XXVgcr5BJIiaOsMUCtuiawkxiaLUKXlhsgxajicwKr3w/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="img" loading="lazy"></figure>
-<figure data-type="image" tabindex="25"><img src="https://mmbiz.qpic.cn/mmbiz_png/hflWRBRSEZ6b5jE53SqmxoLmlRiaYM9MWSsTL4Giaj4OeVSK5Tjichp7C51aY8L3IdwbZXycgG8YVzXibHCHzJruMQ/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="img" loading="lazy"></figure>
-<figure data-type="image" tabindex="26"><img src="https://mmbiz.qpic.cn/mmbiz_png/hflWRBRSEZ6b5jE53SqmxoLmlRiaYM9MWylszuL0NoTw1a6ibvURpe5qJ401iawFiaibSs1grfxqD335khHRMCCRicIg/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="img" loading="lazy"></figure>
+<p>下面介绍一个简单的CNN网络模型：<br>
+<img src="https://s-hmily.github.io/post-images/1595294950976.png" alt="" loading="lazy"></p>
 <p>CNN有三种类型的layer：</p>
 <ul>
 <li>Convolution层（CONV）</li>
@@ -439,19 +429,19 @@
 <p>CONV最为常见也最重要，关于POOL和FC我们之后再介绍。</p>
 <h2 id="8池化层">8.池化层</h2>
 <p>Pooling layers是CNN中用来减小尺寸，提高运算速度的，同样能减小noise影响，让各特征更具有健壮性。</p>
-<p>Pooling layers的做法比convolution layers简单许多，没有卷积运算，仅仅是在滤波器算子滑动区域内取最大值，即max pooling，这是最常用的做法。注意，超参数p很少在pooling layers中使用。</p>
-<figure data-type="image" tabindex="27"><img src="https://mmbiz.qpic.cn/mmbiz_png/hflWRBRSEZ6b5jE53SqmxoLmlRiaYM9MWb6ycbQ6dh0nuZaFAqzCsZkQvAf1RP3a71TBZkP6ypcpyGtLQY6kPpA/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="img" loading="lazy"></figure>
+<p>Pooling layers的做法比convolution layers简单许多，没有卷积运算，仅仅是在滤波器算子滑动区域内取最大值，即max pooling，这是最常用的做法。注意，超参数p很少在pooling layers中使用。<br>
+<img src="https://s-hmily.github.io/post-images/1595294973000.png" alt="" loading="lazy"></p>
 <p>Max pooling的好处是只保留区域内的最大值（特征），忽略其它值，降低noise影响，提高模型健壮性。而且，max pooling需要的超参数仅为滤波器尺寸f和滤波器步进长度s，没有其他参数需要模型训练得到，计算量很小。</p>
 <p>如果是多个通道，那么就每个通道单独进行max pooling操作。</p>
 <p>除了max pooling之外，还有一种做法：average pooling。顾名思义，average pooling就是在滤波器算子滑动区域计算平均值。</p>
-<figure data-type="image" tabindex="28"><img src="https://mmbiz.qpic.cn/mmbiz_png/hflWRBRSEZ6b5jE53SqmxoLmlRiaYM9MWluuRPzml77C46AT0FTPAvNicwZibKB3tBsqCEZDHDlj59icMbT0U6BAzA/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="img" loading="lazy"></figure>
+<figure data-type="image" tabindex="13"><img src="https://s-hmily.github.io/post-images/1595294977887.png" alt="" loading="lazy"></figure>
 <p>实际应用中，max pooling比average pooling更为常用。</p>
 <h2 id="9简单数字识别的例子">9.简单数字识别的例子</h2>
 <p>下面介绍一个简单的数字识别的CNN例子：</p>
-<figure data-type="image" tabindex="29"><img src="https://mmbiz.qpic.cn/mmbiz_png/hflWRBRSEZ6b5jE53SqmxoLmlRiaYM9MWU9V2LHzxcUnOx59u590BMyE5DflmwAeH4faz0PTXcnPzx9OTEosnfA/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="img" loading="lazy"></figure>
+<figure data-type="image" tabindex="14"><img src="https://s-hmily.github.io/post-images/1595295002002.png" alt="" loading="lazy"></figure>
 <p>图中，CON层后面紧接一个POOL层，CONV1和POOL1构成第一层，CONV2和POOL2构成第二层。特别注意的是FC3和FC4为全连接层FC，它跟标准的神经网络结构一致。最后的输出层（softmax）由10个神经元构成。</p>
 <p>整个网络各层的尺寸和参数如下表格所示：</p>
-<figure data-type="image" tabindex="30"><img src="https://mmbiz.qpic.cn/mmbiz_png/hflWRBRSEZ6b5jE53SqmxoLmlRiaYM9MW9r3DFwL71Y6c3TjParJDiagyfSpZRHYtDJ4GbGWF394KbUzSCOx9t8g/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="img" loading="lazy"></figure>
+<figure data-type="image" tabindex="15"><img src="https://s-hmily.github.io/post-images/1595295007618.png" alt="" loading="lazy"></figure>
 <h2 id="10为什么使用卷积">10.为什么使用卷积</h2>
 <p>相比标准神经网络，CNN的优势之一就是参数数目要少得多。参数数目少的原因有两个：</p>
 <ul>
@@ -479,6 +469,13 @@
             COCO分割任务：超过第二名12%
 </code></pre>
 
+        </div>
+        
+        <div class="prev-post">
+            上一篇
+            <a href="https://s-hmily.github.io/post/qian-ceng-shen-jing-wang-luo-de-jie-xi-ji-qi-ying-yong/">
+                浅层神经网络的解析及其应用
+            </a>
         </div>
         
         
@@ -682,18 +679,16 @@
         <div class="postshow">
             
             <div class="postdetailimg" style="width:100%;overflow: hidden;display: none">
-                
-                <img src="https://pic2.zhimg.com/80/v2-bcbb1a4f932ab78c198b0a99af266d4e_720w.jpg?source=1940ef5c" class="postimage">
-                
+                <img src="https://s-hmily.github.io/post-images/juan-ji-shen-jing-wang-luo-jie-xi.jpeg" class="postimage" style="cursor:auto">
             </div>
             <div class="postinfo-detail">
                 <div class="postdate"><i class="fa fa-calendar"></i>2020-07-20</div>
-            <div class="poststatus postdate"><i class="fa fa-clock-o"></i> 14 min read</div>
-            <div class="posttag">
-                
+                <div class="poststatus postdate"><i class="fa fa-clock-o"></i> 14 min read</div>
+                <div class="posttag">
+                    
+                </div>
             </div>
-        </div>
-        
+            
         <div id="texttitle" style="text-align: center">
             <h2>卷积神经网络解析</h2>
             <!-- id 将作为查询条件 -->
@@ -711,36 +706,35 @@
 <p><strong>2.目标检测</strong></p>
 <p>在无人驾驶汽车当中，我们不一定就让这辆汽车去识别这个物体具体是什么，我们只需要去识别这个物体，然后判断这个物体是否是车辆或者其他的东西，然后确保自己的车辆跟这个物体保持一个安全的距离。</p>
 <p><strong>3.神经风格迁移</strong></p>
-<p>我们选择一张普通的照片，再选择一张艺术作品，同时输入，经过神经风格转换，就能给这张照片赋予艺术的风格 .</p>
-<figure data-type="image" tabindex="1"><img src="C:%5CUsers%5CWGJS%5CAppData%5CLocal%5CTemp%5C1595254352534.png" alt="1595254352534" loading="lazy"></figure>
+<p>我们选择一张普通的照片，再选择一张艺术作品，同时输入，经过神经风格转换，就能给这张照片赋予艺术的风格 .<br>
+<img src="https://s-hmily.github.io/post-images/1595294042630.png" alt="" loading="lazy"></p>
 <h2 id="2边缘检测">2.边缘检测</h2>
 <p>在之前的神经网络里边学习过检测图片，神经网络由浅层到深层，分别可以检测出图片的<strong>边缘特征</strong>，<strong>局部特征</strong>，<strong>整体面部轮廓</strong></p>
-<figure data-type="image" tabindex="2"><img src="https://mmbiz.qpic.cn/mmbiz_png/hflWRBRSEZ6b5jE53SqmxoLmlRiaYM9MWyIjoeySOBbn2xWAhzN4l2AR0LqiaoQA2NNdGYLCG2QNCkHh88rhA3gQ/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="img" loading="lazy"></figure>
 <p>然后我们就来说说在CNN里边如何进行图片的边缘检测</p>
 <p>最常见的图片边缘有两类：</p>
 <p>1.垂直边缘（vertical edges）</p>
 <p>2.水平边缘（horizontal edges）</p>
 <h3 id="21边缘检测示例"><strong>2.1边缘检测示例</strong></h3>
-<figure data-type="image" tabindex="3"><img src="C:%5CUsers%5CWGJS%5CAppData%5CLocal%5CTemp%5C1595254319898.png" alt="1595254319898" loading="lazy"></figure>
+<figure data-type="image" tabindex="1"><img src="https://s-hmily.github.io/post-images/1595294137643.png" alt="" loading="lazy"></figure>
 <p>这里我们引入一个概念就是<strong>过滤器</strong>（filter），过滤器其实就是一个人为定的一个矩阵的样子，然后跟原始的图片进行一些相关的计算得到卷积后的图片，具体过程如下：</p>
-<figure data-type="image" tabindex="4"><img src="https://mmbiz.qpic.cn/mmbiz_png/hflWRBRSEZ6b5jE53SqmxoLmlRiaYM9MWs9VXleUwibicmvrgKzfa7DcgibM3WXa2DsUvR3Z4jVAOlGJyo3A3y0ekg/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="img" loading="lazy"></figure>
+<figure data-type="image" tabindex="2"><img src="https://s-hmily.github.io/post-images/1595294174575.png" alt="" loading="lazy"></figure>
 <p>上图只显示了卷积后的第一个值和最后一个值。</p>
 <p>-5是如何来的呢？ 在第一个蓝色九宫格里边，每一个数字右上角有一个小数字，这个数字就是跟过滤器中的数字是相对应的，然后本身的数字跟右上角的数字进行相乘的结果</p>
 <p>顺便提一下，∗表示卷积操作。python中，卷积用conv_forward()表示；tensorflow中，卷积用tf.nn.conv2d()表示；keras中，卷积用Conv2D()表示。</p>
-<p>Vertical edge detection能够检测图片的垂直方向边缘。下图对应一个垂直边缘检测的例子：</p>
-<p>``<img src="https://mmbiz.qpic.cn/mmbiz_png/hflWRBRSEZ6b5jE53SqmxoLmlRiaYM9MW1P4dJxj9Q7ic0v39DfYz1lHwHtkvQiawzeWjRLlcWE3tzpdP673DKicYA/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="img" loading="lazy"></p>
+<p>Vertical edge detection能够检测图片的垂直方向边缘。下图对应一个垂直边缘检测的例子：<br>
+<img src="https://s-hmily.github.io/post-images/1595294199825.png" alt="" loading="lazy"></p>
 <p>在第一个图片当中，有一条白色区域与黑色区域当中有一条线，这个就是我们垂直边缘需要检测出来的线，然后经过过滤器的处理，最后的结果就剩下灰-白-灰。这当中白色区域就是检测出来的线。</p>
 <p><strong>可是你会说为啥区域是检测出来的线啊？区域这么大，咋会是线呢？</strong></p>
 <p>我们举的例子当中是6x6的，在现实生活中的图片基本上很大很大的，比如一个128x128的单色域图像（图片按比例增大），检测出来的白色区域占的面积是多少？2/126，而上图的例子是2/4，况且显示中的图片比128x128还要大很多。</p>
 <h3 id="22更多边缘检测示例"><strong>2.2更多边缘检测示例</strong></h3>
-<p>图片边缘有两种渐变方式，一种是由明变暗，另一种是由暗变明。以垂直边缘检测为例，下图展示了两种方式的区别。实际应用中，这两种渐变方式并不影响边缘检测结果，可以对输出图片取绝对值操作，得到同样的结果。</p>
-<figure data-type="image" tabindex="5"><img src="https://mmbiz.qpic.cn/mmbiz_png/hflWRBRSEZ6b5jE53SqmxoLmlRiaYM9MW2c4PCff53oTrfLB2kfoicLDLwCA16bWS9TOsm1I8tsexGAMleBicpgxw/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="img" loading="lazy"></figure>
+<p>图片边缘有两种渐变方式，一种是由明变暗，另一种是由暗变明。以垂直边缘检测为例，下图展示了两种方式的区别。实际应用中，这两种渐变方式并不影响边缘检测结果，可以对输出图片取绝对值操作，得到同样的结果。<br>
+<img src="https://s-hmily.github.io/post-images/1595294247661.png" alt="" loading="lazy"></p>
 <p>垂直边缘检测和水平边缘检测的滤波器算子如下所示：</p>
-<figure data-type="image" tabindex="6"><img src="https://mmbiz.qpic.cn/mmbiz_png/hflWRBRSEZ6b5jE53SqmxoLmlRiaYM9MWdZF33fNpThVu9PqiaDgB57WRB8mJbN97F4DibPztMDgynW509p0iaBuhw/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="img" loading="lazy"></figure>
+<figure data-type="image" tabindex="3"><img src="https://s-hmily.github.io/post-images/1595294267876.png" alt="" loading="lazy"></figure>
 <p>下图展示一个水平边缘检测的例子：</p>
-<figure data-type="image" tabindex="7"><img src="https://mmbiz.qpic.cn/mmbiz_png/hflWRBRSEZ6b5jE53SqmxoLmlRiaYM9MWibMG2dRzCuNgVKKCIM5pdKDqJMFI3v4iaqDyibQhbzBUxM6ibibjetGgTGg/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="img" loading="lazy"></figure>
+<figure data-type="image" tabindex="4"><img src="https://s-hmily.github.io/post-images/1595294285699.png" alt="" loading="lazy"></figure>
 <p>除了上面提到的这种简单的Vertical、Horizontal滤波器之外，还有其它常用的filters，例如Sobel filter和Scharr filter。这两种滤波器的特点是增加图片中心区域的权重。</p>
-<figure data-type="image" tabindex="8"><img src="https://mmbiz.qpic.cn/mmbiz_png/hflWRBRSEZ6b5jE53SqmxoLmlRiaYM9MWsh1uTxXtceoqymY3IhvLIiarV9sTDdCqdVLYiawCM2eYf7O9NanPTtsA/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="img" loading="lazy"></figure>
+<figure data-type="image" tabindex="5"><img src="https://s-hmily.github.io/post-images/1595294309843.png" alt="" loading="lazy"></figure>
 <p>上图展示的是垂直边缘检测算子，水平边缘检测算子只需将上图顺时针翻转90度即可。</p>
 <p>在深度学习中，如果我们想检测图片的各种边缘特征，而不仅限于垂直边缘和水平边缘，那么filter的数值一般需要通过模型训练得到，类似于标准神经网络中的权重W一样由梯度下降算法反复迭代求得。CNN的主要目的就是计算出这些filter的数值。确定得到了这些filter后，CNN浅层网络也就实现了对图片所有边缘特征的检测。</p>
 <h2 id="3padding">3.Padding</h2>
@@ -752,50 +746,43 @@
 </ul>
 <p>为了解决图片缩小的问题，可以使用padding方法，即把原始图片尺寸进行扩展，扩展区域补零，用p来表示每个方向扩展的宽度。也就是我们可以扩张原来的图片，然后再对图片进行缩小，使得到的图片的尺寸跟原来的尺寸想等，这样就可以有效的解决以上的两个问题。</p>
 <p>**再者就是关于扩张后填充的数字是什么？**一般来说是0，因为填充0之后才能保证图像的准确性，其实你可以想想成这个图片外围有很多层，这些层都是0代表着没有内容也就是空白内容，因此填充0可以保证图片的准确性，不会丢失边缘信息。虽然填充其他的数字也可能得到不错的效果，maybe吧，如果你愿意你可以自己尝试一下。</p>
-<figure data-type="image" tabindex="9"><img src="https://mmbiz.qpic.cn/mmbiz_png/hflWRBRSEZ6b5jE53SqmxoLmlRiaYM9MWcpP3LBDIsEsT5N6EfN0MFXuDAcCWY4Hy90w7Pc59xIdNRFyjib2qicgQ/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="img" loading="lazy"></figure>
-<p>经过padding之后，原始图片尺寸为(n+2p) x (n+2p)，filter尺寸为f x f，则卷积后的图片尺寸为(n+2p-f+1) x (n+2p-f+1)。若要保证卷积前后图片尺寸不变，则p应满足：</p>
-<figure data-type="image" tabindex="10"><img src="https://mmbiz.qpic.cn/mmbiz_png/hflWRBRSEZ6b5jE53SqmxoLmlRiaYM9MWCahQu5Ytte6ZtzZsfDkdpLpILUgXAREGNWg8njW0vQo7ZRhzzricV2Q/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="img" loading="lazy"></figure>
+<figure data-type="image" tabindex="6"><img src="https://s-hmily.github.io/post-images/1595294337255.png" alt="" loading="lazy"></figure>
+<p>经过padding之后，原始图片尺寸为(n+2p) x (n+2p)，filter尺寸为f x f，则卷积后的图片尺寸为(n+2p-f+1) x (n+2p-f+1)。若要保证卷积前后图片尺寸不变，则p应满足：<br>
+<img src="https://s-hmily.github.io/post-images/1595294356207.png" alt="" loading="lazy"></p>
 <p>没有padding操作，p=0，我们称之为“<strong>Valid convolutions</strong>”；有padding操作，p=(f−1)/2，我们称之为“<strong>Same convolutions</strong>”。</p>
 <p>从这个式子当中可以看出来，一般来说过滤器的选择尺寸都是奇数x奇数的。</p>
 <h2 id="4卷积步长strided-convolutions-的选择">4.卷积步长（<strong>Strided Convolutions</strong> ）的选择</h2>
 <p>Stride表示filter在原图片中水平方向和垂直方向每次的步进长度。之前我们默认stride=1。若stride=2，则表示filter每次步进长度为2，即隔一点移动一次。</p>
-<figure data-type="image" tabindex="11"><img src="https://mmbiz.qpic.cn/mmbiz_png/hflWRBRSEZ6b5jE53SqmxoLmlRiaYM9MWC9caVib7JSJOPicOcj0wJy5KL5SUDjKFOGq1TrmGGMML3T87riakkn9lA/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="img" loading="lazy"></figure>
+<figure data-type="image" tabindex="7"><img src="https://s-hmily.github.io/post-images/1595294657130.png" alt="" loading="lazy"></figure>
 <p>我们用s表示stride长度，p表示padding长度，如果原始图片尺寸为n x n，filter尺寸为f x f，则卷积后的图片尺寸为：</p>
-<figure data-type="image" tabindex="12"><img src="https://mmbiz.qpic.cn/mmbiz_png/hflWRBRSEZ6b5jE53SqmxoLmlRiaYM9MWqxDbiaUErO5wfVCqBggz4lNIRJsdMhFZ17cLgb5GM58YWLqMGjI6wRw/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="img" loading="lazy"></figure>
+<figure data-type="image" tabindex="8"><img src="https://s-hmily.github.io/post-images/1595294678188.png" alt="" loading="lazy"></figure>
 <p>上式中，⌊⋯⌋表示向下取整。</p>
 <p><strong>卷积步长越小，提取的特征越多，但是卷积步长一般不取1，主要考虑时间效率的问题。卷积步长也不能太大，否则会漏掉图像上的信息。</strong></p>
-<p>值得一提的是，相关系数（cross-correlations）与卷积（convolutions）之间是有区别的。实际上，真正的卷积运算会先将filter绕其中心旋转180度，然后再将旋转后的filter在原始图片上进行滑动计算。filter旋转如下所示：</p>
-<figure data-type="image" tabindex="13"><img src="https://mmbiz.qpic.cn/mmbiz_png/hflWRBRSEZ6b5jE53SqmxoLmlRiaYM9MWib45rt5Oibj5DIh3WGibDZlHvZ3iaoGpoA9J5VibIoeKsFjvSO6UpPyFo2Q/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="img" loading="lazy"></figure>
+<p>值得一提的是，相关系数（cross-correlations）与卷积（convolutions）之间是有区别的。实际上，真正的卷积运算会先将filter绕其中心旋转180度，然后再将旋转后的filter在原始图片上进行滑动计算。filter旋转如下所示：<br>
+<img src="https://s-hmily.github.io/post-images/1595294729695.png" alt="" loading="lazy"></p>
 <p>比较而言，相关系数的计算过程则不会对filter进行旋转，而是直接在原始图片上进行滑动计算。</p>
 <p>其实，目前为止我们介绍的CNN卷积实际上计算的是相关系数，而不是数学意义上的卷积。但是，为了简化计算，我们一般把CNN中的这种“相关系数”就称作卷积运算。之所以可以这么等效，是因为滤波器算子一般是水平或垂直对称的，180度旋转影响不大；而且最终滤波器算子需要通过CNN网络梯度下降算法计算得到，旋转部分可以看作是包含在CNN模型算法中。总的来说，忽略旋转运算可以大大提高CNN网络运算速度，而且不影响模型性能。</p>
-<p>卷积运算服从分配律：</p>
-<figure data-type="image" tabindex="14"><img src="https://mmbiz.qpic.cn/mmbiz_png/hflWRBRSEZ6b5jE53SqmxoLmlRiaYM9MWwHZfSs4RI0ntzrlnjEkVHtPaibiaf7ToAYJpSbwDhsqY0VkXdbeyIKeA/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="img" loading="lazy"></figure>
 <h2 id="5多卷积运算">5.多卷积运算</h2>
 <p>对于3通道的RGB图片，其对应的滤波器算子同样也是3通道的。例如一个图片是6 x 6 x 3，分别表示图片的高度（height）、宽度（weight）和通道（#channel）。</p>
 <p>3通道图片的卷积运算与单通道图片的卷积运算基本一致。过程是将每个单通道（R，G，B）与对应的filter进行卷积运算求和，然后再将3通道的和相加，得到输出图片的一个像素值。</p>
-<figure data-type="image" tabindex="15"><img src="https://mmbiz.qpic.cn/mmbiz_png/hflWRBRSEZ6b5jE53SqmxoLmlRiaYM9MWyCXqn4tFJOWmvTib3ETvntpeztbibnaf4d7BksXzjjzGOMqa5F293pUw/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="img" loading="lazy"></figure>
+<figure data-type="image" tabindex="9"><img src="https://s-hmily.github.io/post-images/1595294755368.png" alt="" loading="lazy"></figure>
 <p>不同通道的滤波算子可以不相同。例如R通道filter实现垂直边缘检测，G和B通道不进行边缘检测，全部置零，或者将R，G，B三通道filter全部设置为水平边缘检测。</p>
-<p>为了进行多个卷积运算，实现更多边缘检测，可以增加更多的滤波器组。例如设置第一个滤波器组实现垂直边缘检测，第二个滤波器组实现水平边缘检测。这样，不同滤波器组卷积得到不同的输出，个数由滤波器组决定。</p>
-<figure data-type="image" tabindex="16"><img src="https://mmbiz.qpic.cn/mmbiz_png/hflWRBRSEZ6b5jE53SqmxoLmlRiaYM9MWbstFg5QdV3n4pcia3gLib8rP3VXl8gHM72RtFT4PZzGvjHOvWCeD9feg/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="img" loading="lazy"></figure>
+<p>为了进行多个卷积运算，实现更多边缘检测，可以增加更多的滤波器组。例如设置第一个滤波器组实现垂直边缘检测，第二个滤波器组实现水平边缘检测。这样，不同滤波器组卷积得到不同的输出，个数由滤波器组决定。<br>
+<img src="https://s-hmily.github.io/post-images/1595294796534.png" alt="" loading="lazy"></p>
 <p>若输入图片的尺寸为n x n x nc，filter尺寸为f x f x nc，则卷积后的图片尺寸为(n-f+1) x (n-f+1) x nc′。其中，nc为图片通道数目，nc′为滤波器组个数。</p>
 <h2 id="6卷积神经网络的单层结构">6.卷积神经网络的单层结构</h2>
-<p>卷积神经网络的单层结构如下所示：</p>
-<figure data-type="image" tabindex="17"><img src="https://mmbiz.qpic.cn/mmbiz_png/hflWRBRSEZ6b5jE53SqmxoLmlRiaYM9MWt4a9nslMxPzqNrY729YJHlozNsdYGIpkYr22tXenibb4fIM8vTOZ8xA/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="img" loading="lazy"></figure>
+<p>卷积神经网络的单层结构如下所示：<br>
+<img src="https://s-hmily.github.io/post-images/1595294825022.png" alt="" loading="lazy"></p>
 <p>相比之前的卷积过程，CNN的单层结构多了激活函数ReLU和偏移量b。整个过程与标准的神经网络单层结构非常类似：</p>
-<figure data-type="image" tabindex="18"><img src="https://mmbiz.qpic.cn/mmbiz_png/hflWRBRSEZ6b5jE53SqmxoLmlRiaYM9MW6lvXXzSbdJFpCSqvqPHlmHia46pILE4qDXXg4F39mYzDJvd79u1Q0vA/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="img" loading="lazy"></figure>
-<figure data-type="image" tabindex="19"><img src="https://mmbiz.qpic.cn/mmbiz_png/hflWRBRSEZ6b5jE53SqmxoLmlRiaYM9MWRYiabnRxhx9uNUjaUnnlDOFKof01UFZtG5exMZcnKbxxmpEBm5LFcgg/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="img" loading="lazy"></figure>
+<figure data-type="image" tabindex="10"><img src="https://s-hmily.github.io/post-images/1595294837289.png" alt="" loading="lazy"></figure>
 <p>我们来计算一下上图中参数的数目：每个滤波器组有3x3x3=27个参数，还有1个偏移量b，则每个滤波器组有27+1=28个参数，两个滤波器组总共包含28x2=56个参数。我们发现，选定滤波器组后，参数数目与输入图片尺寸无关。所以，就不存在由于图片尺寸过大，造成参数过多的情况。例如一张1000x1000x3的图片，标准神经网络输入层的维度将达到3百万，而在CNN中，参数数目只由滤波器组决定，数目相对来说要少得多，这是CNN的优势之一。</p>
 <p>最后，我们总结一下CNN单层结构的所有标记符号，设层数为l。</p>
-<figure data-type="image" tabindex="20"><img src="https://mmbiz.qpic.cn/mmbiz_png/hflWRBRSEZ6b5jE53SqmxoLmlRiaYM9MWxAqX1T3OeiaRjGdEFmLX68j97burFHlydRBx7S3Bbwq8MdjPMEXdicng/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="img" loading="lazy"></figure>
-<figure data-type="image" tabindex="21"><img src="https://mmbiz.qpic.cn/mmbiz_png/hflWRBRSEZ6b5jE53SqmxoLmlRiaYM9MWtoibhicIMJsvO1SwsXdDvFpmxIUjbRf62LGjGK9m6TCA2iaXmTn97btww/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="img" loading="lazy"></figure>
+<figure data-type="image" tabindex="11"><img src="https://s-hmily.github.io/post-images/1595294857770.png" alt="" loading="lazy"></figure>
 <p>其中，</p>
-<figure data-type="image" tabindex="22"><img src="https://mmbiz.qpic.cn/mmbiz_png/hflWRBRSEZ6b5jE53SqmxoLmlRiaYM9MWO8MRiaD0fkrm9gVSElMUkXLu8S5J0gNOAMbRjPkbMlY3BxzuqteN7eA/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="img" loading="lazy"></figure>
-<figure data-type="image" tabindex="23"><img src="https://mmbiz.qpic.cn/mmbiz_png/hflWRBRSEZ6b5jE53SqmxoLmlRiaYM9MWI2c0SGCyCTZpsic2iaibwk9PfOrFJqFWD7WBncnC6OSNAqWNtheplRmng/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="img" loading="lazy"></figure>
+<figure data-type="image" tabindex="12"><img src="https://s-hmily.github.io/post-images/1595294920216.png" alt="" loading="lazy"></figure>
 <h2 id="7简单的cnn模型"><strong>7.简单的CNN模型</strong></h2>
-<p>下面介绍一个简单的CNN网络模型：</p>
-<figure data-type="image" tabindex="24"><img src="https://mmbiz.qpic.cn/mmbiz_png/hflWRBRSEZ6b5jE53SqmxoLmlRiaYM9MW78pvWiaVdvicNj42XXVgcr5BJIiaOsMUCtuiawkxiaLUKXlhsgxajicwKr3w/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="img" loading="lazy"></figure>
-<figure data-type="image" tabindex="25"><img src="https://mmbiz.qpic.cn/mmbiz_png/hflWRBRSEZ6b5jE53SqmxoLmlRiaYM9MWSsTL4Giaj4OeVSK5Tjichp7C51aY8L3IdwbZXycgG8YVzXibHCHzJruMQ/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="img" loading="lazy"></figure>
-<figure data-type="image" tabindex="26"><img src="https://mmbiz.qpic.cn/mmbiz_png/hflWRBRSEZ6b5jE53SqmxoLmlRiaYM9MWylszuL0NoTw1a6ibvURpe5qJ401iawFiaibSs1grfxqD335khHRMCCRicIg/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="img" loading="lazy"></figure>
+<p>下面介绍一个简单的CNN网络模型：<br>
+<img src="https://s-hmily.github.io/post-images/1595294950976.png" alt="" loading="lazy"></p>
 <p>CNN有三种类型的layer：</p>
 <ul>
 <li>Convolution层（CONV）</li>
@@ -805,19 +792,19 @@
 <p>CONV最为常见也最重要，关于POOL和FC我们之后再介绍。</p>
 <h2 id="8池化层">8.池化层</h2>
 <p>Pooling layers是CNN中用来减小尺寸，提高运算速度的，同样能减小noise影响，让各特征更具有健壮性。</p>
-<p>Pooling layers的做法比convolution layers简单许多，没有卷积运算，仅仅是在滤波器算子滑动区域内取最大值，即max pooling，这是最常用的做法。注意，超参数p很少在pooling layers中使用。</p>
-<figure data-type="image" tabindex="27"><img src="https://mmbiz.qpic.cn/mmbiz_png/hflWRBRSEZ6b5jE53SqmxoLmlRiaYM9MWb6ycbQ6dh0nuZaFAqzCsZkQvAf1RP3a71TBZkP6ypcpyGtLQY6kPpA/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="img" loading="lazy"></figure>
+<p>Pooling layers的做法比convolution layers简单许多，没有卷积运算，仅仅是在滤波器算子滑动区域内取最大值，即max pooling，这是最常用的做法。注意，超参数p很少在pooling layers中使用。<br>
+<img src="https://s-hmily.github.io/post-images/1595294973000.png" alt="" loading="lazy"></p>
 <p>Max pooling的好处是只保留区域内的最大值（特征），忽略其它值，降低noise影响，提高模型健壮性。而且，max pooling需要的超参数仅为滤波器尺寸f和滤波器步进长度s，没有其他参数需要模型训练得到，计算量很小。</p>
 <p>如果是多个通道，那么就每个通道单独进行max pooling操作。</p>
 <p>除了max pooling之外，还有一种做法：average pooling。顾名思义，average pooling就是在滤波器算子滑动区域计算平均值。</p>
-<figure data-type="image" tabindex="28"><img src="https://mmbiz.qpic.cn/mmbiz_png/hflWRBRSEZ6b5jE53SqmxoLmlRiaYM9MWluuRPzml77C46AT0FTPAvNicwZibKB3tBsqCEZDHDlj59icMbT0U6BAzA/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="img" loading="lazy"></figure>
+<figure data-type="image" tabindex="13"><img src="https://s-hmily.github.io/post-images/1595294977887.png" alt="" loading="lazy"></figure>
 <p>实际应用中，max pooling比average pooling更为常用。</p>
 <h2 id="9简单数字识别的例子">9.简单数字识别的例子</h2>
 <p>下面介绍一个简单的数字识别的CNN例子：</p>
-<figure data-type="image" tabindex="29"><img src="https://mmbiz.qpic.cn/mmbiz_png/hflWRBRSEZ6b5jE53SqmxoLmlRiaYM9MWU9V2LHzxcUnOx59u590BMyE5DflmwAeH4faz0PTXcnPzx9OTEosnfA/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="img" loading="lazy"></figure>
+<figure data-type="image" tabindex="14"><img src="https://s-hmily.github.io/post-images/1595295002002.png" alt="" loading="lazy"></figure>
 <p>图中，CON层后面紧接一个POOL层，CONV1和POOL1构成第一层，CONV2和POOL2构成第二层。特别注意的是FC3和FC4为全连接层FC，它跟标准的神经网络结构一致。最后的输出层（softmax）由10个神经元构成。</p>
 <p>整个网络各层的尺寸和参数如下表格所示：</p>
-<figure data-type="image" tabindex="30"><img src="https://mmbiz.qpic.cn/mmbiz_png/hflWRBRSEZ6b5jE53SqmxoLmlRiaYM9MW9r3DFwL71Y6c3TjParJDiagyfSpZRHYtDJ4GbGWF394KbUzSCOx9t8g/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="img" loading="lazy"></figure>
+<figure data-type="image" tabindex="15"><img src="https://s-hmily.github.io/post-images/1595295007618.png" alt="" loading="lazy"></figure>
 <h2 id="10为什么使用卷积">10.为什么使用卷积</h2>
 <p>相比标准神经网络，CNN的优势之一就是参数数目要少得多。参数数目少的原因有两个：</p>
 <ul>
@@ -845,6 +832,13 @@
             COCO分割任务：超过第二名12%
 </code></pre>
 
+        </div>
+        
+        <div class="prev-post">
+            上一篇
+            <a href="https://s-hmily.github.io/post/qian-ceng-shen-jing-wang-luo-de-jie-xi-ji-qi-ying-yong/">
+                浅层神经网络的解析及其应用
+            </a>
         </div>
         
         

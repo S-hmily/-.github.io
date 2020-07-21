@@ -6,7 +6,7 @@
 这里就需要引入神经网络的概念了。
 2.神经网络的概述
 我们知..." />
-    <meta name="keywords" content="机器学习" />
+    <meta name="keywords" content="" />
     <link rel="stylesheet" href="https://s-hmily.github.io/media/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://s-hmily.github.io/styles/main.css">
     
@@ -317,26 +317,24 @@
         <div class="postshow">
             
             <div class="postdetailimg" style="width:100%;overflow: hidden;display: none">
-                <img src="https://s-hmily.github.io/post-images/qian-ceng-shen-jing-wang-luo-gai-shu.jpg" class="postimage" style="cursor:auto">
+                
+                <img src="https://pic2.zhimg.com/80/v2-bcbb1a4f932ab78c198b0a99af266d4e_720w.jpg?source=1940ef5c" class="postimage">
+                
             </div>
             <div class="postinfo-detail">
-                <div class="postdate"><i class="fa fa-calendar"></i>2020-07-18</div>
-                <div class="poststatus postdate"><i class="fa fa-clock-o"></i> 33 min read</div>
-                <div class="posttag">
-                    
-                    <a href="https://s-hmily.github.io/tag/lMYeCI_cf/" class="postlink">
-                        <i class="fa fa-tag"></i> 机器学习
-                    </a>
-                    
-                </div>
+                <div class="postdate"><i class="fa fa-calendar"></i>2020-07-21</div>
+            <div class="poststatus postdate"><i class="fa fa-clock-o"></i> 33 min read</div>
+            <div class="posttag">
+                
             </div>
-            
+        </div>
+        
         <div id="texttitle" style="text-align: center">
-            <h2>浅层神经网络概述和应用</h2>
+            <h2>浅层神经网络的解析及其应用</h2>
             <!-- id 将作为查询条件 -->
-            <div id="pl" style="display:none">https://s-hmily.github.io/post/qian-ceng-shen-jing-wang-luo-gai-shu/</div>
+            <div id="pl" style="display:none">https://s-hmily.github.io/post/qian-ceng-shen-jing-wang-luo-de-jie-xi-ji-qi-ying-yong/</div>
             <div id="rootaddr" style="display:none">https://s-hmily.github.io</div>
-            <span id="hotnum" class="leancloud_visitors" data-flag-title="浅层神经网络概述和应用">
+            <span id="hotnum" class="leancloud_visitors" data-flag-title="浅层神经网络的解析及其应用">
                 <h4 class="readercount">热度🔥: <i class="leancloud-visitors-count">loading...</i></h4>
             </span>
         </div>
@@ -715,7 +713,7 @@ db1 = [[-0.00069728]
 dW2 = [[ 0.00363613  0.03153604  0.01162914 -0.01318316]]
 db2 = [[0.06589489]]
 </code></pre>
-<p><strong>预期输出</strong>: dW1 = [[ 0.01018708 -0.00708701] [ 0.00873447 -0.0060768 ] [-0.00530847 0.00369379] [-0.02206365 0.01535126]] db1 = [[-0.00069728] [-0.00060606] [ 0.000364 ] [ 0.00151207]] dW2 = [[ 0.00363613 0.03153604 0.01162914 -0.01318316]] db2 = [[0.06589489]]</p>
+<p><strong>预期输出</strong>: dW1 = [[ 0.01018708 -0.00708701][ 0.00873447 -0.0060768 ] [-0.00530847 0.00369379][-0.02206365 0.01535126]] db1 = [[-0.00069728][-0.00060606] [ 0.000364 ][ 0.00151207]] dW2 = [[ 0.00363613 0.03153604 0.01162914 -0.01318316]] db2 = [[0.06589489]]</p>
 <p><strong>问题</strong>：实现参数更新。 使用梯度下降，你必须使用（dW1，db1，dW2，db2）才能更新（W1，b1，W2，b2）。</p>
 <p><strong>一般的梯度下降规则</strong>：θ=θ−α∂J∂θ其中α是学习率，而θ 代表一个参数。</p>
 <p><strong>图示</strong>：具有良好的学习速率（收敛）和较差的学习速率（发散）的梯度下降算法。 图片由Adam Harley提供。</p>
@@ -786,7 +784,7 @@ b1 = [[-1.02420756e-06]
 W2 = [[-0.01041081 -0.04463285  0.01758031  0.04747113]]
 b2 = [[0.00010457]]
 </code></pre>
-<p><strong>预期输出</strong>: dW1 = [[ 0.01018708 -0.00708701] [ 0.00873447 -0.0060768 ] [-0.00530847 0.00369379] [-0.02206365 0.01535126]] db1 = [[-0.00069728] [-0.00060606] [ 0.000364 ] [ 0.00151207]] dW2 = [[ 0.00363613 0.03153604 0.01162914 -0.01318316]] db2 = [[0.06589489]]</p>
+<p><strong>预期输出</strong>: dW1 = [[ 0.01018708 -0.00708701][ 0.00873447 -0.0060768 ] [-0.00530847 0.00369379][-0.02206365 0.01535126]] db1 = [[-0.00069728][-0.00060606] [ 0.000364 ][ 0.00151207]] dW2 = [[ 0.00363613 0.03153604 0.01162914 -0.01318316]] db2 = [[0.06589489]]</p>
 <h4 id="334-在nn_model中集成331-332和333部分中的函数">3.3.4- 在nn_model（）中集成3.3.1、3.3.2和3.3.3部分中的函数</h4>
 <p><strong>问题</strong>：在nn_model（）中建立你的神经网络模型。</p>
 <p><strong>说明</strong>：神经网络模型必须以正确的顺序组合先前构建的函数。</p>
@@ -869,7 +867,7 @@ b1 = [[ 2.32926944]
 W2 = [[-6033.83668723 -6008.12983227 -6033.10091631  6008.06624417]]
 b2 = [[-52.66610924]]
 </code></pre>
-<p><strong>预期输出</strong>: W1 = [[-4.18503197 5.33214315] [-7.52988635 1.24306559] [-4.19302427 5.32627154] [ 7.52984762 -1.24308746]] b1 = [[ 2.32926944] [ 3.79460252] [ 2.33002498] [-3.79466751]] W2 = [[-6033.83668723 -6008.12983227 -6033.10091631 6008.06624417]] b2 = [[-52.66610924]]</p>
+<p><strong>预期输出</strong>: W1 = [[-4.18503197 5.33214315][-7.52988635 1.24306559] [-4.19302427 5.32627154][ 7.52984762 -1.24308746]] b1 = [[ 2.32926944][ 3.79460252] [ 2.33002498][-3.79466751]] W2 = [[-6033.83668723 -6008.12983227 -6033.10091631 6008.06624417]] b2 = [[-52.66610924]]</p>
 <h3 id="45-预测">4.5- 预测</h3>
 <p><strong>问题</strong>：使用你的模型通过构建predict()函数进行预测。 使用正向传播来预测结果。</p>
 <p><strong>提示</strong>：predictions = yprediction=1{activation &gt; 0.5}={1if activation&gt;0.50otherwise<br>
@@ -926,14 +924,17 @@ Cost after iteration 8000: 0.219467
 Cost after iteration 9000: 0.218561
 </code></pre>
 <pre><code>Text(0.5, 1.0, 'Decision Boundary for hidden layer size 4')
+
 </code></pre>
 <figure data-type="image" tabindex="9"><img src="https://cdn.kesci.com/rt_upload/CB068684F93C4A2A8AE816EB492CDCBE/q17hj9pr80.png" alt="img" loading="lazy"></figure>
 <p><strong>预期输出</strong>: Cost after iteration 9000: 0.218561</p>
 <pre><code># Print accuracy
 predictions = predict(parameters, X)
 print ('Accuracy: %d' % float((np.dot(Y,predictions.T) + np.dot(1-Y,1-predictions.T))/float(Y.size)*100) + '%')
+
 </code></pre>
 <pre><code>Accuracy: 90%
+
 </code></pre>
 <p><strong>预期输出</strong>: Accuracy: 90%</p>
 <p>与Logistic回归相比，准确性确实更高。 该模型学习了flower的叶子图案！ 与逻辑回归不同，神经网络甚至能够学习非线性的决策边界。</p>
@@ -953,6 +954,7 @@ for i, n_h in enumerate(hidden_layer_sizes):
     predictions = predict(parameters, X)
     accuracy = float((np.dot(Y,predictions.T) + np.dot(1-Y,1-predictions.T))/float(Y.size)*100)
     print (&quot;Accuracy for {} hidden units: {} %&quot;.format(n_h, accuracy))
+
 </code></pre>
 <pre><code>Accuracy for 1 hidden units: 67.5 %
 Accuracy for 2 hidden units: 67.25 %
@@ -961,6 +963,7 @@ Accuracy for 4 hidden units: 90.5 %
 Accuracy for 5 hidden units: 91.25 %
 Accuracy for 10 hidden units: 90.25 %
 Accuracy for 20 hidden units: 90.5 %
+
 </code></pre>
 <figure data-type="image" tabindex="10"><img src="https://cdn.kesci.com/rt_upload/F70D5A23097642688F6245327ACE9DD7/q17hkk98sl.png" alt="img" loading="lazy"></figure>
 <p>完整代码</p>
@@ -1231,6 +1234,7 @@ for i,n_h in enumerate(hidden_layer_sizes):
     predictions=predict(parameters,X)
     accuracy=float((np.dot(Y,predictions.T)+np.dot(1-Y,1-predictions.T))/float(Y.size)*100)
     print(&quot;隐藏结点的数量：{}，准确率：{}%&quot;.format(n_h,accuracy))
+
 </code></pre>
 <p><strong>说明</strong>：</p>
 <ul>
@@ -1252,18 +1256,11 @@ for i,n_h in enumerate(hidden_layer_sizes):
 
         </div>
         
-        <div class="prev-post">
-            上一篇
-            <a href="https://s-hmily.github.io/post/python-chang-yong-han-shu-jie-xi/">
-                python常用函数解析
-            </a>
-        </div>
-        
         
         <div class="next-post">
             下一篇
-            <a href="https://s-hmily.github.io/post/sigmoid-han-shu/">
-                sigmoid函数
+            <a href="https://s-hmily.github.io/post/juan-ji-shen-jing-wang-luo-jie-xi/">
+                卷积神经网络解析
             </a>
         </div>
         
@@ -1462,26 +1459,24 @@ for i,n_h in enumerate(hidden_layer_sizes):
         <div class="postshow">
             
             <div class="postdetailimg" style="width:100%;overflow: hidden;display: none">
-                <img src="https://s-hmily.github.io/post-images/qian-ceng-shen-jing-wang-luo-gai-shu.jpg" class="postimage" style="cursor:auto">
+                
+                <img src="https://pic2.zhimg.com/80/v2-bcbb1a4f932ab78c198b0a99af266d4e_720w.jpg?source=1940ef5c" class="postimage">
+                
             </div>
             <div class="postinfo-detail">
-                <div class="postdate"><i class="fa fa-calendar"></i>2020-07-18</div>
-                <div class="poststatus postdate"><i class="fa fa-clock-o"></i> 33 min read</div>
-                <div class="posttag">
-                    
-                    <a href="https://s-hmily.github.io/tag/lMYeCI_cf/" class="postlink">
-                        <i class="fa fa-tag"></i> 机器学习
-                    </a>
-                    
-                </div>
+                <div class="postdate"><i class="fa fa-calendar"></i>2020-07-21</div>
+            <div class="poststatus postdate"><i class="fa fa-clock-o"></i> 33 min read</div>
+            <div class="posttag">
+                
             </div>
-            
+        </div>
+        
         <div id="texttitle" style="text-align: center">
-            <h2>浅层神经网络概述和应用</h2>
+            <h2>浅层神经网络的解析及其应用</h2>
             <!-- id 将作为查询条件 -->
-            <div id="pl" style="display:none">https://s-hmily.github.io/post/qian-ceng-shen-jing-wang-luo-gai-shu/</div>
+            <div id="pl" style="display:none">https://s-hmily.github.io/post/qian-ceng-shen-jing-wang-luo-de-jie-xi-ji-qi-ying-yong/</div>
             <div id="rootaddr" style="display:none">https://s-hmily.github.io</div>
-            <span id="hotnum" class="leancloud_visitors" data-flag-title="浅层神经网络概述和应用">
+            <span id="hotnum" class="leancloud_visitors" data-flag-title="浅层神经网络的解析及其应用">
                 <h4 class="readercount">热度🔥: <i class="leancloud-visitors-count">loading...</i></h4>
             </span>
         </div>
@@ -1860,7 +1855,7 @@ db1 = [[-0.00069728]
 dW2 = [[ 0.00363613  0.03153604  0.01162914 -0.01318316]]
 db2 = [[0.06589489]]
 </code></pre>
-<p><strong>预期输出</strong>: dW1 = [[ 0.01018708 -0.00708701] [ 0.00873447 -0.0060768 ] [-0.00530847 0.00369379] [-0.02206365 0.01535126]] db1 = [[-0.00069728] [-0.00060606] [ 0.000364 ] [ 0.00151207]] dW2 = [[ 0.00363613 0.03153604 0.01162914 -0.01318316]] db2 = [[0.06589489]]</p>
+<p><strong>预期输出</strong>: dW1 = [[ 0.01018708 -0.00708701][ 0.00873447 -0.0060768 ] [-0.00530847 0.00369379][-0.02206365 0.01535126]] db1 = [[-0.00069728][-0.00060606] [ 0.000364 ][ 0.00151207]] dW2 = [[ 0.00363613 0.03153604 0.01162914 -0.01318316]] db2 = [[0.06589489]]</p>
 <p><strong>问题</strong>：实现参数更新。 使用梯度下降，你必须使用（dW1，db1，dW2，db2）才能更新（W1，b1，W2，b2）。</p>
 <p><strong>一般的梯度下降规则</strong>：θ=θ−α∂J∂θ其中α是学习率，而θ 代表一个参数。</p>
 <p><strong>图示</strong>：具有良好的学习速率（收敛）和较差的学习速率（发散）的梯度下降算法。 图片由Adam Harley提供。</p>
@@ -1931,7 +1926,7 @@ b1 = [[-1.02420756e-06]
 W2 = [[-0.01041081 -0.04463285  0.01758031  0.04747113]]
 b2 = [[0.00010457]]
 </code></pre>
-<p><strong>预期输出</strong>: dW1 = [[ 0.01018708 -0.00708701] [ 0.00873447 -0.0060768 ] [-0.00530847 0.00369379] [-0.02206365 0.01535126]] db1 = [[-0.00069728] [-0.00060606] [ 0.000364 ] [ 0.00151207]] dW2 = [[ 0.00363613 0.03153604 0.01162914 -0.01318316]] db2 = [[0.06589489]]</p>
+<p><strong>预期输出</strong>: dW1 = [[ 0.01018708 -0.00708701][ 0.00873447 -0.0060768 ] [-0.00530847 0.00369379][-0.02206365 0.01535126]] db1 = [[-0.00069728][-0.00060606] [ 0.000364 ][ 0.00151207]] dW2 = [[ 0.00363613 0.03153604 0.01162914 -0.01318316]] db2 = [[0.06589489]]</p>
 <h4 id="334-在nn_model中集成331-332和333部分中的函数">3.3.4- 在nn_model（）中集成3.3.1、3.3.2和3.3.3部分中的函数</h4>
 <p><strong>问题</strong>：在nn_model（）中建立你的神经网络模型。</p>
 <p><strong>说明</strong>：神经网络模型必须以正确的顺序组合先前构建的函数。</p>
@@ -2014,7 +2009,7 @@ b1 = [[ 2.32926944]
 W2 = [[-6033.83668723 -6008.12983227 -6033.10091631  6008.06624417]]
 b2 = [[-52.66610924]]
 </code></pre>
-<p><strong>预期输出</strong>: W1 = [[-4.18503197 5.33214315] [-7.52988635 1.24306559] [-4.19302427 5.32627154] [ 7.52984762 -1.24308746]] b1 = [[ 2.32926944] [ 3.79460252] [ 2.33002498] [-3.79466751]] W2 = [[-6033.83668723 -6008.12983227 -6033.10091631 6008.06624417]] b2 = [[-52.66610924]]</p>
+<p><strong>预期输出</strong>: W1 = [[-4.18503197 5.33214315][-7.52988635 1.24306559] [-4.19302427 5.32627154][ 7.52984762 -1.24308746]] b1 = [[ 2.32926944][ 3.79460252] [ 2.33002498][-3.79466751]] W2 = [[-6033.83668723 -6008.12983227 -6033.10091631 6008.06624417]] b2 = [[-52.66610924]]</p>
 <h3 id="45-预测">4.5- 预测</h3>
 <p><strong>问题</strong>：使用你的模型通过构建predict()函数进行预测。 使用正向传播来预测结果。</p>
 <p><strong>提示</strong>：predictions = yprediction=1{activation &gt; 0.5}={1if activation&gt;0.50otherwise<br>
@@ -2071,14 +2066,17 @@ Cost after iteration 8000: 0.219467
 Cost after iteration 9000: 0.218561
 </code></pre>
 <pre><code>Text(0.5, 1.0, 'Decision Boundary for hidden layer size 4')
+
 </code></pre>
 <figure data-type="image" tabindex="9"><img src="https://cdn.kesci.com/rt_upload/CB068684F93C4A2A8AE816EB492CDCBE/q17hj9pr80.png" alt="img" loading="lazy"></figure>
 <p><strong>预期输出</strong>: Cost after iteration 9000: 0.218561</p>
 <pre><code># Print accuracy
 predictions = predict(parameters, X)
 print ('Accuracy: %d' % float((np.dot(Y,predictions.T) + np.dot(1-Y,1-predictions.T))/float(Y.size)*100) + '%')
+
 </code></pre>
 <pre><code>Accuracy: 90%
+
 </code></pre>
 <p><strong>预期输出</strong>: Accuracy: 90%</p>
 <p>与Logistic回归相比，准确性确实更高。 该模型学习了flower的叶子图案！ 与逻辑回归不同，神经网络甚至能够学习非线性的决策边界。</p>
@@ -2098,6 +2096,7 @@ for i, n_h in enumerate(hidden_layer_sizes):
     predictions = predict(parameters, X)
     accuracy = float((np.dot(Y,predictions.T) + np.dot(1-Y,1-predictions.T))/float(Y.size)*100)
     print (&quot;Accuracy for {} hidden units: {} %&quot;.format(n_h, accuracy))
+
 </code></pre>
 <pre><code>Accuracy for 1 hidden units: 67.5 %
 Accuracy for 2 hidden units: 67.25 %
@@ -2106,6 +2105,7 @@ Accuracy for 4 hidden units: 90.5 %
 Accuracy for 5 hidden units: 91.25 %
 Accuracy for 10 hidden units: 90.25 %
 Accuracy for 20 hidden units: 90.5 %
+
 </code></pre>
 <figure data-type="image" tabindex="10"><img src="https://cdn.kesci.com/rt_upload/F70D5A23097642688F6245327ACE9DD7/q17hkk98sl.png" alt="img" loading="lazy"></figure>
 <p>完整代码</p>
@@ -2376,6 +2376,7 @@ for i,n_h in enumerate(hidden_layer_sizes):
     predictions=predict(parameters,X)
     accuracy=float((np.dot(Y,predictions.T)+np.dot(1-Y,1-predictions.T))/float(Y.size)*100)
     print(&quot;隐藏结点的数量：{}，准确率：{}%&quot;.format(n_h,accuracy))
+
 </code></pre>
 <p><strong>说明</strong>：</p>
 <ul>
@@ -2397,18 +2398,11 @@ for i,n_h in enumerate(hidden_layer_sizes):
 
         </div>
         
-        <div class="prev-post">
-            上一篇
-            <a href="https://s-hmily.github.io/post/python-chang-yong-han-shu-jie-xi/">
-                python常用函数解析
-            </a>
-        </div>
-        
         
         <div class="next-post">
             下一篇
-            <a href="https://s-hmily.github.io/post/sigmoid-han-shu/">
-                sigmoid函数
+            <a href="https://s-hmily.github.io/post/juan-ji-shen-jing-wang-luo-jie-xi/">
+                卷积神经网络解析
             </a>
         </div>
         
