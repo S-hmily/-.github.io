@@ -137,7 +137,7 @@
                   
                 <li><a href="https://s-hmily.github.io/friends" style="color:white">友链</a></li>
                 
-                  <li><img src="https://s-hmily.github.io/images/avatar.png?v=1595295888925" alt=""
+                  <li><img src="https://s-hmily.github.io/images/avatar.png?v=1595296644766" alt=""
                 class="menutopavatar"></li>
             </ul>
         </div><!-- /.navbar-collapse -->
@@ -346,13 +346,13 @@
 <p>这里就需要引入神经网络的概念了。</p>
 <h2 id="2神经网络的概述">2.神经网络的概述</h2>
 <p>我们知道，我们日常生活中很多问题，甚至说大多数问题都不是线性可分问题，那我们要解决非线性可分问题该怎样处理呢？这就是这部分我们要引出的“多层”的概念。既然单层感知机解决不了非线性问题，那我们就采用多层感知机，下图就是一个两层感知机解决异或问题的示意图：</p>
-<figure data-type="image" tabindex="1"><img src="https://images2015.cnblogs.com/blog/764050/201606/764050-20160619152400976-1951202651.gif" alt="img" loading="lazy"></figure>
+<figure data-type="image" tabindex="1"><img src="https://s-hmily.github.io/post-images/1595296483863.png" alt="" loading="lazy"></figure>
 <p>构建好上述网络以后，通过训练得到最后的分类面如下：</p>
-<figure data-type="image" tabindex="2"><img src="https://images2015.cnblogs.com/blog/764050/201606/764050-20160619152721601-526579103.png" alt="img" loading="lazy"></figure>
+<figure data-type="image" tabindex="2"><img src="https://s-hmily.github.io/post-images/1595296506152.png" alt="" loading="lazy"></figure>
 <p>由此可见，多层感知机可以很好的解决非线性可分问题，我们通常将多层感知机这样的多层结构称之为是神经网络。但是，多层感知机虽然可以在理论上可以解决非线性问题，但是实际生活中问题的复杂性要远不止异或问题这么简单，所以我们往往要构建多层网络，而对于多层神经网络采用什么样的学习算法又是一项巨大的挑战，如下图所示的具有4层隐含层的网络结构中至少有33个参数（不计偏置bias参数），我们应该如何去确定呢？</p>
-<figure data-type="image" tabindex="3"><img src="https://images2015.cnblogs.com/blog/764050/201606/764050-20160619154842679-926221650.jpg" alt="img" loading="lazy"></figure>
+<figure data-type="image" tabindex="3"><img src="https://s-hmily.github.io/post-images/1595296520486.png" alt="" loading="lazy"></figure>
 <p>我们先看一个图：</p>
-<figure data-type="image" tabindex="4"><img src="https://images2015.cnblogs.com/blog/853467/201606/853467-20160630140644406-409859737.png" alt="img" loading="lazy"></figure>
+<figure data-type="image" tabindex="4"><img src="https://s-hmily.github.io/post-images/1595296534309.png" alt="" loading="lazy"></figure>
 <p>这是典型的三层神经网络的基本组成，Layer L1是输入层，Layer L2是隐含层，Layer L3是隐含层，我们现在手里有一堆数据{x1,x2,x3,...,xn},输出也是一堆数据{y1,y2,y3,...,yn},现在要他们在隐含层做某种变换，让你把数据灌进去后得到你期望的输出。如果你希望你的输出和原始输入一样，那么就是最常见的自编码模型（Auto-Encoder）。可能有人会问，为什么要输入输出都一样呢？有什么用啊？其实应用挺广的，在图像识别，文本分类等等都会用到，包括一些变种之类的。如果你的输出和原始输入不一样，那么就是很常见的人工神经网络了，相当于让原始数据通过一个映射来得到我们想要的输出数据，也就是我们今天要讲的话题。</p>
 <h2 id="3神经网络的实现过程利用神经网络分类二维数据集">3.神经网络的实现过程（利用神经网络分类二维数据集）</h2>
 <p><strong>提示</strong>：建立神经网络的一般方法：</p>
@@ -601,9 +601,11 @@ print(np.mean(cache['Z1']) ,np.mean(cache['A1']),np.mean(cache['Z2']),np.mean(ca
 <pre><code>-0.0004997557777419913 -0.000496963353231779 0.00043818745095914653 0.500109546852431
 </code></pre>
 <p><strong>预期输出</strong>: -0.0004997557777419913  -0.000496963353231779 0.00043818745095914653        0.500109546852431</p>
-<p>现在，你已经计算了包含每个示例的a<a href="i">2</a> 的 A[2] （在Python变量“<code>A2</code>”中），其中，你可以计算损失函数 如下：<img src="C:%5CUsers%5CWGJS%5CAppData%5CLocal%5CTemp%5C1595039574626.png" alt="1595039574626" loading="lazy"></p>
+<p>现在，你已经计算了包含每个示例的a<a href="i">2</a> 的 A[2] （在Python变量“<code>A2</code>”中），其中，你可以计算损失函数 如下：</p>
+<figure data-type="image" tabindex="5"><img src="https://s-hmily.github.io/post-images/1595296602244.png" alt="" loading="lazy"></figure>
 <p><strong>目的</strong>：实现<code>compute_cost（）</code>以计算损失J的值。</p>
-<p>有很多种方法可以实现交叉熵损失。 我们为你提供了实现方法 ：<img src="C:%5CUsers%5CWGJS%5CAppData%5CLocal%5CTemp%5C1595039675666.png" alt="1595039675666" loading="lazy"></p>
+<p>有很多种方法可以实现交叉熵损失。 我们为你提供了实现方法 ：</p>
+<figure data-type="image" tabindex="6"><img src="https://s-hmily.github.io/post-images/1595296616699.png" alt="" loading="lazy"></figure>
 <pre><code>logprobs = np.multiply(np.log(A2),Y)
 cost = - np.sum(logprobs)   
 </code></pre>
@@ -647,8 +649,8 @@ print(&quot;cost = &quot; + str(compute_cost(A2, Y_assess, parameters)))
 <p>现在，通过使用在正向传播期间计算的缓存，你可以实现后向传播。</p>
 <p><strong>问题</strong>：实现函数<code>backward_propagation（）</code>。</p>
 <p><strong>说明</strong>： 反向传播通常是深度学习中最难（最数学）的部分。为了帮助你更好地了解，我们提供了反向传播课程的幻灯片。你将要使用此幻灯片右侧的六个方程式以构建向量化实现。</p>
-<figure data-type="image" tabindex="5"><img src="https://cdn.kesci.com/upload/image/q17hcd4yra.png?imageView2/0/w/960/h/960" alt="Image Name" loading="lazy"></figure>
-<figure data-type="image" tabindex="6"><img src="C:%5CUsers%5CWGJS%5CAppData%5CLocal%5CTemp%5C1595040132956.png" alt="1595040132956" loading="lazy"></figure>
+<figure data-type="image" tabindex="7"><img src="https://cdn.kesci.com/upload/image/q17hcd4yra.png?imageView2/0/w/960/h/960" alt="Image Name" loading="lazy"></figure>
+<figure data-type="image" tabindex="8"><img src="https://s-hmily.github.io/post-images/1595296633924.png" alt="" loading="lazy"></figure>
 <pre><code># GRADED FUNCTION: backward_propagation
 
 def backward_propagation(parameters, cache, X, Y):
@@ -719,8 +721,8 @@ db2 = [[0.06589489]]
 <p><strong>问题</strong>：实现参数更新。 使用梯度下降，你必须使用（dW1，db1，dW2，db2）才能更新（W1，b1，W2，b2）。</p>
 <p><strong>一般的梯度下降规则</strong>：θ=θ−α∂J∂θ其中α是学习率，而θ 代表一个参数。</p>
 <p><strong>图示</strong>：具有良好的学习速率（收敛）和较差的学习速率（发散）的梯度下降算法。 图片由Adam Harley提供。</p>
-<figure data-type="image" tabindex="7"><img src="https://cdn.kesci.com/upload/image/q17hh4otzu.gif?imageView2/0/w/960/h/960" alt="Image Name" loading="lazy"></figure>
-<figure data-type="image" tabindex="8"><img src="https://cdn.kesci.com/upload/image/q17hharbth.gif?imageView2/0/w/960/h/960" alt="Image Name" loading="lazy"></figure>
+<figure data-type="image" tabindex="9"><img src="https://cdn.kesci.com/upload/image/q17hh4otzu.gif?imageView2/0/w/960/h/960" alt="Image Name" loading="lazy"></figure>
+<figure data-type="image" tabindex="10"><img src="https://cdn.kesci.com/upload/image/q17hharbth.gif?imageView2/0/w/960/h/960" alt="Image Name" loading="lazy"></figure>
 <pre><code># GRADED FUNCTION: update_parameters
 
 def update_parameters(parameters, grads, learning_rate = 1.2):
@@ -927,7 +929,7 @@ Cost after iteration 9000: 0.218561
 </code></pre>
 <pre><code>Text(0.5, 1.0, 'Decision Boundary for hidden layer size 4')
 </code></pre>
-<figure data-type="image" tabindex="9"><img src="https://cdn.kesci.com/rt_upload/CB068684F93C4A2A8AE816EB492CDCBE/q17hj9pr80.png" alt="img" loading="lazy"></figure>
+<figure data-type="image" tabindex="11"><img src="https://cdn.kesci.com/rt_upload/CB068684F93C4A2A8AE816EB492CDCBE/q17hj9pr80.png" alt="img" loading="lazy"></figure>
 <p><strong>预期输出</strong>: Cost after iteration 9000: 0.218561</p>
 <pre><code># Print accuracy
 predictions = predict(parameters, X)
@@ -962,7 +964,7 @@ Accuracy for 5 hidden units: 91.25 %
 Accuracy for 10 hidden units: 90.25 %
 Accuracy for 20 hidden units: 90.5 %
 </code></pre>
-<figure data-type="image" tabindex="10"><img src="https://cdn.kesci.com/rt_upload/F70D5A23097642688F6245327ACE9DD7/q17hkk98sl.png" alt="img" loading="lazy"></figure>
+<figure data-type="image" tabindex="12"><img src="https://cdn.kesci.com/rt_upload/F70D5A23097642688F6245327ACE9DD7/q17hkk98sl.png" alt="img" loading="lazy"></figure>
 <p>完整代码</p>
 <pre><code>import numpy as np
 import matplotlib.pyplot as plt
@@ -1491,13 +1493,13 @@ for i,n_h in enumerate(hidden_layer_sizes):
 <p>这里就需要引入神经网络的概念了。</p>
 <h2 id="2神经网络的概述">2.神经网络的概述</h2>
 <p>我们知道，我们日常生活中很多问题，甚至说大多数问题都不是线性可分问题，那我们要解决非线性可分问题该怎样处理呢？这就是这部分我们要引出的“多层”的概念。既然单层感知机解决不了非线性问题，那我们就采用多层感知机，下图就是一个两层感知机解决异或问题的示意图：</p>
-<figure data-type="image" tabindex="1"><img src="https://images2015.cnblogs.com/blog/764050/201606/764050-20160619152400976-1951202651.gif" alt="img" loading="lazy"></figure>
+<figure data-type="image" tabindex="1"><img src="https://s-hmily.github.io/post-images/1595296483863.png" alt="" loading="lazy"></figure>
 <p>构建好上述网络以后，通过训练得到最后的分类面如下：</p>
-<figure data-type="image" tabindex="2"><img src="https://images2015.cnblogs.com/blog/764050/201606/764050-20160619152721601-526579103.png" alt="img" loading="lazy"></figure>
+<figure data-type="image" tabindex="2"><img src="https://s-hmily.github.io/post-images/1595296506152.png" alt="" loading="lazy"></figure>
 <p>由此可见，多层感知机可以很好的解决非线性可分问题，我们通常将多层感知机这样的多层结构称之为是神经网络。但是，多层感知机虽然可以在理论上可以解决非线性问题，但是实际生活中问题的复杂性要远不止异或问题这么简单，所以我们往往要构建多层网络，而对于多层神经网络采用什么样的学习算法又是一项巨大的挑战，如下图所示的具有4层隐含层的网络结构中至少有33个参数（不计偏置bias参数），我们应该如何去确定呢？</p>
-<figure data-type="image" tabindex="3"><img src="https://images2015.cnblogs.com/blog/764050/201606/764050-20160619154842679-926221650.jpg" alt="img" loading="lazy"></figure>
+<figure data-type="image" tabindex="3"><img src="https://s-hmily.github.io/post-images/1595296520486.png" alt="" loading="lazy"></figure>
 <p>我们先看一个图：</p>
-<figure data-type="image" tabindex="4"><img src="https://images2015.cnblogs.com/blog/853467/201606/853467-20160630140644406-409859737.png" alt="img" loading="lazy"></figure>
+<figure data-type="image" tabindex="4"><img src="https://s-hmily.github.io/post-images/1595296534309.png" alt="" loading="lazy"></figure>
 <p>这是典型的三层神经网络的基本组成，Layer L1是输入层，Layer L2是隐含层，Layer L3是隐含层，我们现在手里有一堆数据{x1,x2,x3,...,xn},输出也是一堆数据{y1,y2,y3,...,yn},现在要他们在隐含层做某种变换，让你把数据灌进去后得到你期望的输出。如果你希望你的输出和原始输入一样，那么就是最常见的自编码模型（Auto-Encoder）。可能有人会问，为什么要输入输出都一样呢？有什么用啊？其实应用挺广的，在图像识别，文本分类等等都会用到，包括一些变种之类的。如果你的输出和原始输入不一样，那么就是很常见的人工神经网络了，相当于让原始数据通过一个映射来得到我们想要的输出数据，也就是我们今天要讲的话题。</p>
 <h2 id="3神经网络的实现过程利用神经网络分类二维数据集">3.神经网络的实现过程（利用神经网络分类二维数据集）</h2>
 <p><strong>提示</strong>：建立神经网络的一般方法：</p>
@@ -1746,9 +1748,11 @@ print(np.mean(cache['Z1']) ,np.mean(cache['A1']),np.mean(cache['Z2']),np.mean(ca
 <pre><code>-0.0004997557777419913 -0.000496963353231779 0.00043818745095914653 0.500109546852431
 </code></pre>
 <p><strong>预期输出</strong>: -0.0004997557777419913  -0.000496963353231779 0.00043818745095914653        0.500109546852431</p>
-<p>现在，你已经计算了包含每个示例的a<a href="i">2</a> 的 A[2] （在Python变量“<code>A2</code>”中），其中，你可以计算损失函数 如下：<img src="C:%5CUsers%5CWGJS%5CAppData%5CLocal%5CTemp%5C1595039574626.png" alt="1595039574626" loading="lazy"></p>
+<p>现在，你已经计算了包含每个示例的a<a href="i">2</a> 的 A[2] （在Python变量“<code>A2</code>”中），其中，你可以计算损失函数 如下：</p>
+<figure data-type="image" tabindex="5"><img src="https://s-hmily.github.io/post-images/1595296602244.png" alt="" loading="lazy"></figure>
 <p><strong>目的</strong>：实现<code>compute_cost（）</code>以计算损失J的值。</p>
-<p>有很多种方法可以实现交叉熵损失。 我们为你提供了实现方法 ：<img src="C:%5CUsers%5CWGJS%5CAppData%5CLocal%5CTemp%5C1595039675666.png" alt="1595039675666" loading="lazy"></p>
+<p>有很多种方法可以实现交叉熵损失。 我们为你提供了实现方法 ：</p>
+<figure data-type="image" tabindex="6"><img src="https://s-hmily.github.io/post-images/1595296616699.png" alt="" loading="lazy"></figure>
 <pre><code>logprobs = np.multiply(np.log(A2),Y)
 cost = - np.sum(logprobs)   
 </code></pre>
@@ -1792,8 +1796,8 @@ print(&quot;cost = &quot; + str(compute_cost(A2, Y_assess, parameters)))
 <p>现在，通过使用在正向传播期间计算的缓存，你可以实现后向传播。</p>
 <p><strong>问题</strong>：实现函数<code>backward_propagation（）</code>。</p>
 <p><strong>说明</strong>： 反向传播通常是深度学习中最难（最数学）的部分。为了帮助你更好地了解，我们提供了反向传播课程的幻灯片。你将要使用此幻灯片右侧的六个方程式以构建向量化实现。</p>
-<figure data-type="image" tabindex="5"><img src="https://cdn.kesci.com/upload/image/q17hcd4yra.png?imageView2/0/w/960/h/960" alt="Image Name" loading="lazy"></figure>
-<figure data-type="image" tabindex="6"><img src="C:%5CUsers%5CWGJS%5CAppData%5CLocal%5CTemp%5C1595040132956.png" alt="1595040132956" loading="lazy"></figure>
+<figure data-type="image" tabindex="7"><img src="https://cdn.kesci.com/upload/image/q17hcd4yra.png?imageView2/0/w/960/h/960" alt="Image Name" loading="lazy"></figure>
+<figure data-type="image" tabindex="8"><img src="https://s-hmily.github.io/post-images/1595296633924.png" alt="" loading="lazy"></figure>
 <pre><code># GRADED FUNCTION: backward_propagation
 
 def backward_propagation(parameters, cache, X, Y):
@@ -1864,8 +1868,8 @@ db2 = [[0.06589489]]
 <p><strong>问题</strong>：实现参数更新。 使用梯度下降，你必须使用（dW1，db1，dW2，db2）才能更新（W1，b1，W2，b2）。</p>
 <p><strong>一般的梯度下降规则</strong>：θ=θ−α∂J∂θ其中α是学习率，而θ 代表一个参数。</p>
 <p><strong>图示</strong>：具有良好的学习速率（收敛）和较差的学习速率（发散）的梯度下降算法。 图片由Adam Harley提供。</p>
-<figure data-type="image" tabindex="7"><img src="https://cdn.kesci.com/upload/image/q17hh4otzu.gif?imageView2/0/w/960/h/960" alt="Image Name" loading="lazy"></figure>
-<figure data-type="image" tabindex="8"><img src="https://cdn.kesci.com/upload/image/q17hharbth.gif?imageView2/0/w/960/h/960" alt="Image Name" loading="lazy"></figure>
+<figure data-type="image" tabindex="9"><img src="https://cdn.kesci.com/upload/image/q17hh4otzu.gif?imageView2/0/w/960/h/960" alt="Image Name" loading="lazy"></figure>
+<figure data-type="image" tabindex="10"><img src="https://cdn.kesci.com/upload/image/q17hharbth.gif?imageView2/0/w/960/h/960" alt="Image Name" loading="lazy"></figure>
 <pre><code># GRADED FUNCTION: update_parameters
 
 def update_parameters(parameters, grads, learning_rate = 1.2):
@@ -2072,7 +2076,7 @@ Cost after iteration 9000: 0.218561
 </code></pre>
 <pre><code>Text(0.5, 1.0, 'Decision Boundary for hidden layer size 4')
 </code></pre>
-<figure data-type="image" tabindex="9"><img src="https://cdn.kesci.com/rt_upload/CB068684F93C4A2A8AE816EB492CDCBE/q17hj9pr80.png" alt="img" loading="lazy"></figure>
+<figure data-type="image" tabindex="11"><img src="https://cdn.kesci.com/rt_upload/CB068684F93C4A2A8AE816EB492CDCBE/q17hj9pr80.png" alt="img" loading="lazy"></figure>
 <p><strong>预期输出</strong>: Cost after iteration 9000: 0.218561</p>
 <pre><code># Print accuracy
 predictions = predict(parameters, X)
@@ -2107,7 +2111,7 @@ Accuracy for 5 hidden units: 91.25 %
 Accuracy for 10 hidden units: 90.25 %
 Accuracy for 20 hidden units: 90.5 %
 </code></pre>
-<figure data-type="image" tabindex="10"><img src="https://cdn.kesci.com/rt_upload/F70D5A23097642688F6245327ACE9DD7/q17hkk98sl.png" alt="img" loading="lazy"></figure>
+<figure data-type="image" tabindex="12"><img src="https://cdn.kesci.com/rt_upload/F70D5A23097642688F6245327ACE9DD7/q17hkk98sl.png" alt="img" loading="lazy"></figure>
 <p>完整代码</p>
 <pre><code>import numpy as np
 import matplotlib.pyplot as plt
