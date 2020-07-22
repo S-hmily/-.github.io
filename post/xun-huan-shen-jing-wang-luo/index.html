@@ -1,0 +1,928 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="1.什么是RNN？
+1.1 前言
+当我们学习过CNN以及NN之后会不会发现一个问题，对于CNN处理图像时，这个图像没有时间的限制，但是如果我们想要实现语音识别功能，那么我们该如何办呢？这里我们就引入了RNN
+RNN是一种特殊的神经网络结构,..." />
+    <meta name="keywords" content="" />
+    <link rel="stylesheet" href="https://s-hmily.github.io/media/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://s-hmily.github.io/styles/main.css">
+    
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.1/build/styles/default.min.css">
+              
+    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.1/build/highlight.min.js"></script>
+    <script src="https://s-hmily.github.io/media/js/clipboard.min.js"></script>
+    <link rel="stylesheet" href="https://s-hmily.github.io/media/css/live2d.css">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js"></script>
+    <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
+    <link href="https://cdn.bootcdn.net/ajax/libs/font-awesome/5.13.1/css/all.min.css" rel="stylesheet">
+    <!-- 数学公式 -->
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0-beta/dist/katex.min.css"
+        integrity="sha384-9tPv11A+glH/on/wEu99NVwDPwkMQESOocs/ZGXPoIiLE8MU/qkqUcZ3zzL+6DuH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.10.0-beta/dist/katex.min.js"
+        integrity="sha384-U8Vrjwb8fuHMt6ewaCy8uqeUXv4oitYACKdB0VziCerzt011iQ/0TqlSlv8MReCm" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.10.0-beta/dist/contrib/auto-render.min.js"
+        integrity="sha384-aGfk5kvhIq5x1x5YdvCp4upKZYnA8ckafviDpmWEKp4afOZEqOli7gqSnh8I6enH" crossorigin="anonymous">
+    </script>
+    <script>
+        renderMathInElement(document.body, {
+            delimiters: [{
+                    left: "$$",
+                    right: "$$",
+                    display: true
+                },
+                {
+                    left: "$",
+                    right: "$",
+                    display: false
+                }
+            ]
+        });
+    </script>
+
+    
+    <title>叮叮当</title>
+    
+    <style>
+        .markdownIt-TOC {
+            padding-left: 2px;
+            width: 100%;
+        }
+        .markdownIt-TOC li{
+            padding-left: 2%;
+        }
+    </style>
+    
+</head>
+
+<body>
+    <!-- 响应式布局，针对PC端内容显示 -->
+    <div id="content">
+        <div class="nav-large">
+            <div class="row">
+                <div class="side"><head>
+    <meta name="description" content="“你买的什么书？”
+“《边城》”
+“C++还是python？”
+“沈从文”" />
+    <link rel="stylesheet" href="https://s-hmily.github.io/media/css/bootstrap.min.css">
+</head>
+
+
+<body>
+    
+
+
+
+    
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <a class="navbar-brand" href="https://s-hmily.github.io"
+                    style="font-size:21px">叮叮当&nbsp;&nbsp;|&nbsp;&nbsp;</a>
+                <a class="navbar-brand" href=""
+                    style="font-size:15px;font-family:kaiti">“你买的什么书？”
+“《边城》”
+“C++还是python？”
+“沈从文”</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse">
+                
+                <div class="search nav navbar-nav" style="margin-top:8px">
+                    <!-- <input type="text" class="search-input" placeholder="标题搜索(●'◡'●)" /> -->
+                    <input type="text" class="search-input" placeholder="标题搜索 ⚆_⚆ つ♡">
+                    <div class="search-results"></div>
+                </div>
+                
+                <div class="search nav navbar-nav">
+                <a title="text" onclick="document.getElementById('socialMenu').style.display='block'"><i><img class="social"
+                    src="https://s-hmily.github.io/media/images/social.png" alt=""></i></a>
+            </div>
+            <ul class="nav navbar-nav" style="float: right;margin-right:5%">
+                
+                
+                <li>
+                    <a href="https://s-hmily.github.io" style="color:white">
+                        首页
+                    </a>
+                </li>
+                
+                
+                
+                <li>
+                    <a href="/archives" style="color:white">
+                        归档
+                    </a>
+                </li>
+                
+                
+                
+                <li>
+                    <a href="https://s-hmily.github.io/tags" style="color:white">
+                        标签
+                    </a>
+                </li>
+                
+                
+                
+                <li><a href="https://s-hmily.github.io/talk" style="color:white;">说说</a></li>
+                
+                  
+                <li><a href="https://s-hmily.github.io/friends" style="color:white">友链</a></li>
+                
+                  <li><img src="https://s-hmily.github.io/images/avatar.png?v=1595423969238" alt=""
+                class="menutopavatar"></li>
+            </ul>
+        </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+    </nav>
+    <div id="socialMenu" class="modal">
+        <div class="animate">
+            <div class="socialContainer">
+                
+                
+                <a onclick="showqq()" style="cursor:pointer"><i><img class="icon" src="https://s-hmily.github.io/media/images/QQ.png"
+                            alt=""></i></a>
+                
+                
+                
+                
+                <a href="LB180928" target="_blank"><i><img class="icon"
+                            src="https://s-hmily.github.io/media/images/wechat.png" alt=""></i></a>
+                
+                
+            </div>
+            <div id="qq" style="display:none">897438019</div>
+        </div>
+    </div>
+    <!-- 引入jQuery核心js文件 -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js"></script>
+    <script>
+        var social = document.getElementById('socialMenu');
+        // 鼠标点击模型外区域关闭登录框
+        window.onclick = function (event) {
+            if (event.target == social) {
+                social.style.display = "none";
+            }
+        }
+    </script>
+    
+</body>
+<script>
+    //-------------------------------------------------搜索
+    // 获取搜索框、搜索按钮、清空搜索、结果输出对应的元素
+    var searchInput = document.querySelector('.search-input');
+    var searchResults = document.querySelector('.search-results');
+
+    // 申明保存文章的标题、链接、内容的数组变量
+    var searchValue = '',
+        arrItems = [],
+        arrLinks = [],
+        arrTitles = [],
+        arrResults = [],
+        indexItem = [],
+        itemLength = 0;
+    var tmpDiv = document.createElement('div');
+    tmpDiv.className = 'result-item';
+
+    // ajax 的兼容写法
+    var xhr = new XMLHttpRequest() || new ActiveXObject('Microsoft.XMLHTTP');
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState == 4 && xhr.status == 200) {
+            xml = xhr.responseXML;
+            arrItems = xml.getElementsByTagName('entry');
+            itemLength = arrItems.length;
+            // 遍历并保存所有文章对应的标题、链接、内容到对应的数组中
+            // 同时过滤掉 HTML 标签
+            for (i = 0; i < itemLength; i++) {
+                var link = arrItems[i].getElementsByTagName('link')[0];
+                arrLinks[i] = link.getAttribute("href");
+                arrTitles[i] = arrItems[i].getElementsByTagName('title')[0].
+                childNodes[0].nodeValue.replace(/<.*?>/g, '');
+            }
+        }
+    }
+
+    // 开始获取根目录下 feed.xml 文件内的数据
+    xhr.open('get', '/atom.xml', true);
+    xhr.send();
+
+
+
+    // 输入框内容变化后就开始匹配，可以不用点按钮
+    // 经测试，onkeydown, onchange 等方法效果不太理想，
+    // 存在输入延迟等问题，最后发现触发 input 事件最理想，
+    // 并且可以处理中文输入法拼写的变化
+    searchInput.oninput = function () {
+        setTimeout(searchConfirm, 0);
+    }
+    searchInput.onfocus = function () {
+        searchResults.style.display = 'block';
+    }
+
+    function searchConfirm() {
+        if (searchInput.value == '') {
+            searchResults.style.display = 'none';
+        } else if (searchInput.value.search(/^\s+$/) >= 0) {
+            // 检测输入值全是空白的情况
+            searchInit();
+            var itemDiv = tmpDiv.cloneNode(true);
+            itemDiv.innerText = '请输入有效内容...';
+            searchResults.appendChild(itemDiv);
+        } else {
+            // 合法输入值的情况
+            searchInit();
+            searchValue = searchInput.value;
+            // 在标题、内容中查找
+            searchMatching(arrTitles, searchValue);
+        }
+    }
+
+    // 每次搜索完成后的初始化
+    function searchInit() {
+        arrResults = [];
+        indexItem = [];
+        searchResults.innerHTML = '';
+        searchResults.style.display = 'block';
+    }
+
+    function searchMatching(arr1, input) {
+        // 忽略输入大小写
+        input = new RegExp(input, 'i');
+        // 在所有文章标题、内容中匹配查询值
+        for (i = 0; i < itemLength; i++) {
+            if (arr1[i].search(input) !== -1) {
+                var arr = arr1;
+                indexItem.push(i); // 保存匹配值的索引
+                var indexContent = arr[i].search(input);
+                // 此时 input 为 RegExp 格式 /input/i，转换为原 input 字符串长度
+                var l = input.toString().length - 3;
+                var step = 10;
+
+                // 将匹配到内容的地方进行黄色标记，并包括周围一定数量的文本
+                arrResults.push(arr[i].slice(indexContent - step, indexContent));
+            }
+        }
+
+        // 输出总共匹配到的数目
+        var totalDiv = tmpDiv.cloneNode(true);
+        totalDiv.innerHTML = '<b>总匹配：' + indexItem.length + ' 项<hr></b>';
+        searchResults.appendChild(totalDiv);
+
+        // 未匹配到内容的情况
+        if (indexItem.length == 0) {
+            var itemDiv = tmpDiv.cloneNode(true);
+            itemDiv.innerText = '未匹配到内容...';
+            searchResults.appendChild(itemDiv);
+        }
+
+        // 将所有匹配内容进行组合
+        for (i = 0; i < arrResults.length; i++) {
+            var itemDiv = tmpDiv.cloneNode(true);
+            itemDiv.innerHTML = '<b>[' + arrTitles[indexItem[i]] +
+                ']</b><p>' + arrResults[i] + "</p><hr />";
+            itemDiv.setAttribute('onclick', 'changeHref(arrLinks[indexItem[' + i + ']])');
+            searchResults.appendChild(itemDiv);
+        }
+    }
+
+    function changeHref(href) {
+        location.href = href;
+    }
+
+    function showqq() {
+        var qq = document.getElementById("qq").innerHTML;
+        if (qq != '')
+            alert("博主的QQ联系方式为：" + qq);
+        else
+            alert("博主暂未设置QQ联系方式");
+    }
+</script></div>
+    
+    <div id="main" class="col-xs-12 col-sm-7" style="width:50%;margin-top:50px;left:27%">
+        <link rel="stylesheet" href="https://s-hmily.github.io/media/css/font-awesome.css">
+<style>
+
+</style>
+
+<body>
+    <div class="allcontent" id="postdetail">
+        <div class="postshow">
+            
+            <div class="postdetailimg" style="width:100%;overflow: hidden;display: none">
+                <img src="https://s-hmily.github.io/post-images/xun-huan-shen-jing-wang-luo.jpg" class="postimage" style="cursor:auto">
+            </div>
+            <div class="postinfo-detail">
+                <div class="postdate"><i class="fa fa-calendar"></i>2020-07-22</div>
+                <div class="poststatus postdate"><i class="fa fa-clock-o"></i> 11 min read</div>
+                <div class="posttag">
+                    
+                </div>
+            </div>
+            
+        <div id="texttitle" style="text-align: center">
+            <h2>循环神经网络</h2>
+            <!-- id 将作为查询条件 -->
+            <div id="pl" style="display:none">https://s-hmily.github.io/post/xun-huan-shen-jing-wang-luo/</div>
+            <div id="rootaddr" style="display:none">https://s-hmily.github.io</div>
+            <span id="hotnum" class="leancloud_visitors" data-flag-title="循环神经网络">
+                <h4 class="readercount">热度🔥: <i class="leancloud-visitors-count">loading...</i></h4>
+            </span>
+        </div>
+        <div class="text ">
+            <h2 id="1什么是rnn">1.什么是RNN？</h2>
+<h3 id="11-前言">1.1 前言</h3>
+<p>当我们学习过CNN以及NN之后会不会发现一个问题，对于CNN处理图像时，这个图像没有时间的限制，但是如果我们想要实现语音识别功能，那么我们该如何办呢？这里我们就引入了RNN</p>
+<p>RNN是一种特殊的神经网络结构, 它是根据&quot;人的认知是基于过往的经验和记忆&quot;这一观点提出的. 它与DNN,CNN不同的是: 它不仅考虑前一时刻的输入,而且赋予了网络对前面的内容的一种'<strong>记忆'功能</strong>.</p>
+<p>RNN之所以称为循环神经网路，即一个序列当前的输出与前面的输出也有关。具体的表现形式为网络会对前面的信息进行记忆并应用于当前输出的计算中，即隐藏层之间的节点不再无连接而是有连接的，并且隐藏层的输入不仅包括输入层的输出还包括上一时刻隐藏层的输出。</p>
+<h3 id="12-rnn的应用领域">1.2 RNN的应用领域</h3>
+<ul>
+<li><strong>自然语言处理(NLP)</strong>: 主要有<strong>视频处理</strong>, <strong>文本生成</strong>, <strong>语言模型</strong>, <strong>图像处理</strong></li>
+<li><strong>机器翻译</strong>, 机器写小说</li>
+<li><strong>语音识别</strong></li>
+<li><strong>图像描述生成</strong></li>
+<li><strong>文本相似度计算</strong></li>
+<li><strong>音乐推荐</strong>、<strong>网易考拉商品推荐</strong>、<strong>Youtube视频推荐</strong>等新的应用领域.</li>
+</ul>
+<h2 id="2rnn的介绍">2.RNN的介绍</h2>
+<p>先来看一下RNN的结构图：</p>
+<p><img src="https://s-hmily.github.io/post-images/1595423021524.png" alt="" loading="lazy"><br>
+图一  RNN结构图</p>
+<p>RNN主要具有<strong>输入层，Hidden Layer，输出层</strong>组成</p>
+<p>然后<strong>Hidden Layer</strong>有一个箭头就表示一直重复进行数据更新，也就是实现时间记忆的功能</p>
+<p>然后我们可以把RNN进行展开<br>
+<img src="https://s-hmily.github.io/post-images/1595422921882.png" alt="" loading="lazy"><br>
+图二  Hidden Layer的层次展开图</p>
+<p>如图2所示为Hidden Layer的层级展开图. t-1, t, t+1表示时间序列. X表示输入的样本. St表示样本在时间t处的的记忆,St = f(W<em>St-1 +U</em>Xt). W表示输入的权重, U表示此刻输入的样本的权重, V表示输出的样本权重.</p>
+<p>在t =1时刻, 一般初始化输入S0=0, 随机初始化W,U,V, 进行下面的公式计算:</p>
+<figure data-type="image" tabindex="1"><img src="https://s-hmily.github.io/post-images/1595423051464.png" alt="" loading="lazy"></figure>
+<p>其中,f和g均为激活函数. 其中f可以是tanh,relu,sigmoid等激活函数，g通常是softmax也可以是其他。</p>
+<p>时间就向前推进，此时的状态s1作为时刻1的记忆状态将参与下一个时刻的预测活动，也就是:</p>
+<figure data-type="image" tabindex="2"><img src="https://s-hmily.github.io/post-images/1595423059661.png" alt="" loading="lazy"></figure>
+<p>以此类推, 可以得到最终的输出值为:</p>
+<figure data-type="image" tabindex="3"><img src="https://s-hmily.github.io/post-images/1595423068429.png" alt="" loading="lazy"></figure>
+<p>注意:</p>
+<ul>
+<li><strong>这里的W,U,V在每个时刻都是相等的(权重共享)</strong></li>
+<li>**隐藏状态可以理解为:  S=f(现有的输入+过去记忆总结) **</li>
+</ul>
+<h2 id="3-rnn的反向传播">3.  RNN的反向传播</h2>
+<p>前面我们介绍了RNN的前向传播的方式, 那么RNN的权重参数W,U,V都是怎么更新的呢?</p>
+<p>每一次的输出值Ot都会产生一个误差值Et, 则总的误差可以表示为:.</p>
+<p>则损失函数可以使用交叉熵损失函数也可以使用平方误差损失函数.</p>
+<p>由于每一步的输出不仅仅依赖当前步的网络，并且还需要前若干步网络的状态，那么这种BP改版的算法叫做Backpropagation Through Time(BPTT) , 也就是将输出端的误差值反向传递,运用梯度下降法进行更新.(不熟悉BP的可以参考这里)</p>
+<p>也就是要求参数的梯度:</p>
+<figure data-type="image" tabindex="4"><img src="https://s-hmily.github.io/post-images/1595423125756.png" alt="" loading="lazy"></figure>
+<p>首先我们求解W的更新方法, 由前面的W的更新可以看出它是每个时刻的偏差的偏导数之和.</p>
+<p>在这里我们以 t = 3时刻为例, 根据链式求导法则可以得到t = 3时刻的偏导数为:</p>
+<figure data-type="image" tabindex="5"><img src="https://s-hmily.github.io/post-images/1595423131067.png" alt="" loading="lazy"></figure>
+<p>此时, 根据公式我们会发现, S3除了和W有关之外, 还和前一时刻S2有关.</p>
+<p>对于S3直接展开得到下面的式子:</p>
+<figure data-type="image" tabindex="6"><img src="https://s-hmily.github.io/post-images/1595423138980.png" alt="" loading="lazy"></figure>
+<p>对于S2直接展开得到下面的式子:</p>
+<p></p>
+<figure data-type="image" tabindex="7"><img src="https://s-hmily.github.io/post-images/1595423142808.png" alt="" loading="lazy"></figure>
+<p></p>
+<p>对于S1直接展开得到下面的式子:</p>
+<figure data-type="image" tabindex="8"><img src="https://s-hmily.github.io/post-images/1595423149671.png" alt="" loading="lazy"></figure>
+<p>将上述三个式子合并得到:</p>
+<figure data-type="image" tabindex="9"><img src="https://s-hmily.github.io/post-images/1595423154357.png" alt="" loading="lazy"></figure>
+<p>这样就得到了公式:</p>
+<figure data-type="image" tabindex="10"><img src="https://s-hmily.github.io/post-images/1595423161408.png" alt="" loading="lazy"></figure>
+<p>这里要说明的是:表示的是S3对W直接求导, 不考虑S2的影响.(也就是例如y = f(x)*g(x)对x求导一样)</p>
+<p>其次是对U的更新方法. 由于参数U求解和W求解类似,这里就不在赘述了,最终得到的具体的公式如下:</p>
+<figure data-type="image" tabindex="11"><img src="https://s-hmily.github.io/post-images/1595423174707.png" alt="" loading="lazy"></figure>
+<p>最后,给出V的更新公式(V只和输出O有关):<br>
+<img src="https://s-hmily.github.io/post-images/1595423180506.png" alt="" loading="lazy"></p>
+<h2 id="4rnn存在的问题长期依赖问题">4.RNN存在的问题（长期依赖问题）</h2>
+<p>RNN 的关键点之一就是他们可以用来连接先前的信息到当前的任务上，例如使用过去的视频段来推测对当前段的理解。如果 RNN 可以做到这个，他们就变得非常有用。但是真的可以么？答案是，还有很多依赖因素。有时候，我们仅仅需要知道先前的信息来执行当前的任务。例如，我们有一个 语言模型用来基于先前的词来预测下一个词。如果我们试着预测 “the clouds are in the sky” 最后的词，我们并不需要任何其他的上下文 —— 因此下一个词很显然就应该是 sky。在这样的场景中，相关的信息和预测的词位置之间的间隔是非常小的，RNN 可以学会使用先前的信息。<br>
+<img src="https://s-hmily.github.io/post-images/1595423209996.png" alt="" loading="lazy"><br>
+不太长的相关信息和位置间隔</p>
+<p>但是同样会有一些更加复杂的场景。假设我们试着去预测“I grew up in France... I speak fluent French”最后的词。当前的信息建议下一个词可能是一种语言的名字，但是如果我们需要弄清楚是什么语言，我们是需要先前提到的离当前位置很远的 France 的上下文的。这说明相关信息和当前预测位置之间的间隔就肯定变得相当的大。不幸的是，在这个间隔不断增大时，RNN 会丧失学习到连接如此远的信息的能力。<br>
+<img src="https://s-hmily.github.io/post-images/1595423217360.png" alt="" loading="lazy"><br>
+相当长的相关信息和位置间隔</p>
+<p>在理论上，RNN 绝对可以处理这样的 长期依赖 问题。人们可以仔细挑选参数来解决这类问题中的最初级形式，但在实践中，RNN 肯定不能够成功学习到这些知识。<br>
+然后我们引入了LSTM网络进行RNN的改良</p>
+<h2 id="5lstm网络">5.LSTM网络</h2>
+<p>Long Short Term 网络—— 一般就叫做 LSTM ——是一种 RNN 特殊的类型，可以学习长期依赖信息。LSTM 由 Hochreiter &amp; Schmidhuber (1997) 提出，并在近期被 Alex Graves 进行了改良和推广。在很多问题，LSTM 都取得相当巨大的成功，并得到了广泛的使用。</p>
+<p>LSTM 通过刻意的设计来避免长期依赖问题。记住长期的信息在实践中是 LSTM 的默认行为，而非需要付出很大代价才能获得的能力！</p>
+<p>所有 RNN 都具有一种重复神经网络模块的链式的形式。在标准的 RNN 中，这个重复的模块只有一个非常简单的结构，例如一个 tanh 层<br>
+<img src="https://s-hmily.github.io/post-images/1595423289489.png" alt="" loading="lazy"><br>
+标准 RNN 中的重复模块包含单一的层</p>
+<p>LSTM 同样是这样的结构，但是重复的模块拥有一个不同的结构。不同于 单一神经网络层，这里是有四个，以一种非常特殊的方式进行交互。<br>
+<img src="https://s-hmily.github.io/post-images/1595423302582.png" alt="" loading="lazy"></p>
+<p>LSTM 中的重复模块包含四个交互的层</p>
+<p>现在，我们先来熟悉一下图中使用的各种元素的图标。<br>
+<img src="https://s-hmily.github.io/post-images/1595423315709.png" alt="" loading="lazy"></p>
+<p>LSTM 中的图标</p>
+<p>在上面的图例中，每一条黑线传输着一整个向量，从一个节点的输出到其他节点的输入。粉色的圈代表 pointwise 的操作，诸如向量的和，而黄色的矩阵就是学习到的神经网络层。合在一起的线表示向量的连接，分开的线表示内容被复制，然后分发到不同的位置。</p>
+<h2 id="6lstm-的核心思想">6.LSTM 的核心思想</h2>
+<p>LSTM 的关键就是细胞状态，水平线在图上方贯穿运行。细胞状态类似于传送带。直接在整个链上运行，只有一些少量的线性交互。信息在上面流传保持不变会很容易。<br>
+<img src="https://s-hmily.github.io/post-images/1595423324671.png" alt="" loading="lazy"><br>
+Paste_Image.png</p>
+<p>LSTM 有通过精心设计的称作为“门”的结构来去除或者增加信息到细胞状态的能力。门是一种让信息选择式通过的方法。他们包含一个 sigmoid 神经网络层和一个 pointwise 乘法操作。<br>
+<img src="https://s-hmily.github.io/post-images/1595423347628.png" alt="" loading="lazy"><br>
+Paste_Image.png</p>
+<p>Sigmoid 层输出 0 到 1 之间的数值，描述每个部分有多少量可以通过。0 代表“不许任何量通过”，1 就指“允许任意量通过”！</p>
+<p>LSTM 拥有三个门，来保护和控制细胞状态。</p>
+<h2 id="7逐步理解-lstm">7.逐步理解 LSTM</h2>
+<p>在我们 LSTM 中的第一步是决定我们会从细胞状态中丢弃什么信息。这个决定通过一个称为 忘记门层 完成。该门会读取h_{t-1}和x_t，输出一个在 0 到 1 之间的数值给每个在细胞状态C_{t-1}中的数字。1 表示“完全保留”，0 表示“完全舍弃”。</p>
+<p>让我们回到语言模型的例子中来基于已经看到的预测下一个词。在这个问题中，细胞状态可能包含当前 主语 的类别，因此正确的 代词 可以被选择出来。当我们看到新的 代词 ，我们希望忘记旧的代词 。<br>
+<img src="https://s-hmily.github.io/post-images/1595423365521.png" alt="" loading="lazy"><br>
+决定丢弃信息</p>
+<p>下一步是确定什么样的新信息被存放在细胞状态中。这里包含两个部分。第一，sigmoid 层称 “输入门层” 决定什么值我们将要更新。然后，一个 tanh 层创建一个新的候选值向量，\tilde{C}_t，会被加入到状态中。下一步，我们会讲这两个信息来产生对状态的更新。</p>
+<p>在我们语言模型的例子中，我们希望增加新的代词的类别到细胞状态中，来替代旧的需要忘记的代词。<br>
+<img src="https://s-hmily.github.io/post-images/1595423376794.png" alt="" loading="lazy"><br>
+确定更新的信息</p>
+<p>现在是更新旧细胞状态的时间了，C_{t-1}更新为C_t。前面的步骤已经决定了将会做什么，我们现在就是实际去完成。</p>
+<p>我们把旧状态与f_t相乘，丢弃掉我们确定需要丢弃的信息。接着加上i_t * \tilde{C}_t。这就是新的候选值，根据我们决定更新每个状态的程度进行变化。</p>
+<p>在语言模型的例子中，这就是我们实际根据前面确定的目标，丢弃旧代词的类别信息并添加新的信息的地方。<br>
+<img src="https://s-hmily.github.io/post-images/1595423385369.png" alt="" loading="lazy"><br>
+更新细胞状态</p>
+<p>最终，我们需要确定输出什么值。这个输出将会基于我们的细胞状态，但是也是一个过滤后的版本。首先，我们运行一个 sigmoid 层来确定细胞状态的哪个部分将输出出去。接着，我们把细胞状态通过 tanh 进行处理（得到一个在 -1 到 1 之间的值）并将它和 sigmoid 门的输出相乘，最终我们仅仅会输出我们确定输出的那部分。</p>
+<p>在语言模型的例子中，因为他就看到了一个 代词 ，可能需要输出与一个 动词 相关的信息。例如，可能输出是否代词是单数还是负数，这样如果是动词的话，我们也知道动词需要进行的词形变化。<br>
+<img src="https://s-hmily.github.io/post-images/1595423394549.png" alt="" loading="lazy"><br>
+输出信息</p>
+<p><strong>额外的还有LSTM算法还有许多变种可以在网上自行查询</strong></p>
+<p><strong>还有一种算法是GRU算法也可以防止长时间依赖问题</strong></p>
+<p>参考文章：</p>
+<p><a href="https://www.jianshu.com/p/9dc9f41f0b29">文章一</a></p>
+<p><a href="https://blog.csdn.net/qq_32241189/article/details/80461635?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522159541827919724848300938%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&amp;request_id=159541827919724848300938&amp;biz_id=0&amp;utm_medium=distribute.pc_search_result.none-task-blog-2~all~first_rank_ecpm_v3~rank_business_v1-3-80461635.ecpm_v3_rank_business_v1&amp;utm_term=RNN&amp;spm=1018.2118.3001.4187">文章二</a></p>
+
+        </div>
+        
+        
+        <div class="next-post">
+            下一篇
+            <a href="https://s-hmily.github.io/post/k-means-ju-lei-suan-fa-yuan-li-ji-qi-shi-xian/">
+                K-means聚类算法原理及其实现
+            </a>
+        </div>
+        
+    </div>
+    </div>
+</body>
+<script>
+    var t_img; // 定时�?
+    var isLoad = true; // 控制变量
+    isImgLoad(function () {
+        // 加载完成
+        $('.postdetailimg').css("display", "block");
+    });
+    // 判断图片加载的函�?
+    function isImgLoad(callback) {
+        // 注意我的图片类名都是cover，因为我�?需要�?�理cover。其它图片可以不管�?
+        // 查找所有封面图，迭代�?�理
+        $('.postdetailimg').each(function () {
+            // 找到�?0就将isLoad设为false，并退出each
+            if (this.height === 0) {
+                isLoad = false;
+                return false;
+            }
+        });
+        // 为true，没有发现为0的。加载完�?
+        if (isLoad) {
+            clearTimeout(t_img); // 清除定时�?
+            // 回调函数
+            callback();
+            // 为false，因为找到了没有加载完成的图，将调用定时器递归
+        } else {
+            isLoad = true;
+            t_img = setTimeout(function () {
+                isImgLoad(callback); // 递归�?�?
+            }, 500); // 我这里�?�置的是500�?秒就�?描一次，�?以自己调�?
+        }
+    }
+
+    //文章阅读热度
+    var pl = $("#pl").html();
+    var rootaddr = $("#rootaddr").html();
+    pl = pl.replace(rootaddr, "");
+    $("#hotnum").attr('id', pl);
+</script>
+        <div name="comment" style="background: white">
+            <div class="commentcontainer">
+                
+                <p>请到客户端“主题--自定义配置--valine”中填入ID和KEY</p>
+                
+            </div>
+        </div>
+    </div>
+     
+                <div class="toc-container">
+                    <ul class="markdownIt-TOC">
+<li>
+<ul>
+<li><a href="#1%E4%BB%80%E4%B9%88%E6%98%AFrnn">1.什么是RNN？</a>
+<ul>
+<li><a href="#11-%E5%89%8D%E8%A8%80">1.1 前言</a></li>
+<li><a href="#12-rnn%E7%9A%84%E5%BA%94%E7%94%A8%E9%A2%86%E5%9F%9F">1.2 RNN的应用领域</a></li>
+</ul>
+</li>
+<li><a href="#2rnn%E7%9A%84%E4%BB%8B%E7%BB%8D">2.RNN的介绍</a></li>
+<li><a href="#3-rnn%E7%9A%84%E5%8F%8D%E5%90%91%E4%BC%A0%E6%92%AD">3.  RNN的反向传播</a></li>
+<li><a href="#4rnn%E5%AD%98%E5%9C%A8%E7%9A%84%E9%97%AE%E9%A2%98%E9%95%BF%E6%9C%9F%E4%BE%9D%E8%B5%96%E9%97%AE%E9%A2%98">4.RNN存在的问题（长期依赖问题）</a></li>
+<li><a href="#5lstm%E7%BD%91%E7%BB%9C">5.LSTM网络</a></li>
+<li><a href="#6lstm-%E7%9A%84%E6%A0%B8%E5%BF%83%E6%80%9D%E6%83%B3">6.LSTM 的核心思想</a></li>
+<li><a href="#7%E9%80%90%E6%AD%A5%E7%90%86%E8%A7%A3-lstm">7.逐步理解 LSTM</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+    </div>
+    </div>
+    <div class="toggleContainer">
+        <div class="toggle">
+            <i class="fas fa-angle-double-up"></i>
+        </div>
+    </div>
+    <div id="bg">
+    </div>
+    <div id="bgchoice" style="display: none">link</div>
+    
+    <div id="bgurl" style="display:none">https://pic2.zhimg.com/80/v2-bcbb1a4f932ab78c198b0a99af266d4e_720w.jpg?source=1940ef5c</div>
+       
+    </div>
+    <!-- 响应式布局，针对手机端内容显示 -->
+    <div class="nav-small">
+        <head>
+  <!-- 引入Bootstrap核心样式文件 -->
+  <link rel="stylesheet" href="https://s-hmily.github.io/media/css/bootstrap.min.css">
+</head>
+
+<body>
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container-fluid">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+          data-target="#barmenu" aria-expanded="false" id="barbutton">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="https://s-hmily.github.io">叮叮当&nbsp;&nbsp;|</a>
+      </div>
+
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="barmenu">
+        <ul class="nav navbar-nav">
+          
+          
+          <li>
+            <a href="https://s-hmily.github.io">
+              首页
+            </a>
+          </li>
+          
+          
+          
+          <li>
+            <a href="/archives">
+              归档
+            </a>
+          </li>
+          
+          
+          
+          <li>
+            <a href="https://s-hmily.github.io/tags">
+              标签
+            </a>
+          </li>
+          
+          
+          
+            <li><a href="https://s-hmily.github.io/talk">说说</a></li>
+            
+          
+          <li><a href="https://s-hmily.github.io/friends">友链</a></li>
+
+          
+        </ul>
+      </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+  </nav>
+
+
+  <!-- 引入jQuery核心js文件 -->
+  <script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+  <script>
+  var btstate = false;
+  var bt = $("#barbutton");
+  var bm = $("#barmenu");
+  bt.click(function(){
+    dropdown();
+  })
+  function dropdown(){
+    console.log(btstate);
+    //下拉
+    if(btstate==false){
+      bt.removeClass("collapsed");
+      bt.attr("aria-expanded","true");
+      bm.attr("aria-expanded","true")
+      bm.fadeIn(700);
+      btstate = true;
+    }
+    else{
+      bt.addClass("collapsed");
+      bt.attr("aria-expanded","false");
+      bm.removeClass("in");
+      bm.hide();
+      bm.attr("aria-expanded","false");
+      btstate = false;
+    }
+  }
+  </script> 
+</body>
+    <div style="margin-top:30px"></div>
+    <link rel="stylesheet" href="https://s-hmily.github.io/media/css/font-awesome.css">
+<style>
+
+</style>
+
+<body>
+    <div class="allcontent" id="postdetail">
+        <div class="postshow">
+            
+            <div class="postdetailimg" style="width:100%;overflow: hidden;display: none">
+                <img src="https://s-hmily.github.io/post-images/xun-huan-shen-jing-wang-luo.jpg" class="postimage" style="cursor:auto">
+            </div>
+            <div class="postinfo-detail">
+                <div class="postdate"><i class="fa fa-calendar"></i>2020-07-22</div>
+                <div class="poststatus postdate"><i class="fa fa-clock-o"></i> 11 min read</div>
+                <div class="posttag">
+                    
+                </div>
+            </div>
+            
+        <div id="texttitle" style="text-align: center">
+            <h2>循环神经网络</h2>
+            <!-- id 将作为查询条件 -->
+            <div id="pl" style="display:none">https://s-hmily.github.io/post/xun-huan-shen-jing-wang-luo/</div>
+            <div id="rootaddr" style="display:none">https://s-hmily.github.io</div>
+            <span id="hotnum" class="leancloud_visitors" data-flag-title="循环神经网络">
+                <h4 class="readercount">热度🔥: <i class="leancloud-visitors-count">loading...</i></h4>
+            </span>
+        </div>
+        <div class="text ">
+            <h2 id="1什么是rnn">1.什么是RNN？</h2>
+<h3 id="11-前言">1.1 前言</h3>
+<p>当我们学习过CNN以及NN之后会不会发现一个问题，对于CNN处理图像时，这个图像没有时间的限制，但是如果我们想要实现语音识别功能，那么我们该如何办呢？这里我们就引入了RNN</p>
+<p>RNN是一种特殊的神经网络结构, 它是根据&quot;人的认知是基于过往的经验和记忆&quot;这一观点提出的. 它与DNN,CNN不同的是: 它不仅考虑前一时刻的输入,而且赋予了网络对前面的内容的一种'<strong>记忆'功能</strong>.</p>
+<p>RNN之所以称为循环神经网路，即一个序列当前的输出与前面的输出也有关。具体的表现形式为网络会对前面的信息进行记忆并应用于当前输出的计算中，即隐藏层之间的节点不再无连接而是有连接的，并且隐藏层的输入不仅包括输入层的输出还包括上一时刻隐藏层的输出。</p>
+<h3 id="12-rnn的应用领域">1.2 RNN的应用领域</h3>
+<ul>
+<li><strong>自然语言处理(NLP)</strong>: 主要有<strong>视频处理</strong>, <strong>文本生成</strong>, <strong>语言模型</strong>, <strong>图像处理</strong></li>
+<li><strong>机器翻译</strong>, 机器写小说</li>
+<li><strong>语音识别</strong></li>
+<li><strong>图像描述生成</strong></li>
+<li><strong>文本相似度计算</strong></li>
+<li><strong>音乐推荐</strong>、<strong>网易考拉商品推荐</strong>、<strong>Youtube视频推荐</strong>等新的应用领域.</li>
+</ul>
+<h2 id="2rnn的介绍">2.RNN的介绍</h2>
+<p>先来看一下RNN的结构图：</p>
+<p><img src="https://s-hmily.github.io/post-images/1595423021524.png" alt="" loading="lazy"><br>
+图一  RNN结构图</p>
+<p>RNN主要具有<strong>输入层，Hidden Layer，输出层</strong>组成</p>
+<p>然后<strong>Hidden Layer</strong>有一个箭头就表示一直重复进行数据更新，也就是实现时间记忆的功能</p>
+<p>然后我们可以把RNN进行展开<br>
+<img src="https://s-hmily.github.io/post-images/1595422921882.png" alt="" loading="lazy"><br>
+图二  Hidden Layer的层次展开图</p>
+<p>如图2所示为Hidden Layer的层级展开图. t-1, t, t+1表示时间序列. X表示输入的样本. St表示样本在时间t处的的记忆,St = f(W<em>St-1 +U</em>Xt). W表示输入的权重, U表示此刻输入的样本的权重, V表示输出的样本权重.</p>
+<p>在t =1时刻, 一般初始化输入S0=0, 随机初始化W,U,V, 进行下面的公式计算:</p>
+<figure data-type="image" tabindex="1"><img src="https://s-hmily.github.io/post-images/1595423051464.png" alt="" loading="lazy"></figure>
+<p>其中,f和g均为激活函数. 其中f可以是tanh,relu,sigmoid等激活函数，g通常是softmax也可以是其他。</p>
+<p>时间就向前推进，此时的状态s1作为时刻1的记忆状态将参与下一个时刻的预测活动，也就是:</p>
+<figure data-type="image" tabindex="2"><img src="https://s-hmily.github.io/post-images/1595423059661.png" alt="" loading="lazy"></figure>
+<p>以此类推, 可以得到最终的输出值为:</p>
+<figure data-type="image" tabindex="3"><img src="https://s-hmily.github.io/post-images/1595423068429.png" alt="" loading="lazy"></figure>
+<p>注意:</p>
+<ul>
+<li><strong>这里的W,U,V在每个时刻都是相等的(权重共享)</strong></li>
+<li>**隐藏状态可以理解为:  S=f(现有的输入+过去记忆总结) **</li>
+</ul>
+<h2 id="3-rnn的反向传播">3.  RNN的反向传播</h2>
+<p>前面我们介绍了RNN的前向传播的方式, 那么RNN的权重参数W,U,V都是怎么更新的呢?</p>
+<p>每一次的输出值Ot都会产生一个误差值Et, 则总的误差可以表示为:.</p>
+<p>则损失函数可以使用交叉熵损失函数也可以使用平方误差损失函数.</p>
+<p>由于每一步的输出不仅仅依赖当前步的网络，并且还需要前若干步网络的状态，那么这种BP改版的算法叫做Backpropagation Through Time(BPTT) , 也就是将输出端的误差值反向传递,运用梯度下降法进行更新.(不熟悉BP的可以参考这里)</p>
+<p>也就是要求参数的梯度:</p>
+<figure data-type="image" tabindex="4"><img src="https://s-hmily.github.io/post-images/1595423125756.png" alt="" loading="lazy"></figure>
+<p>首先我们求解W的更新方法, 由前面的W的更新可以看出它是每个时刻的偏差的偏导数之和.</p>
+<p>在这里我们以 t = 3时刻为例, 根据链式求导法则可以得到t = 3时刻的偏导数为:</p>
+<figure data-type="image" tabindex="5"><img src="https://s-hmily.github.io/post-images/1595423131067.png" alt="" loading="lazy"></figure>
+<p>此时, 根据公式我们会发现, S3除了和W有关之外, 还和前一时刻S2有关.</p>
+<p>对于S3直接展开得到下面的式子:</p>
+<figure data-type="image" tabindex="6"><img src="https://s-hmily.github.io/post-images/1595423138980.png" alt="" loading="lazy"></figure>
+<p>对于S2直接展开得到下面的式子:</p>
+<p></p>
+<figure data-type="image" tabindex="7"><img src="https://s-hmily.github.io/post-images/1595423142808.png" alt="" loading="lazy"></figure>
+<p></p>
+<p>对于S1直接展开得到下面的式子:</p>
+<figure data-type="image" tabindex="8"><img src="https://s-hmily.github.io/post-images/1595423149671.png" alt="" loading="lazy"></figure>
+<p>将上述三个式子合并得到:</p>
+<figure data-type="image" tabindex="9"><img src="https://s-hmily.github.io/post-images/1595423154357.png" alt="" loading="lazy"></figure>
+<p>这样就得到了公式:</p>
+<figure data-type="image" tabindex="10"><img src="https://s-hmily.github.io/post-images/1595423161408.png" alt="" loading="lazy"></figure>
+<p>这里要说明的是:表示的是S3对W直接求导, 不考虑S2的影响.(也就是例如y = f(x)*g(x)对x求导一样)</p>
+<p>其次是对U的更新方法. 由于参数U求解和W求解类似,这里就不在赘述了,最终得到的具体的公式如下:</p>
+<figure data-type="image" tabindex="11"><img src="https://s-hmily.github.io/post-images/1595423174707.png" alt="" loading="lazy"></figure>
+<p>最后,给出V的更新公式(V只和输出O有关):<br>
+<img src="https://s-hmily.github.io/post-images/1595423180506.png" alt="" loading="lazy"></p>
+<h2 id="4rnn存在的问题长期依赖问题">4.RNN存在的问题（长期依赖问题）</h2>
+<p>RNN 的关键点之一就是他们可以用来连接先前的信息到当前的任务上，例如使用过去的视频段来推测对当前段的理解。如果 RNN 可以做到这个，他们就变得非常有用。但是真的可以么？答案是，还有很多依赖因素。有时候，我们仅仅需要知道先前的信息来执行当前的任务。例如，我们有一个 语言模型用来基于先前的词来预测下一个词。如果我们试着预测 “the clouds are in the sky” 最后的词，我们并不需要任何其他的上下文 —— 因此下一个词很显然就应该是 sky。在这样的场景中，相关的信息和预测的词位置之间的间隔是非常小的，RNN 可以学会使用先前的信息。<br>
+<img src="https://s-hmily.github.io/post-images/1595423209996.png" alt="" loading="lazy"><br>
+不太长的相关信息和位置间隔</p>
+<p>但是同样会有一些更加复杂的场景。假设我们试着去预测“I grew up in France... I speak fluent French”最后的词。当前的信息建议下一个词可能是一种语言的名字，但是如果我们需要弄清楚是什么语言，我们是需要先前提到的离当前位置很远的 France 的上下文的。这说明相关信息和当前预测位置之间的间隔就肯定变得相当的大。不幸的是，在这个间隔不断增大时，RNN 会丧失学习到连接如此远的信息的能力。<br>
+<img src="https://s-hmily.github.io/post-images/1595423217360.png" alt="" loading="lazy"><br>
+相当长的相关信息和位置间隔</p>
+<p>在理论上，RNN 绝对可以处理这样的 长期依赖 问题。人们可以仔细挑选参数来解决这类问题中的最初级形式，但在实践中，RNN 肯定不能够成功学习到这些知识。<br>
+然后我们引入了LSTM网络进行RNN的改良</p>
+<h2 id="5lstm网络">5.LSTM网络</h2>
+<p>Long Short Term 网络—— 一般就叫做 LSTM ——是一种 RNN 特殊的类型，可以学习长期依赖信息。LSTM 由 Hochreiter &amp; Schmidhuber (1997) 提出，并在近期被 Alex Graves 进行了改良和推广。在很多问题，LSTM 都取得相当巨大的成功，并得到了广泛的使用。</p>
+<p>LSTM 通过刻意的设计来避免长期依赖问题。记住长期的信息在实践中是 LSTM 的默认行为，而非需要付出很大代价才能获得的能力！</p>
+<p>所有 RNN 都具有一种重复神经网络模块的链式的形式。在标准的 RNN 中，这个重复的模块只有一个非常简单的结构，例如一个 tanh 层<br>
+<img src="https://s-hmily.github.io/post-images/1595423289489.png" alt="" loading="lazy"><br>
+标准 RNN 中的重复模块包含单一的层</p>
+<p>LSTM 同样是这样的结构，但是重复的模块拥有一个不同的结构。不同于 单一神经网络层，这里是有四个，以一种非常特殊的方式进行交互。<br>
+<img src="https://s-hmily.github.io/post-images/1595423302582.png" alt="" loading="lazy"></p>
+<p>LSTM 中的重复模块包含四个交互的层</p>
+<p>现在，我们先来熟悉一下图中使用的各种元素的图标。<br>
+<img src="https://s-hmily.github.io/post-images/1595423315709.png" alt="" loading="lazy"></p>
+<p>LSTM 中的图标</p>
+<p>在上面的图例中，每一条黑线传输着一整个向量，从一个节点的输出到其他节点的输入。粉色的圈代表 pointwise 的操作，诸如向量的和，而黄色的矩阵就是学习到的神经网络层。合在一起的线表示向量的连接，分开的线表示内容被复制，然后分发到不同的位置。</p>
+<h2 id="6lstm-的核心思想">6.LSTM 的核心思想</h2>
+<p>LSTM 的关键就是细胞状态，水平线在图上方贯穿运行。细胞状态类似于传送带。直接在整个链上运行，只有一些少量的线性交互。信息在上面流传保持不变会很容易。<br>
+<img src="https://s-hmily.github.io/post-images/1595423324671.png" alt="" loading="lazy"><br>
+Paste_Image.png</p>
+<p>LSTM 有通过精心设计的称作为“门”的结构来去除或者增加信息到细胞状态的能力。门是一种让信息选择式通过的方法。他们包含一个 sigmoid 神经网络层和一个 pointwise 乘法操作。<br>
+<img src="https://s-hmily.github.io/post-images/1595423347628.png" alt="" loading="lazy"><br>
+Paste_Image.png</p>
+<p>Sigmoid 层输出 0 到 1 之间的数值，描述每个部分有多少量可以通过。0 代表“不许任何量通过”，1 就指“允许任意量通过”！</p>
+<p>LSTM 拥有三个门，来保护和控制细胞状态。</p>
+<h2 id="7逐步理解-lstm">7.逐步理解 LSTM</h2>
+<p>在我们 LSTM 中的第一步是决定我们会从细胞状态中丢弃什么信息。这个决定通过一个称为 忘记门层 完成。该门会读取h_{t-1}和x_t，输出一个在 0 到 1 之间的数值给每个在细胞状态C_{t-1}中的数字。1 表示“完全保留”，0 表示“完全舍弃”。</p>
+<p>让我们回到语言模型的例子中来基于已经看到的预测下一个词。在这个问题中，细胞状态可能包含当前 主语 的类别，因此正确的 代词 可以被选择出来。当我们看到新的 代词 ，我们希望忘记旧的代词 。<br>
+<img src="https://s-hmily.github.io/post-images/1595423365521.png" alt="" loading="lazy"><br>
+决定丢弃信息</p>
+<p>下一步是确定什么样的新信息被存放在细胞状态中。这里包含两个部分。第一，sigmoid 层称 “输入门层” 决定什么值我们将要更新。然后，一个 tanh 层创建一个新的候选值向量，\tilde{C}_t，会被加入到状态中。下一步，我们会讲这两个信息来产生对状态的更新。</p>
+<p>在我们语言模型的例子中，我们希望增加新的代词的类别到细胞状态中，来替代旧的需要忘记的代词。<br>
+<img src="https://s-hmily.github.io/post-images/1595423376794.png" alt="" loading="lazy"><br>
+确定更新的信息</p>
+<p>现在是更新旧细胞状态的时间了，C_{t-1}更新为C_t。前面的步骤已经决定了将会做什么，我们现在就是实际去完成。</p>
+<p>我们把旧状态与f_t相乘，丢弃掉我们确定需要丢弃的信息。接着加上i_t * \tilde{C}_t。这就是新的候选值，根据我们决定更新每个状态的程度进行变化。</p>
+<p>在语言模型的例子中，这就是我们实际根据前面确定的目标，丢弃旧代词的类别信息并添加新的信息的地方。<br>
+<img src="https://s-hmily.github.io/post-images/1595423385369.png" alt="" loading="lazy"><br>
+更新细胞状态</p>
+<p>最终，我们需要确定输出什么值。这个输出将会基于我们的细胞状态，但是也是一个过滤后的版本。首先，我们运行一个 sigmoid 层来确定细胞状态的哪个部分将输出出去。接着，我们把细胞状态通过 tanh 进行处理（得到一个在 -1 到 1 之间的值）并将它和 sigmoid 门的输出相乘，最终我们仅仅会输出我们确定输出的那部分。</p>
+<p>在语言模型的例子中，因为他就看到了一个 代词 ，可能需要输出与一个 动词 相关的信息。例如，可能输出是否代词是单数还是负数，这样如果是动词的话，我们也知道动词需要进行的词形变化。<br>
+<img src="https://s-hmily.github.io/post-images/1595423394549.png" alt="" loading="lazy"><br>
+输出信息</p>
+<p><strong>额外的还有LSTM算法还有许多变种可以在网上自行查询</strong></p>
+<p><strong>还有一种算法是GRU算法也可以防止长时间依赖问题</strong></p>
+<p>参考文章：</p>
+<p><a href="https://www.jianshu.com/p/9dc9f41f0b29">文章一</a></p>
+<p><a href="https://blog.csdn.net/qq_32241189/article/details/80461635?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522159541827919724848300938%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&amp;request_id=159541827919724848300938&amp;biz_id=0&amp;utm_medium=distribute.pc_search_result.none-task-blog-2~all~first_rank_ecpm_v3~rank_business_v1-3-80461635.ecpm_v3_rank_business_v1&amp;utm_term=RNN&amp;spm=1018.2118.3001.4187">文章二</a></p>
+
+        </div>
+        
+        
+        <div class="next-post">
+            下一篇
+            <a href="https://s-hmily.github.io/post/k-means-ju-lei-suan-fa-yuan-li-ji-qi-shi-xian/">
+                K-means聚类算法原理及其实现
+            </a>
+        </div>
+        
+    </div>
+    </div>
+</body>
+<script>
+    var t_img; // 定时�?
+    var isLoad = true; // 控制变量
+    isImgLoad(function () {
+        // 加载完成
+        $('.postdetailimg').css("display", "block");
+    });
+    // 判断图片加载的函�?
+    function isImgLoad(callback) {
+        // 注意我的图片类名都是cover，因为我�?需要�?�理cover。其它图片可以不管�?
+        // 查找所有封面图，迭代�?�理
+        $('.postdetailimg').each(function () {
+            // 找到�?0就将isLoad设为false，并退出each
+            if (this.height === 0) {
+                isLoad = false;
+                return false;
+            }
+        });
+        // 为true，没有发现为0的。加载完�?
+        if (isLoad) {
+            clearTimeout(t_img); // 清除定时�?
+            // 回调函数
+            callback();
+            // 为false，因为找到了没有加载完成的图，将调用定时器递归
+        } else {
+            isLoad = true;
+            t_img = setTimeout(function () {
+                isImgLoad(callback); // 递归�?�?
+            }, 500); // 我这里�?�置的是500�?秒就�?描一次，�?以自己调�?
+        }
+    }
+
+    //文章阅读热度
+    var pl = $("#pl").html();
+    var rootaddr = $("#rootaddr").html();
+    pl = pl.replace(rootaddr, "");
+    $("#hotnum").attr('id', pl);
+</script>
+    <div name="comment" style="background: white;margin-top:100px">
+        <div class="commentcontainer">
+            
+            <p>请到客户端“主题--自定义配置--valine”中填入ID和KEY</p>
+            
+        </div>
+    </div>
+    </div>
+    <div id="landlord">
+        <div class="message" style="opacity:0"></div>
+        <canvas id="live2d" width="240" height="250" class="live2d"></canvas>
+    </div>
+    <div id="codeCopyText" style="display: none">代码复制成功了哦</div>
+    <div id="domainname" style="display:none">https://s-hmily.github.io</div>
+    </body>
+    <script src="https://s-hmily.github.io/media/js/post.js"></script>
+    <script>
+        //寻找所有code标签，加复制按钮鸭！(行内代码除外)
+        var codes = document.getElementsByTagName('code');
+        if (codes.length) {
+            for (var i = 0; i < codes.length; i++) {
+                //高度/行高=文本行数
+                // var rowNum=Math.round(codes[i].height()/parseFloat(codes[i].css('line-height')));
+                // console.log("当前有"+rowNum+"行");
+                var code_id = "code_id_" + i;
+                codes[i].setAttribute("id", code_id);
+                var ci = "#" + code_id;
+                var codedot = $(ci);
+                var rowNum = Math.round(codedot.height() / parseFloat(codedot.css('line-height')));
+                if (rowNum <= 1) continue;
+                var btn = document.createElement("button");
+                btn.setAttribute("class", "copybt");
+                btn.setAttribute("data-clipboard-target", "#" + code_id);
+                btn.innerHTML = '复制代码';
+                codes[i].parentNode.insertBefore(btn, codes[i]);
+            }
+        };
+        var cop = new ClipboardJS('.copybt');
+        var codeCopyText = $("#codeCopyText").html();
+        cop.on('success', function (e) {
+            alert(codeCopyText);
+            e.clearSelection();
+        });
+        cop.on('error', function (e) {
+            alert("矮油，复制失败了...手动复制吧勇士！");
+            e.clearSelection();
+        });
+    </script>
+    
+    <script type="text/javascript">
+        var message_Path = '/live2d/'
+        var home_Path = document.getElementById("domainname").innerHTML+"/"; //此处修改为你的域名，必须带斜杠
+    </script>
+    <script type="text/javascript" src="https://s-hmily.github.io/media/live2d/js/live2d.js"></script>
+    <script type="text/javascript" src="https://s-hmily.github.io/media/live2d/js/message.js"></script>
+    <script type="text/javascript">
+        loadlive2d("live2d", "https://s-hmily.github.io/media/live2d/assets/tororo.model.json");
+    </script>
+    
+<script>
+$(function () {
+    $('.toggleContainer').click(function(){$('html,body').animate({scrollTop: '0px'}, 800);});
+	$(window).scroll(function() {
+        var st = $(window).scrollTop();
+        if(st > 30){
+            $(".toggleContainer").fadeIn(400);
+        }else{
+            $(".toggleContainer").fadeOut(100);
+        }
+	});
+});
+</script>
+
+<script>
+        var bgchoice=$('#bgchoice').html();
+        var bg = $('#bg');
+        var bgurl = document.getElementById("bgurl").innerHTML;
+        if(bgchoice=='default')
+            for (var i = 0; i < 3; i++)
+                bgurl = bgurl.replace("\\", "/");
+        bg.css("background", "url('" + bgurl + "')");
+</script>
