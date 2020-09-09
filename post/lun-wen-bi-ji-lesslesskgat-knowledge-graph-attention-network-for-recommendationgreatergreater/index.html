@@ -1,0 +1,857 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="摘要
+
+有监督学习：用已知某种或某些特性的样本作为训练集，以建立一个数学模型，再用已建立的模型来预测未知样本
+1.介绍
+
+
+  
+1.1个人理解
+什么是KGAT模型？
+就是综合了协同过滤CF和有监督学习SL的模型
+基于用户的CF算法的核心是..." />
+    <meta name="keywords" content="" />
+    <link rel="stylesheet" href="https://s-hmily.github.io/media/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://s-hmily.github.io/styles/main.css">
+    
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.1/build/styles/default.min.css">
+              
+    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.1/build/highlight.min.js"></script>
+    <script src="https://s-hmily.github.io/media/js/clipboard.min.js"></script>
+    <link rel="stylesheet" href="https://s-hmily.github.io/media/css/live2d.css">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js"></script>
+    <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
+    <link href="https://cdn.bootcdn.net/ajax/libs/font-awesome/5.13.1/css/all.min.css" rel="stylesheet">
+    <!-- 数学公式 -->
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0-beta/dist/katex.min.css"
+        integrity="sha384-9tPv11A+glH/on/wEu99NVwDPwkMQESOocs/ZGXPoIiLE8MU/qkqUcZ3zzL+6DuH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.10.0-beta/dist/katex.min.js"
+        integrity="sha384-U8Vrjwb8fuHMt6ewaCy8uqeUXv4oitYACKdB0VziCerzt011iQ/0TqlSlv8MReCm" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.10.0-beta/dist/contrib/auto-render.min.js"
+        integrity="sha384-aGfk5kvhIq5x1x5YdvCp4upKZYnA8ckafviDpmWEKp4afOZEqOli7gqSnh8I6enH" crossorigin="anonymous">
+    </script>
+    <script>
+        renderMathInElement(document.body, {
+            delimiters: [{
+                    left: "$$",
+                    right: "$$",
+                    display: true
+                },
+                {
+                    left: "$",
+                    right: "$",
+                    display: false
+                }
+            ]
+        });
+    </script>
+
+    
+    <title>叮叮当</title>
+    
+    <style>
+        .markdownIt-TOC {
+            padding-left: 2px;
+            width: 100%;
+        }
+        .markdownIt-TOC li{
+            padding-left: 2%;
+        }
+    </style>
+    
+</head>
+
+<body>
+    <!-- 响应式布局，针对PC端内容显示 -->
+    <div id="content">
+        <div class="nav-large">
+            <div class="row">
+                <div class="side"><head>
+    <meta name="description" content="“你买的什么书？”
+“《边城》”
+“C++还是python？”
+“沈从文”" />
+    <link rel="stylesheet" href="https://s-hmily.github.io/media/css/bootstrap.min.css">
+</head>
+
+
+<body>
+    
+
+
+
+    
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <a class="navbar-brand" href="https://s-hmily.github.io"
+                    style="font-size:21px">叮叮当&nbsp;&nbsp;|&nbsp;&nbsp;</a>
+                <a class="navbar-brand" href=""
+                    style="font-size:15px;font-family:kaiti">“你买的什么书？”
+“《边城》”
+“C++还是python？”
+“沈从文”</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse">
+                
+                <div class="search nav navbar-nav" style="margin-top:8px">
+                    <!-- <input type="text" class="search-input" placeholder="标题搜索(●'◡'●)" /> -->
+                    <input type="text" class="search-input" placeholder="标题搜索 ⚆_⚆ つ♡">
+                    <div class="search-results"></div>
+                </div>
+                
+                <div class="search nav navbar-nav">
+                <a title="text" onclick="document.getElementById('socialMenu').style.display='block'"><i><img class="social"
+                    src="https://s-hmily.github.io/media/images/social.png" alt=""></i></a>
+            </div>
+            <ul class="nav navbar-nav" style="float: right;margin-right:5%">
+                
+                
+                <li>
+                    <a href="https://s-hmily.github.io" style="color:white">
+                        首页
+                    </a>
+                </li>
+                
+                
+                
+                <li>
+                    <a href="/archives" style="color:white">
+                        归档
+                    </a>
+                </li>
+                
+                
+                
+                <li>
+                    <a href="https://s-hmily.github.io/tags" style="color:white">
+                        标签
+                    </a>
+                </li>
+                
+                
+                
+                <li><a href="https://s-hmily.github.io/talk" style="color:white;">说说</a></li>
+                
+                  
+                <li><a href="https://s-hmily.github.io/friends" style="color:white">友链</a></li>
+                
+                  <li><img src="https://s-hmily.github.io/images/avatar.png?v=1599643702527" alt=""
+                class="menutopavatar"></li>
+            </ul>
+        </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+    </nav>
+    <div id="socialMenu" class="modal">
+        <div class="animate">
+            <div class="socialContainer">
+                
+                
+                <a onclick="showqq()" style="cursor:pointer"><i><img class="icon" src="https://s-hmily.github.io/media/images/QQ.png"
+                            alt=""></i></a>
+                
+                
+                
+                
+                <a href="LB180928" target="_blank"><i><img class="icon"
+                            src="https://s-hmily.github.io/media/images/wechat.png" alt=""></i></a>
+                
+                
+            </div>
+            <div id="qq" style="display:none">897438019</div>
+        </div>
+    </div>
+    <!-- 引入jQuery核心js文件 -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js"></script>
+    <script>
+        var social = document.getElementById('socialMenu');
+        // 鼠标点击模型外区域关闭登录框
+        window.onclick = function (event) {
+            if (event.target == social) {
+                social.style.display = "none";
+            }
+        }
+    </script>
+    
+</body>
+<script>
+    //-------------------------------------------------搜索
+    // 获取搜索框、搜索按钮、清空搜索、结果输出对应的元素
+    var searchInput = document.querySelector('.search-input');
+    var searchResults = document.querySelector('.search-results');
+
+    // 申明保存文章的标题、链接、内容的数组变量
+    var searchValue = '',
+        arrItems = [],
+        arrLinks = [],
+        arrTitles = [],
+        arrResults = [],
+        indexItem = [],
+        itemLength = 0;
+    var tmpDiv = document.createElement('div');
+    tmpDiv.className = 'result-item';
+
+    // ajax 的兼容写法
+    var xhr = new XMLHttpRequest() || new ActiveXObject('Microsoft.XMLHTTP');
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState == 4 && xhr.status == 200) {
+            xml = xhr.responseXML;
+            arrItems = xml.getElementsByTagName('entry');
+            itemLength = arrItems.length;
+            // 遍历并保存所有文章对应的标题、链接、内容到对应的数组中
+            // 同时过滤掉 HTML 标签
+            for (i = 0; i < itemLength; i++) {
+                var link = arrItems[i].getElementsByTagName('link')[0];
+                arrLinks[i] = link.getAttribute("href");
+                arrTitles[i] = arrItems[i].getElementsByTagName('title')[0].
+                childNodes[0].nodeValue.replace(/<.*?>/g, '');
+            }
+        }
+    }
+
+    // 开始获取根目录下 feed.xml 文件内的数据
+    xhr.open('get', '/atom.xml', true);
+    xhr.send();
+
+
+
+    // 输入框内容变化后就开始匹配，可以不用点按钮
+    // 经测试，onkeydown, onchange 等方法效果不太理想，
+    // 存在输入延迟等问题，最后发现触发 input 事件最理想，
+    // 并且可以处理中文输入法拼写的变化
+    searchInput.oninput = function () {
+        setTimeout(searchConfirm, 0);
+    }
+    searchInput.onfocus = function () {
+        searchResults.style.display = 'block';
+    }
+
+    function searchConfirm() {
+        if (searchInput.value == '') {
+            searchResults.style.display = 'none';
+        } else if (searchInput.value.search(/^\s+$/) >= 0) {
+            // 检测输入值全是空白的情况
+            searchInit();
+            var itemDiv = tmpDiv.cloneNode(true);
+            itemDiv.innerText = '请输入有效内容...';
+            searchResults.appendChild(itemDiv);
+        } else {
+            // 合法输入值的情况
+            searchInit();
+            searchValue = searchInput.value;
+            // 在标题、内容中查找
+            searchMatching(arrTitles, searchValue);
+        }
+    }
+
+    // 每次搜索完成后的初始化
+    function searchInit() {
+        arrResults = [];
+        indexItem = [];
+        searchResults.innerHTML = '';
+        searchResults.style.display = 'block';
+    }
+
+    function searchMatching(arr1, input) {
+        // 忽略输入大小写
+        input = new RegExp(input, 'i');
+        // 在所有文章标题、内容中匹配查询值
+        for (i = 0; i < itemLength; i++) {
+            if (arr1[i].search(input) !== -1) {
+                var arr = arr1;
+                indexItem.push(i); // 保存匹配值的索引
+                var indexContent = arr[i].search(input);
+                // 此时 input 为 RegExp 格式 /input/i，转换为原 input 字符串长度
+                var l = input.toString().length - 3;
+                var step = 10;
+
+                // 将匹配到内容的地方进行黄色标记，并包括周围一定数量的文本
+                arrResults.push(arr[i].slice(indexContent - step, indexContent));
+            }
+        }
+
+        // 输出总共匹配到的数目
+        var totalDiv = tmpDiv.cloneNode(true);
+        totalDiv.innerHTML = '<b>总匹配：' + indexItem.length + ' 项<hr></b>';
+        searchResults.appendChild(totalDiv);
+
+        // 未匹配到内容的情况
+        if (indexItem.length == 0) {
+            var itemDiv = tmpDiv.cloneNode(true);
+            itemDiv.innerText = '未匹配到内容...';
+            searchResults.appendChild(itemDiv);
+        }
+
+        // 将所有匹配内容进行组合
+        for (i = 0; i < arrResults.length; i++) {
+            var itemDiv = tmpDiv.cloneNode(true);
+            itemDiv.innerHTML = '<b>[' + arrTitles[indexItem[i]] +
+                ']</b><p>' + arrResults[i] + "</p><hr />";
+            itemDiv.setAttribute('onclick', 'changeHref(arrLinks[indexItem[' + i + ']])');
+            searchResults.appendChild(itemDiv);
+        }
+    }
+
+    function changeHref(href) {
+        location.href = href;
+    }
+
+    function showqq() {
+        var qq = document.getElementById("qq").innerHTML;
+        if (qq != '')
+            alert("博主的QQ联系方式为：" + qq);
+        else
+            alert("博主暂未设置QQ联系方式");
+    }
+</script></div>
+    
+    <div id="main" class="col-xs-12 col-sm-7" style="width:50%;margin-top:50px;left:27%">
+        <link rel="stylesheet" href="https://s-hmily.github.io/media/css/font-awesome.css">
+<style>
+
+</style>
+
+<body>
+    <div class="allcontent" id="postdetail">
+        <div class="postshow">
+            
+            <div class="postdetailimg" style="width:100%;overflow: hidden;display: none">
+                
+                <img src="https://pic2.zhimg.com/80/v2-bcbb1a4f932ab78c198b0a99af266d4e_720w.jpg?source=1940ef5c" class="postimage">
+                
+            </div>
+            <div class="postinfo-detail">
+                <div class="postdate"><i class="fa fa-calendar"></i>2020-07-29</div>
+            <div class="poststatus postdate"><i class="fa fa-clock-o"></i> 4 min read</div>
+            <div class="posttag">
+                
+            </div>
+        </div>
+        
+        <div id="texttitle" style="text-align: center">
+            <h2>论文笔记：《KGAT: Knowledge Graph Attention Network for Recommendation》</h2>
+            <!-- id 将作为查询条件 -->
+            <div id="pl" style="display:none">https://s-hmily.github.io/post/lun-wen-bi-ji-lesslesskgat-knowledge-graph-attention-network-for-recommendationgreatergreater/</div>
+            <div id="rootaddr" style="display:none">https://s-hmily.github.io</div>
+            <span id="hotnum" class="leancloud_visitors" data-flag-title="论文笔记：《KGAT: Knowledge Graph Attention Network for Recommendation》">
+                <h4 class="readercount">热度🔥: <i class="leancloud-visitors-count">loading...</i></h4>
+            </span>
+        </div>
+        <div class="text ">
+            <h2 id="摘要">摘要</h2>
+<figure data-type="image" tabindex="1"><img src="https://img-blog.csdnimg.cn/20191203163615366.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjM0MTk4Ng==,size_16,color_FFFFFF,t_70" alt="å¨è¿éæå¥å¾çæè¿°" loading="lazy"></figure>
+<p><strong>有监督学习：用已知某种或某些特性的样本作为训练集，以建立一个数学模型，再用已建立的模型来预测未知样本</strong></p>
+<h2 id="1介绍">1.介绍</h2>
+<figure data-type="image" tabindex="2"><img src="https://img-blog.csdnimg.cn/20191203163650131.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjM0MTk4Ng==,size_16,color_FFFFFF,t_70" alt="å¨è¿éæå¥å¾çæè¿°" loading="lazy"></figure>
+<figure data-type="image" tabindex="3"><img src="https://img-blog.csdnimg.cn/20191203163706914.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjM0MTk4Ng==,size_16,color_FFFFFF,t_70" alt="å¨è¿éæå¥å¾çæè¿°" loading="lazy"></figure>
+<p><img src="https://img-blog.csdnimg.cn/20191203163722847.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjM0MTk4Ng==,size_16,color_FFFFFF,t_70" alt="å¨è¿éæå¥å¾çæè¿°" loading="lazy"> <img src="https://img-blog.csdnimg.cn/20191203163742796.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjM0MTk4Ng==,size_16,color_FFFFFF,t_70" alt="å¨è¿éæå¥å¾çæè¿°" loading="lazy"> <img src="https://img-blog.csdnimg.cn/20191203163800168.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjM0MTk4Ng==,size_16,color_FFFFFF,t_70" alt="å¨è¿éæå¥å¾çæè¿°" loading="lazy"></p>
+<h3 id="11个人理解">1.1个人理解</h3>
+<p><strong>什么是KGAT模型？</strong></p>
+<p>就是综合了协同过滤CF和有监督学习SL的模型</p>
+<p><strong>基于用户的CF算法的核心是找出与带推荐用户具有相似的交互行为的用户，然后推荐该用户买过的商品。</strong></p>
+<p>用例子表示为： 有两个用户 u1，u2和两个商品i1，i2，用户u1购买了i1，用户u2也购买了i1，但是用户u2也购买了i2，我们就会吧i2推荐给u1</p>
+<figure data-type="image" tabindex="4"><img src="https://www.zhihu.com/equation?tex=u_1%5Cstackrel%7Br_1%7D%7B%5Clongrightarrow%7Di_1%5Cstackrel%7B-r_1%7D%7B%5Clongrightarrow%7Du_2%5Cstackrel%7Br_1%7D%7B%5Clongrightarrow%7Di_2" alt="[å¬å¼]" loading="lazy"></figure>
+<p>如果采用SL的方法 就是有用户u1，有商品 i1，i2然后还有i1，i2共有的属性e1</p>
+<p>然后U1买了i1，i1因为和i2有相同的属性就把i2推荐给了用户u1</p>
+<figure data-type="image" tabindex="5"><img src="https://www.zhihu.com/equation?tex=u_1%5Cstackrel%7Br_1%7D%7B%5Clongrightarrow%7Di_1%5Cstackrel%7Br_2%7D%7B%5Clongrightarrow%7De_1%5Cstackrel%7B-r_2%7D%7B%5Clongrightarrow%7Di_2" alt="[å¬å¼]" loading="lazy"></figure>
+<p>但是这两个模型有缺陷，CF模型忽略了item本身的属性，过于简单，但是SL的方法将这些实体当做item的特征来用，却没有挖掘连通性信息。</p>
+<p>基于以上的基础，推出了KGAT模型，这种结构称之为CKG，上图就是一个例子。可以有效的挖掘潜在的部分</p>
+<p>列如：</p>
+<figure data-type="image" tabindex="6"><img src="https://www.zhihu.com/equation?tex=u_1%5Cstackrel%7Br_1%7D%7B%5Clongrightarrow%7Di_1%5Cstackrel%7Br_2%7D%7B%5Clongrightarrow%7De_1%5Cstackrel%7B-r_2%7D%7B%5Clongrightarrow%7Di_2%5Cstackrel%7B-r_1%7D%7B%5Clongrightarrow%7D%5C%7Bu_2%2Cu_3%5C%7D" alt="[å¬å¼]" loading="lazy"></figure>
+<figure data-type="image" tabindex="7"><img src="https://www.zhihu.com/equation?tex=u_1%5Cstackrel%7Br_1%7D%7B%5Clongrightarrow%7Di_1%5Cstackrel%7Br_2%7D%7B%5Clongrightarrow%7De_1%5Cstackrel%7B-r_3%7D%7B%5Clongrightarrow%7D%5C%7Bi_3%2Ci_4%5C%7D" alt="[å¬å¼]" loading="lazy"></figure>
+<p>也就是上图中标黄色和灰色的部分，CF和SL难以挖掘这样的关系</p>
+<h2 id="2任务制定">2.任务制定</h2>
+<figure data-type="image" tabindex="8"><img src="https://img-blog.csdnimg.cn/20191203163931970.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjM0MTk4Ng==,size_16,color_FFFFFF,t_70" alt="å¨è¿éæå¥å¾çæè¿°" loading="lazy"></figure>
+<figure data-type="image" tabindex="9"><img src="https://img-blog.csdnimg.cn/20191203163951508.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjM0MTk4Ng==,size_16,color_FFFFFF,t_70" alt="å¨è¿éæå¥å¾çæè¿°" loading="lazy"></figure>
+<h3 id="21个人理解">2.1个人理解</h3>
+<p>CKG图主要就是把协同过滤算法和SL算法综合了一下，也就是考虑到了用户-商品-商品的特征，这三个影响因素组成的图，然后其中任意两个因素都可以组成三元组，进而影响预测的结果。</p>
+<p><strong>高阶连接性</strong>：在上文阐述过CF算法没有发掘用户-商品属性的关系，SL算法却将这些实体当做item的特征来用，却没有挖掘连通性信息，很难建模上图中给出的例子，没有充分探索高阶连接性</p>
+<h2 id="3-方法论">3 方法论</h2>
+<p><img src="https://img-blog.csdnimg.cn/20191203164022682.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjM0MTk4Ng==,size_16,color_FFFFFF,t_70" alt="å¨è¿éæå¥å¾çæè¿°" loading="lazy"> <img src="https://img-blog.csdnimg.cn/20191203164039801.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjM0MTk4Ng==,size_16,color_FFFFFF,t_70" alt="å¨è¿éæå¥å¾çæè¿°" loading="lazy"> <img src="https://img-blog.csdnimg.cn/20191203164100408.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjM0MTk4Ng==,size_16,color_FFFFFF,t_70" alt="å¨è¿éæå¥å¾çæè¿°" loading="lazy"> <img src="https://img-blog.csdnimg.cn/20191203164122203.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjM0MTk4Ng==,size_16,color_FFFFFF,t_70" alt="å¨è¿éæå¥å¾çæè¿°" loading="lazy"> <img src="https://img-blog.csdnimg.cn/20191203164135933.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjM0MTk4Ng==,size_16,color_FFFFFF,t_70" alt="å¨è¿éæå¥å¾çæè¿°" loading="lazy"> <img src="https://img-blog.csdnimg.cn/20191203164152646.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjM0MTk4Ng==,size_16,color_FFFFFF,t_70" alt="å¨è¿éæå¥å¾çæè¿°" loading="lazy"> <img src="https://img-blog.csdnimg.cn/20191203164212637.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjM0MTk4Ng==,size_16,color_FFFFFF,t_70" alt="å¨è¿éæå¥å¾çæè¿°" loading="lazy"> <img src="https://img-blog.csdnimg.cn/20191203164229242.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjM0MTk4Ng==,size_16,color_FFFFFF,t_70" alt="å¨è¿éæå¥å¾çæè¿°" loading="lazy"> <img src="https://img-blog.csdnimg.cn/20191203164242971.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjM0MTk4Ng==,size_16,color_FFFFFF,t_70" alt="å¨è¿éæå¥å¾çæè¿°" loading="lazy"> <img src="https://img-blog.csdnimg.cn/2019120316425950.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjM0MTk4Ng==,size_16,color_FFFFFF,t_70" alt="å¨è¿éæå¥å¾çæè¿°" loading="lazy"> <img src="https://img-blog.csdnimg.cn/20191203164353845.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjM0MTk4Ng==,size_16,color_FFFFFF,t_70" alt="å¨è¿éæå¥å¾çæè¿°" loading="lazy"> <img src="https://img-blog.csdnimg.cn/20191203164413889.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjM0MTk4Ng==,size_16,color_FFFFFF,t_70" alt="å¨è¿éæå¥å¾çæè¿°" loading="lazy"></p>
+<h3 id="31个人理解">3.1个人理解</h3>
+<h4 id="311-kgat"><strong>3.1.1 KGAT</strong></h4>
+<p>KGAT预测图中的user和item是否产生交互，是两者embedding 后生成的向量进行内积运算，结果作为概率</p>
+<p>然后KGAT可以分为两个部分Embedding Layer 和Attentive Embedding Propagation Layer ，这两个的训练是单独的，损失函数也不同</p>
+<h4 id="312-embedding-layer">3.1.2 Embedding Layer</h4>
+<p>用embedding向量去描述每个实体$  e_h，e_t\in R^d $  和每个关系 .$  e_r\in R^k $Embedding Layer从CKG图结构出发，以TransR为思想来训练，即</p>
+<figure data-type="image" tabindex="10"><img src="https://www.zhihu.com/equation?tex=e_h%5Er%2Be_r%5Capprox+e_t%5Er%5C%5C" alt="[公式]" loading="lazy"></figure>
+<p>$  e_h<sup>r，e_t</sup>r $ 为 $  e_h，e_t $  在关系 r 空间的投影向量，我们可以用矩阵乘法来做投影。我们定义如下损失函数：</p>
+<figure data-type="image" tabindex="11"><img src="https://www.zhihu.com/equation?tex=L_%7BKG%7D%3D%5Csum_%7B%28h%2Cr%2Ct%2Ct%27%29%5Cin+T%7D-%5Cln%5Csigma%5Cleft%28g%28h%2Cr%2Ct%27%29-g%28h%2Cr%2Ct%29%5Cright%29%5C%5C+g%28h%2Cr%2Ct%29%3D%7C%7CW_re_h%2Be_r-W_re_t%7C%7C%5E2%5C%5C" alt="[公式]" loading="lazy"></figure>
+<p>其中 <img src="https://www.zhihu.com/equation?tex=W_r%5Cin%5CBbb%7BR%7D%5E%7Bk%5Ctimes+d%7D%2CT%3D%5C%7B%28h%2Cr%2Ct%2Ct%27%29%7C%28h%2Cr%2Ct%29%5Cin%5Cmathcal%7BG%7D%2C%28h%2Cr%2Ct%27%29%5Cnotin%5Cmathcal%7BG%7D%5C%7D" alt="[公式]" loading="lazy"> 。</p>
+<p>其中Wr是关系r的变换矩阵，然后利用sigmoid函数进行损失函数的计算</p>
+<h4 id="313-attentive-embedding-propagation-layer">3.1.3  Attentive Embedding Propagation Layer</h4>
+<p>这个过程分为三步：</p>
+<ol>
+<li>**Information Propagation：**这一步是传递所有以 <img src="https://www.zhihu.com/equation?tex=h" alt="[公式]" loading="lazy"> 为头的三元组关系 <img src="https://www.zhihu.com/equation?tex=%28h%2Cr%2Ct%29" alt="[公式]" loading="lazy"> 的尾向量 <img src="https://www.zhihu.com/equation?tex=e_t" alt="[公式]" loading="lazy"> 信息：</li>
+</ol>
+<figure data-type="image" tabindex="12"><img src="https://www.zhihu.com/equation?tex=e_%7BN_h%7D%3D%5Csum_%7B%28h%2Cr%2Ct%29%5Cin+N_h%7D%5Cpi+%28h%2Cr%2Ct%29e_t%5C%5C" alt="[公式]" loading="lazy"></figure>
+<p><img src="https://www.zhihu.com/equation?tex=%5Cpi+%28h%2Cr%2Ct%29" alt="[公式]" loading="lazy"> 是衡量消息 <img src="https://www.zhihu.com/equation?tex=%28h%2Cr%2Ct%29" alt="[公式]" loading="lazy"> 的权重。主要是t到h传播的信息与关系r的条件</p>
+<p>2.<strong>Knowledge-aware Attention：</strong> <img src="https://www.zhihu.com/equation?tex=%5Cpi+%28h%2Cr%2Ct%29" alt="[公式]" loading="lazy"> 的实现是以注意力机制完成，计算如下：</p>
+<figure data-type="image" tabindex="13"><img src="https://www.zhihu.com/equation?tex=%5Cpi%27%28h%2Cr%2Ct%29%3D%28W_re_t%29%5ET%5Ctanh%5Cleft%28W_re_h%2Be_t%5Cright%29%5C%5C+%5Cpi+%28h%2Cr%2Ct%29%3D%5Cfrac%7Bexp%28%5Cpi%27%28h%2Cr%2Ct%29%29%7D%7B%5Csum_%7B%28h%2Cr%27%2Ct%27%29%5Cin+N_h%7Dexp%28%5Cpi%27%28h%2Cr%27%2Ct%27%29%29%7D%5C%5C" alt="[公式]" loading="lazy"></figure>
+<p>第一步基于TransR，若是三元组关系 <img src="https://www.zhihu.com/equation?tex=%28h%2Cr%2Ct%29" alt="[公式]" loading="lazy"> 能满足 <img src="https://www.zhihu.com/equation?tex=e_h%5Er%2Be_r%5Capprox+e_t%5Er" alt="[公式]" loading="lazy"> ，那么所获得的权重自然越大。 <img src="https://www.zhihu.com/equation?tex=%5Ctanh" alt="[公式]" loading="lazy"> 的作用是增加非线性能力。</p>
+<p><strong>softmax 函数</strong>的主要作用是将多分类的结果以概率的形式（非负数；大小在0~1之间，且各概率之和为1）展现。此处通过softmax函数对π(h,r,t)进行处理，目的是定量显示出应该给予哪个邻居更多的注意力。</p>
+<p>3.<strong>Information Aggregation:</strong>  将传递的消息做聚合丶更新，有三种方式</p>
+<p><strong>GCN Aggregator</strong>: <img src="https://www.zhihu.com/equation?tex=f_%7BGCN%7D%3DLeakyReLu%5Cleft%28W%28e_h%2Be_%7BN_h%7D%29%5Cright%29" alt="[公式]" loading="lazy"> ；</p>
+<p><strong>GraphSage Aggregator:</strong><img src="https://www.zhihu.com/equation?tex=f_%7BGCN%7D%3DLeakyReLu%5Cleft%28W%28e_h%7C%7Ce_%7BN_h%7D%29%5Cright%29" alt="[公式]" loading="lazy"> ；</p>
+<p><strong>Bi-Interaction Aggregator</strong>: <img src="https://www.zhihu.com/equation?tex=f_%7BGCN%7D%3DLeakyReLu%5Cleft%28W_1%28e_h%2Be_%7BN_h%7D%29%5Cright%29%2BLeakyReLu%5Cleft%28W_1%28e_h%5Codot+e_%7BN_h%7D%29%5Cright%29" alt="[公式]" loading="lazy"> ；</p>
+<p>重复以上的三个步骤多次，然后我们每一次都会获得相对应的向量，因此我们定义，第 <img src="https://www.zhihu.com/equation?tex=l" alt="[公式]" loading="lazy"> 次有：</p>
+<figure data-type="image" tabindex="14"><img src="https://www.zhihu.com/equation?tex=e_h%5E%7B%28l%29%7D%3Df%5Cleft%28e_h%5E%7B%28l-1%29%7D%2Ce_%7BN_h%7D%5E%7B%28l-1%29%7D%5Cright%29%5C%5C+e_h%5E%7B%28l-1%29%7D%3D%5Csum_%7B%28h%2Cr%2Ct%29%5Cin+N_h%7D%5Cpi+%28h%2Cr%2Ct%29e_t%5E%7B%28l-1%29%7D%5C%5C" alt="[公式]" loading="lazy"></figure>
+<p>将过程中产生的所有向量 <img src="https://www.zhihu.com/equation?tex=e_h%5E%7B%28l%29%7D" alt="[公式]" loading="lazy"> 拼接，作为KGAT迭代生成的实体 <img src="https://www.zhihu.com/equation?tex=h" alt="[公式]" loading="lazy"> 的embedding。假设当前我们计算出 <img src="https://www.zhihu.com/equation?tex=u" alt="[公式]" loading="lazy"> 和 <img src="https://www.zhihu.com/equation?tex=i" alt="[公式]" loading="lazy"> 的embedding，预测有：</p>
+<figure data-type="image" tabindex="15"><img src="https://www.zhihu.com/equation?tex=e_u%5E%2A%3De_u%5E%7B%280%29%7D%7C%7C%5Ccdots%7C%7Ce_u%5E%7B%28L%29%7D%2Ce_i%5E%2A%3De_i%5E%7B%280%29%7D%7C%7C%5Ccdots%7C%7Ce_i%5E%7B%28L%29%7D%5C%5C+%5Chat%7By%7D%28u%2Ci%29%3D%28e_u%5E%2A%29%5ETe_i%5E%2A%5C%5C" alt="[公式]" loading="lazy"></figure>
+<p>通过BPR损失函数对推荐模型进行优化。优化的intuition是：观察到的交互表示出用户的偏好，那么相应就应该有更高的预测评分。</p>
+<figure data-type="image" tabindex="16"><img src="https://www.zhihu.com/equation?tex=L_%7BCF%7D%3D%5Csum_%7B%28u%2Ci%2Cj%29%5Cin+O%7D-%5Cln%5Csigma%5Cleft%28%5Chat%7By%7D%28u%2Ci%29-%5Chat%7By%7D%28u%2Cj%29%5Cright%29%5C%5C" alt="[公式]" loading="lazy"></figure>
+<p>其中 <img src="https://www.zhihu.com/equation?tex=O%3D%5C%7B%28u%2Ci%2Cj%29%7C%28u%2Ci%29%5Cin+R%5E%2B%2C%28u%2Cj%29%5Cin+R%5E-%5C%7D" alt="[公式]" loading="lazy"> 。</p>
+<p>定义最终的目标优化函数：</p>
+<figure data-type="image" tabindex="17"><img src="https://img-blog.csdnimg.cn/20200516094213667.png" alt="å¨è¿éæå¥å¾çæè¿°" loading="lazy"></figure>
+
+        </div>
+        
+        <div class="prev-post">
+            上一篇
+            <a href="https://s-hmily.github.io/post/make-it-a-chorus-knowledge-and-time-aware-item-modeling-for-sequential-recommendation-fan-yi/">
+                Make It a Chorus: Knowledge- and Time-aware Item Modeling for Sequential Recommendation 翻译
+            </a>
+        </div>
+        
+        
+        <div class="next-post">
+            下一篇
+            <a href="https://s-hmily.github.io/post/xun-huan-shen-jing-wang-luo/">
+                循环神经网络
+            </a>
+        </div>
+        
+    </div>
+    </div>
+</body>
+<script>
+    var t_img; // 定时�?
+    var isLoad = true; // 控制变量
+    isImgLoad(function () {
+        // 加载完成
+        $('.postdetailimg').css("display", "block");
+    });
+    // 判断图片加载的函�?
+    function isImgLoad(callback) {
+        // 注意我的图片类名都是cover，因为我�?需要�?�理cover。其它图片可以不管�?
+        // 查找所有封面图，迭代�?�理
+        $('.postdetailimg').each(function () {
+            // 找到�?0就将isLoad设为false，并退出each
+            if (this.height === 0) {
+                isLoad = false;
+                return false;
+            }
+        });
+        // 为true，没有发现为0的。加载完�?
+        if (isLoad) {
+            clearTimeout(t_img); // 清除定时�?
+            // 回调函数
+            callback();
+            // 为false，因为找到了没有加载完成的图，将调用定时器递归
+        } else {
+            isLoad = true;
+            t_img = setTimeout(function () {
+                isImgLoad(callback); // 递归�?�?
+            }, 500); // 我这里�?�置的是500�?秒就�?描一次，�?以自己调�?
+        }
+    }
+
+    //文章阅读热度
+    var pl = $("#pl").html();
+    var rootaddr = $("#rootaddr").html();
+    pl = pl.replace(rootaddr, "");
+    $("#hotnum").attr('id', pl);
+</script>
+        <div name="comment" style="background: white">
+            <div class="commentcontainer">
+                
+                <p>请到客户端“主题--自定义配置--valine”中填入ID和KEY</p>
+                
+            </div>
+        </div>
+    </div>
+     
+                <div class="toc-container">
+                    <ul class="markdownIt-TOC">
+<li>
+<ul>
+<li><a href="#%E6%91%98%E8%A6%81">摘要</a></li>
+<li><a href="#1%E4%BB%8B%E7%BB%8D">1.介绍</a>
+<ul>
+<li><a href="#11%E4%B8%AA%E4%BA%BA%E7%90%86%E8%A7%A3">1.1个人理解</a></li>
+</ul>
+</li>
+<li><a href="#2%E4%BB%BB%E5%8A%A1%E5%88%B6%E5%AE%9A">2.任务制定</a>
+<ul>
+<li><a href="#21%E4%B8%AA%E4%BA%BA%E7%90%86%E8%A7%A3">2.1个人理解</a></li>
+</ul>
+</li>
+<li><a href="#3-%E6%96%B9%E6%B3%95%E8%AE%BA">3 方法论</a>
+<ul>
+<li><a href="#31%E4%B8%AA%E4%BA%BA%E7%90%86%E8%A7%A3">3.1个人理解</a>
+<ul>
+<li><a href="#311-kgat"><strong>3.1.1 KGAT</strong></a></li>
+<li><a href="#312-embedding-layer">3.1.2 Embedding Layer</a></li>
+<li><a href="#313-attentive-embedding-propagation-layer">3.1.3  Attentive Embedding Propagation Layer</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+    </div>
+    </div>
+    </div>
+    <div class="toggleContainer">
+        <div class="toggle">
+            <i class="fas fa-angle-double-up"></i>
+        </div>
+    </div>
+    <div id="bg">
+    </div>
+    <div id="bgchoice" style="display: none">link</div>
+    
+    <div id="bgurl" style="display:none">https://pic2.zhimg.com/80/v2-bcbb1a4f932ab78c198b0a99af266d4e_720w.jpg?source=1940ef5c</div>
+       
+    </div>
+    <!-- 响应式布局，针对手机端内容显示 -->
+    <div class="nav-small">
+        <head>
+  <!-- 引入Bootstrap核心样式文件 -->
+  <link rel="stylesheet" href="https://s-hmily.github.io/media/css/bootstrap.min.css">
+</head>
+
+<body>
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container-fluid">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+          data-target="#barmenu" aria-expanded="false" id="barbutton">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="https://s-hmily.github.io">叮叮当&nbsp;&nbsp;|</a>
+      </div>
+
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="barmenu">
+        <ul class="nav navbar-nav">
+          
+          
+          <li>
+            <a href="https://s-hmily.github.io">
+              首页
+            </a>
+          </li>
+          
+          
+          
+          <li>
+            <a href="/archives">
+              归档
+            </a>
+          </li>
+          
+          
+          
+          <li>
+            <a href="https://s-hmily.github.io/tags">
+              标签
+            </a>
+          </li>
+          
+          
+          
+            <li><a href="https://s-hmily.github.io/talk">说说</a></li>
+            
+          
+          <li><a href="https://s-hmily.github.io/friends">友链</a></li>
+
+          
+        </ul>
+      </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+  </nav>
+
+
+  <!-- 引入jQuery核心js文件 -->
+  <script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+  <script>
+  var btstate = false;
+  var bt = $("#barbutton");
+  var bm = $("#barmenu");
+  bt.click(function(){
+    dropdown();
+  })
+  function dropdown(){
+    console.log(btstate);
+    //下拉
+    if(btstate==false){
+      bt.removeClass("collapsed");
+      bt.attr("aria-expanded","true");
+      bm.attr("aria-expanded","true")
+      bm.fadeIn(700);
+      btstate = true;
+    }
+    else{
+      bt.addClass("collapsed");
+      bt.attr("aria-expanded","false");
+      bm.removeClass("in");
+      bm.hide();
+      bm.attr("aria-expanded","false");
+      btstate = false;
+    }
+  }
+  </script> 
+</body>
+    <div style="margin-top:30px"></div>
+    <link rel="stylesheet" href="https://s-hmily.github.io/media/css/font-awesome.css">
+<style>
+
+</style>
+
+<body>
+    <div class="allcontent" id="postdetail">
+        <div class="postshow">
+            
+            <div class="postdetailimg" style="width:100%;overflow: hidden;display: none">
+                
+                <img src="https://pic2.zhimg.com/80/v2-bcbb1a4f932ab78c198b0a99af266d4e_720w.jpg?source=1940ef5c" class="postimage">
+                
+            </div>
+            <div class="postinfo-detail">
+                <div class="postdate"><i class="fa fa-calendar"></i>2020-07-29</div>
+            <div class="poststatus postdate"><i class="fa fa-clock-o"></i> 4 min read</div>
+            <div class="posttag">
+                
+            </div>
+        </div>
+        
+        <div id="texttitle" style="text-align: center">
+            <h2>论文笔记：《KGAT: Knowledge Graph Attention Network for Recommendation》</h2>
+            <!-- id 将作为查询条件 -->
+            <div id="pl" style="display:none">https://s-hmily.github.io/post/lun-wen-bi-ji-lesslesskgat-knowledge-graph-attention-network-for-recommendationgreatergreater/</div>
+            <div id="rootaddr" style="display:none">https://s-hmily.github.io</div>
+            <span id="hotnum" class="leancloud_visitors" data-flag-title="论文笔记：《KGAT: Knowledge Graph Attention Network for Recommendation》">
+                <h4 class="readercount">热度🔥: <i class="leancloud-visitors-count">loading...</i></h4>
+            </span>
+        </div>
+        <div class="text ">
+            <h2 id="摘要">摘要</h2>
+<figure data-type="image" tabindex="1"><img src="https://img-blog.csdnimg.cn/20191203163615366.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjM0MTk4Ng==,size_16,color_FFFFFF,t_70" alt="å¨è¿éæå¥å¾çæè¿°" loading="lazy"></figure>
+<p><strong>有监督学习：用已知某种或某些特性的样本作为训练集，以建立一个数学模型，再用已建立的模型来预测未知样本</strong></p>
+<h2 id="1介绍">1.介绍</h2>
+<figure data-type="image" tabindex="2"><img src="https://img-blog.csdnimg.cn/20191203163650131.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjM0MTk4Ng==,size_16,color_FFFFFF,t_70" alt="å¨è¿éæå¥å¾çæè¿°" loading="lazy"></figure>
+<figure data-type="image" tabindex="3"><img src="https://img-blog.csdnimg.cn/20191203163706914.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjM0MTk4Ng==,size_16,color_FFFFFF,t_70" alt="å¨è¿éæå¥å¾çæè¿°" loading="lazy"></figure>
+<p><img src="https://img-blog.csdnimg.cn/20191203163722847.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjM0MTk4Ng==,size_16,color_FFFFFF,t_70" alt="å¨è¿éæå¥å¾çæè¿°" loading="lazy"> <img src="https://img-blog.csdnimg.cn/20191203163742796.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjM0MTk4Ng==,size_16,color_FFFFFF,t_70" alt="å¨è¿éæå¥å¾çæè¿°" loading="lazy"> <img src="https://img-blog.csdnimg.cn/20191203163800168.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjM0MTk4Ng==,size_16,color_FFFFFF,t_70" alt="å¨è¿éæå¥å¾çæè¿°" loading="lazy"></p>
+<h3 id="11个人理解">1.1个人理解</h3>
+<p><strong>什么是KGAT模型？</strong></p>
+<p>就是综合了协同过滤CF和有监督学习SL的模型</p>
+<p><strong>基于用户的CF算法的核心是找出与带推荐用户具有相似的交互行为的用户，然后推荐该用户买过的商品。</strong></p>
+<p>用例子表示为： 有两个用户 u1，u2和两个商品i1，i2，用户u1购买了i1，用户u2也购买了i1，但是用户u2也购买了i2，我们就会吧i2推荐给u1</p>
+<figure data-type="image" tabindex="4"><img src="https://www.zhihu.com/equation?tex=u_1%5Cstackrel%7Br_1%7D%7B%5Clongrightarrow%7Di_1%5Cstackrel%7B-r_1%7D%7B%5Clongrightarrow%7Du_2%5Cstackrel%7Br_1%7D%7B%5Clongrightarrow%7Di_2" alt="[å¬å¼]" loading="lazy"></figure>
+<p>如果采用SL的方法 就是有用户u1，有商品 i1，i2然后还有i1，i2共有的属性e1</p>
+<p>然后U1买了i1，i1因为和i2有相同的属性就把i2推荐给了用户u1</p>
+<figure data-type="image" tabindex="5"><img src="https://www.zhihu.com/equation?tex=u_1%5Cstackrel%7Br_1%7D%7B%5Clongrightarrow%7Di_1%5Cstackrel%7Br_2%7D%7B%5Clongrightarrow%7De_1%5Cstackrel%7B-r_2%7D%7B%5Clongrightarrow%7Di_2" alt="[å¬å¼]" loading="lazy"></figure>
+<p>但是这两个模型有缺陷，CF模型忽略了item本身的属性，过于简单，但是SL的方法将这些实体当做item的特征来用，却没有挖掘连通性信息。</p>
+<p>基于以上的基础，推出了KGAT模型，这种结构称之为CKG，上图就是一个例子。可以有效的挖掘潜在的部分</p>
+<p>列如：</p>
+<figure data-type="image" tabindex="6"><img src="https://www.zhihu.com/equation?tex=u_1%5Cstackrel%7Br_1%7D%7B%5Clongrightarrow%7Di_1%5Cstackrel%7Br_2%7D%7B%5Clongrightarrow%7De_1%5Cstackrel%7B-r_2%7D%7B%5Clongrightarrow%7Di_2%5Cstackrel%7B-r_1%7D%7B%5Clongrightarrow%7D%5C%7Bu_2%2Cu_3%5C%7D" alt="[å¬å¼]" loading="lazy"></figure>
+<figure data-type="image" tabindex="7"><img src="https://www.zhihu.com/equation?tex=u_1%5Cstackrel%7Br_1%7D%7B%5Clongrightarrow%7Di_1%5Cstackrel%7Br_2%7D%7B%5Clongrightarrow%7De_1%5Cstackrel%7B-r_3%7D%7B%5Clongrightarrow%7D%5C%7Bi_3%2Ci_4%5C%7D" alt="[å¬å¼]" loading="lazy"></figure>
+<p>也就是上图中标黄色和灰色的部分，CF和SL难以挖掘这样的关系</p>
+<h2 id="2任务制定">2.任务制定</h2>
+<figure data-type="image" tabindex="8"><img src="https://img-blog.csdnimg.cn/20191203163931970.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjM0MTk4Ng==,size_16,color_FFFFFF,t_70" alt="å¨è¿éæå¥å¾çæè¿°" loading="lazy"></figure>
+<figure data-type="image" tabindex="9"><img src="https://img-blog.csdnimg.cn/20191203163951508.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjM0MTk4Ng==,size_16,color_FFFFFF,t_70" alt="å¨è¿éæå¥å¾çæè¿°" loading="lazy"></figure>
+<h3 id="21个人理解">2.1个人理解</h3>
+<p>CKG图主要就是把协同过滤算法和SL算法综合了一下，也就是考虑到了用户-商品-商品的特征，这三个影响因素组成的图，然后其中任意两个因素都可以组成三元组，进而影响预测的结果。</p>
+<p><strong>高阶连接性</strong>：在上文阐述过CF算法没有发掘用户-商品属性的关系，SL算法却将这些实体当做item的特征来用，却没有挖掘连通性信息，很难建模上图中给出的例子，没有充分探索高阶连接性</p>
+<h2 id="3-方法论">3 方法论</h2>
+<p><img src="https://img-blog.csdnimg.cn/20191203164022682.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjM0MTk4Ng==,size_16,color_FFFFFF,t_70" alt="å¨è¿éæå¥å¾çæè¿°" loading="lazy"> <img src="https://img-blog.csdnimg.cn/20191203164039801.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjM0MTk4Ng==,size_16,color_FFFFFF,t_70" alt="å¨è¿éæå¥å¾çæè¿°" loading="lazy"> <img src="https://img-blog.csdnimg.cn/20191203164100408.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjM0MTk4Ng==,size_16,color_FFFFFF,t_70" alt="å¨è¿éæå¥å¾çæè¿°" loading="lazy"> <img src="https://img-blog.csdnimg.cn/20191203164122203.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjM0MTk4Ng==,size_16,color_FFFFFF,t_70" alt="å¨è¿éæå¥å¾çæè¿°" loading="lazy"> <img src="https://img-blog.csdnimg.cn/20191203164135933.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjM0MTk4Ng==,size_16,color_FFFFFF,t_70" alt="å¨è¿éæå¥å¾çæè¿°" loading="lazy"> <img src="https://img-blog.csdnimg.cn/20191203164152646.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjM0MTk4Ng==,size_16,color_FFFFFF,t_70" alt="å¨è¿éæå¥å¾çæè¿°" loading="lazy"> <img src="https://img-blog.csdnimg.cn/20191203164212637.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjM0MTk4Ng==,size_16,color_FFFFFF,t_70" alt="å¨è¿éæå¥å¾çæè¿°" loading="lazy"> <img src="https://img-blog.csdnimg.cn/20191203164229242.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjM0MTk4Ng==,size_16,color_FFFFFF,t_70" alt="å¨è¿éæå¥å¾çæè¿°" loading="lazy"> <img src="https://img-blog.csdnimg.cn/20191203164242971.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjM0MTk4Ng==,size_16,color_FFFFFF,t_70" alt="å¨è¿éæå¥å¾çæè¿°" loading="lazy"> <img src="https://img-blog.csdnimg.cn/2019120316425950.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjM0MTk4Ng==,size_16,color_FFFFFF,t_70" alt="å¨è¿éæå¥å¾çæè¿°" loading="lazy"> <img src="https://img-blog.csdnimg.cn/20191203164353845.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjM0MTk4Ng==,size_16,color_FFFFFF,t_70" alt="å¨è¿éæå¥å¾çæè¿°" loading="lazy"> <img src="https://img-blog.csdnimg.cn/20191203164413889.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjM0MTk4Ng==,size_16,color_FFFFFF,t_70" alt="å¨è¿éæå¥å¾çæè¿°" loading="lazy"></p>
+<h3 id="31个人理解">3.1个人理解</h3>
+<h4 id="311-kgat"><strong>3.1.1 KGAT</strong></h4>
+<p>KGAT预测图中的user和item是否产生交互，是两者embedding 后生成的向量进行内积运算，结果作为概率</p>
+<p>然后KGAT可以分为两个部分Embedding Layer 和Attentive Embedding Propagation Layer ，这两个的训练是单独的，损失函数也不同</p>
+<h4 id="312-embedding-layer">3.1.2 Embedding Layer</h4>
+<p>用embedding向量去描述每个实体$  e_h，e_t\in R^d $  和每个关系 .$  e_r\in R^k $Embedding Layer从CKG图结构出发，以TransR为思想来训练，即</p>
+<figure data-type="image" tabindex="10"><img src="https://www.zhihu.com/equation?tex=e_h%5Er%2Be_r%5Capprox+e_t%5Er%5C%5C" alt="[公式]" loading="lazy"></figure>
+<p>$  e_h<sup>r，e_t</sup>r $ 为 $  e_h，e_t $  在关系 r 空间的投影向量，我们可以用矩阵乘法来做投影。我们定义如下损失函数：</p>
+<figure data-type="image" tabindex="11"><img src="https://www.zhihu.com/equation?tex=L_%7BKG%7D%3D%5Csum_%7B%28h%2Cr%2Ct%2Ct%27%29%5Cin+T%7D-%5Cln%5Csigma%5Cleft%28g%28h%2Cr%2Ct%27%29-g%28h%2Cr%2Ct%29%5Cright%29%5C%5C+g%28h%2Cr%2Ct%29%3D%7C%7CW_re_h%2Be_r-W_re_t%7C%7C%5E2%5C%5C" alt="[公式]" loading="lazy"></figure>
+<p>其中 <img src="https://www.zhihu.com/equation?tex=W_r%5Cin%5CBbb%7BR%7D%5E%7Bk%5Ctimes+d%7D%2CT%3D%5C%7B%28h%2Cr%2Ct%2Ct%27%29%7C%28h%2Cr%2Ct%29%5Cin%5Cmathcal%7BG%7D%2C%28h%2Cr%2Ct%27%29%5Cnotin%5Cmathcal%7BG%7D%5C%7D" alt="[公式]" loading="lazy"> 。</p>
+<p>其中Wr是关系r的变换矩阵，然后利用sigmoid函数进行损失函数的计算</p>
+<h4 id="313-attentive-embedding-propagation-layer">3.1.3  Attentive Embedding Propagation Layer</h4>
+<p>这个过程分为三步：</p>
+<ol>
+<li>**Information Propagation：**这一步是传递所有以 <img src="https://www.zhihu.com/equation?tex=h" alt="[公式]" loading="lazy"> 为头的三元组关系 <img src="https://www.zhihu.com/equation?tex=%28h%2Cr%2Ct%29" alt="[公式]" loading="lazy"> 的尾向量 <img src="https://www.zhihu.com/equation?tex=e_t" alt="[公式]" loading="lazy"> 信息：</li>
+</ol>
+<figure data-type="image" tabindex="12"><img src="https://www.zhihu.com/equation?tex=e_%7BN_h%7D%3D%5Csum_%7B%28h%2Cr%2Ct%29%5Cin+N_h%7D%5Cpi+%28h%2Cr%2Ct%29e_t%5C%5C" alt="[公式]" loading="lazy"></figure>
+<p><img src="https://www.zhihu.com/equation?tex=%5Cpi+%28h%2Cr%2Ct%29" alt="[公式]" loading="lazy"> 是衡量消息 <img src="https://www.zhihu.com/equation?tex=%28h%2Cr%2Ct%29" alt="[公式]" loading="lazy"> 的权重。主要是t到h传播的信息与关系r的条件</p>
+<p>2.<strong>Knowledge-aware Attention：</strong> <img src="https://www.zhihu.com/equation?tex=%5Cpi+%28h%2Cr%2Ct%29" alt="[公式]" loading="lazy"> 的实现是以注意力机制完成，计算如下：</p>
+<figure data-type="image" tabindex="13"><img src="https://www.zhihu.com/equation?tex=%5Cpi%27%28h%2Cr%2Ct%29%3D%28W_re_t%29%5ET%5Ctanh%5Cleft%28W_re_h%2Be_t%5Cright%29%5C%5C+%5Cpi+%28h%2Cr%2Ct%29%3D%5Cfrac%7Bexp%28%5Cpi%27%28h%2Cr%2Ct%29%29%7D%7B%5Csum_%7B%28h%2Cr%27%2Ct%27%29%5Cin+N_h%7Dexp%28%5Cpi%27%28h%2Cr%27%2Ct%27%29%29%7D%5C%5C" alt="[公式]" loading="lazy"></figure>
+<p>第一步基于TransR，若是三元组关系 <img src="https://www.zhihu.com/equation?tex=%28h%2Cr%2Ct%29" alt="[公式]" loading="lazy"> 能满足 <img src="https://www.zhihu.com/equation?tex=e_h%5Er%2Be_r%5Capprox+e_t%5Er" alt="[公式]" loading="lazy"> ，那么所获得的权重自然越大。 <img src="https://www.zhihu.com/equation?tex=%5Ctanh" alt="[公式]" loading="lazy"> 的作用是增加非线性能力。</p>
+<p><strong>softmax 函数</strong>的主要作用是将多分类的结果以概率的形式（非负数；大小在0~1之间，且各概率之和为1）展现。此处通过softmax函数对π(h,r,t)进行处理，目的是定量显示出应该给予哪个邻居更多的注意力。</p>
+<p>3.<strong>Information Aggregation:</strong>  将传递的消息做聚合丶更新，有三种方式</p>
+<p><strong>GCN Aggregator</strong>: <img src="https://www.zhihu.com/equation?tex=f_%7BGCN%7D%3DLeakyReLu%5Cleft%28W%28e_h%2Be_%7BN_h%7D%29%5Cright%29" alt="[公式]" loading="lazy"> ；</p>
+<p><strong>GraphSage Aggregator:</strong><img src="https://www.zhihu.com/equation?tex=f_%7BGCN%7D%3DLeakyReLu%5Cleft%28W%28e_h%7C%7Ce_%7BN_h%7D%29%5Cright%29" alt="[公式]" loading="lazy"> ；</p>
+<p><strong>Bi-Interaction Aggregator</strong>: <img src="https://www.zhihu.com/equation?tex=f_%7BGCN%7D%3DLeakyReLu%5Cleft%28W_1%28e_h%2Be_%7BN_h%7D%29%5Cright%29%2BLeakyReLu%5Cleft%28W_1%28e_h%5Codot+e_%7BN_h%7D%29%5Cright%29" alt="[公式]" loading="lazy"> ；</p>
+<p>重复以上的三个步骤多次，然后我们每一次都会获得相对应的向量，因此我们定义，第 <img src="https://www.zhihu.com/equation?tex=l" alt="[公式]" loading="lazy"> 次有：</p>
+<figure data-type="image" tabindex="14"><img src="https://www.zhihu.com/equation?tex=e_h%5E%7B%28l%29%7D%3Df%5Cleft%28e_h%5E%7B%28l-1%29%7D%2Ce_%7BN_h%7D%5E%7B%28l-1%29%7D%5Cright%29%5C%5C+e_h%5E%7B%28l-1%29%7D%3D%5Csum_%7B%28h%2Cr%2Ct%29%5Cin+N_h%7D%5Cpi+%28h%2Cr%2Ct%29e_t%5E%7B%28l-1%29%7D%5C%5C" alt="[公式]" loading="lazy"></figure>
+<p>将过程中产生的所有向量 <img src="https://www.zhihu.com/equation?tex=e_h%5E%7B%28l%29%7D" alt="[公式]" loading="lazy"> 拼接，作为KGAT迭代生成的实体 <img src="https://www.zhihu.com/equation?tex=h" alt="[公式]" loading="lazy"> 的embedding。假设当前我们计算出 <img src="https://www.zhihu.com/equation?tex=u" alt="[公式]" loading="lazy"> 和 <img src="https://www.zhihu.com/equation?tex=i" alt="[公式]" loading="lazy"> 的embedding，预测有：</p>
+<figure data-type="image" tabindex="15"><img src="https://www.zhihu.com/equation?tex=e_u%5E%2A%3De_u%5E%7B%280%29%7D%7C%7C%5Ccdots%7C%7Ce_u%5E%7B%28L%29%7D%2Ce_i%5E%2A%3De_i%5E%7B%280%29%7D%7C%7C%5Ccdots%7C%7Ce_i%5E%7B%28L%29%7D%5C%5C+%5Chat%7By%7D%28u%2Ci%29%3D%28e_u%5E%2A%29%5ETe_i%5E%2A%5C%5C" alt="[公式]" loading="lazy"></figure>
+<p>通过BPR损失函数对推荐模型进行优化。优化的intuition是：观察到的交互表示出用户的偏好，那么相应就应该有更高的预测评分。</p>
+<figure data-type="image" tabindex="16"><img src="https://www.zhihu.com/equation?tex=L_%7BCF%7D%3D%5Csum_%7B%28u%2Ci%2Cj%29%5Cin+O%7D-%5Cln%5Csigma%5Cleft%28%5Chat%7By%7D%28u%2Ci%29-%5Chat%7By%7D%28u%2Cj%29%5Cright%29%5C%5C" alt="[公式]" loading="lazy"></figure>
+<p>其中 <img src="https://www.zhihu.com/equation?tex=O%3D%5C%7B%28u%2Ci%2Cj%29%7C%28u%2Ci%29%5Cin+R%5E%2B%2C%28u%2Cj%29%5Cin+R%5E-%5C%7D" alt="[公式]" loading="lazy"> 。</p>
+<p>定义最终的目标优化函数：</p>
+<figure data-type="image" tabindex="17"><img src="https://img-blog.csdnimg.cn/20200516094213667.png" alt="å¨è¿éæå¥å¾çæè¿°" loading="lazy"></figure>
+
+        </div>
+        
+        <div class="prev-post">
+            上一篇
+            <a href="https://s-hmily.github.io/post/make-it-a-chorus-knowledge-and-time-aware-item-modeling-for-sequential-recommendation-fan-yi/">
+                Make It a Chorus: Knowledge- and Time-aware Item Modeling for Sequential Recommendation 翻译
+            </a>
+        </div>
+        
+        
+        <div class="next-post">
+            下一篇
+            <a href="https://s-hmily.github.io/post/xun-huan-shen-jing-wang-luo/">
+                循环神经网络
+            </a>
+        </div>
+        
+    </div>
+    </div>
+</body>
+<script>
+    var t_img; // 定时�?
+    var isLoad = true; // 控制变量
+    isImgLoad(function () {
+        // 加载完成
+        $('.postdetailimg').css("display", "block");
+    });
+    // 判断图片加载的函�?
+    function isImgLoad(callback) {
+        // 注意我的图片类名都是cover，因为我�?需要�?�理cover。其它图片可以不管�?
+        // 查找所有封面图，迭代�?�理
+        $('.postdetailimg').each(function () {
+            // 找到�?0就将isLoad设为false，并退出each
+            if (this.height === 0) {
+                isLoad = false;
+                return false;
+            }
+        });
+        // 为true，没有发现为0的。加载完�?
+        if (isLoad) {
+            clearTimeout(t_img); // 清除定时�?
+            // 回调函数
+            callback();
+            // 为false，因为找到了没有加载完成的图，将调用定时器递归
+        } else {
+            isLoad = true;
+            t_img = setTimeout(function () {
+                isImgLoad(callback); // 递归�?�?
+            }, 500); // 我这里�?�置的是500�?秒就�?描一次，�?以自己调�?
+        }
+    }
+
+    //文章阅读热度
+    var pl = $("#pl").html();
+    var rootaddr = $("#rootaddr").html();
+    pl = pl.replace(rootaddr, "");
+    $("#hotnum").attr('id', pl);
+</script>
+    <div name="comment" style="background: white;margin-top:100px">
+        <div class="commentcontainer">
+            
+            <p>请到客户端“主题--自定义配置--valine”中填入ID和KEY</p>
+            
+        </div>
+    </div>
+    </div>
+    <div id="landlord">
+        <div class="message" style="opacity:0"></div>
+        <canvas id="live2d" width="240" height="250" class="live2d"></canvas>
+    </div>
+    <div id="codeCopyText" style="display: none">代码复制成功了哦</div>
+    <div id="domainname" style="display:none">https://s-hmily.github.io</div>
+    </body>
+    <script src="https://s-hmily.github.io/media/js/post.js"></script>
+    <script>
+        //寻找所有code标签，加复制按钮鸭！(行内代码除外)
+        var codes = document.getElementsByTagName('code');
+        if (codes.length) {
+            for (var i = 0; i < codes.length; i++) {
+                //高度/行高=文本行数
+                // var rowNum=Math.round(codes[i].height()/parseFloat(codes[i].css('line-height')));
+                // console.log("当前有"+rowNum+"行");
+                var code_id = "code_id_" + i;
+                codes[i].setAttribute("id", code_id);
+                var ci = "#" + code_id;
+                var codedot = $(ci);
+                var rowNum = Math.round(codedot.height() / parseFloat(codedot.css('line-height')));
+                if (rowNum <= 1) continue;
+                var btn = document.createElement("button");
+                btn.setAttribute("class", "copybt");
+                btn.setAttribute("data-clipboard-target", "#" + code_id);
+                btn.innerHTML = '复制代码';
+                codes[i].parentNode.insertBefore(btn, codes[i]);
+            }
+        };
+        var cop = new ClipboardJS('.copybt');
+        var codeCopyText = $("#codeCopyText").html();
+        cop.on('success', function (e) {
+            alert(codeCopyText);
+            e.clearSelection();
+        });
+        cop.on('error', function (e) {
+            alert("矮油，复制失败了...手动复制吧勇士！");
+            e.clearSelection();
+        });
+    </script>
+    
+    <script type="text/javascript">
+        var message_Path = '/live2d/'
+        var home_Path = document.getElementById("domainname").innerHTML+"/"; //此处修改为你的域名，必须带斜杠
+    </script>
+    <script type="text/javascript" src="https://s-hmily.github.io/media/live2d/js/live2d.js"></script>
+    <script type="text/javascript" src="https://s-hmily.github.io/media/live2d/js/message.js"></script>
+    <script type="text/javascript">
+        loadlive2d("live2d", "https://s-hmily.github.io/media/live2d/assets/tororo.model.json");
+    </script>
+    
+<script>
+$(function () {
+    $('.toggleContainer').click(function(){$('html,body').animate({scrollTop: '0px'}, 800);});
+	$(window).scroll(function() {
+        var st = $(window).scrollTop();
+        if(st > 30){
+            $(".toggleContainer").fadeIn(400);
+        }else{
+            $(".toggleContainer").fadeOut(100);
+        }
+	});
+});
+</script>
+
+<script>
+        var bgchoice=$('#bgchoice').html();
+        var bg = $('#bg');
+        var bgurl = document.getElementById("bgurl").innerHTML;
+        if(bgchoice=='default')
+            for (var i = 0; i < 3; i++)
+                bgurl = bgurl.replace("\\", "/");
+        bg.css("background", "url('" + bgurl + "')");
+</script>

@@ -1,0 +1,1038 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="摘要
+传统的推荐系统主要以固有的模型和长期的用户偏好，而动态的用户需求也很重要。通常，历史消费会影响用户对其关系项的需求。列如，用户倾向于一起去购买补充品（iPone 和 Airpods）而不是替代产品（Powerbeats和Airpods..." />
+    <meta name="keywords" content="" />
+    <link rel="stylesheet" href="https://s-hmily.github.io/media/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://s-hmily.github.io/styles/main.css">
+    
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.1/build/styles/default.min.css">
+              
+    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.1/build/highlight.min.js"></script>
+    <script src="https://s-hmily.github.io/media/js/clipboard.min.js"></script>
+    <link rel="stylesheet" href="https://s-hmily.github.io/media/css/live2d.css">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js"></script>
+    <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
+    <link href="https://cdn.bootcdn.net/ajax/libs/font-awesome/5.13.1/css/all.min.css" rel="stylesheet">
+    <!-- 数学公式 -->
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0-beta/dist/katex.min.css"
+        integrity="sha384-9tPv11A+glH/on/wEu99NVwDPwkMQESOocs/ZGXPoIiLE8MU/qkqUcZ3zzL+6DuH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.10.0-beta/dist/katex.min.js"
+        integrity="sha384-U8Vrjwb8fuHMt6ewaCy8uqeUXv4oitYACKdB0VziCerzt011iQ/0TqlSlv8MReCm" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.10.0-beta/dist/contrib/auto-render.min.js"
+        integrity="sha384-aGfk5kvhIq5x1x5YdvCp4upKZYnA8ckafviDpmWEKp4afOZEqOli7gqSnh8I6enH" crossorigin="anonymous">
+    </script>
+    <script>
+        renderMathInElement(document.body, {
+            delimiters: [{
+                    left: "$$",
+                    right: "$$",
+                    display: true
+                },
+                {
+                    left: "$",
+                    right: "$",
+                    display: false
+                }
+            ]
+        });
+    </script>
+
+    
+    <title>叮叮当</title>
+    
+    <style>
+        .markdownIt-TOC {
+            padding-left: 2px;
+            width: 100%;
+        }
+        .markdownIt-TOC li{
+            padding-left: 2%;
+        }
+    </style>
+    
+</head>
+
+<body>
+    <!-- 响应式布局，针对PC端内容显示 -->
+    <div id="content">
+        <div class="nav-large">
+            <div class="row">
+                <div class="side"><head>
+    <meta name="description" content="“你买的什么书？”
+“《边城》”
+“C++还是python？”
+“沈从文”" />
+    <link rel="stylesheet" href="https://s-hmily.github.io/media/css/bootstrap.min.css">
+</head>
+
+
+<body>
+    
+
+
+
+    
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <a class="navbar-brand" href="https://s-hmily.github.io"
+                    style="font-size:21px">叮叮当&nbsp;&nbsp;|&nbsp;&nbsp;</a>
+                <a class="navbar-brand" href=""
+                    style="font-size:15px;font-family:kaiti">“你买的什么书？”
+“《边城》”
+“C++还是python？”
+“沈从文”</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse">
+                
+                <div class="search nav navbar-nav" style="margin-top:8px">
+                    <!-- <input type="text" class="search-input" placeholder="标题搜索(●'◡'●)" /> -->
+                    <input type="text" class="search-input" placeholder="标题搜索 ⚆_⚆ つ♡">
+                    <div class="search-results"></div>
+                </div>
+                
+                <div class="search nav navbar-nav">
+                <a title="text" onclick="document.getElementById('socialMenu').style.display='block'"><i><img class="social"
+                    src="https://s-hmily.github.io/media/images/social.png" alt=""></i></a>
+            </div>
+            <ul class="nav navbar-nav" style="float: right;margin-right:5%">
+                
+                
+                <li>
+                    <a href="https://s-hmily.github.io" style="color:white">
+                        首页
+                    </a>
+                </li>
+                
+                
+                
+                <li>
+                    <a href="/archives" style="color:white">
+                        归档
+                    </a>
+                </li>
+                
+                
+                
+                <li>
+                    <a href="https://s-hmily.github.io/tags" style="color:white">
+                        标签
+                    </a>
+                </li>
+                
+                
+                
+                <li><a href="https://s-hmily.github.io/talk" style="color:white;">说说</a></li>
+                
+                  
+                <li><a href="https://s-hmily.github.io/friends" style="color:white">友链</a></li>
+                
+                  <li><img src="https://s-hmily.github.io/images/avatar.png?v=1599643702527" alt=""
+                class="menutopavatar"></li>
+            </ul>
+        </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+    </nav>
+    <div id="socialMenu" class="modal">
+        <div class="animate">
+            <div class="socialContainer">
+                
+                
+                <a onclick="showqq()" style="cursor:pointer"><i><img class="icon" src="https://s-hmily.github.io/media/images/QQ.png"
+                            alt=""></i></a>
+                
+                
+                
+                
+                <a href="LB180928" target="_blank"><i><img class="icon"
+                            src="https://s-hmily.github.io/media/images/wechat.png" alt=""></i></a>
+                
+                
+            </div>
+            <div id="qq" style="display:none">897438019</div>
+        </div>
+    </div>
+    <!-- 引入jQuery核心js文件 -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js"></script>
+    <script>
+        var social = document.getElementById('socialMenu');
+        // 鼠标点击模型外区域关闭登录框
+        window.onclick = function (event) {
+            if (event.target == social) {
+                social.style.display = "none";
+            }
+        }
+    </script>
+    
+</body>
+<script>
+    //-------------------------------------------------搜索
+    // 获取搜索框、搜索按钮、清空搜索、结果输出对应的元素
+    var searchInput = document.querySelector('.search-input');
+    var searchResults = document.querySelector('.search-results');
+
+    // 申明保存文章的标题、链接、内容的数组变量
+    var searchValue = '',
+        arrItems = [],
+        arrLinks = [],
+        arrTitles = [],
+        arrResults = [],
+        indexItem = [],
+        itemLength = 0;
+    var tmpDiv = document.createElement('div');
+    tmpDiv.className = 'result-item';
+
+    // ajax 的兼容写法
+    var xhr = new XMLHttpRequest() || new ActiveXObject('Microsoft.XMLHTTP');
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState == 4 && xhr.status == 200) {
+            xml = xhr.responseXML;
+            arrItems = xml.getElementsByTagName('entry');
+            itemLength = arrItems.length;
+            // 遍历并保存所有文章对应的标题、链接、内容到对应的数组中
+            // 同时过滤掉 HTML 标签
+            for (i = 0; i < itemLength; i++) {
+                var link = arrItems[i].getElementsByTagName('link')[0];
+                arrLinks[i] = link.getAttribute("href");
+                arrTitles[i] = arrItems[i].getElementsByTagName('title')[0].
+                childNodes[0].nodeValue.replace(/<.*?>/g, '');
+            }
+        }
+    }
+
+    // 开始获取根目录下 feed.xml 文件内的数据
+    xhr.open('get', '/atom.xml', true);
+    xhr.send();
+
+
+
+    // 输入框内容变化后就开始匹配，可以不用点按钮
+    // 经测试，onkeydown, onchange 等方法效果不太理想，
+    // 存在输入延迟等问题，最后发现触发 input 事件最理想，
+    // 并且可以处理中文输入法拼写的变化
+    searchInput.oninput = function () {
+        setTimeout(searchConfirm, 0);
+    }
+    searchInput.onfocus = function () {
+        searchResults.style.display = 'block';
+    }
+
+    function searchConfirm() {
+        if (searchInput.value == '') {
+            searchResults.style.display = 'none';
+        } else if (searchInput.value.search(/^\s+$/) >= 0) {
+            // 检测输入值全是空白的情况
+            searchInit();
+            var itemDiv = tmpDiv.cloneNode(true);
+            itemDiv.innerText = '请输入有效内容...';
+            searchResults.appendChild(itemDiv);
+        } else {
+            // 合法输入值的情况
+            searchInit();
+            searchValue = searchInput.value;
+            // 在标题、内容中查找
+            searchMatching(arrTitles, searchValue);
+        }
+    }
+
+    // 每次搜索完成后的初始化
+    function searchInit() {
+        arrResults = [];
+        indexItem = [];
+        searchResults.innerHTML = '';
+        searchResults.style.display = 'block';
+    }
+
+    function searchMatching(arr1, input) {
+        // 忽略输入大小写
+        input = new RegExp(input, 'i');
+        // 在所有文章标题、内容中匹配查询值
+        for (i = 0; i < itemLength; i++) {
+            if (arr1[i].search(input) !== -1) {
+                var arr = arr1;
+                indexItem.push(i); // 保存匹配值的索引
+                var indexContent = arr[i].search(input);
+                // 此时 input 为 RegExp 格式 /input/i，转换为原 input 字符串长度
+                var l = input.toString().length - 3;
+                var step = 10;
+
+                // 将匹配到内容的地方进行黄色标记，并包括周围一定数量的文本
+                arrResults.push(arr[i].slice(indexContent - step, indexContent));
+            }
+        }
+
+        // 输出总共匹配到的数目
+        var totalDiv = tmpDiv.cloneNode(true);
+        totalDiv.innerHTML = '<b>总匹配：' + indexItem.length + ' 项<hr></b>';
+        searchResults.appendChild(totalDiv);
+
+        // 未匹配到内容的情况
+        if (indexItem.length == 0) {
+            var itemDiv = tmpDiv.cloneNode(true);
+            itemDiv.innerText = '未匹配到内容...';
+            searchResults.appendChild(itemDiv);
+        }
+
+        // 将所有匹配内容进行组合
+        for (i = 0; i < arrResults.length; i++) {
+            var itemDiv = tmpDiv.cloneNode(true);
+            itemDiv.innerHTML = '<b>[' + arrTitles[indexItem[i]] +
+                ']</b><p>' + arrResults[i] + "</p><hr />";
+            itemDiv.setAttribute('onclick', 'changeHref(arrLinks[indexItem[' + i + ']])');
+            searchResults.appendChild(itemDiv);
+        }
+    }
+
+    function changeHref(href) {
+        location.href = href;
+    }
+
+    function showqq() {
+        var qq = document.getElementById("qq").innerHTML;
+        if (qq != '')
+            alert("博主的QQ联系方式为：" + qq);
+        else
+            alert("博主暂未设置QQ联系方式");
+    }
+</script></div>
+    
+    <div id="main" class="col-xs-12 col-sm-7" style="width:50%;margin-top:50px;left:27%">
+        <link rel="stylesheet" href="https://s-hmily.github.io/media/css/font-awesome.css">
+<style>
+
+</style>
+
+<body>
+    <div class="allcontent" id="postdetail">
+        <div class="postshow">
+            
+            <div class="postdetailimg" style="width:100%;overflow: hidden;display: none">
+                
+                <img src="https://pic2.zhimg.com/80/v2-bcbb1a4f932ab78c198b0a99af266d4e_720w.jpg?source=1940ef5c" class="postimage">
+                
+            </div>
+            <div class="postinfo-detail">
+                <div class="postdate"><i class="fa fa-calendar"></i>2020-09-07</div>
+            <div class="poststatus postdate"><i class="fa fa-clock-o"></i> 36 min read</div>
+            <div class="posttag">
+                
+            </div>
+        </div>
+        
+        <div id="texttitle" style="text-align: center">
+            <h2>Make It a Chorus: Knowledge- and Time-aware Item Modeling for Sequential Recommendation 翻译</h2>
+            <!-- id 将作为查询条件 -->
+            <div id="pl" style="display:none">https://s-hmily.github.io/post/make-it-a-chorus-knowledge-and-time-aware-item-modeling-for-sequential-recommendation-fan-yi/</div>
+            <div id="rootaddr" style="display:none">https://s-hmily.github.io</div>
+            <span id="hotnum" class="leancloud_visitors" data-flag-title="Make It a Chorus: Knowledge- and Time-aware Item Modeling for Sequential Recommendation 翻译">
+                <h4 class="readercount">热度🔥: <i class="leancloud-visitors-count">loading...</i></h4>
+            </span>
+        </div>
+        <div class="text ">
+            <h3 id="摘要"><strong>摘要</strong></h3>
+<p>传统的推荐系统主要以固有的模型和长期的用户偏好，而动态的用户需求也很重要。通常，历史消费会影响用户对其关系项的需求。列如，用户倾向于一起去购买补充品（iPone 和 Airpods）而不是替代产品（Powerbeats和Airpods），虽然替代品仍然迎合他/她们的喜好。为了更好地模拟历史序列的效果，以往的研究引入了项目关系语义来捕获用户的需求以进行推荐。然而，我们认为，不同关系所引起的效应时间演化是不可忽视的。</p>
+<h3 id="ccs-concepts-ccs概念">CCS CONCEPTS （CCS概念）</h3>
+<p>信息系统  →  推荐系统</p>
+<h3 id="keywords-关键字">KEYWORDS  （关键字）</h3>
+<p>推荐系统;项关系;Knowledge-aware推荐;时间动态</p>
+<figure data-type="image" tabindex="1"><img src="https://s-hmily.github.io/post-images/1599642722380.png" alt="" loading="lazy"></figure>
+<p>图一： 举例说明先前的相关消耗对AirPods需求的时间影响，iPone当前的消费在短期内可能会产生积极的影响，但如果用户刚刚购买了Powerbeats，则会产生相反的负面影响。替代品的积极效应会随着时间的推移而减弱，而替代品的消极效应经过一段时间后可以变为积极。</p>
+<h3 id="1-introduction-介绍">1  INTRODUCTION （介绍）</h3>
+<p>随着网络信息的超载，推荐系统在人们的日常生活中发挥着越来越重要的作用。它不仅提供符合用户口味的信息，还有助于发现用户的内在偏好[1]。传统的推荐方法主要侧重于用户偏好建模[11,13,19,33,]。例如，潜在因素模型[21]将用户和项目都嵌入到一个潜在空间中，用户的嵌入代表了各方面的偏好，在不同时间进行推荐时不会改变。</p>
+<p>然而，尽管用户偏好在大多数时候是静态的，但用户消费需求实际上是动态的和可变化的。相同的项目在不同的上下文中对用户有不同的含义。 实际上，顺序消费行为可以看作是一个在不同方面满足用户需求的过程。  一个物品的消费可能会对其他相关物品产生影响，不同关系的影响也不尽相同。以互补关系和替代关系为例，图1说明了购买不同关系项目的效果的如何会随时间变化。</p>
+<p>对于互补品:假设用户目前购买了iPhone，他/她可能会想在短期内购买AirPods(即iPhone的补充)。但一段时间后，正面效果会降低(用户可能已经有耳机，推荐系统不应该持续播放AirPods) ，</p>
+<p>对于替代品:如果他/她刚刚消耗的是AirPods的替代品，如Powerbeats，短期影响主要是负面的，因为用户不需要立即需要另一个耳机。</p>
+<p>虽然负面影响可能在中期转化为正面影响，因为用户可能需要购买一个新的耳机，而新发布AirPods可能是一个吸引力 。 这种积极的影响也会逐渐减弱，用户可能对这种耳机失去了兴趣，或者通过其他方式购买了另一种耳机</p>
+<p>从上面的例子可以看出，当前对不同关系物品的消费对目标物品的影响是不同的， 更重要的是，每种关系的时间趋势也不同 ， 也有研究将项关系引入推荐系统[16,40,44,45]，但没有考虑到不同关系的时间动态 ， 虽然有一些工作针对长期偏好和短期偏好[16]，但项目关系仅用于建模短期项目转换，缺乏对不同关系效应的连续演化建模 ， 另一项最近的工作调查了重复消费[41]的时间动态。 然而，消费不仅会影响相同的物品本身，还会影响相关的物品。  因此，项目关系和相应的时间动态是获取项目在不同语境下的动态意义的关键。</p>
+<p>在本文中，我们提出了一种新的方法Chorus，旨在获得具有知识和时间感知的目标项嵌入。  据我们所知，我们是第一个明确地为不同关系的影响随时间的演变建模的人，这有助于更好地捕捉不同序列上下文中的每一项的含义 。 其中，Chorus基于 <strong>基于平移的图嵌入方法</strong> 为每个条目分配一个基本表示和各种关系表示 。 然后，根据关系消耗后的运行时间，这些表示通过时间内核函数动态组合，这就是为什么它被命名为Chorus的原因。 提出的时态核函数使关系表示能够以不同的方式对最终的嵌入项作出贡献。 因此，Chorus能够动态地获取知识和时间感知的条目嵌入，这很容易被各种推荐算法所利用。 此外，高度可解释的时间相关参数使得解释不同时间段的推荐结果成为可能。</p>
+<p>本工作的主要贡献可以总结如下:</p>
+<ul>
+<li>设计了一种新颖灵活的Chorus方法，当目标在序列中扮演不同的角色时，动态地结合不同的表示形式来增强目标物体的建模能力。最后一项嵌入可以很容易地与各种推荐算法一起工作。</li>
+<li>在3个真实数据集上的对比实验表明了该方法的有效性，并且具有较高的可解释性参数进一步提高了模型的可解释性。</li>
+</ul>
+<h3 id="2-related-work-相关工作">2 RELATED WORK （相关工作）</h3>
+<h4 id="21-sequential-recommendation-顺序建议">2.1  Sequential Recommendation  （顺序建议）</h4>
+<p>与传统推荐方法不同，顺序推荐利用顺序数据基于马尔科夫链来预测用户的下一个消费，马尔科夫链假设下一个动作依赖于前一个动作序列[34,37]。   Rendle等人的[34]结合了矩阵分解(MF)[21]和分解的马尔可夫链，给出了前一篮子商品的下一篮子推荐。 最近，有很多工作利用递归神经网络(RNN)[36]将交互历史编码为隐藏向量[6,12,23,27,32,38]。Hidasi等人[12]首先将RNN引入顺序推荐，取得了令人印象深刻的性能增益。 Loyola et al.[27]和Pei et al.[32]都将注意机制[39]应用于RNN以获得更有效的推荐 。 此外，许多后续研究都致力于扩展基于rnn的模型的能力</p>
+<h4 id="22-item-relation-modeling-项关系建模">2.2  Item Relation Modeling （项关系建模）</h4>
+<p>在实际应用程序中，具有具体语义的项目之间通常存在多种关系。  最近的一些研究主要集中在如何将项关系引入推荐系统[16,28,30,40,44,45]，其中大部分研究都是利用知识图(KG)[42]来表示项关系。CFKG[45]将用户对商品的关系图作为实体，将购买行为视为另一种关系，然后使用TransE[3]表示异构信息网络并提出建议 。 Xin等人[44]提出了一个通用的推荐任务，该任务包含项目之间的多种关系，并将关系数据集成到协同过滤(CF)[35]中 。 Ma等人[28]提出了一个联合学习框架来整合知识图中可解释规则的归纳。</p>
+<p>但是，这些方法都假设关系项消费的影响是静态的，并且与时间信息无关，在这种情况下，即使用户不需要，在很长一段时间后，也可能会持续推荐补充的内容。</p>
+<h4 id="23-temporal-dynamics-modeling-时间动力学建模">2.3 Temporal Dynamics Modeling  （时间动力学建模）</h4>
+<p>考虑时间信息主要有两行工作。  一方面，一些工作旨在将时间信息作为上下文特征。 TimeSVD++[20]将时间划分为槽，并设计与时间相关的参数。TransFM利用FM将时间戳作为额外的上下文特性[31]包含进来 。  此外，张量因子分解也是一种主要的方法[2,17]，其中时间被视为用户-物品交互立方体的第三维。</p>
+<p>另一方面，一些工作侧重于模拟历史相互作用的时间衰减效应 。 在这一行中，通常使用Hawkes Process (HP) [8]对用户消费序列的相互激励特性进行建模[7,22,24,41]。Du等[7]首先将Hawkes过程应用于时效性推荐。  结合霍克斯过程和协同过滤对重复消费的时间动态进行建模</p>
+<p>但是，这些方法没有考虑不同关系的时间动态。因此，为了更好地建模动态用户需求，我们创造性地考虑了条目关系和相应的时间演化。</p>
+<h3 id="3-preliminaries">3 PRELIMINARIES</h3>
+<h4 id="31-task-definition-问题定义">3.1 Task Definition  （问题定义）</h4>
+<p>定义3.1(问题定义) ：</p>
+<p>给定用户 u ∈ U 和交互历史   <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>s</mi><mi>u</mi></msub></mrow><annotation encoding="application/x-tex">s_u</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">s</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">u</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> = {(<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>i</mi><mn>1</mn></msub></mrow><annotation encoding="application/x-tex">i_1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.80952em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">i</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>,<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>t</mi><mn>1</mn></msub></mrow><annotation encoding="application/x-tex">t_1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.76508em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">t</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>), (<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>i</mi><mn>2</mn></msub></mrow><annotation encoding="application/x-tex">i_2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.80952em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">i</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>,<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>t</mi><mn>2</mn></msub></mrow><annotation encoding="application/x-tex">t_2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.76508em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">t</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>), · · · , (i<sub>N</sub><sub>u</sub>, t<sub>N</sub><sub>u</sub> )} ∈ S 和 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>N</mi><mi>u</mi></msub></mrow><annotation encoding="application/x-tex">N_u</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.10903em;">N</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:-0.10903em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">u</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> 的交互（ (<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>t</mi><mi>n</mi></msub></mrow><annotation encoding="application/x-tex">t_n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.76508em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">t</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">n</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> &lt;  <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>t</mi><mi>n</mi></msub></mrow><annotation encoding="application/x-tex">t_n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.76508em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">t</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">n</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>‘ for any n &lt; n ′ &lt; <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>N</mi><mi>u</mi></msub></mrow><annotation encoding="application/x-tex">N_u</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.10903em;">N</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:-0.10903em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">u</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> ）， 推荐任务为:考虑目标时间t之前的交互序列，记为<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msubsup><mi>s</mi><mi>u</mi><mi>t</mi></msubsup></mrow><annotation encoding="application/x-tex">s^t_u</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.040556em;vertical-align:-0.247em;"></span><span class="mord"><span class="mord mathdefault">s</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.7935559999999999em;"><span style="top:-2.4530000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">u</span></span></span><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">t</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.247em;"><span></span></span></span></span></span></span></span></span></span> ，生成一个包含k个用户在t时刻可能感兴趣的项的有序列表。</p>
+<p>除此之外，令R是所有项关系的集合，每个关系r  ∈ R  ，其矩阵<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>I</mi><mi>r</mi></msub></mrow><annotation encoding="application/x-tex">I_r</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.07847em;">I</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:-0.07847em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight" style="margin-right:0.02778em;">r</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>  ∈ <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mi>N</mi><mrow><mi>M</mi><mo>×</mo><mi>N</mi></mrow></msup></mrow><annotation encoding="application/x-tex">N^{M × N}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8413309999999999em;vertical-align:0em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.10903em;">N</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8413309999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.10903em;">M</span><span class="mbin mtight">×</span><span class="mord mathdefault mtight" style="margin-right:0.10903em;">N</span></span></span></span></span></span></span></span></span></span></span></span>,其中M为项的总数，如果关系r对项 i 和 j 成立，则<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>I</mi><mi>r</mi></msub></mrow><annotation encoding="application/x-tex">I_r</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.07847em;">I</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:-0.07847em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight" style="margin-right:0.02778em;">r</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>(i,j)=1,否则为0.关系r可以是互补关系，取代关系等等</p>
+<h4 id="32-knowledge-graph-embedding-知识图嵌入">3.2 Knowledge Graph Embedding （知识图嵌入）</h4>
+<p>项目关系信息可视为一个知识图，构件为一组三元组(i,r, j)，其中i和j表示不同的项目，r表示关系类型。 例如，(AirPods, is_complementary _o f,iPhone)意思是AirPods是iPhone的补充。  需要注意的是，有时候一个三联组的反义词可能不成立(例如，iPhone不是AirPods的补充)，因此关系图是方向性的。</p>
+<p>为了将关系图的结构信息引入到推荐系统中，获取具有项目关系语义意义的嵌入件是非常重要的。 在各种嵌入方法中，基于翻译的模型[3,25,43]的效率和有效性最为突出。 其内在思想是将项目和关系嵌入到相同的潜在空间中，并找到一个翻译函数来最小化得分函数:</p>
+<figure data-type="image" tabindex="2"><img src="https://s-hmily.github.io/post-images/1599642912871.png" alt="" loading="lazy"></figure>
+<p>其中D(·)是度量距离的度量函数(通常为l2-范数)。Trans(i, r)是一个任意的平移函数，它可以是一个简单的平移操作，也可以是一个专门设计的神经网络。 许多工作都集中在扩展翻译功能的能力上，如TransE [3]， TransH [43]， TransR[25]等。 对于TransE[3]，平移函数为Trans(i, r) = i + r，任意三联体(i,r, j)应用l2-norm时的评分函数为f (h,r,t) = ||h + r−t||2。</p>
+<p>为了从关系图中学习项和关系的嵌入，将基于边缘的损失[45]最小化如下:</p>
+<p><img src="https://s-hmily.github.io/post-images/1599642882344.png" alt="" loading="lazy"><br>
+对于每一个三元组，尾项都被一个随机抽样的项j '所取代，以确保(i,r, j ')在知识图中没有被观察到。</p>
+<p>类似地，头项被i '替换，并且(i '，r, j)也无法被察觉到。  上述目标函数的目的是区分被观察到的三联体和被破坏的三联体，并强制嵌入保留项目之间的关系。</p>
+<h4 id="33-base-methods-for-recommendation">3.3 Base Methods for Recommendation</h4>
+<p>本文所提出的项目建模方法灵活地适用于各种推荐算法。 由于贝叶斯个性化排序(BPR)[33]是一种应用广泛的矩阵分解方法，而广义矩阵分解(GMF)[11]是一种最先进的基于神经网络的方法，我们选择它们作为基础推荐模型来验证我们方法的有效性。</p>
+<p>这里我们简要回顾一下这两种协同过滤方法，CF方法假设相似的用户喜欢相似的条目。在BPR的情况下，每个用户和物品都有一个k维的潜在因子，其排名得分计算如下:</p>
+<figure data-type="image" tabindex="3"><img src="https://s-hmily.github.io/post-images/1599642948544.png" alt="" loading="lazy"></figure>
+<p>其中<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>b</mi><mi>u</mi></msub></mrow><annotation encoding="application/x-tex">b_u</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.84444em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">b</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">u</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>和<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>b</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">b_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.84444em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">b</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>分别为每个用户和item的偏移。</p>
+<p>在GMF情况下，通过多层神经网络得到的排名得分可以表示为</p>
+<figure data-type="image" tabindex="4"><img src="https://s-hmily.github.io/post-images/1599642975882.png" alt="" loading="lazy"></figure>
+<p><span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>ϕ</mi><mrow><mi>o</mi><mi>u</mi><mi>t</mi></mrow></msub></mrow><annotation encoding="application/x-tex">\phi_{out}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord"><span class="mord mathdefault">ϕ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.2805559999999999em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">o</span><span class="mord mathdefault mtight">u</span><span class="mord mathdefault mtight">t</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>和<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>ϕ</mi><mi>x</mi></msub></mrow><annotation encoding="application/x-tex">\phi_x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord"><span class="mord mathdefault">ϕ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">x</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>的映射函数分别表示输出层和x-th 神经协同过滤层,还有x神经CF层。那么选择的项目应该根据预测的得分<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>y</mi><mrow><mi>u</mi><mi>i</mi></mrow></msub></mrow><annotation encoding="application/x-tex">y_{ui}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.03588em;">y</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:-0.03588em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">u</span><span class="mord mathdefault mtight">i</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>进行排名</p>
+<p>为了学习推荐模型中的参数，可以对排序损失[33]进行优化，优化方法如下:</p>
+<p>式中，指标为sigmoid函数，负项为<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>j</mi></mrow><annotation encoding="application/x-tex">j</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.85396em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.05724em;">j</span></span></span></span>  <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi mathvariant="normal">∉</mi></mrow><annotation encoding="application/x-tex">\notin</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mrel"><span class="mord"><span class="mrel">∈</span></span><span class="mord"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.75em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="llap"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="inner"><span class="mord"><span class="mord">/</span><span class="mspace" style="margin-right:0.05555555555555555em;"></span></span></span><span class="fix"></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.25em;"><span></span></span></span></span></span></span></span></span></span> <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>S</mi><mi>u</mi></msub></mrow><annotation encoding="application/x-tex">S_u</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.05764em;">S</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:-0.05764em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">u</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>对每个训练实例随机采样<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>S</mi><mi>u</mi></msub></mrow><annotation encoding="application/x-tex">S_u</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.05764em;">S</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:-0.05764em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">u</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>。</p>
+<figure data-type="image" tabindex="5"><img src="https://s-hmily.github.io/post-images/1599643040671.png" alt="" loading="lazy"></figure>
+<h3 id="4-chorus-mode">4 CHORUS MODE</h3>
+<h4 id="41-model-overvie">4.1  Model Overvie</h4>
+<p>Chorus是一个两阶段的模型，它综合了项目关系及其特定的时间效应 . 图2演示了整个模型结构. 在第一阶段(关系建模)中，利用图嵌入将项目关系的结构信息编码为嵌入。  第3.2节中描述的各种基于转换的方法在这里可以灵活地利用。关系图嵌入的结果将用于推导Chorus模型的基本表示和关系表示</p>
+<figure data-type="image" tabindex="6"><img src="https://s-hmily.github.io/post-images/1599643077832.png" alt="" loading="lazy"></figure>
+<p>图2:Chorus模型概述 ： 在第一阶段(关系建模)中，使用图嵌入来学习项和关系的基本嵌入。  在第二阶段(动态项表示)，Chorus给每个项额外的关系表示。然后，根据序列上下文动态地组合这些表示。最终知识感知的动态项嵌入可用于各种算法(如BPR和GMF)的推荐。</p>
+<p>在第二阶段(动态项表示)，有两个关键模块:  (1)动态积分;(2)时间核函数设计。 首先，除了基于翻译函数的基本表示外，每个项将获得|R|关系表示，翻译函数表示目标项在上下文中充当不同角色时的表示。  然后根据历史序列中是否存在相应的关系消耗以及运行时间，对这些表示进行动态集成。 为了结合每个关系的时间动态，我们提出了特定关系的时间核函数来控制影响的极性和强度。因此，关系表示在不同上下文中对最终项的嵌入有不同的贡献，从而导致可感知知识的动态项嵌入。 最后，许多算法可以利用增强的项目嵌入来计算排名分数并提出建议。在这一节的其余部分，我们详细阐述了第二阶段Chorus的主要模块。</p>
+<h4 id="42-dynamic-integration">4.2 Dynamic Integration</h4>
+<p>首先，我们根据关系图嵌入的结果，为每个项定义基本表示(记为<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>i</mi><mi>b</mi></msub></mrow><annotation encoding="application/x-tex">i_b</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.80952em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">i</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.33610799999999996em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">b</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>)和关系表示(记为<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>i</mi><mi>r</mi></msub></mrow><annotation encoding="application/x-tex">i_r</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.80952em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">i</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight" style="margin-right:0.02778em;">r</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>，记为关系<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>r</mi></mrow><annotation encoding="application/x-tex">r</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">r</span></span></span></span>∈<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>R</mi></mrow><annotation encoding="application/x-tex">R</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.00773em;">R</span></span></span></span>)。基本表示对项的固有特征进行编码，因此在第一阶段学到的项嵌入将用于初始化<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>i</mi><mi>b</mi></msub></mrow><annotation encoding="application/x-tex">i_b</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.80952em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">i</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.33610799999999996em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">b</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>。然后利用平移函数得到关系表示:</p>
+<figure data-type="image" tabindex="7"><img src="https://s-hmily.github.io/post-images/1599643115872.png" alt="" loading="lazy"></figure>
+<p>其中<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>e</mi><mi>r</mi></msub></mrow><annotation encoding="application/x-tex">e_r</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">e</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight" style="margin-right:0.02778em;">r</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>是嵌入<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>r</mi></mrow><annotation encoding="application/x-tex">r</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">r</span></span></span></span>∈<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>R</mi></mrow><annotation encoding="application/x-tex">R</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.00773em;">R</span></span></span></span>的关系。这样关系表示就集成了每个关系对应的语义信息。</p>
+<p>在得到基本项和关系项表示后，重点研究如何根据不同的上下文动态地组合它们，这是我们的Chorus模型的核心思想。请注意，关系表示是知识感知的，但仍然是静态的。我们的目标是为每个关系表示导出上下文感知系数<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>f</mi><mi>r</mi></msub></mrow><annotation encoding="application/x-tex">f_r</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:-0.10764em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight" style="margin-right:0.02778em;">r</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>，反映当前上下文的实际影响程度。最后提出嵌入<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>i</mi><mrow><mi>C</mi><mi>h</mi><mi>o</mi><mi>r</mi><mi>u</mi><mi>s</mi></mrow></msub></mrow><annotation encoding="application/x-tex">i_{Chorus}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.80952em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">i</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.33610799999999996em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.07153em;">C</span><span class="mord mathdefault mtight">h</span><span class="mord mathdefault mtight">o</span><span class="mord mathdefault mtight" style="margin-right:0.02778em;">r</span><span class="mord mathdefault mtight">u</span><span class="mord mathdefault mtight">s</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>的上下文感知和知识感知项表示如下:</p>
+<figure data-type="image" tabindex="8"><img src="https://s-hmily.github.io/post-images/1599643163813.png" alt="" loading="lazy"></figure>
+<p>它由基本项表示和尺度关系表示两部分组成，其中上下文(历史序列<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msubsup><mi>S</mi><mi>t</mi><mi>u</mi></msubsup></mrow><annotation encoding="application/x-tex">S_t^u</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.93033em;vertical-align:-0.247em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.05764em;">S</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.664392em;"><span style="top:-2.4530000000000003em;margin-left:-0.05764em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">t</span></span></span><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">u</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.247em;"><span></span></span></span></span></span></span></span></span></span>、时间<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>t</mi></mrow><annotation encoding="application/x-tex">t</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.61508em;vertical-align:0em;"></span><span class="mord mathdefault">t</span></span></span></span>和目标项<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>i</mi></mrow><annotation encoding="application/x-tex">i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.65952em;vertical-align:0em;"></span><span class="mord mathdefault">i</span></span></span></span>)作为系数<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>f</mi><mi>r</mi></msub></mrow><annotation encoding="application/x-tex">f_r</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:-0.10764em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight" style="margin-right:0.02778em;">r</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>的输入。接下来，我们重点讨论如何在给定的语境下获得合理的<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>f</mi><mi>r</mi></msub></mrow><annotation encoding="application/x-tex">f_r</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:-0.10764em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight" style="margin-right:0.02778em;">r</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>。</p>
+<p>直观地看，有些关系表示在某些情况下可能没有效果，甚至有负面效果。图3给出了一些示例，说明如何期望这些表示在不同上下文中对最终嵌入做出贡献。三角形的三个角代表目标项目的不同表示。当没有关系消耗(上下文A)时，最后的嵌入只是基本的项表示，其他两个关系项没有影响 . 当Powerbeats或iPhone刚刚购买时(上下文B和C)，对应的关系表示应该分别具有消极和积极的影响。而如果替代品是很久以前购买的(上下文D)，替代品的表现形式可能对最终嵌入产生积极的影响。此外，当序列中有许多不同的关系项时，这三种表示都将不同程度地发挥作用</p>
+<figure data-type="image" tabindex="9"><img src="https://s-hmily.github.io/post-images/1599643196155.png" alt="" loading="lazy"></figure>
+<p>图3:说明如何根据序列上下文动态组合不同的表示。</p>
+<p>为了考虑这种不同关系的时间动态，我们创新性地为每种关系设计了时间核函数，它是一个关于消费之间滞后时间的连续函数。时间核函数的目的是控制每次关系消耗的影响程度。函数值的极性表示作用的极性。假设我们已获得核函数<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msubsup><mi>k</mi><mi>r</mi><mi>i</mi></msubsup></mrow><annotation encoding="application/x-tex">k_r^i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.071664em;vertical-align:-0.247em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.03148em;">k</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.824664em;"><span style="top:-2.4530000000000003em;margin-left:-0.03148em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight" style="margin-right:0.02778em;">r</span></span></span><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.247em;"><span></span></span></span></span></span></span></span></span></span>(∆t),索引项<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>i</mi></mrow><annotation encoding="application/x-tex">i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.65952em;vertical-align:0em;"></span><span class="mord mathdefault">i</span></span></span></span>和关系<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>r</mi></mrow><annotation encoding="application/x-tex">r</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">r</span></span></span></span>(具体设计和相关讨论左在下一节),我们建议定义关系系数<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>f</mi><mi>r</mi></msub></mrow><annotation encoding="application/x-tex">f_r</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:-0.10764em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight" style="margin-right:0.02778em;">r</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>如下:</p>
+<figure data-type="image" tabindex="10"><img src="https://s-hmily.github.io/post-images/1599643230172.png" alt="" loading="lazy"></figure>
+<p>其中<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>I</mi><mi>r</mi></msub></mrow><annotation encoding="application/x-tex">I_r</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.07847em;">I</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:-0.07847em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight" style="margin-right:0.02778em;">r</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>为关系矩阵。每个前消费关系<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>r</mi></mrow><annotation encoding="application/x-tex">r</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">r</span></span></span></span>的目标项目我有添加剂影响系数<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>f</mi><mi>r</mi></msub></mrow><annotation encoding="application/x-tex">f_r</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:-0.10764em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight" style="margin-right:0.02778em;">r</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>,由核函数控制<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msubsup><mi>k</mi><mi>r</mi><mi>i</mi></msubsup></mrow><annotation encoding="application/x-tex">k_r^i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.071664em;vertical-align:-0.247em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.03148em;">k</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.824664em;"><span style="top:-2.4530000000000003em;margin-left:-0.03148em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight" style="margin-right:0.02778em;">r</span></span></span><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.247em;"><span></span></span></span></span></span></span></span></span></span>(·)。通过这种方式，关系系数使得不同的表示法能够在不同程度上对最终的嵌入做出贡献，这与以前分配静态项嵌入的研究不同。由于时间核函数的存在，关系表示可能会由于长时间间隔而几乎不起作用，甚至在某些情况下会产生负面影响。因此，Chorus嵌入可以更好地捕捉项目在不同上下文中的含义，从而更好地模拟用户随时间变化的需求。</p>
+<p>此外，为了简单和高效，我们可以只考虑历史序列中最新的关系项，在这种情况下，Equ。(7)可以直接表示为:</p>
+<figure data-type="image" tabindex="11"><img src="https://s-hmily.github.io/post-images/1599643261605.png" alt="" loading="lazy"></figure>
+<p>∆<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>t</mi><mi>r</mi></msub></mrow><annotation encoding="application/x-tex">t_r</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.76508em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">t</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight" style="margin-right:0.02778em;">r</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>表示从最近一次物品消耗到现在物品消耗的时间，<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>r</mi></mrow><annotation encoding="application/x-tex">r</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">r</span></span></span></span>与当前物品相关。如果某一关系在历史序列中没有关系项，我们假设存在一个正无穷时间间隔(即∆<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>t</mi><mi>r</mi></msub></mrow><annotation encoding="application/x-tex">t_r</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.76508em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">t</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight" style="margin-right:0.02778em;">r</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> = +∞)。在时间核函数随时间接近于零的情况下，相应的关系嵌入不会产生影响</p>
+<h4 id="43-design-of-temporal-kernel-function">4.3 Design of Temporal Kernel Function</h4>
+<p>接下来，我们重点研究如何为每个关系设计时间核函数。实际上，时间核函数的具体形式可以看作是对模型的一种人为干预。一方面，我们可以根据每个关系的特点来设计函数。例如，如图1所示，互补关系在短时间内具有积极的影响，并且这种影响随着时间的推移而衰减。另一方面，我们可以根据主观对系统的需求进行设计。如果我们希望替代品在短期内也出现在推荐列表中，那么时间核函数可以设计为初值为正，衰减速度更快。在本文中，我们主要研究两个关系:is_complementary - of和is_substitute_of。作为实例，我们根据这两者的一般认知和特点设计了相应的时间核函数关系</p>
+<p>补充而言，除了整体下降趋势外，正面效应一般持续一段时间后，在日常生活中开始消退。因此，我们选择均值为零的正态分布作为其时间核函数，而不是衰减太快的直观指数分布:</p>
+<figure data-type="image" tabindex="12"><img src="https://s-hmily.github.io/post-images/1599643305903.png" alt="" loading="lazy"></figure>
+<p>式中，N(∆<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>t</mi></mrow><annotation encoding="application/x-tex">t</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.61508em;vertical-align:0em;"></span><span class="mord mathdefault">t</span></span></span></span>|，<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>μ</mi></mrow><annotation encoding="application/x-tex">\mu</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">μ</span></span></span></span>，<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>σ</mi></mrow><annotation encoding="application/x-tex">\sigma</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.03588em;">σ</span></span></span></span>)为∆<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>t</mi></mrow><annotation encoding="application/x-tex">t</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.61508em;vertical-align:0em;"></span><span class="mord mathdefault">t</span></span></span></span>的正态分布，具有。需要注意的是，此处的参数<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msubsup><mi>σ</mi><mi>c</mi><mrow><mi>z</mi><mo>(</mo><mi>i</mi><mo>)</mo></mrow></msubsup></mrow><annotation encoding="application/x-tex">\sigma_c^{z(i)}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.161392em;vertical-align:-0.11659199999999997em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.03588em;">σ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.0448em;"><span style="top:-2.5834080000000004em;margin-left:-0.03588em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">c</span></span></span><span style="top:-3.2198em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.04398em;">z</span><span class="mopen mtight">(</span><span class="mord mathdefault mtight">i</span><span class="mclose mtight">)</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.11659199999999997em;"><span></span></span></span></span></span></span></span></span></span>与<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>z</mi><mo>(</mo><mi>i</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">z(i)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.04398em;">z</span><span class="mopen">(</span><span class="mord mathdefault">i</span><span class="mclose">)</span></span></span></span>有关，<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>z</mi><mi mathvariant="normal">（</mi><mi>i</mi><mi mathvariant="normal">）</mi></mrow><annotation encoding="application/x-tex">z（i）</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.65952em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.04398em;">z</span><span class="mord cjk_fallback">（</span><span class="mord mathdefault">i</span><span class="mord cjk_fallback">）</span></span></span></span>表示第<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>i</mi></mrow><annotation encoding="application/x-tex">i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.65952em;vertical-align:0em;"></span><span class="mord mathdefault">i</span></span></span></span>项的类别。我们不估算特定于项目的参数，因为类别通常更适合于对一组项目的特征进行建模。具体项目的参数也可能受到数据稀疏性问题的影响</p>
+<p>对于替代品，预期其影响将从消极变为积极，因为我们短期内不需要另一个具有类似效用的产品，但希望在其使用寿命结束时更换一个新的。因此，我们使用两个相反的正态分布来模拟这些特征:</p>
+<figure data-type="image" tabindex="13"><img src="https://s-hmily.github.io/post-images/1599643339998.png" alt="" loading="lazy"></figure>
+<p>这是(1)短期抑制(负)和(2)终身促进(正)的叠加。负正态分布被设计为均值为零，因为在替代消费之后，再训练效应通常最强。在正的那个例子中，参数<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msubsup><mi>μ</mi><mi>s</mi><mrow><mi>z</mi><mo>(</mo><mi>i</mi><mo>)</mo></mrow></msubsup></mrow><annotation encoding="application/x-tex">\mu_s^{z(i)}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.23924em;vertical-align:-0.19444em;"></span><span class="mord"><span class="mord mathdefault">μ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.0448em;"><span style="top:-2.5834080000000004em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">s</span></span></span><span style="top:-3.2198em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.04398em;">z</span><span class="mopen mtight">(</span><span class="mord mathdefault mtight">i</span><span class="mclose mtight">)</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.11659199999999997em;"><span></span></span></span></span></span></span></span></span></span>以某种方式表示这个类别的生存期，这意味着这个时候效果将达到峰值。</p>
+<p>图2展示了这两个时间核函数。还可以设计其他形式的时态核函数来满足不同的需求。而且，Chorus并不仅限于这两种关系。可以合并许多关系，如same_brand、same_producer等。唯一要做的就是基于先验知识设计一个相应的时间核函数，我们发现指数分布基本适用于一般关系。</p>
+<p>表1:baselines和Chorus的比较。  表2:数据集统计。</p>
+<figure data-type="image" tabindex="14"><img src="https://s-hmily.github.io/post-images/1599643450006.png" alt="" loading="lazy"></figure>
+<p>在这里，我们得到了最终的可感知知识的动态项嵌入。然后用我们的算法代替原始目标项嵌入，利用各种算法来提出建议。与之前的模型不同，Chorus同时集成了序列信息、项目关系建模以及相应的时间动态。最近提出的CFKG和SLRC要么只关注物品关系，要么关注消费顺序中的时间动态。表1列出了相关方法与我们的Chorus模型之间的区别。关于这些基线的更多细节将在5.1.3节中描述。</p>
+<h4 id="44-parameter-learning">4.4 Parameter Learning</h4>
+<p>为了获得更好的强健性能，我们采用了两阶段的训练过程来学习模型参数:首先对<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>L</mi><mrow><mi>r</mi><mi>e</mi><mi>l</mi></mrow></msub></mrow><annotation encoding="application/x-tex">L_{rel}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">L</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.33610799999999996em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.02778em;">r</span><span class="mord mathdefault mtight">e</span><span class="mord mathdefault mtight" style="margin-right:0.01968em;">l</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>进行优化，得到带有结构信息的项和关系嵌入，第二阶段利用结构信息初始化基本项表示和关系嵌入;然后通过最小化<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>L</mi><mrow><mi>r</mi><mi>e</mi><mi>c</mi></mrow></msub></mrow><annotation encoding="application/x-tex">L_{rec}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">L</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.02778em;">r</span><span class="mord mathdefault mtight">e</span><span class="mord mathdefault mtight">c</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>来学习模型的所有参数。在第二阶段，我们不冻结以前学过的嵌入。实验表明，采用<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>L</mi><mrow><mi>r</mi><mi>e</mi><mi>c</mi></mrow></msub></mrow><annotation encoding="application/x-tex">L_{rec}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">L</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.02778em;">r</span><span class="mord mathdefault mtight">e</span><span class="mord mathdefault mtight">c</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>进行优化，效果较好。另一方面，也有可能在培训开始时破坏有意义的嵌入。因此，我们在第二阶段将基本项表示和关系嵌入的学习率降低了0.1。由于Adam[18]在许多推荐模型中都是成功的，所以在每个阶段都使用它作为学习算法。</p>
+<h3 id="5-experiments">5 EXPERIMENTS</h3>
+<p>5.1.1 <strong>数据集</strong>（<strong>Datasets</strong>）。实验在Amazon数据集[9]上进行。除了具有时间戳的用户交互序列外，它还具有项元数据，包括列表中的also_view、also_buy和类别信息。在前人研究[28,29]的基础上，我们将also view作为替代关系，also buy作为补充关系。不同的是，在我们的研究中，这种关系意味着互补和替代。因此，原始的同样视图，同样购买关系的方向应该反转。</p>
+<p>我们采用了三个有代表性的子数据集:杂货店和美食(Grocery)、手机和配件(Cellphones)、家庭和厨房(Home)。表2总结了这三个数据集的统计数据。请注意，在主数据集中，与历史数据相关的测试用例的比率很低，并且关系数据相对稀疏。</p>
+<p>5.1.2 <strong>评估协议</strong>（<strong>Evaluation Protocols</strong>）。我们采用文献[4,10,15]中广泛使用的left -one-out评价方法。对于每个消费序列<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>S</mi><mi>u</mi></msub></mrow><annotation encoding="application/x-tex">S_u</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.05764em;">S</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:-0.05764em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">u</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>∈<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>S</mi></mrow><annotation encoding="application/x-tex">S</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.05764em;">S</span></span></span></span>，我们使用每个用户最近的交互进行测试，使用最近的第二个项目进行验证，使用剩余的项目进行训练。考虑到某些方法在数据集较大时对所有项进行排序比较耗时，我们随机抽取99个目标用户没有交互的项，并将ground-truth项与这些负的项进行排序。这种方法也被广泛采用[11,41,44]。为了评价推荐质量，我们使用命中率(HR)和标准化折现累积增益(NDCG)[14]作为评价指标。HR@k测量地基真相项是否出现在top-k推荐列表中，而NDCG@k关心的是排名列表中的位置。每个实验我们用不同的随机种子重复5次，并报告平均分数。</p>
+<p>5.1.3 <strong>基线的方法</strong>（<strong>Baseline Methods</strong>）。我们将我们的Chorus模型与七种基线方法进行了不同方面的比较，包括传统的协同过滤、顺序推荐以及包含项目关系或时间动态的方法:</p>
+<ul>
+<li>
+<p><strong>BPR</strong>[33]:该方法提出采用两两排序损失优化矩阵分解模型。</p>
+</li>
+<li>
+<p><strong>GMF</strong>[11]:这是一种最先进的协同过滤方法，利用多层神经网络。</p>
+</li>
+<li>
+<p><strong>Tensor</strong>[17]:该方法将时间分成多个桶，并分解一个三维张量(用户-项目-时间)。</p>
+</li>
+<li>
+<p><strong>GRU4Rec</strong>[12]:这是一个顺序推荐模型，应用GRU[5]来得出排名分数。</p>
+</li>
+<li>
+<p><strong>NARM</strong>[27]:该模型利用GRU和注意力机制提高了顺序推荐的性能，这是一种最先进的基于会话的方法。</p>
+</li>
+<li>
+<p><strong>CFKG</strong>[45]:该方法考虑了各种商品关系，将购买视为用户与商品之间的另一种关系。然后利用TransE学习图嵌入并提出建议。</p>
+</li>
+<li>
+<p><strong>SLRC '</strong> [41]: SLRC结合Hawkes和CF来模拟重复消费的时间动力学。考虑到Amazon数据集中已经消除了重复的消耗，我们将其设置扩展到关系项的影响，命名为SLRC '。但仍缺乏对条目关系的语义建模</p>
+</li>
+</ul>
+<p>5.1.4 <strong>实现细节（Implement Details</strong>）。我们在PyTorch中实现了所有的模型。实现代码已经发布1。为了公平比较，所有模型的嵌入大小都设置为64。所有的超参数都被调优以在验证数据集中获得最佳结果。对于CFKG，我们认为与我们一致的也视图和也购买关系。对于SLRC '和Chorus，我们发现在历史序列中很少有具有两个或更多关系项的交互。因此，为了简单和高效，我们考虑序列中最新的关系交互，而不损失一般性和性能。此外，合唱中还使用了TransE作为翻译功能。为了数值稳定性，所有时间相关参数初始化为1，其他参数通常初始化为0均值和0.01标准差。</p>
+<figure data-type="image" tabindex="15"><img src="https://s-hmily.github.io/post-images/1599643517623.png" alt="" loading="lazy"></figure>
+<p>表3:三个数据集中的测试结果。每个实验我们用不同的随机种子重复五次，并报告平均分数。每个指标的最佳基线都有下划线，**表示明显优于最强基线(p &lt;0.01)。</p>
+<h4 id="52-overall-performance">5.2 Overall Performance</h4>
+<p>表3显示了使用BPR和GMF计算排名分数时各基线的性能和我们的Chorus模型的性能，分别为<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>C</mi><mi>h</mi><mi>o</mi><mi>r</mi><mi>u</mi><msub><mi>s</mi><mrow><mi>B</mi><mi>P</mi><mi>R</mi></mrow></msub></mrow><annotation encoding="application/x-tex">Chorus_{BPR}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.84444em;vertical-align:-0.15em;"></span><span class="mord mathdefault" style="margin-right:0.07153em;">C</span><span class="mord mathdefault">h</span><span class="mord mathdefault">o</span><span class="mord mathdefault" style="margin-right:0.02778em;">r</span><span class="mord mathdefault">u</span><span class="mord"><span class="mord mathdefault">s</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.32833099999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.05017em;">B</span><span class="mord mathdefault mtight" style="margin-right:0.13889em;">P</span><span class="mord mathdefault mtight" style="margin-right:0.00773em;">R</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>和<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>C</mi><mi>h</mi><mi>o</mi><mi>r</mi><mi>u</mi><msub><mi>s</mi><mrow><mi>G</mi><mi>M</mi><mi>F</mi></mrow></msub></mrow><annotation encoding="application/x-tex">Chorus_{GMF}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.84444em;vertical-align:-0.15em;"></span><span class="mord mathdefault" style="margin-right:0.07153em;">C</span><span class="mord mathdefault">h</span><span class="mord mathdefault">o</span><span class="mord mathdefault" style="margin-right:0.02778em;">r</span><span class="mord mathdefault">u</span><span class="mord"><span class="mord mathdefault">s</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.32833099999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">G</span><span class="mord mathdefault mtight" style="margin-right:0.10903em;">M</span><span class="mord mathdefault mtight" style="margin-right:0.13889em;">F</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span></p>
+<p>首先，不同种类的基线显示出明显的性能差距。对于协同过滤方法(例如BPR和GMF)，它们可以<strong>作为基准</strong>，因为它们拥有的唯一信息是用户-项交互。张量法由于考虑了时间动力学而优于基本的CF方法。顺序推荐方法(如GRU4Rec和NARM)的性能进一步提高，说明了最近消费的物品传达动态用户需求的重要性。CFKG得到了公平的结果，在一些指标上成为了最好的基线，这说明项目关系确实有助于推荐。对于SLRC’，由于它对消费序列的相互刺激特征进行了明确的建模，因此一般在各基线之间得到最好的结果</p>
+<p>其次，我们的Chorus模型在所有数据集中始终比其他基线表现得更好，这得益于解决项目关系和它们的时间动态。这表明所提出的模型能够更好地捕捉动态用户需求和不同上下文项的含义。与CFKG相比，Chorus不仅考虑了物品之间的关系，而且整合了物品的时间动态。与SLRC相比，Chorus能够对每一种关系的语义意义和特定类别的时间效应进行建模。在SLRC中，Hawkes的基本形式可能更多地关注关系项的影响，因此在正常情况下，当没有先前的关系消耗时，会降低性能(更多讨论在5.4节中)。与之不同的是，Chorus将项目关系集成到知识感知的动态项目表示中，更加有效和灵活。</p>
+<p>另一方面，请注意，在主数据集中，改进相对较小。可能的原因是关系信息太稀疏，不太可靠。我们使用了CFKG的相似关系图嵌入方法，但在该数据集中效果不佳。虽然TransE在其他数据集中工作得很好，但在家庭数据集中的关系可能是如此复杂，TransE不足以建模准确。第5.3节的相关讨论提供了更多的证据。</p>
+<h4 id="53-ablation-study"><strong>5.3 Ablation Study</strong></h4>
+<p>为了验证我们模型中关系建模和时间动态的效果，我们将Chorus与两个变体进行比较:</p>
+<ul>
+<li>Chorus\ R。该模型为每个关联分配单独的项嵌入，并通过优化<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>L</mi><mrow><mi>r</mi><mi>e</mi><mi>c</mi></mrow></msub></mrow><annotation encoding="application/x-tex">L_{rec}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">L</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.02778em;">r</span><span class="mord mathdefault mtight">e</span><span class="mord mathdefault mtight">c</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>估计所有参数。图嵌入结果没有用于初始化基本表示和推导关系表示.</li>
+<li>Chorus\ T。这个模型不考虑时间的动态关系,假定所有的时间内核函数(<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>i</mi><mi mathvariant="normal">.</mi><mi>e</mi></mrow><annotation encoding="application/x-tex">i.e</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.65952em;vertical-align:0em;"></span><span class="mord mathdefault">i</span><span class="mord">.</span><span class="mord mathdefault">e</span></span></span></span> .<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msubsup><mi>κ</mi><mi>i</mi><mi>r</mi></msubsup></mrow><annotation encoding="application/x-tex">κ_i^r</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.923056em;vertical-align:-0.258664em;"></span><span class="mord"><span class="mord mathdefault">κ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.664392em;"><span style="top:-2.441336em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight" style="margin-right:0.02778em;">r</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.258664em;"><span></span></span></span></span></span></span></span></span></span>(∆t)常量值1。</li>
+</ul>
+<figure data-type="image" tabindex="16"><img src="https://s-hmily.github.io/post-images/1599643550923.png" alt="" loading="lazy"></figure>
+<p>图4:消融研究。比较无关系建模的变奏(Chorus\R)和无时间动态的变奏(Chorus\T)的性能。</p>
+<p>图4显示了<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>C</mi><mi>h</mi><mi>o</mi><mi>r</mi><mi>u</mi><msub><mi>s</mi><mrow><mi>B</mi><mi>P</mi><mi>R</mi></mrow></msub></mrow><annotation encoding="application/x-tex">Chorus_{BPR}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.84444em;vertical-align:-0.15em;"></span><span class="mord mathdefault" style="margin-right:0.07153em;">C</span><span class="mord mathdefault">h</span><span class="mord mathdefault">o</span><span class="mord mathdefault" style="margin-right:0.02778em;">r</span><span class="mord mathdefault">u</span><span class="mord"><span class="mord mathdefault">s</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.32833099999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.05017em;">B</span><span class="mord mathdefault mtight" style="margin-right:0.13889em;">P</span><span class="mord mathdefault mtight" style="margin-right:0.00773em;">R</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>的NDCG@10及其变体，以及SLRC '。结果表明，关系建模和时间动力学都具有重要的意义。合唱中任何模块的缺失都会导致演出的损失。此外，我们有以下几点看法:</p>
+<p>首先，条目关系确实很有帮助。Chorus\R在杂货店和手机数据集中带来了最大的性能损失，这表明了对关系的结构信息建模的重要性，以及我们基于平移的方法通过图嵌入来派生关系表示的重要性。</p>
+<p>其次，重要的是建立不同关系的时间动态模型。如果没有时间信息，Chorus\T在前两个数据集中会导致适度的性能损失。这并不意味着在我们的模型中处理的时间动态不重要。从字面上看，商品之间的关系对用户进行消费决策的影响更大。因此，建模项目关系比建模时间动力学有更大的改进是合理的。另一方面，与Chorus\T相比，Chorus取得了持续的进步，尤其是在国内，这显示了向前移动考虑物品关系的时间动态的有用性。</p>
+<p>第三，关系图嵌入在主数据集中效果不佳，其中Chorus的性能损失最大，Chours的性能损失最大。这是关系建模不足的另一个证据。虽然TransE是翻译函数的自然选择，而且通常在其他两个数据集上都能很好地工作，但我们发现，在主数据集的场景下，它可能是不够的，其中CFKG使用TransE作为图嵌入方法也表现不好。图4 (c)显示，没有关联建模，性能没有下降太多(Chorus\R)。但如果有关系建模而没有时间核函数(Chorus\T)，则会因条目和关系的不恰当嵌入而影响性能。这也表明在我们的模型中处理的时间动态可以帮助自适应地避免混乱的关系可能的坏影响，这证明了考虑时间动态的有用性和必要性。</p>
+<h4 id="54-performance-in-different-scenarios">5.4 Performance in Different Scenarios</h4>
+<p>除了整体性能改进之外，我们还想弄清楚改进从何而来。在这里，我们研究模型在不同场景中的性能。具体来说，我们根据历史序列中是否存在相应的关系消耗，构建测试数据集的三个子集。正常意味着之前没有关系项。补充表示目标项是历史序列中某些项的补充。类似地，替代是指有以前的消费作为替代的情况。当前面有两种关系项时，测试用例可以同时处于补充组和替代组中。图5显示了不同模型(线)的NDCG@10和三个subsets of cases (bars)的部手机数据集。我们可以看到，虽然补充组和替代组的情况较少，但模型往往在这些情况下表现得更好。它们可能内在地展示一些模式，因此所有的模型都比正常情况下获得更好的性能，即使对于没有明确地考虑项目关系的BPR也是如此。</p>
+<p>此外，Chorus能够结合不同方法的优点，从而达到平均最佳的表现。请注意，对于SLRC '和CFKG来说，它们各有优缺点。虽然SLRC '在关系情况下表现良好，特别是在替代组中，但它在正常情况下甚至比BPR更差。这表明SLRC '容易过度适应关系情况，从而损害正常情况的性能。另一方面，尽管CFKG在正常组中表现良好，但它在“关系情况下”不如SLRC强大，因为SLRC明确地对每个关系的时间特征建模。至于Chorus，它捕获了物品关系和它们的分类特定的时间动态。值得注意的是，正常情况下，合唱团与CFKG相似;在补充的情况下，Chorus比SLRC '好一点，这两个都是最好的基线在每个场景。虽然Chorus在替补组中没有SLRC '强，但与CFKG相比有明显的提高。因此，平均而言，Chorus获得了较好的成绩，这说明了整合项目关系和细粒度的时间动态的重要性。</p>
+<h4 id="55-parameter-interpretability">5.5 Parameter Interpretability</h4>
+<p>在设计时间核函数时，我们要验证与时间相关的参数是否具有可解释的意义。请注意，这些参数是按项目类别索引的，这表示以前的关系消费对该类别的影响如何随时间漂移。虽然某一特定关系因其功能形式的不同而总体走向相似，但其具体形式却揭示了该范畴的特点。图6显示了在手机数据集中学习的一些代表性类别的时态核函数。</p>
+<p>图5:测试用例在不同场景下的性能比较(正常:没有历史关系消耗;补充:目标物品是某些物品的补充<br>
+历史序列中的项目;替换:目标项是历史序列中某些项的替换)。</p>
+<figure data-type="image" tabindex="17"><img src="https://s-hmily.github.io/post-images/1599643631911.png" alt="" loading="lazy"></figure>
+<p>图6:已学习的is_complementary _of(左)和is_substitute_of(右)关系时态核函数的案例研究每一行表示在原点使用相应的关系项时，它对该类别项的影响如何随时间变化。</p>
+<figure data-type="image" tabindex="18"><img src="https://s-hmily.github.io/post-images/1599643653972.png" alt="" loading="lazy"></figure>
+<p>左图对应耳机与替换件的is_complementary _of关系。如图所示，对耳机的影响比替换零件衰减得快得多。一方面，购买手机后，向用户推荐耳机作为补充是合理的。但如果用户不使用推荐的耳机，他/她可能已经有了耳机或从其他地方购买了一个。因此，补体的积极作用预计会迅速衰减，否则持续推荐耳机可能会给用户带来麻烦。另一方面，对于备用电池等替换部件，补充消费的积极效应将持续一段时间。因为用户通常会在原设备的电池用完一段时间后再购买备用电池。</p>
+<p>右图显示了is_substitute_of relation对基本机箱、国际充电器、手机的影响。虽然一般形式都是由两个相反的正态分布组成，但基本情况下的时间核函数与其他两种情况下的时间核函数有很大的不同，其中抑制作用的分量几乎是平的。这说明用户在购买手机壳的时候，不会有强烈的负面影响，因为我们经常会因为各种原因更换手机壳，比如边缘断裂或者只是想尝试一种新的风格。对于国际充电器和手机来说，它们的时间内核功能都呈现出明显的负效应和正峰值。这是合理的，因为我们通常不需要另一个充电器或手机，如果我们刚买了一个。有趣的是，这两种物品的峰值对应的时间间隔是相似的，这反映了手机的更换往往会导致匹配充电器的更换。此外，与充电器相比，手机的曲线更加平滑。原因可能是我们可以因为各种原因更换手机，但如果充电器能用，我们却很少更换。因此，一款新手机可以</p>
+<p>综上所述，我们的Chorus模型中与时间相关的参数具有较高的可解释性，能很好地反映不同类别项目的特征。这些参数可以帮助推荐系统对推荐结果进行解释。例如,当用户购买iPhone之前,是时候手机的时间内核函数的峰值时,建议一个新的手机可以解释为“你的手机一直在服务很长一段时间,看一看一些新产品如何?”</p>
+<h4 id="6-conclusion-and-future-work">6 CONCLUSION AND FUTURE WORK</h4>
+<p>本文提出了一种基于知识和时间感知的物品建模方法。据我们所知，我们是第一个明确地建模不同关系的影响随时间的演变，并将这些信息合并到项目嵌入中。采用图嵌入的方法从项目关系图中获取结构信息，并对每个项目推导出不同的关系表示。通过专门设计的时间核函数来控制关系的时间动态，并根据历史序列中目标项与关系项之间的时间间隙动态组合关系表示，形成具有知识感知的动态项表示。时间核函数的设计可以看作是对模型的一种人工干预，可以用来满足对推荐结果的不同要求。由于Chorus的灵活性，它可以很容易地利用各种嵌入算法来计算排名分数和提出建议。大量的实验结果表明，Chorus优于最先进的基线，说明项目关系和它们的时间进化效应是非常重要的。此外，Chorus中的时间相关参数具有较高的可解释性，有助于提高推荐的可解释性</p>
+<p>该模型还存在预定义的时间函数和两阶段学习过程等局限性。此外，虽然基于平移的方法总体上工作良好，但我们发现在某些情况下存在不足，需要进一步研究。在未来，我们将研究如何自适应地估计不同关系的时间进化效应，并尝试设计更适合的方法来将项目关系建模与推荐紧密结合</p>
+<h3 id="acknowledgments">ACKNOWLEDGMENTS</h3>
+<p>这项工作得到国家重点研究开发计划(2018YFC0831900)和国家自然科学基金(批准号:61672311,61532011)的资助。马维智博士得到了水木清华学者计划的资助。我们要感谢Maarten de Rijke对这项工作提出的宝贵意见。</p>
+
+        </div>
+        
+        
+        <div class="next-post">
+            下一篇
+            <a href="https://s-hmily.github.io/post/lun-wen-bi-ji-lesslesskgat-knowledge-graph-attention-network-for-recommendationgreatergreater/">
+                论文笔记：《KGAT: Knowledge Graph Attention Network for Recommendation》
+            </a>
+        </div>
+        
+    </div>
+    </div>
+</body>
+<script>
+    var t_img; // 定时�?
+    var isLoad = true; // 控制变量
+    isImgLoad(function () {
+        // 加载完成
+        $('.postdetailimg').css("display", "block");
+    });
+    // 判断图片加载的函�?
+    function isImgLoad(callback) {
+        // 注意我的图片类名都是cover，因为我�?需要�?�理cover。其它图片可以不管�?
+        // 查找所有封面图，迭代�?�理
+        $('.postdetailimg').each(function () {
+            // 找到�?0就将isLoad设为false，并退出each
+            if (this.height === 0) {
+                isLoad = false;
+                return false;
+            }
+        });
+        // 为true，没有发现为0的。加载完�?
+        if (isLoad) {
+            clearTimeout(t_img); // 清除定时�?
+            // 回调函数
+            callback();
+            // 为false，因为找到了没有加载完成的图，将调用定时器递归
+        } else {
+            isLoad = true;
+            t_img = setTimeout(function () {
+                isImgLoad(callback); // 递归�?�?
+            }, 500); // 我这里�?�置的是500�?秒就�?描一次，�?以自己调�?
+        }
+    }
+
+    //文章阅读热度
+    var pl = $("#pl").html();
+    var rootaddr = $("#rootaddr").html();
+    pl = pl.replace(rootaddr, "");
+    $("#hotnum").attr('id', pl);
+</script>
+        <div name="comment" style="background: white">
+            <div class="commentcontainer">
+                
+                <p>请到客户端“主题--自定义配置--valine”中填入ID和KEY</p>
+                
+            </div>
+        </div>
+    </div>
+     
+                <div class="toc-container">
+                    <ul class="markdownIt-TOC">
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#%E6%91%98%E8%A6%81"><strong>摘要</strong></a></li>
+<li><a href="#ccs-concepts-ccs%E6%A6%82%E5%BF%B5">CCS CONCEPTS （CCS概念）</a></li>
+<li><a href="#keywords-%E5%85%B3%E9%94%AE%E5%AD%97">KEYWORDS  （关键字）</a></li>
+<li><a href="#1-introduction-%E4%BB%8B%E7%BB%8D">1  INTRODUCTION （介绍）</a></li>
+<li><a href="#2-related-work-%E7%9B%B8%E5%85%B3%E5%B7%A5%E4%BD%9C">2 RELATED WORK （相关工作）</a>
+<ul>
+<li><a href="#21-sequential-recommendation-%E9%A1%BA%E5%BA%8F%E5%BB%BA%E8%AE%AE">2.1  Sequential Recommendation  （顺序建议）</a></li>
+<li><a href="#22-item-relation-modeling-%E9%A1%B9%E5%85%B3%E7%B3%BB%E5%BB%BA%E6%A8%A1">2.2  Item Relation Modeling （项关系建模）</a></li>
+<li><a href="#23-temporal-dynamics-modeling-%E6%97%B6%E9%97%B4%E5%8A%A8%E5%8A%9B%E5%AD%A6%E5%BB%BA%E6%A8%A1">2.3 Temporal Dynamics Modeling  （时间动力学建模）</a></li>
+</ul>
+</li>
+<li><a href="#3-preliminaries">3 PRELIMINARIES</a>
+<ul>
+<li><a href="#31-task-definition-%E9%97%AE%E9%A2%98%E5%AE%9A%E4%B9%89">3.1 Task Definition  （问题定义）</a></li>
+<li><a href="#32-knowledge-graph-embedding-%E7%9F%A5%E8%AF%86%E5%9B%BE%E5%B5%8C%E5%85%A5">3.2 Knowledge Graph Embedding （知识图嵌入）</a></li>
+<li><a href="#33-base-methods-for-recommendation">3.3 Base Methods for Recommendation</a></li>
+</ul>
+</li>
+<li><a href="#4-chorus-mode">4 CHORUS MODE</a>
+<ul>
+<li><a href="#41-model-overvie">4.1  Model Overvie</a></li>
+<li><a href="#42-dynamic-integration">4.2 Dynamic Integration</a></li>
+<li><a href="#43-design-of-temporal-kernel-function">4.3 Design of Temporal Kernel Function</a></li>
+<li><a href="#44-parameter-learning">4.4 Parameter Learning</a></li>
+</ul>
+</li>
+<li><a href="#5-experiments">5 EXPERIMENTS</a>
+<ul>
+<li><a href="#52-overall-performance">5.2 Overall Performance</a></li>
+<li><a href="#53-ablation-study"><strong>5.3 Ablation Study</strong></a></li>
+<li><a href="#54-performance-in-different-scenarios">5.4 Performance in Different Scenarios</a></li>
+<li><a href="#55-parameter-interpretability">5.5 Parameter Interpretability</a></li>
+<li><a href="#6-conclusion-and-future-work">6 CONCLUSION AND FUTURE WORK</a></li>
+</ul>
+</li>
+<li><a href="#acknowledgments">ACKNOWLEDGMENTS</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+    </div>
+    </div>
+    </div>
+    <div class="toggleContainer">
+        <div class="toggle">
+            <i class="fas fa-angle-double-up"></i>
+        </div>
+    </div>
+    <div id="bg">
+    </div>
+    <div id="bgchoice" style="display: none">link</div>
+    
+    <div id="bgurl" style="display:none">https://pic2.zhimg.com/80/v2-bcbb1a4f932ab78c198b0a99af266d4e_720w.jpg?source=1940ef5c</div>
+       
+    </div>
+    <!-- 响应式布局，针对手机端内容显示 -->
+    <div class="nav-small">
+        <head>
+  <!-- 引入Bootstrap核心样式文件 -->
+  <link rel="stylesheet" href="https://s-hmily.github.io/media/css/bootstrap.min.css">
+</head>
+
+<body>
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container-fluid">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+          data-target="#barmenu" aria-expanded="false" id="barbutton">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="https://s-hmily.github.io">叮叮当&nbsp;&nbsp;|</a>
+      </div>
+
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="barmenu">
+        <ul class="nav navbar-nav">
+          
+          
+          <li>
+            <a href="https://s-hmily.github.io">
+              首页
+            </a>
+          </li>
+          
+          
+          
+          <li>
+            <a href="/archives">
+              归档
+            </a>
+          </li>
+          
+          
+          
+          <li>
+            <a href="https://s-hmily.github.io/tags">
+              标签
+            </a>
+          </li>
+          
+          
+          
+            <li><a href="https://s-hmily.github.io/talk">说说</a></li>
+            
+          
+          <li><a href="https://s-hmily.github.io/friends">友链</a></li>
+
+          
+        </ul>
+      </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+  </nav>
+
+
+  <!-- 引入jQuery核心js文件 -->
+  <script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+  <script>
+  var btstate = false;
+  var bt = $("#barbutton");
+  var bm = $("#barmenu");
+  bt.click(function(){
+    dropdown();
+  })
+  function dropdown(){
+    console.log(btstate);
+    //下拉
+    if(btstate==false){
+      bt.removeClass("collapsed");
+      bt.attr("aria-expanded","true");
+      bm.attr("aria-expanded","true")
+      bm.fadeIn(700);
+      btstate = true;
+    }
+    else{
+      bt.addClass("collapsed");
+      bt.attr("aria-expanded","false");
+      bm.removeClass("in");
+      bm.hide();
+      bm.attr("aria-expanded","false");
+      btstate = false;
+    }
+  }
+  </script> 
+</body>
+    <div style="margin-top:30px"></div>
+    <link rel="stylesheet" href="https://s-hmily.github.io/media/css/font-awesome.css">
+<style>
+
+</style>
+
+<body>
+    <div class="allcontent" id="postdetail">
+        <div class="postshow">
+            
+            <div class="postdetailimg" style="width:100%;overflow: hidden;display: none">
+                
+                <img src="https://pic2.zhimg.com/80/v2-bcbb1a4f932ab78c198b0a99af266d4e_720w.jpg?source=1940ef5c" class="postimage">
+                
+            </div>
+            <div class="postinfo-detail">
+                <div class="postdate"><i class="fa fa-calendar"></i>2020-09-07</div>
+            <div class="poststatus postdate"><i class="fa fa-clock-o"></i> 36 min read</div>
+            <div class="posttag">
+                
+            </div>
+        </div>
+        
+        <div id="texttitle" style="text-align: center">
+            <h2>Make It a Chorus: Knowledge- and Time-aware Item Modeling for Sequential Recommendation 翻译</h2>
+            <!-- id 将作为查询条件 -->
+            <div id="pl" style="display:none">https://s-hmily.github.io/post/make-it-a-chorus-knowledge-and-time-aware-item-modeling-for-sequential-recommendation-fan-yi/</div>
+            <div id="rootaddr" style="display:none">https://s-hmily.github.io</div>
+            <span id="hotnum" class="leancloud_visitors" data-flag-title="Make It a Chorus: Knowledge- and Time-aware Item Modeling for Sequential Recommendation 翻译">
+                <h4 class="readercount">热度🔥: <i class="leancloud-visitors-count">loading...</i></h4>
+            </span>
+        </div>
+        <div class="text ">
+            <h3 id="摘要"><strong>摘要</strong></h3>
+<p>传统的推荐系统主要以固有的模型和长期的用户偏好，而动态的用户需求也很重要。通常，历史消费会影响用户对其关系项的需求。列如，用户倾向于一起去购买补充品（iPone 和 Airpods）而不是替代产品（Powerbeats和Airpods），虽然替代品仍然迎合他/她们的喜好。为了更好地模拟历史序列的效果，以往的研究引入了项目关系语义来捕获用户的需求以进行推荐。然而，我们认为，不同关系所引起的效应时间演化是不可忽视的。</p>
+<h3 id="ccs-concepts-ccs概念">CCS CONCEPTS （CCS概念）</h3>
+<p>信息系统  →  推荐系统</p>
+<h3 id="keywords-关键字">KEYWORDS  （关键字）</h3>
+<p>推荐系统;项关系;Knowledge-aware推荐;时间动态</p>
+<figure data-type="image" tabindex="1"><img src="https://s-hmily.github.io/post-images/1599642722380.png" alt="" loading="lazy"></figure>
+<p>图一： 举例说明先前的相关消耗对AirPods需求的时间影响，iPone当前的消费在短期内可能会产生积极的影响，但如果用户刚刚购买了Powerbeats，则会产生相反的负面影响。替代品的积极效应会随着时间的推移而减弱，而替代品的消极效应经过一段时间后可以变为积极。</p>
+<h3 id="1-introduction-介绍">1  INTRODUCTION （介绍）</h3>
+<p>随着网络信息的超载，推荐系统在人们的日常生活中发挥着越来越重要的作用。它不仅提供符合用户口味的信息，还有助于发现用户的内在偏好[1]。传统的推荐方法主要侧重于用户偏好建模[11,13,19,33,]。例如，潜在因素模型[21]将用户和项目都嵌入到一个潜在空间中，用户的嵌入代表了各方面的偏好，在不同时间进行推荐时不会改变。</p>
+<p>然而，尽管用户偏好在大多数时候是静态的，但用户消费需求实际上是动态的和可变化的。相同的项目在不同的上下文中对用户有不同的含义。 实际上，顺序消费行为可以看作是一个在不同方面满足用户需求的过程。  一个物品的消费可能会对其他相关物品产生影响，不同关系的影响也不尽相同。以互补关系和替代关系为例，图1说明了购买不同关系项目的效果的如何会随时间变化。</p>
+<p>对于互补品:假设用户目前购买了iPhone，他/她可能会想在短期内购买AirPods(即iPhone的补充)。但一段时间后，正面效果会降低(用户可能已经有耳机，推荐系统不应该持续播放AirPods) ，</p>
+<p>对于替代品:如果他/她刚刚消耗的是AirPods的替代品，如Powerbeats，短期影响主要是负面的，因为用户不需要立即需要另一个耳机。</p>
+<p>虽然负面影响可能在中期转化为正面影响，因为用户可能需要购买一个新的耳机，而新发布AirPods可能是一个吸引力 。 这种积极的影响也会逐渐减弱，用户可能对这种耳机失去了兴趣，或者通过其他方式购买了另一种耳机</p>
+<p>从上面的例子可以看出，当前对不同关系物品的消费对目标物品的影响是不同的， 更重要的是，每种关系的时间趋势也不同 ， 也有研究将项关系引入推荐系统[16,40,44,45]，但没有考虑到不同关系的时间动态 ， 虽然有一些工作针对长期偏好和短期偏好[16]，但项目关系仅用于建模短期项目转换，缺乏对不同关系效应的连续演化建模 ， 另一项最近的工作调查了重复消费[41]的时间动态。 然而，消费不仅会影响相同的物品本身，还会影响相关的物品。  因此，项目关系和相应的时间动态是获取项目在不同语境下的动态意义的关键。</p>
+<p>在本文中，我们提出了一种新的方法Chorus，旨在获得具有知识和时间感知的目标项嵌入。  据我们所知，我们是第一个明确地为不同关系的影响随时间的演变建模的人，这有助于更好地捕捉不同序列上下文中的每一项的含义 。 其中，Chorus基于 <strong>基于平移的图嵌入方法</strong> 为每个条目分配一个基本表示和各种关系表示 。 然后，根据关系消耗后的运行时间，这些表示通过时间内核函数动态组合，这就是为什么它被命名为Chorus的原因。 提出的时态核函数使关系表示能够以不同的方式对最终的嵌入项作出贡献。 因此，Chorus能够动态地获取知识和时间感知的条目嵌入，这很容易被各种推荐算法所利用。 此外，高度可解释的时间相关参数使得解释不同时间段的推荐结果成为可能。</p>
+<p>本工作的主要贡献可以总结如下:</p>
+<ul>
+<li>设计了一种新颖灵活的Chorus方法，当目标在序列中扮演不同的角色时，动态地结合不同的表示形式来增强目标物体的建模能力。最后一项嵌入可以很容易地与各种推荐算法一起工作。</li>
+<li>在3个真实数据集上的对比实验表明了该方法的有效性，并且具有较高的可解释性参数进一步提高了模型的可解释性。</li>
+</ul>
+<h3 id="2-related-work-相关工作">2 RELATED WORK （相关工作）</h3>
+<h4 id="21-sequential-recommendation-顺序建议">2.1  Sequential Recommendation  （顺序建议）</h4>
+<p>与传统推荐方法不同，顺序推荐利用顺序数据基于马尔科夫链来预测用户的下一个消费，马尔科夫链假设下一个动作依赖于前一个动作序列[34,37]。   Rendle等人的[34]结合了矩阵分解(MF)[21]和分解的马尔可夫链，给出了前一篮子商品的下一篮子推荐。 最近，有很多工作利用递归神经网络(RNN)[36]将交互历史编码为隐藏向量[6,12,23,27,32,38]。Hidasi等人[12]首先将RNN引入顺序推荐，取得了令人印象深刻的性能增益。 Loyola et al.[27]和Pei et al.[32]都将注意机制[39]应用于RNN以获得更有效的推荐 。 此外，许多后续研究都致力于扩展基于rnn的模型的能力</p>
+<h4 id="22-item-relation-modeling-项关系建模">2.2  Item Relation Modeling （项关系建模）</h4>
+<p>在实际应用程序中，具有具体语义的项目之间通常存在多种关系。  最近的一些研究主要集中在如何将项关系引入推荐系统[16,28,30,40,44,45]，其中大部分研究都是利用知识图(KG)[42]来表示项关系。CFKG[45]将用户对商品的关系图作为实体，将购买行为视为另一种关系，然后使用TransE[3]表示异构信息网络并提出建议 。 Xin等人[44]提出了一个通用的推荐任务，该任务包含项目之间的多种关系，并将关系数据集成到协同过滤(CF)[35]中 。 Ma等人[28]提出了一个联合学习框架来整合知识图中可解释规则的归纳。</p>
+<p>但是，这些方法都假设关系项消费的影响是静态的，并且与时间信息无关，在这种情况下，即使用户不需要，在很长一段时间后，也可能会持续推荐补充的内容。</p>
+<h4 id="23-temporal-dynamics-modeling-时间动力学建模">2.3 Temporal Dynamics Modeling  （时间动力学建模）</h4>
+<p>考虑时间信息主要有两行工作。  一方面，一些工作旨在将时间信息作为上下文特征。 TimeSVD++[20]将时间划分为槽，并设计与时间相关的参数。TransFM利用FM将时间戳作为额外的上下文特性[31]包含进来 。  此外，张量因子分解也是一种主要的方法[2,17]，其中时间被视为用户-物品交互立方体的第三维。</p>
+<p>另一方面，一些工作侧重于模拟历史相互作用的时间衰减效应 。 在这一行中，通常使用Hawkes Process (HP) [8]对用户消费序列的相互激励特性进行建模[7,22,24,41]。Du等[7]首先将Hawkes过程应用于时效性推荐。  结合霍克斯过程和协同过滤对重复消费的时间动态进行建模</p>
+<p>但是，这些方法没有考虑不同关系的时间动态。因此，为了更好地建模动态用户需求，我们创造性地考虑了条目关系和相应的时间演化。</p>
+<h3 id="3-preliminaries">3 PRELIMINARIES</h3>
+<h4 id="31-task-definition-问题定义">3.1 Task Definition  （问题定义）</h4>
+<p>定义3.1(问题定义) ：</p>
+<p>给定用户 u ∈ U 和交互历史   <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>s</mi><mi>u</mi></msub></mrow><annotation encoding="application/x-tex">s_u</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">s</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">u</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> = {(<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>i</mi><mn>1</mn></msub></mrow><annotation encoding="application/x-tex">i_1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.80952em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">i</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>,<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>t</mi><mn>1</mn></msub></mrow><annotation encoding="application/x-tex">t_1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.76508em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">t</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>), (<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>i</mi><mn>2</mn></msub></mrow><annotation encoding="application/x-tex">i_2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.80952em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">i</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>,<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>t</mi><mn>2</mn></msub></mrow><annotation encoding="application/x-tex">t_2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.76508em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">t</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>), · · · , (i<sub>N</sub><sub>u</sub>, t<sub>N</sub><sub>u</sub> )} ∈ S 和 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>N</mi><mi>u</mi></msub></mrow><annotation encoding="application/x-tex">N_u</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.10903em;">N</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:-0.10903em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">u</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> 的交互（ (<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>t</mi><mi>n</mi></msub></mrow><annotation encoding="application/x-tex">t_n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.76508em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">t</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">n</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> &lt;  <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>t</mi><mi>n</mi></msub></mrow><annotation encoding="application/x-tex">t_n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.76508em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">t</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">n</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>‘ for any n &lt; n ′ &lt; <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>N</mi><mi>u</mi></msub></mrow><annotation encoding="application/x-tex">N_u</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.10903em;">N</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:-0.10903em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">u</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> ）， 推荐任务为:考虑目标时间t之前的交互序列，记为<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msubsup><mi>s</mi><mi>u</mi><mi>t</mi></msubsup></mrow><annotation encoding="application/x-tex">s^t_u</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.040556em;vertical-align:-0.247em;"></span><span class="mord"><span class="mord mathdefault">s</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.7935559999999999em;"><span style="top:-2.4530000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">u</span></span></span><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">t</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.247em;"><span></span></span></span></span></span></span></span></span></span> ，生成一个包含k个用户在t时刻可能感兴趣的项的有序列表。</p>
+<p>除此之外，令R是所有项关系的集合，每个关系r  ∈ R  ，其矩阵<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>I</mi><mi>r</mi></msub></mrow><annotation encoding="application/x-tex">I_r</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.07847em;">I</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:-0.07847em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight" style="margin-right:0.02778em;">r</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>  ∈ <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mi>N</mi><mrow><mi>M</mi><mo>×</mo><mi>N</mi></mrow></msup></mrow><annotation encoding="application/x-tex">N^{M × N}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8413309999999999em;vertical-align:0em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.10903em;">N</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8413309999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.10903em;">M</span><span class="mbin mtight">×</span><span class="mord mathdefault mtight" style="margin-right:0.10903em;">N</span></span></span></span></span></span></span></span></span></span></span></span>,其中M为项的总数，如果关系r对项 i 和 j 成立，则<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>I</mi><mi>r</mi></msub></mrow><annotation encoding="application/x-tex">I_r</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.07847em;">I</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:-0.07847em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight" style="margin-right:0.02778em;">r</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>(i,j)=1,否则为0.关系r可以是互补关系，取代关系等等</p>
+<h4 id="32-knowledge-graph-embedding-知识图嵌入">3.2 Knowledge Graph Embedding （知识图嵌入）</h4>
+<p>项目关系信息可视为一个知识图，构件为一组三元组(i,r, j)，其中i和j表示不同的项目，r表示关系类型。 例如，(AirPods, is_complementary _o f,iPhone)意思是AirPods是iPhone的补充。  需要注意的是，有时候一个三联组的反义词可能不成立(例如，iPhone不是AirPods的补充)，因此关系图是方向性的。</p>
+<p>为了将关系图的结构信息引入到推荐系统中，获取具有项目关系语义意义的嵌入件是非常重要的。 在各种嵌入方法中，基于翻译的模型[3,25,43]的效率和有效性最为突出。 其内在思想是将项目和关系嵌入到相同的潜在空间中，并找到一个翻译函数来最小化得分函数:</p>
+<figure data-type="image" tabindex="2"><img src="https://s-hmily.github.io/post-images/1599642912871.png" alt="" loading="lazy"></figure>
+<p>其中D(·)是度量距离的度量函数(通常为l2-范数)。Trans(i, r)是一个任意的平移函数，它可以是一个简单的平移操作，也可以是一个专门设计的神经网络。 许多工作都集中在扩展翻译功能的能力上，如TransE [3]， TransH [43]， TransR[25]等。 对于TransE[3]，平移函数为Trans(i, r) = i + r，任意三联体(i,r, j)应用l2-norm时的评分函数为f (h,r,t) = ||h + r−t||2。</p>
+<p>为了从关系图中学习项和关系的嵌入，将基于边缘的损失[45]最小化如下:</p>
+<p><img src="https://s-hmily.github.io/post-images/1599642882344.png" alt="" loading="lazy"><br>
+对于每一个三元组，尾项都被一个随机抽样的项j '所取代，以确保(i,r, j ')在知识图中没有被观察到。</p>
+<p>类似地，头项被i '替换，并且(i '，r, j)也无法被察觉到。  上述目标函数的目的是区分被观察到的三联体和被破坏的三联体，并强制嵌入保留项目之间的关系。</p>
+<h4 id="33-base-methods-for-recommendation">3.3 Base Methods for Recommendation</h4>
+<p>本文所提出的项目建模方法灵活地适用于各种推荐算法。 由于贝叶斯个性化排序(BPR)[33]是一种应用广泛的矩阵分解方法，而广义矩阵分解(GMF)[11]是一种最先进的基于神经网络的方法，我们选择它们作为基础推荐模型来验证我们方法的有效性。</p>
+<p>这里我们简要回顾一下这两种协同过滤方法，CF方法假设相似的用户喜欢相似的条目。在BPR的情况下，每个用户和物品都有一个k维的潜在因子，其排名得分计算如下:</p>
+<figure data-type="image" tabindex="3"><img src="https://s-hmily.github.io/post-images/1599642948544.png" alt="" loading="lazy"></figure>
+<p>其中<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>b</mi><mi>u</mi></msub></mrow><annotation encoding="application/x-tex">b_u</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.84444em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">b</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">u</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>和<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>b</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">b_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.84444em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">b</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>分别为每个用户和item的偏移。</p>
+<p>在GMF情况下，通过多层神经网络得到的排名得分可以表示为</p>
+<figure data-type="image" tabindex="4"><img src="https://s-hmily.github.io/post-images/1599642975882.png" alt="" loading="lazy"></figure>
+<p><span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>ϕ</mi><mrow><mi>o</mi><mi>u</mi><mi>t</mi></mrow></msub></mrow><annotation encoding="application/x-tex">\phi_{out}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord"><span class="mord mathdefault">ϕ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.2805559999999999em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">o</span><span class="mord mathdefault mtight">u</span><span class="mord mathdefault mtight">t</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>和<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>ϕ</mi><mi>x</mi></msub></mrow><annotation encoding="application/x-tex">\phi_x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord"><span class="mord mathdefault">ϕ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">x</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>的映射函数分别表示输出层和x-th 神经协同过滤层,还有x神经CF层。那么选择的项目应该根据预测的得分<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>y</mi><mrow><mi>u</mi><mi>i</mi></mrow></msub></mrow><annotation encoding="application/x-tex">y_{ui}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.03588em;">y</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:-0.03588em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">u</span><span class="mord mathdefault mtight">i</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>进行排名</p>
+<p>为了学习推荐模型中的参数，可以对排序损失[33]进行优化，优化方法如下:</p>
+<p>式中，指标为sigmoid函数，负项为<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>j</mi></mrow><annotation encoding="application/x-tex">j</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.85396em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.05724em;">j</span></span></span></span>  <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi mathvariant="normal">∉</mi></mrow><annotation encoding="application/x-tex">\notin</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mrel"><span class="mord"><span class="mrel">∈</span></span><span class="mord"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.75em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="llap"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="inner"><span class="mord"><span class="mord">/</span><span class="mspace" style="margin-right:0.05555555555555555em;"></span></span></span><span class="fix"></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.25em;"><span></span></span></span></span></span></span></span></span></span> <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>S</mi><mi>u</mi></msub></mrow><annotation encoding="application/x-tex">S_u</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.05764em;">S</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:-0.05764em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">u</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>对每个训练实例随机采样<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>S</mi><mi>u</mi></msub></mrow><annotation encoding="application/x-tex">S_u</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.05764em;">S</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:-0.05764em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">u</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>。</p>
+<figure data-type="image" tabindex="5"><img src="https://s-hmily.github.io/post-images/1599643040671.png" alt="" loading="lazy"></figure>
+<h3 id="4-chorus-mode">4 CHORUS MODE</h3>
+<h4 id="41-model-overvie">4.1  Model Overvie</h4>
+<p>Chorus是一个两阶段的模型，它综合了项目关系及其特定的时间效应 . 图2演示了整个模型结构. 在第一阶段(关系建模)中，利用图嵌入将项目关系的结构信息编码为嵌入。  第3.2节中描述的各种基于转换的方法在这里可以灵活地利用。关系图嵌入的结果将用于推导Chorus模型的基本表示和关系表示</p>
+<figure data-type="image" tabindex="6"><img src="https://s-hmily.github.io/post-images/1599643077832.png" alt="" loading="lazy"></figure>
+<p>图2:Chorus模型概述 ： 在第一阶段(关系建模)中，使用图嵌入来学习项和关系的基本嵌入。  在第二阶段(动态项表示)，Chorus给每个项额外的关系表示。然后，根据序列上下文动态地组合这些表示。最终知识感知的动态项嵌入可用于各种算法(如BPR和GMF)的推荐。</p>
+<p>在第二阶段(动态项表示)，有两个关键模块:  (1)动态积分;(2)时间核函数设计。 首先，除了基于翻译函数的基本表示外，每个项将获得|R|关系表示，翻译函数表示目标项在上下文中充当不同角色时的表示。  然后根据历史序列中是否存在相应的关系消耗以及运行时间，对这些表示进行动态集成。 为了结合每个关系的时间动态，我们提出了特定关系的时间核函数来控制影响的极性和强度。因此，关系表示在不同上下文中对最终项的嵌入有不同的贡献，从而导致可感知知识的动态项嵌入。 最后，许多算法可以利用增强的项目嵌入来计算排名分数并提出建议。在这一节的其余部分，我们详细阐述了第二阶段Chorus的主要模块。</p>
+<h4 id="42-dynamic-integration">4.2 Dynamic Integration</h4>
+<p>首先，我们根据关系图嵌入的结果，为每个项定义基本表示(记为<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>i</mi><mi>b</mi></msub></mrow><annotation encoding="application/x-tex">i_b</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.80952em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">i</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.33610799999999996em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">b</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>)和关系表示(记为<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>i</mi><mi>r</mi></msub></mrow><annotation encoding="application/x-tex">i_r</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.80952em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">i</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight" style="margin-right:0.02778em;">r</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>，记为关系<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>r</mi></mrow><annotation encoding="application/x-tex">r</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">r</span></span></span></span>∈<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>R</mi></mrow><annotation encoding="application/x-tex">R</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.00773em;">R</span></span></span></span>)。基本表示对项的固有特征进行编码，因此在第一阶段学到的项嵌入将用于初始化<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>i</mi><mi>b</mi></msub></mrow><annotation encoding="application/x-tex">i_b</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.80952em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">i</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.33610799999999996em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">b</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>。然后利用平移函数得到关系表示:</p>
+<figure data-type="image" tabindex="7"><img src="https://s-hmily.github.io/post-images/1599643115872.png" alt="" loading="lazy"></figure>
+<p>其中<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>e</mi><mi>r</mi></msub></mrow><annotation encoding="application/x-tex">e_r</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">e</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight" style="margin-right:0.02778em;">r</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>是嵌入<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>r</mi></mrow><annotation encoding="application/x-tex">r</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">r</span></span></span></span>∈<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>R</mi></mrow><annotation encoding="application/x-tex">R</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.00773em;">R</span></span></span></span>的关系。这样关系表示就集成了每个关系对应的语义信息。</p>
+<p>在得到基本项和关系项表示后，重点研究如何根据不同的上下文动态地组合它们，这是我们的Chorus模型的核心思想。请注意，关系表示是知识感知的，但仍然是静态的。我们的目标是为每个关系表示导出上下文感知系数<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>f</mi><mi>r</mi></msub></mrow><annotation encoding="application/x-tex">f_r</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:-0.10764em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight" style="margin-right:0.02778em;">r</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>，反映当前上下文的实际影响程度。最后提出嵌入<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>i</mi><mrow><mi>C</mi><mi>h</mi><mi>o</mi><mi>r</mi><mi>u</mi><mi>s</mi></mrow></msub></mrow><annotation encoding="application/x-tex">i_{Chorus}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.80952em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">i</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.33610799999999996em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.07153em;">C</span><span class="mord mathdefault mtight">h</span><span class="mord mathdefault mtight">o</span><span class="mord mathdefault mtight" style="margin-right:0.02778em;">r</span><span class="mord mathdefault mtight">u</span><span class="mord mathdefault mtight">s</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>的上下文感知和知识感知项表示如下:</p>
+<figure data-type="image" tabindex="8"><img src="https://s-hmily.github.io/post-images/1599643163813.png" alt="" loading="lazy"></figure>
+<p>它由基本项表示和尺度关系表示两部分组成，其中上下文(历史序列<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msubsup><mi>S</mi><mi>t</mi><mi>u</mi></msubsup></mrow><annotation encoding="application/x-tex">S_t^u</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.93033em;vertical-align:-0.247em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.05764em;">S</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.664392em;"><span style="top:-2.4530000000000003em;margin-left:-0.05764em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">t</span></span></span><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">u</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.247em;"><span></span></span></span></span></span></span></span></span></span>、时间<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>t</mi></mrow><annotation encoding="application/x-tex">t</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.61508em;vertical-align:0em;"></span><span class="mord mathdefault">t</span></span></span></span>和目标项<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>i</mi></mrow><annotation encoding="application/x-tex">i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.65952em;vertical-align:0em;"></span><span class="mord mathdefault">i</span></span></span></span>)作为系数<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>f</mi><mi>r</mi></msub></mrow><annotation encoding="application/x-tex">f_r</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:-0.10764em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight" style="margin-right:0.02778em;">r</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>的输入。接下来，我们重点讨论如何在给定的语境下获得合理的<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>f</mi><mi>r</mi></msub></mrow><annotation encoding="application/x-tex">f_r</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:-0.10764em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight" style="margin-right:0.02778em;">r</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>。</p>
+<p>直观地看，有些关系表示在某些情况下可能没有效果，甚至有负面效果。图3给出了一些示例，说明如何期望这些表示在不同上下文中对最终嵌入做出贡献。三角形的三个角代表目标项目的不同表示。当没有关系消耗(上下文A)时，最后的嵌入只是基本的项表示，其他两个关系项没有影响 . 当Powerbeats或iPhone刚刚购买时(上下文B和C)，对应的关系表示应该分别具有消极和积极的影响。而如果替代品是很久以前购买的(上下文D)，替代品的表现形式可能对最终嵌入产生积极的影响。此外，当序列中有许多不同的关系项时，这三种表示都将不同程度地发挥作用</p>
+<figure data-type="image" tabindex="9"><img src="https://s-hmily.github.io/post-images/1599643196155.png" alt="" loading="lazy"></figure>
+<p>图3:说明如何根据序列上下文动态组合不同的表示。</p>
+<p>为了考虑这种不同关系的时间动态，我们创新性地为每种关系设计了时间核函数，它是一个关于消费之间滞后时间的连续函数。时间核函数的目的是控制每次关系消耗的影响程度。函数值的极性表示作用的极性。假设我们已获得核函数<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msubsup><mi>k</mi><mi>r</mi><mi>i</mi></msubsup></mrow><annotation encoding="application/x-tex">k_r^i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.071664em;vertical-align:-0.247em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.03148em;">k</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.824664em;"><span style="top:-2.4530000000000003em;margin-left:-0.03148em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight" style="margin-right:0.02778em;">r</span></span></span><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.247em;"><span></span></span></span></span></span></span></span></span></span>(∆t),索引项<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>i</mi></mrow><annotation encoding="application/x-tex">i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.65952em;vertical-align:0em;"></span><span class="mord mathdefault">i</span></span></span></span>和关系<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>r</mi></mrow><annotation encoding="application/x-tex">r</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">r</span></span></span></span>(具体设计和相关讨论左在下一节),我们建议定义关系系数<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>f</mi><mi>r</mi></msub></mrow><annotation encoding="application/x-tex">f_r</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:-0.10764em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight" style="margin-right:0.02778em;">r</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>如下:</p>
+<figure data-type="image" tabindex="10"><img src="https://s-hmily.github.io/post-images/1599643230172.png" alt="" loading="lazy"></figure>
+<p>其中<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>I</mi><mi>r</mi></msub></mrow><annotation encoding="application/x-tex">I_r</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.07847em;">I</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:-0.07847em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight" style="margin-right:0.02778em;">r</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>为关系矩阵。每个前消费关系<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>r</mi></mrow><annotation encoding="application/x-tex">r</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">r</span></span></span></span>的目标项目我有添加剂影响系数<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>f</mi><mi>r</mi></msub></mrow><annotation encoding="application/x-tex">f_r</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:-0.10764em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight" style="margin-right:0.02778em;">r</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>,由核函数控制<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msubsup><mi>k</mi><mi>r</mi><mi>i</mi></msubsup></mrow><annotation encoding="application/x-tex">k_r^i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.071664em;vertical-align:-0.247em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.03148em;">k</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.824664em;"><span style="top:-2.4530000000000003em;margin-left:-0.03148em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight" style="margin-right:0.02778em;">r</span></span></span><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.247em;"><span></span></span></span></span></span></span></span></span></span>(·)。通过这种方式，关系系数使得不同的表示法能够在不同程度上对最终的嵌入做出贡献，这与以前分配静态项嵌入的研究不同。由于时间核函数的存在，关系表示可能会由于长时间间隔而几乎不起作用，甚至在某些情况下会产生负面影响。因此，Chorus嵌入可以更好地捕捉项目在不同上下文中的含义，从而更好地模拟用户随时间变化的需求。</p>
+<p>此外，为了简单和高效，我们可以只考虑历史序列中最新的关系项，在这种情况下，Equ。(7)可以直接表示为:</p>
+<figure data-type="image" tabindex="11"><img src="https://s-hmily.github.io/post-images/1599643261605.png" alt="" loading="lazy"></figure>
+<p>∆<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>t</mi><mi>r</mi></msub></mrow><annotation encoding="application/x-tex">t_r</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.76508em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">t</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight" style="margin-right:0.02778em;">r</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>表示从最近一次物品消耗到现在物品消耗的时间，<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>r</mi></mrow><annotation encoding="application/x-tex">r</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">r</span></span></span></span>与当前物品相关。如果某一关系在历史序列中没有关系项，我们假设存在一个正无穷时间间隔(即∆<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>t</mi><mi>r</mi></msub></mrow><annotation encoding="application/x-tex">t_r</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.76508em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">t</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight" style="margin-right:0.02778em;">r</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> = +∞)。在时间核函数随时间接近于零的情况下，相应的关系嵌入不会产生影响</p>
+<h4 id="43-design-of-temporal-kernel-function">4.3 Design of Temporal Kernel Function</h4>
+<p>接下来，我们重点研究如何为每个关系设计时间核函数。实际上，时间核函数的具体形式可以看作是对模型的一种人为干预。一方面，我们可以根据每个关系的特点来设计函数。例如，如图1所示，互补关系在短时间内具有积极的影响，并且这种影响随着时间的推移而衰减。另一方面，我们可以根据主观对系统的需求进行设计。如果我们希望替代品在短期内也出现在推荐列表中，那么时间核函数可以设计为初值为正，衰减速度更快。在本文中，我们主要研究两个关系:is_complementary - of和is_substitute_of。作为实例，我们根据这两者的一般认知和特点设计了相应的时间核函数关系</p>
+<p>补充而言，除了整体下降趋势外，正面效应一般持续一段时间后，在日常生活中开始消退。因此，我们选择均值为零的正态分布作为其时间核函数，而不是衰减太快的直观指数分布:</p>
+<figure data-type="image" tabindex="12"><img src="https://s-hmily.github.io/post-images/1599643305903.png" alt="" loading="lazy"></figure>
+<p>式中，N(∆<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>t</mi></mrow><annotation encoding="application/x-tex">t</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.61508em;vertical-align:0em;"></span><span class="mord mathdefault">t</span></span></span></span>|，<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>μ</mi></mrow><annotation encoding="application/x-tex">\mu</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">μ</span></span></span></span>，<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>σ</mi></mrow><annotation encoding="application/x-tex">\sigma</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.03588em;">σ</span></span></span></span>)为∆<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>t</mi></mrow><annotation encoding="application/x-tex">t</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.61508em;vertical-align:0em;"></span><span class="mord mathdefault">t</span></span></span></span>的正态分布，具有。需要注意的是，此处的参数<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msubsup><mi>σ</mi><mi>c</mi><mrow><mi>z</mi><mo>(</mo><mi>i</mi><mo>)</mo></mrow></msubsup></mrow><annotation encoding="application/x-tex">\sigma_c^{z(i)}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.161392em;vertical-align:-0.11659199999999997em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.03588em;">σ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.0448em;"><span style="top:-2.5834080000000004em;margin-left:-0.03588em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">c</span></span></span><span style="top:-3.2198em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.04398em;">z</span><span class="mopen mtight">(</span><span class="mord mathdefault mtight">i</span><span class="mclose mtight">)</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.11659199999999997em;"><span></span></span></span></span></span></span></span></span></span>与<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>z</mi><mo>(</mo><mi>i</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">z(i)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.04398em;">z</span><span class="mopen">(</span><span class="mord mathdefault">i</span><span class="mclose">)</span></span></span></span>有关，<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>z</mi><mi mathvariant="normal">（</mi><mi>i</mi><mi mathvariant="normal">）</mi></mrow><annotation encoding="application/x-tex">z（i）</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.65952em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.04398em;">z</span><span class="mord cjk_fallback">（</span><span class="mord mathdefault">i</span><span class="mord cjk_fallback">）</span></span></span></span>表示第<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>i</mi></mrow><annotation encoding="application/x-tex">i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.65952em;vertical-align:0em;"></span><span class="mord mathdefault">i</span></span></span></span>项的类别。我们不估算特定于项目的参数，因为类别通常更适合于对一组项目的特征进行建模。具体项目的参数也可能受到数据稀疏性问题的影响</p>
+<p>对于替代品，预期其影响将从消极变为积极，因为我们短期内不需要另一个具有类似效用的产品，但希望在其使用寿命结束时更换一个新的。因此，我们使用两个相反的正态分布来模拟这些特征:</p>
+<figure data-type="image" tabindex="13"><img src="https://s-hmily.github.io/post-images/1599643339998.png" alt="" loading="lazy"></figure>
+<p>这是(1)短期抑制(负)和(2)终身促进(正)的叠加。负正态分布被设计为均值为零，因为在替代消费之后，再训练效应通常最强。在正的那个例子中，参数<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msubsup><mi>μ</mi><mi>s</mi><mrow><mi>z</mi><mo>(</mo><mi>i</mi><mo>)</mo></mrow></msubsup></mrow><annotation encoding="application/x-tex">\mu_s^{z(i)}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.23924em;vertical-align:-0.19444em;"></span><span class="mord"><span class="mord mathdefault">μ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.0448em;"><span style="top:-2.5834080000000004em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">s</span></span></span><span style="top:-3.2198em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.04398em;">z</span><span class="mopen mtight">(</span><span class="mord mathdefault mtight">i</span><span class="mclose mtight">)</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.11659199999999997em;"><span></span></span></span></span></span></span></span></span></span>以某种方式表示这个类别的生存期，这意味着这个时候效果将达到峰值。</p>
+<p>图2展示了这两个时间核函数。还可以设计其他形式的时态核函数来满足不同的需求。而且，Chorus并不仅限于这两种关系。可以合并许多关系，如same_brand、same_producer等。唯一要做的就是基于先验知识设计一个相应的时间核函数，我们发现指数分布基本适用于一般关系。</p>
+<p>表1:baselines和Chorus的比较。  表2:数据集统计。</p>
+<figure data-type="image" tabindex="14"><img src="https://s-hmily.github.io/post-images/1599643450006.png" alt="" loading="lazy"></figure>
+<p>在这里，我们得到了最终的可感知知识的动态项嵌入。然后用我们的算法代替原始目标项嵌入，利用各种算法来提出建议。与之前的模型不同，Chorus同时集成了序列信息、项目关系建模以及相应的时间动态。最近提出的CFKG和SLRC要么只关注物品关系，要么关注消费顺序中的时间动态。表1列出了相关方法与我们的Chorus模型之间的区别。关于这些基线的更多细节将在5.1.3节中描述。</p>
+<h4 id="44-parameter-learning">4.4 Parameter Learning</h4>
+<p>为了获得更好的强健性能，我们采用了两阶段的训练过程来学习模型参数:首先对<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>L</mi><mrow><mi>r</mi><mi>e</mi><mi>l</mi></mrow></msub></mrow><annotation encoding="application/x-tex">L_{rel}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">L</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.33610799999999996em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.02778em;">r</span><span class="mord mathdefault mtight">e</span><span class="mord mathdefault mtight" style="margin-right:0.01968em;">l</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>进行优化，得到带有结构信息的项和关系嵌入，第二阶段利用结构信息初始化基本项表示和关系嵌入;然后通过最小化<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>L</mi><mrow><mi>r</mi><mi>e</mi><mi>c</mi></mrow></msub></mrow><annotation encoding="application/x-tex">L_{rec}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">L</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.02778em;">r</span><span class="mord mathdefault mtight">e</span><span class="mord mathdefault mtight">c</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>来学习模型的所有参数。在第二阶段，我们不冻结以前学过的嵌入。实验表明，采用<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>L</mi><mrow><mi>r</mi><mi>e</mi><mi>c</mi></mrow></msub></mrow><annotation encoding="application/x-tex">L_{rec}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">L</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.02778em;">r</span><span class="mord mathdefault mtight">e</span><span class="mord mathdefault mtight">c</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>进行优化，效果较好。另一方面，也有可能在培训开始时破坏有意义的嵌入。因此，我们在第二阶段将基本项表示和关系嵌入的学习率降低了0.1。由于Adam[18]在许多推荐模型中都是成功的，所以在每个阶段都使用它作为学习算法。</p>
+<h3 id="5-experiments">5 EXPERIMENTS</h3>
+<p>5.1.1 <strong>数据集</strong>（<strong>Datasets</strong>）。实验在Amazon数据集[9]上进行。除了具有时间戳的用户交互序列外，它还具有项元数据，包括列表中的also_view、also_buy和类别信息。在前人研究[28,29]的基础上，我们将also view作为替代关系，also buy作为补充关系。不同的是，在我们的研究中，这种关系意味着互补和替代。因此，原始的同样视图，同样购买关系的方向应该反转。</p>
+<p>我们采用了三个有代表性的子数据集:杂货店和美食(Grocery)、手机和配件(Cellphones)、家庭和厨房(Home)。表2总结了这三个数据集的统计数据。请注意，在主数据集中，与历史数据相关的测试用例的比率很低，并且关系数据相对稀疏。</p>
+<p>5.1.2 <strong>评估协议</strong>（<strong>Evaluation Protocols</strong>）。我们采用文献[4,10,15]中广泛使用的left -one-out评价方法。对于每个消费序列<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>S</mi><mi>u</mi></msub></mrow><annotation encoding="application/x-tex">S_u</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.05764em;">S</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:-0.05764em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">u</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>∈<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>S</mi></mrow><annotation encoding="application/x-tex">S</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.05764em;">S</span></span></span></span>，我们使用每个用户最近的交互进行测试，使用最近的第二个项目进行验证，使用剩余的项目进行训练。考虑到某些方法在数据集较大时对所有项进行排序比较耗时，我们随机抽取99个目标用户没有交互的项，并将ground-truth项与这些负的项进行排序。这种方法也被广泛采用[11,41,44]。为了评价推荐质量，我们使用命中率(HR)和标准化折现累积增益(NDCG)[14]作为评价指标。HR@k测量地基真相项是否出现在top-k推荐列表中，而NDCG@k关心的是排名列表中的位置。每个实验我们用不同的随机种子重复5次，并报告平均分数。</p>
+<p>5.1.3 <strong>基线的方法</strong>（<strong>Baseline Methods</strong>）。我们将我们的Chorus模型与七种基线方法进行了不同方面的比较，包括传统的协同过滤、顺序推荐以及包含项目关系或时间动态的方法:</p>
+<ul>
+<li>
+<p><strong>BPR</strong>[33]:该方法提出采用两两排序损失优化矩阵分解模型。</p>
+</li>
+<li>
+<p><strong>GMF</strong>[11]:这是一种最先进的协同过滤方法，利用多层神经网络。</p>
+</li>
+<li>
+<p><strong>Tensor</strong>[17]:该方法将时间分成多个桶，并分解一个三维张量(用户-项目-时间)。</p>
+</li>
+<li>
+<p><strong>GRU4Rec</strong>[12]:这是一个顺序推荐模型，应用GRU[5]来得出排名分数。</p>
+</li>
+<li>
+<p><strong>NARM</strong>[27]:该模型利用GRU和注意力机制提高了顺序推荐的性能，这是一种最先进的基于会话的方法。</p>
+</li>
+<li>
+<p><strong>CFKG</strong>[45]:该方法考虑了各种商品关系，将购买视为用户与商品之间的另一种关系。然后利用TransE学习图嵌入并提出建议。</p>
+</li>
+<li>
+<p><strong>SLRC '</strong> [41]: SLRC结合Hawkes和CF来模拟重复消费的时间动力学。考虑到Amazon数据集中已经消除了重复的消耗，我们将其设置扩展到关系项的影响，命名为SLRC '。但仍缺乏对条目关系的语义建模</p>
+</li>
+</ul>
+<p>5.1.4 <strong>实现细节（Implement Details</strong>）。我们在PyTorch中实现了所有的模型。实现代码已经发布1。为了公平比较，所有模型的嵌入大小都设置为64。所有的超参数都被调优以在验证数据集中获得最佳结果。对于CFKG，我们认为与我们一致的也视图和也购买关系。对于SLRC '和Chorus，我们发现在历史序列中很少有具有两个或更多关系项的交互。因此，为了简单和高效，我们考虑序列中最新的关系交互，而不损失一般性和性能。此外，合唱中还使用了TransE作为翻译功能。为了数值稳定性，所有时间相关参数初始化为1，其他参数通常初始化为0均值和0.01标准差。</p>
+<figure data-type="image" tabindex="15"><img src="https://s-hmily.github.io/post-images/1599643517623.png" alt="" loading="lazy"></figure>
+<p>表3:三个数据集中的测试结果。每个实验我们用不同的随机种子重复五次，并报告平均分数。每个指标的最佳基线都有下划线，**表示明显优于最强基线(p &lt;0.01)。</p>
+<h4 id="52-overall-performance">5.2 Overall Performance</h4>
+<p>表3显示了使用BPR和GMF计算排名分数时各基线的性能和我们的Chorus模型的性能，分别为<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>C</mi><mi>h</mi><mi>o</mi><mi>r</mi><mi>u</mi><msub><mi>s</mi><mrow><mi>B</mi><mi>P</mi><mi>R</mi></mrow></msub></mrow><annotation encoding="application/x-tex">Chorus_{BPR}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.84444em;vertical-align:-0.15em;"></span><span class="mord mathdefault" style="margin-right:0.07153em;">C</span><span class="mord mathdefault">h</span><span class="mord mathdefault">o</span><span class="mord mathdefault" style="margin-right:0.02778em;">r</span><span class="mord mathdefault">u</span><span class="mord"><span class="mord mathdefault">s</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.32833099999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.05017em;">B</span><span class="mord mathdefault mtight" style="margin-right:0.13889em;">P</span><span class="mord mathdefault mtight" style="margin-right:0.00773em;">R</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>和<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>C</mi><mi>h</mi><mi>o</mi><mi>r</mi><mi>u</mi><msub><mi>s</mi><mrow><mi>G</mi><mi>M</mi><mi>F</mi></mrow></msub></mrow><annotation encoding="application/x-tex">Chorus_{GMF}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.84444em;vertical-align:-0.15em;"></span><span class="mord mathdefault" style="margin-right:0.07153em;">C</span><span class="mord mathdefault">h</span><span class="mord mathdefault">o</span><span class="mord mathdefault" style="margin-right:0.02778em;">r</span><span class="mord mathdefault">u</span><span class="mord"><span class="mord mathdefault">s</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.32833099999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">G</span><span class="mord mathdefault mtight" style="margin-right:0.10903em;">M</span><span class="mord mathdefault mtight" style="margin-right:0.13889em;">F</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span></p>
+<p>首先，不同种类的基线显示出明显的性能差距。对于协同过滤方法(例如BPR和GMF)，它们可以<strong>作为基准</strong>，因为它们拥有的唯一信息是用户-项交互。张量法由于考虑了时间动力学而优于基本的CF方法。顺序推荐方法(如GRU4Rec和NARM)的性能进一步提高，说明了最近消费的物品传达动态用户需求的重要性。CFKG得到了公平的结果，在一些指标上成为了最好的基线，这说明项目关系确实有助于推荐。对于SLRC’，由于它对消费序列的相互刺激特征进行了明确的建模，因此一般在各基线之间得到最好的结果</p>
+<p>其次，我们的Chorus模型在所有数据集中始终比其他基线表现得更好，这得益于解决项目关系和它们的时间动态。这表明所提出的模型能够更好地捕捉动态用户需求和不同上下文项的含义。与CFKG相比，Chorus不仅考虑了物品之间的关系，而且整合了物品的时间动态。与SLRC相比，Chorus能够对每一种关系的语义意义和特定类别的时间效应进行建模。在SLRC中，Hawkes的基本形式可能更多地关注关系项的影响，因此在正常情况下，当没有先前的关系消耗时，会降低性能(更多讨论在5.4节中)。与之不同的是，Chorus将项目关系集成到知识感知的动态项目表示中，更加有效和灵活。</p>
+<p>另一方面，请注意，在主数据集中，改进相对较小。可能的原因是关系信息太稀疏，不太可靠。我们使用了CFKG的相似关系图嵌入方法，但在该数据集中效果不佳。虽然TransE在其他数据集中工作得很好，但在家庭数据集中的关系可能是如此复杂，TransE不足以建模准确。第5.3节的相关讨论提供了更多的证据。</p>
+<h4 id="53-ablation-study"><strong>5.3 Ablation Study</strong></h4>
+<p>为了验证我们模型中关系建模和时间动态的效果，我们将Chorus与两个变体进行比较:</p>
+<ul>
+<li>Chorus\ R。该模型为每个关联分配单独的项嵌入，并通过优化<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>L</mi><mrow><mi>r</mi><mi>e</mi><mi>c</mi></mrow></msub></mrow><annotation encoding="application/x-tex">L_{rec}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">L</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.02778em;">r</span><span class="mord mathdefault mtight">e</span><span class="mord mathdefault mtight">c</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>估计所有参数。图嵌入结果没有用于初始化基本表示和推导关系表示.</li>
+<li>Chorus\ T。这个模型不考虑时间的动态关系,假定所有的时间内核函数(<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>i</mi><mi mathvariant="normal">.</mi><mi>e</mi></mrow><annotation encoding="application/x-tex">i.e</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.65952em;vertical-align:0em;"></span><span class="mord mathdefault">i</span><span class="mord">.</span><span class="mord mathdefault">e</span></span></span></span> .<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msubsup><mi>κ</mi><mi>i</mi><mi>r</mi></msubsup></mrow><annotation encoding="application/x-tex">κ_i^r</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.923056em;vertical-align:-0.258664em;"></span><span class="mord"><span class="mord mathdefault">κ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.664392em;"><span style="top:-2.441336em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight" style="margin-right:0.02778em;">r</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.258664em;"><span></span></span></span></span></span></span></span></span></span>(∆t)常量值1。</li>
+</ul>
+<figure data-type="image" tabindex="16"><img src="https://s-hmily.github.io/post-images/1599643550923.png" alt="" loading="lazy"></figure>
+<p>图4:消融研究。比较无关系建模的变奏(Chorus\R)和无时间动态的变奏(Chorus\T)的性能。</p>
+<p>图4显示了<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>C</mi><mi>h</mi><mi>o</mi><mi>r</mi><mi>u</mi><msub><mi>s</mi><mrow><mi>B</mi><mi>P</mi><mi>R</mi></mrow></msub></mrow><annotation encoding="application/x-tex">Chorus_{BPR}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.84444em;vertical-align:-0.15em;"></span><span class="mord mathdefault" style="margin-right:0.07153em;">C</span><span class="mord mathdefault">h</span><span class="mord mathdefault">o</span><span class="mord mathdefault" style="margin-right:0.02778em;">r</span><span class="mord mathdefault">u</span><span class="mord"><span class="mord mathdefault">s</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.32833099999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.05017em;">B</span><span class="mord mathdefault mtight" style="margin-right:0.13889em;">P</span><span class="mord mathdefault mtight" style="margin-right:0.00773em;">R</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>的NDCG@10及其变体，以及SLRC '。结果表明，关系建模和时间动力学都具有重要的意义。合唱中任何模块的缺失都会导致演出的损失。此外，我们有以下几点看法:</p>
+<p>首先，条目关系确实很有帮助。Chorus\R在杂货店和手机数据集中带来了最大的性能损失，这表明了对关系的结构信息建模的重要性，以及我们基于平移的方法通过图嵌入来派生关系表示的重要性。</p>
+<p>其次，重要的是建立不同关系的时间动态模型。如果没有时间信息，Chorus\T在前两个数据集中会导致适度的性能损失。这并不意味着在我们的模型中处理的时间动态不重要。从字面上看，商品之间的关系对用户进行消费决策的影响更大。因此，建模项目关系比建模时间动力学有更大的改进是合理的。另一方面，与Chorus\T相比，Chorus取得了持续的进步，尤其是在国内，这显示了向前移动考虑物品关系的时间动态的有用性。</p>
+<p>第三，关系图嵌入在主数据集中效果不佳，其中Chorus的性能损失最大，Chours的性能损失最大。这是关系建模不足的另一个证据。虽然TransE是翻译函数的自然选择，而且通常在其他两个数据集上都能很好地工作，但我们发现，在主数据集的场景下，它可能是不够的，其中CFKG使用TransE作为图嵌入方法也表现不好。图4 (c)显示，没有关联建模，性能没有下降太多(Chorus\R)。但如果有关系建模而没有时间核函数(Chorus\T)，则会因条目和关系的不恰当嵌入而影响性能。这也表明在我们的模型中处理的时间动态可以帮助自适应地避免混乱的关系可能的坏影响，这证明了考虑时间动态的有用性和必要性。</p>
+<h4 id="54-performance-in-different-scenarios">5.4 Performance in Different Scenarios</h4>
+<p>除了整体性能改进之外，我们还想弄清楚改进从何而来。在这里，我们研究模型在不同场景中的性能。具体来说，我们根据历史序列中是否存在相应的关系消耗，构建测试数据集的三个子集。正常意味着之前没有关系项。补充表示目标项是历史序列中某些项的补充。类似地，替代是指有以前的消费作为替代的情况。当前面有两种关系项时，测试用例可以同时处于补充组和替代组中。图5显示了不同模型(线)的NDCG@10和三个subsets of cases (bars)的部手机数据集。我们可以看到，虽然补充组和替代组的情况较少，但模型往往在这些情况下表现得更好。它们可能内在地展示一些模式，因此所有的模型都比正常情况下获得更好的性能，即使对于没有明确地考虑项目关系的BPR也是如此。</p>
+<p>此外，Chorus能够结合不同方法的优点，从而达到平均最佳的表现。请注意，对于SLRC '和CFKG来说，它们各有优缺点。虽然SLRC '在关系情况下表现良好，特别是在替代组中，但它在正常情况下甚至比BPR更差。这表明SLRC '容易过度适应关系情况，从而损害正常情况的性能。另一方面，尽管CFKG在正常组中表现良好，但它在“关系情况下”不如SLRC强大，因为SLRC明确地对每个关系的时间特征建模。至于Chorus，它捕获了物品关系和它们的分类特定的时间动态。值得注意的是，正常情况下，合唱团与CFKG相似;在补充的情况下，Chorus比SLRC '好一点，这两个都是最好的基线在每个场景。虽然Chorus在替补组中没有SLRC '强，但与CFKG相比有明显的提高。因此，平均而言，Chorus获得了较好的成绩，这说明了整合项目关系和细粒度的时间动态的重要性。</p>
+<h4 id="55-parameter-interpretability">5.5 Parameter Interpretability</h4>
+<p>在设计时间核函数时，我们要验证与时间相关的参数是否具有可解释的意义。请注意，这些参数是按项目类别索引的，这表示以前的关系消费对该类别的影响如何随时间漂移。虽然某一特定关系因其功能形式的不同而总体走向相似，但其具体形式却揭示了该范畴的特点。图6显示了在手机数据集中学习的一些代表性类别的时态核函数。</p>
+<p>图5:测试用例在不同场景下的性能比较(正常:没有历史关系消耗;补充:目标物品是某些物品的补充<br>
+历史序列中的项目;替换:目标项是历史序列中某些项的替换)。</p>
+<figure data-type="image" tabindex="17"><img src="https://s-hmily.github.io/post-images/1599643631911.png" alt="" loading="lazy"></figure>
+<p>图6:已学习的is_complementary _of(左)和is_substitute_of(右)关系时态核函数的案例研究每一行表示在原点使用相应的关系项时，它对该类别项的影响如何随时间变化。</p>
+<figure data-type="image" tabindex="18"><img src="https://s-hmily.github.io/post-images/1599643653972.png" alt="" loading="lazy"></figure>
+<p>左图对应耳机与替换件的is_complementary _of关系。如图所示，对耳机的影响比替换零件衰减得快得多。一方面，购买手机后，向用户推荐耳机作为补充是合理的。但如果用户不使用推荐的耳机，他/她可能已经有了耳机或从其他地方购买了一个。因此，补体的积极作用预计会迅速衰减，否则持续推荐耳机可能会给用户带来麻烦。另一方面，对于备用电池等替换部件，补充消费的积极效应将持续一段时间。因为用户通常会在原设备的电池用完一段时间后再购买备用电池。</p>
+<p>右图显示了is_substitute_of relation对基本机箱、国际充电器、手机的影响。虽然一般形式都是由两个相反的正态分布组成，但基本情况下的时间核函数与其他两种情况下的时间核函数有很大的不同，其中抑制作用的分量几乎是平的。这说明用户在购买手机壳的时候，不会有强烈的负面影响，因为我们经常会因为各种原因更换手机壳，比如边缘断裂或者只是想尝试一种新的风格。对于国际充电器和手机来说，它们的时间内核功能都呈现出明显的负效应和正峰值。这是合理的，因为我们通常不需要另一个充电器或手机，如果我们刚买了一个。有趣的是，这两种物品的峰值对应的时间间隔是相似的，这反映了手机的更换往往会导致匹配充电器的更换。此外，与充电器相比，手机的曲线更加平滑。原因可能是我们可以因为各种原因更换手机，但如果充电器能用，我们却很少更换。因此，一款新手机可以</p>
+<p>综上所述，我们的Chorus模型中与时间相关的参数具有较高的可解释性，能很好地反映不同类别项目的特征。这些参数可以帮助推荐系统对推荐结果进行解释。例如,当用户购买iPhone之前,是时候手机的时间内核函数的峰值时,建议一个新的手机可以解释为“你的手机一直在服务很长一段时间,看一看一些新产品如何?”</p>
+<h4 id="6-conclusion-and-future-work">6 CONCLUSION AND FUTURE WORK</h4>
+<p>本文提出了一种基于知识和时间感知的物品建模方法。据我们所知，我们是第一个明确地建模不同关系的影响随时间的演变，并将这些信息合并到项目嵌入中。采用图嵌入的方法从项目关系图中获取结构信息，并对每个项目推导出不同的关系表示。通过专门设计的时间核函数来控制关系的时间动态，并根据历史序列中目标项与关系项之间的时间间隙动态组合关系表示，形成具有知识感知的动态项表示。时间核函数的设计可以看作是对模型的一种人工干预，可以用来满足对推荐结果的不同要求。由于Chorus的灵活性，它可以很容易地利用各种嵌入算法来计算排名分数和提出建议。大量的实验结果表明，Chorus优于最先进的基线，说明项目关系和它们的时间进化效应是非常重要的。此外，Chorus中的时间相关参数具有较高的可解释性，有助于提高推荐的可解释性</p>
+<p>该模型还存在预定义的时间函数和两阶段学习过程等局限性。此外，虽然基于平移的方法总体上工作良好，但我们发现在某些情况下存在不足，需要进一步研究。在未来，我们将研究如何自适应地估计不同关系的时间进化效应，并尝试设计更适合的方法来将项目关系建模与推荐紧密结合</p>
+<h3 id="acknowledgments">ACKNOWLEDGMENTS</h3>
+<p>这项工作得到国家重点研究开发计划(2018YFC0831900)和国家自然科学基金(批准号:61672311,61532011)的资助。马维智博士得到了水木清华学者计划的资助。我们要感谢Maarten de Rijke对这项工作提出的宝贵意见。</p>
+
+        </div>
+        
+        
+        <div class="next-post">
+            下一篇
+            <a href="https://s-hmily.github.io/post/lun-wen-bi-ji-lesslesskgat-knowledge-graph-attention-network-for-recommendationgreatergreater/">
+                论文笔记：《KGAT: Knowledge Graph Attention Network for Recommendation》
+            </a>
+        </div>
+        
+    </div>
+    </div>
+</body>
+<script>
+    var t_img; // 定时�?
+    var isLoad = true; // 控制变量
+    isImgLoad(function () {
+        // 加载完成
+        $('.postdetailimg').css("display", "block");
+    });
+    // 判断图片加载的函�?
+    function isImgLoad(callback) {
+        // 注意我的图片类名都是cover，因为我�?需要�?�理cover。其它图片可以不管�?
+        // 查找所有封面图，迭代�?�理
+        $('.postdetailimg').each(function () {
+            // 找到�?0就将isLoad设为false，并退出each
+            if (this.height === 0) {
+                isLoad = false;
+                return false;
+            }
+        });
+        // 为true，没有发现为0的。加载完�?
+        if (isLoad) {
+            clearTimeout(t_img); // 清除定时�?
+            // 回调函数
+            callback();
+            // 为false，因为找到了没有加载完成的图，将调用定时器递归
+        } else {
+            isLoad = true;
+            t_img = setTimeout(function () {
+                isImgLoad(callback); // 递归�?�?
+            }, 500); // 我这里�?�置的是500�?秒就�?描一次，�?以自己调�?
+        }
+    }
+
+    //文章阅读热度
+    var pl = $("#pl").html();
+    var rootaddr = $("#rootaddr").html();
+    pl = pl.replace(rootaddr, "");
+    $("#hotnum").attr('id', pl);
+</script>
+    <div name="comment" style="background: white;margin-top:100px">
+        <div class="commentcontainer">
+            
+            <p>请到客户端“主题--自定义配置--valine”中填入ID和KEY</p>
+            
+        </div>
+    </div>
+    </div>
+    <div id="landlord">
+        <div class="message" style="opacity:0"></div>
+        <canvas id="live2d" width="240" height="250" class="live2d"></canvas>
+    </div>
+    <div id="codeCopyText" style="display: none">代码复制成功了哦</div>
+    <div id="domainname" style="display:none">https://s-hmily.github.io</div>
+    </body>
+    <script src="https://s-hmily.github.io/media/js/post.js"></script>
+    <script>
+        //寻找所有code标签，加复制按钮鸭！(行内代码除外)
+        var codes = document.getElementsByTagName('code');
+        if (codes.length) {
+            for (var i = 0; i < codes.length; i++) {
+                //高度/行高=文本行数
+                // var rowNum=Math.round(codes[i].height()/parseFloat(codes[i].css('line-height')));
+                // console.log("当前有"+rowNum+"行");
+                var code_id = "code_id_" + i;
+                codes[i].setAttribute("id", code_id);
+                var ci = "#" + code_id;
+                var codedot = $(ci);
+                var rowNum = Math.round(codedot.height() / parseFloat(codedot.css('line-height')));
+                if (rowNum <= 1) continue;
+                var btn = document.createElement("button");
+                btn.setAttribute("class", "copybt");
+                btn.setAttribute("data-clipboard-target", "#" + code_id);
+                btn.innerHTML = '复制代码';
+                codes[i].parentNode.insertBefore(btn, codes[i]);
+            }
+        };
+        var cop = new ClipboardJS('.copybt');
+        var codeCopyText = $("#codeCopyText").html();
+        cop.on('success', function (e) {
+            alert(codeCopyText);
+            e.clearSelection();
+        });
+        cop.on('error', function (e) {
+            alert("矮油，复制失败了...手动复制吧勇士！");
+            e.clearSelection();
+        });
+    </script>
+    
+    <script type="text/javascript">
+        var message_Path = '/live2d/'
+        var home_Path = document.getElementById("domainname").innerHTML+"/"; //此处修改为你的域名，必须带斜杠
+    </script>
+    <script type="text/javascript" src="https://s-hmily.github.io/media/live2d/js/live2d.js"></script>
+    <script type="text/javascript" src="https://s-hmily.github.io/media/live2d/js/message.js"></script>
+    <script type="text/javascript">
+        loadlive2d("live2d", "https://s-hmily.github.io/media/live2d/assets/tororo.model.json");
+    </script>
+    
+<script>
+$(function () {
+    $('.toggleContainer').click(function(){$('html,body').animate({scrollTop: '0px'}, 800);});
+	$(window).scroll(function() {
+        var st = $(window).scrollTop();
+        if(st > 30){
+            $(".toggleContainer").fadeIn(400);
+        }else{
+            $(".toggleContainer").fadeOut(100);
+        }
+	});
+});
+</script>
+
+<script>
+        var bgchoice=$('#bgchoice').html();
+        var bg = $('#bg');
+        var bgurl = document.getElementById("bgurl").innerHTML;
+        if(bgchoice=='default')
+            for (var i = 0; i < 3; i++)
+                bgurl = bgurl.replace("\\", "/");
+        bg.css("background", "url('" + bgurl + "')");
+</script>
